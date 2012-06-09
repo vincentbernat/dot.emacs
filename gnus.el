@@ -1,6 +1,7 @@
 (defun vbe/gnus-load ()
   "Load Gnus"
   (message "[vbe/] Loading gnus...")
+  (vbe/require 'gnus-theme)		; theme for Gnus
   (vbe/require 'gnus-signature)		; how to compute the signature
   (vbe/require 'gnus-identity)		; user identity
   (vbe/require 'gnus-servers)		; mail servers
