@@ -10,6 +10,7 @@
   (vbe/require 'gnus-bbdb)		; bbdb
   (vbe/require 'gnus-composition)	; message composition
   (vbe/require 'gnus-spam)		; spam handling
+  (vbe/require 'gnus-gpg)		; GPG
 
   (vbe/sync-packages)
 )

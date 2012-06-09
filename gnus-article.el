@@ -4,6 +4,12 @@
       gnus-article-skip-boring t
       gnus-cited-lines-visible '(3 . 6))
 
+;; Buttons
+(setq gnus-inhibit-mime-unbuttonizing nil ; Display some buttons
+      gnus-buttonized-mime-types '("text/.*"
+				   "multipart/signed"
+				   "multipart/encrypted"))
+
 ;; Visible headers
 (setq gnus-visible-headers 
       (mapcar '(lambda (header) (format "^%s:" header))
