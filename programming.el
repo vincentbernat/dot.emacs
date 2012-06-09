@@ -12,4 +12,7 @@
 (vbe/add-package '(:name
 		   "markdown-mode"))	 ; markdown
 
+;; SNMP
+(add-to-list 'auto-mode-alist '("-MIB$" . snmpv2-mode))
+
 (provide 'vbe/programming)
