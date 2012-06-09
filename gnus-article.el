@@ -6,7 +6,7 @@
 
 ;; Buttons
 (setq gnus-inhibit-mime-unbuttonizing nil ; Display some buttons
-      gnus-buttonized-mime-types '("text/.*"
+      gnus-buttonized-mime-types '("multipart/alternative"
 				   "multipart/signed"
 				   "multipart/encrypted"))
 
