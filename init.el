@@ -1,4 +1,4 @@
-; Check we are using Emacs 24
+;; Check we are using Emacs 24
 (when (/= emacs-major-version 24)
   (error "Only Emacs 24 is supported. You seem to use Emacs %d"
 	 emacs-major-version))
@@ -27,5 +27,6 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (vbe/require 'server)			; server mode
 (vbe/require 'custom)			; custom variables
 (vbe/require 'programming)		; programming mode
+(vbe/require 'gnus)			; gnus
 
 (vbe/sync-packages)

@@ -1,4 +1,4 @@
-; Start the server only if we are not root
+;; Start the server only if we are not root
 (unless (string= (user-login-name) "root")
   (require 'server)
   (when (or (not server-process)

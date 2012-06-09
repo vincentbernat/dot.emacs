@@ -1,7 +1,8 @@
-; el-get configuration
+;; el-get configuration
 
-; Initialize el-get
-(add-to-list 'load-path (expand-file-name "el-get/el-get" user-emacs-directory))
+;; Initialize el-get
+(setq el-get-dir (expand-file-name "vendor" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "el-get" el-get-dir))
 (unless (require 'el-get nil t)
   (url-retrieve
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
@@ -9,7 +10,7 @@
      (end-of-buffer)
      (eval-print-last-sexp))))
 
-; Package registration
+;; Package registration
 (setq vbe/packages ())
 (defun vbe/add-package (package)
   "Add PACKAGE to the list of package to install.
@@ -27,7 +28,7 @@ contain :init (executed when the package is initialized."
 	  (eval init))))))
 (add-hook 'el-get-post-init-hooks 'vbe/init-package)
 
-; Package installation
+;; Package installation
 (defun vbe/sync-packages ()
   "Install missing packages using el-get."
   (interactive)

@@ -1,4 +1,4 @@
-; Customize Emacs appareance
+;; Customize Emacs appareance
 
 (tool-bar-mode -1)			; No toolbar
 (scroll-bar-mode -1)			; No scrollbar
@@ -6,7 +6,7 @@
 (show-paren-mode t)			; Display matching parenthesis
 (setq inhibit-splash-screen t)		; No splash screen
 
-; Font stuff
+;; Font stuff
 (defvar vbe/default-font "DejaVu Sans Mono-10")
 (defun vbe/set-font (&optional frame)
   "Change default font for the given FRAME."
