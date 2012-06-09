@@ -9,19 +9,28 @@
      (end-of-buffer)
      (eval-print-last-sexp))))
 
+; Package registration
 (setq vbe/packages ())
-(defun vbe/add-package (package &optional init)
+(defun vbe/add-package (package)
   "Add PACKAGE to the list of package to install.
-Execute INIT after loading the package."
-  (add-to-list 'vbe/packages package)
-  (when init
-    (eval-after-load package init)))
+PACKAGE is a property list. It should contain :name and may
+contain :init (executed when the package is initialized."
+  (add-to-list 'vbe/packages package))
+(defun vbe/init-package (package)
+  "Init the package PACKAGE."
+  (dolist (p vbe/packages)
+    (when (string= (plist-get p :name) package)
+      (let ((init (plist-get p :init)))
+	(when init
+	  (message "[vbe/] calling init hook for package %s"
+		   package)
+	  (eval init))))))
+(add-hook 'el-get-post-init-hooks 'vbe/init-package)
 
+; Package installation
 (defun vbe/sync-packages ()
   "Install missing packages using el-get."
   (interactive)
-  (el-get 'sync vbe/packages))
-
-(add-hook 'after-init-hook 'vbe/sync-packages)
+  (el-get 'sync (mapcar '(lambda (p) (plist-get p :name)) vbe/packages)))
 
 (provide 'vbe/el-get)

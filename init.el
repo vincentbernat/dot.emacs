@@ -27,3 +27,5 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (vbe/require 'server)			; server mode
 (vbe/require 'custom)			; custom variables
 (vbe/require 'programming)		; programming mode
+
+(vbe/sync-packages)
