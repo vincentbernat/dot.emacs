@@ -9,6 +9,8 @@
   (vbe/require 'gnus-bbdb)		; bbdb
   (vbe/require 'gnus-composition)	; message composition
   (vbe/require 'gnus-spam)		; spam handling
+
+  (vbe/sync-packages)
 )
 
 ;; Install gnus package
