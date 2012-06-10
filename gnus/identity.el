@@ -3,7 +3,7 @@
       user-mail-address "bernat@luffy.cx")
 (setq vbe/mail-addresses (mapcar '(lambda (name)
 				    (format "^%s" name))
-				 (split-string "bernat vbernat vincent.bernat")))
+				 (split-string "bernat vbernat vincent.bernat Vincent.Bernat")))
 (setq gnus-ignored-from-addresses vbe/mail-addresses
       message-dont-reply-to-names vbe/mail-addresses)
 
