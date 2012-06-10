@@ -1,4 +1,4 @@
-(defun vbe/gnus-bbdb-init ()
+(defun vbe/gnus/bbdb-init ()
   "bbdb initialization"
   (require 'bbdb-mua)
   (require 'bbdb-gnus)
@@ -57,6 +57,6 @@
       (bbdb-record-putprop record 'subjects new-subj))))
 
 (vbe/add-package (list :name "bbdb"
-		       :init '(vbe/gnus-bbdb-init)))
+		       :init '(vbe/gnus/bbdb-init)))
 
-(provide 'vbe/gnus-bbdb)
+(provide 'vbe/gnus/bbdb)

@@ -19,5 +19,5 @@
 					 "X-Mailer X-Newsreader User-Agent X-Posting-Agent"
 					 "X-Spam-Level" "Date") " "))))
 
-(provide 'vbe/gnus-article)
+(provide 'vbe/gnus/article)
 

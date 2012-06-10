@@ -1,6 +1,6 @@
 ; Default theme for Emacs is OK but the one for Gnus...
 
-(defun vbe/gnus-custom-faces ()
+(defun vbe/gnus/custom-faces ()
   "Custom faces for Gnus"
   (custom-set-faces
    '(gnus-summary-selected-face ((t (:background "DarkOliveGreen1" :underline nil))))
@@ -15,6 +15,6 @@
    '(gnus-header-newsgroup-face ((t (:font "DejaVu Sans"))))))
 
 (add-hook 'gnus-started-hook
-	  'vbe/gnus-custom-faces)
+	  'vbe/gnus/custom-faces)
 
-(provide 'vbe/gnus-theme)
+(provide 'vbe/gnus/theme)

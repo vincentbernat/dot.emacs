@@ -53,4 +53,4 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 ; Start in topic mode
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 
-(provide 'vbe/gnus-summary)
+(provide 'vbe/gnus/summary)

@@ -54,4 +54,4 @@ if any of the given expressions in WHAT is present."
 (vbe/add-package (list :name "gnus-identities"
 		       :init '(vbe/init-identities)))
 
-(provide 'vbe/gnus-identity)
+(provide 'vbe/gnus/identity)

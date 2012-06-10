@@ -18,4 +18,4 @@
 ;; Scan news every 5 minutes if idle for more than 30 seconds
 (gnus-demon-add-handler 'gnus-demon-scan-news 5 30)
 
-(provide 'vbe/gnus-servers)
+(provide 'vbe/gnus/servers)

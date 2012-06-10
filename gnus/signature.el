@@ -28,4 +28,4 @@ The epigram is inserted at point if called interactively."
         (insert fortune-string))
     fortune-string))
 
-(provide 'vbe/gnus-signature)
+(provide 'vbe/gnus/signature)
