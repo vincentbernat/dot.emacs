@@ -1,9 +1,15 @@
+(vbe/require 'profile)
+
 ;; Set user name and email address
 (setq user-full-name "Vincent Bernat"
-      user-mail-address "bernat@luffy.cx")
+      user-mail-address (cond ((vbe/at 'orange) "vincent.bernat@wanadooportails.com")
+			      (t "bernat@luffy.cx")))
 (setq vbe/mail-addresses (mapcar '(lambda (name)
 				    (format "^%s" name))
-				 (split-string "bernat vbernat vincent.bernat Vincent.Bernat")))
+				 (apply 'append	(mapcar 'split-string
+							'("bernat vbernat vincent.bernat"
+							  "Vincent.Bernat vbernat.ext")))))
+
 (setq gnus-ignored-from-addresses vbe/mail-addresses
       message-dont-reply-to-names vbe/mail-addresses)
 
@@ -31,25 +37,40 @@ if any of the given expressions in WHAT is present."
   "Initialize identity module"
   (require 'gnus-identities)
   (setq gnus-posting-styles
-	'((".*"
-	   (x-identity "default")
-	   (name "Vincent Bernat")
-	   (address "bernat@luffy.cx")
-	   (signature (fortune)))
-	  ((vbe/mail-related-to '("@debian.org"
-				  "@lists.debian.org"
-				  "@bugs.debian.org"))
-	   (x-identity "debian")
-	   (address "bernat@debian.org")
-	   (organization "Debian"))
-	  ((vbe/mail-related-to '("@enxio.fr" "@enx.io"))
-	   (x-identity "enxio")
-	   (address "bernat@enx.io")
-	   (organization "ENXIO")
-	   (signature "Vincent Bernat ☯ https://enx.io"))
-	  ((vbe/mail-related-to '("@bernat.im"))
-	   (x-identity "bernat.im")
-	   (address "vincent@bernat.im")))))
+	(cond ((vbe/at 'orange)
+	 '((".*"
+	    (x-identity "default")
+	    (name "Vincent Bernat")
+	    (address "vincent.bernat@wanadooportails.com")
+	    (organization "OF/DMGP/Portail/DOP/Hébex/Bagnolet")
+	    (signature (mapconcat 'identity
+				  '("Vincent Bernat"
+				    ""
+				    "Société Freelance.com"
+				    "pour Orange ☯ OF/DMGP/Portail/DOP/Hébex/Bagnolet"
+				    "✆ +33 1 58 96 62 69"
+				    "✉ vbernat.ext@orange.com")
+				  "\n")))))
+	      (t
+	       '((".*"
+		  (x-identity "default")
+		  (name "Vincent Bernat")
+		  (address "bernat@luffy.cx")
+		  (signature (fortune)))
+		 ((vbe/mail-related-to '("@bernat.im"))
+		  (x-identity "bernat.im")
+		  (address "vincent@bernat.im"))
+		 ((vbe/mail-related-to '("@debian.org"
+					 "@lists.debian.org"
+					 "@bugs.debian.org"))
+		  (x-identity "debian")
+		  (address "bernat@debian.org")
+		  (organization "Debian"))
+		 ((vbe/mail-related-to '("@enxio.fr" "@enx.io"))
+		  (x-identity "enxio")
+		  (address "bernat@enx.io")
+		  (organization "ENXIO")
+		  (signature "Vincent Bernat ☯ https://enx.io")))))))
 
 (vbe/add-package (list :name "gnus-identities"
 		       :init '(vbe/init-identities)))
