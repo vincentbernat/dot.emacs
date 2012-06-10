@@ -17,4 +17,25 @@
 (vbe/set-font)
 (add-hook 'after-make-frame-functions 'vbe/set-font)
 
+;; Use naquadah theme
+(vbe/add-package (list :name "naquadah-theme"
+		       :init '(vbe/custom-theme)))
+(defun vbe/custom-theme ()
+  "Custom theme."
+  (add-to-list ' custom-theme-load-path (car (el-get-load-path "naquadah-theme")))
+  (load-theme 'naquadah t)
+  ; We could use `custom-theme-set-faces' but we prefer to use
+  ; `set-face-attribute' since we can redefine only part of a face.
+  (dolist (face `(mode-line minibuffer-prompt))
+    (set-face-attribute face nil :font "DejaVu Sans-10"))
+  (eval-after-load "gnus"
+    '(add-hook 'gnus-started-hook 'vbe/gnus/custom-theme)))
+
+(defun vbe/gnus/custom-theme ()
+  "Custom theme, for Gnus"
+  (set-face-attribute 'gnus-summary-selected-face nil :underline nil)
+  (dolist (face `(content from subject name))
+    (set-face-attribute (intern (format "gnus-header-%s-face" face))
+			nil :font "DejaVu Sans-10")))
+
 (provide 'vbe/appareance)

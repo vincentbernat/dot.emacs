@@ -5,4 +5,7 @@
 ;; Always use y/n prompt
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; Display colors with "colors"
+(vbe/add-package '(:name "rainbow-mode"))
+
 (provide 'vbe/behaviour)

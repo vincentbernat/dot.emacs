@@ -23,13 +23,16 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 
 (setq gnus-face-9  'font-lock-warning-face)
 (setq gnus-face-10 'shadow)
+(copy-face 'default 'vbe/proportional)
+(set-face-attribute 'vbe/proportional nil :font "DejaVu Sans-10")
+(setq gnus-face-11 'vbe/proportional)
 (setq gnus-summary-line-format
       (concat
        "%*"
        "%0{%U%R%z%}" "%10{│%}" "%1{%11,11&user-date;%}"
        "%10{│%}"
        "%9{%u&@;%}" "%(%-15,15f %)"
-       "%10{│%}" "%10{%B%}" "%s\n"))
+       "%10{│%}" "%10{%B%}" "%11{%s%}\n"))
 
 (setq
  gnus-sum-thread-tree-single-indent   "◎ "

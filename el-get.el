@@ -28,6 +28,10 @@ contain :init (executed when the package is initialized."
 	  (eval init))))))
 (add-hook 'el-get-post-init-hooks 'vbe/init-package)
 
+;; Modifications to existing recipes
+(setq el-get-sources
+      '((:name rainbow-mode :type elpa)))
+
 ;; Package installation
 (defun vbe/sync-packages ()
   "Install missing packages using el-get."
