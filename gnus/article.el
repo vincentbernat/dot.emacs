@@ -19,5 +19,9 @@
 					 "X-Mailer X-Newsreader User-Agent X-Posting-Agent"
 					 "X-Spam-Level" "Date") " "))))
 
+;; Gravatar
+(require 'gnus-gravatar)
+(add-hook 'gnus-article-prepare-hook 'gnus-treat-from-gravatar)
+
 (provide 'vbe/gnus/article)
 
