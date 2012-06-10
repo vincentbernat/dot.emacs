@@ -1,60 +1,60 @@
 (defun vbe/gnus/bbdb-init ()
   "bbdb initialization"
-  (require 'bbdb-mua)
-  (require 'bbdb-gnus)
   (bbdb-initialize 'gnus 'message)
-  (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
   (bbdb-insinuate-gnus)
-  (setq bbdb-north-american-phone-numbers-p nil ; don't use US format
-	bbdb-dwim-net-address-allow-redundancy t; always display full name
-	bbdb-user-mail-address-re vbe/mail-addresses
-	bbdb-notice-mail-hook 'bbdb-auto-notes-hook) ; auto-fill "Notes"
+  (bbdb-mua-auto-update-init nil 'search) ; Only update existing
+					  ; records, don't create new
+					  ; ones automatically
 
-  ; What to set in "Notes"?
-  (setq bbdb-auto-notes-alist
+  (setq bbdb-message-pop-up nil	      ; Display BBDB record but not always
+	bbdb-pop-up-window-size 0.8   ; Maximum size of the BBDB popup
+	;; When using ':' in summary, ask to create the record if it
+	;; does not exist
+	bbdb-mua-update-interactive-p '(query . query)
+	bbdb-phone-style nil)	      ; Don't assume a phone style
+
+  ;; Add notes when updating a record
+  (add-hook 'bbdb-notice-mail-hook 'bbdb-auto-notes)
+  ;; Display the record when it exists
+  (add-hook 'gnus-article-prepare-hook 'vbe/gnus/bbdb-display-record)
+
+  ;; What to set in "Notes"?
+  (setq bbdb-auto-notes-rules
       (list
        '("Organization"
-         (".*" company 0))
+         (".*" organization "\\1" nil))
        '("Subject"
-         (".*" subjects 0))
+         (".*" subjects vbe/gnus/bbdb-subject-canonicalize nil))
        '("Newsgroups"
-          ("[^,]+" newsgroups 0))
+          ("[^,]+" newsgroups identity nil))
        '("Xref"
-         ("[^ ]+ \\([^ :]+\\):[0-9]+" newsgroups 1))
+         ("[^ ]+ \\([^ :]+\\):[0-9]+" newsgroups "\\1" nil))
        '("User-Agent"
-         (".*" mailer 0))
+         (".*" mailer identity nil))
        '("X-Mailer"
-         (".*" mailer 0))
+         (".*" mailer identity nil))
        '("X-Newsreader"
-         (".*" mailer 0))))
+         (".*" mailer identity nil))))
+  ;; Start clean
+  (setq bbdb-auto-notes-rules-expanded nil))
 
-  ; Hack to get last 5 subjects
-  (put 'subjects 'field-separator "\n")
-  (add-hook 'bbdb-notice-hook 'vbe/bbdb-trim-subjects)
-  (defun vbe/bbdb-trim-subjects (record)
-    "Remove all but the first 5 lines from the subjects
-    in the notes field of a BBDB record. Meant to be
-    added to bbdb-change-hook."
-    (let* ((sep (get 'subjects 'field-separator))
-	   (foo (reverse
-		 (split-string
-		  (or (bbdb-record-getprop record 'subjects) "")
-		  sep)))
-	   (num-to-keep 5)
-	   (new-subj ""))
-      (while (and (> num-to-keep 0) (> (length foo) 0))
-	(let ((subj (mail-decode-encoded-word-string (car foo))))
-	  (if (and (> (length subj) 0)
-		   (not
-		    (string= (encode-coding-string subj 'utf-8)
-			     (encode-coding-string new-subj 'utf-8))))
-	      (setq new-subj (concat (encode-coding-string subj 'iso-8859-15)
-				     (if (> (length new-subj) 0)
-					 (concat sep new-subj)
-				       ""))
-		    num-to-keep (- num-to-keep 1)))
-	  (setq foo (cdr foo))))
-      (bbdb-record-putprop record 'subjects new-subj))))
+(defun vbe/gnus/bbdb-subject-canonicalize (subject)
+  "Canonicalize SUBJECT."
+  (let ((newsubject
+	 (message-strip-subject-trailing-was
+	  (message-strip-subject-encoded-words
+	   (message-strip-subject-re
+	    (mail-decode-encoded-word-string subject))))))
+    newsubject))
+
+(defun vbe/gnus/bbdb-display-record ()
+  "Display appropriate BBDB record for the current message."
+  (unless
+      (bbdb-mua-display-records nil 'search)
+    ;; No record found, close the BBDB popup
+    (let ((window (get-buffer-window bbdb-buffer-name)))
+      (when window (delete-window window)))))
+  
 
 (vbe/add-package (list :name "bbdb"
 		       :init '(vbe/gnus/bbdb-init)))
