@@ -1,5 +1,8 @@
 (vbe/require 'profile)
 
+;; Search with nnir
+(require 'nnir)
+
 ;; Servers to use
 (setq gnus-select-method
       (cond ((vbe/at 'orange) '(nnimap ""
