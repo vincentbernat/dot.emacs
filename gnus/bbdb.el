@@ -96,10 +96,39 @@ Use LDAP as server. Can be one LDAP server or a list of LDAP servers.
     (eudc-protocol-set 'eudc-inline-expansion-format
 		       '("%s <%s>" cn mail)
 		       'ldap))
-  ;; Define keyboard
+
+  ;; Display real name if not available
+  (eval-after-load "gnus-art"
+    '(add-hook 'gnus-article-prepare-hook 'vbe/gnus/eudc-prefer-real-name))
+
+  ;; Define keyboard shortcut
   (eval-after-load "message"
     '(define-key message-mode-map (kbd "TAB")
        'vbe/gnus/eudc-expand-inline)))
+
+;; Cache email -> name association
+(setq vbe/gnus/eudc-cache-name-email (make-hash-table :test 'equal))
+(defun vbe/gnus/eudc-cached-name-email (email)
+  "Return the name of someone from its EMAIL. With cache."
+  (or (gethash email vbe/gnus/eudc-cache-name-email)
+      (let ((name
+	     (cdr (assoc 'cn (first
+			      (eudc-query
+			       `((email . ,email))))))))
+	(when name
+	  (puthash email name vbe/gnus/eudc-cache-name-email)))))
+
+(defun vbe/gnus/eudc-prefer-real-name ()
+  "Display real name if not available in From header"
+  (gnus-with-article-headers
+    (let* ((from (mail-fetch-field "from"))
+	   (mailonly (and (string-match "^ *<\\([^>]+\\)> *$" from)
+			  (match-string 1 from)))
+	   (real-name (when mailonly
+			(vbe/gnus/eudc-cached-name-email mailonly))))
+      (when real-name
+	(message-remove-header "From" nil t)
+	(message-insert-header 'from (format "%s <%s>\n" real-name mailonly))))))
 
 ;; Expand by adding a "*" at the end of the request
 (defun vbe/gnus/eudc-expand-inline ()
