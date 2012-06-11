@@ -1,5 +1,6 @@
 ;; Customize Emacs appareance
 
+(menu-bar-mode -1)			; No menu
 (tool-bar-mode -1)			; No toolbar
 (scroll-bar-mode -1)			; No scrollbar
 (blink-cursor-mode -1)			; No blinking cursor
