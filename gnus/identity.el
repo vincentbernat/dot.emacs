@@ -5,13 +5,13 @@
       user-mail-address (cond ((vbe/at 'orange) "vincent.bernat@wanadooportails.com")
 			      (t "bernat@luffy.cx")))
 (setq vbe/mail-addresses (mapcar '(lambda (name)
-				    (format "^%s" name))
+				    (format "^%s@" name))
 				 (apply 'append	(mapcar 'split-string
 							'("bernat vbernat vincent.bernat"
 							  "Vincent.Bernat vbernat.ext")))))
 
-(setq gnus-ignored-from-addresses vbe/mail-addresses
-      message-dont-reply-to-names vbe/mail-addresses)
+(setq gnus-ignored-from-addresses vbe/mail-addresses  ; When to display To: instead of From:
+      message-dont-reply-to-names vbe/mail-addresses) ; Addresses to prune on wide reply
 
 (defun vbe/mail-related-to (what &optional fields)
   "Determine if the current message has something to do with WHAT.
@@ -36,6 +36,10 @@ if any of the given expressions in WHAT is present."
 (defun vbe/init-identities ()
   "Initialize identity module"
   (require 'gnus-identities)
+  ;; Do not mangle `message-dont-reply-to-names' on followups.
+  (ad-disable-advice 'gnus-summary-followup 'before 'gnus-identities:gnus-summary-followup)
+  (ad-activate 'gnus-summary-followup)
+  ;; Posting styles definition
   (setq gnus-posting-styles
 	(cond ((vbe/at 'orange)
 	 '((".*"
