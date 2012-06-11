@@ -100,6 +100,19 @@ Use LDAP as server. Can be one LDAP server or a list of LDAP servers.
   ;; Display real name if not available
   (eval-after-load "gnus-art"
     '(add-hook 'gnus-article-prepare-hook 'vbe/gnus/eudc-prefer-real-name))
+  (eval-after-load "gnus-sum"
+    '(defadvice gnus-summary-from-or-to-or-newsgroups
+       (around vbe/gnus:gnus-summary-from-or-to-or-newsgroups activate)
+       "If the name is just an email address, try an eudc query."
+       (let* ((result ad-do-it)
+	      (mailonly (and (string-match "^<\\([^>]+\\)>$" result)
+			     (match-string 1 result)))
+	      (real-name (when mailonly
+			   (vbe/gnus/eudc-cached-name-email mailonly))))
+	 (setq ad-return-value
+	       (or real-name
+		   result)))))
+
 
   ;; Define keyboard shortcut
   (eval-after-load "message"
