@@ -5,12 +5,10 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
   (let ((case-fold-search t)
         (ctype (or (cdr (assq 'Content-Type (mail-header-extra header)))
                    "text/plain"))
-        indicator)
+        (indicator " "))
     (when (string-match "^multipart/mixed" ctype)
       (setq indicator "@"))
-    (if indicator
-        indicator
-      " ")))
+    indicator))
 
 (setq gnus-user-date-format-alist
       '(((gnus-seconds-today) . "%H:%M")
@@ -44,7 +42,7 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
  gnus-sum-thread-tree-single-leaf     "└─►"
  gnus-sum-thread-tree-indent          "  ")
 
-(setq gnus-extra-headers
+(setq nnmail-extra-headers
       '(To Cc Newsgroups Content-Type))
 
 (setq gnus-thread-hide-subtree nil	; expand threads
