@@ -29,9 +29,6 @@
 					   (t "Sent"))))
       gnus-message-archive-method '(nnimap ""))
 
-;; Cache
-(setq gnus-cache-directory (expand-file-name "~/.cache/gnus"))
-
 ;; Scan news every 5 minutes if idle for more than 30 seconds
 (gnus-demon-add-handler 'gnus-demon-scan-news 5 30)
 
