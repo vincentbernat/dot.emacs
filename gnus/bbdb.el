@@ -161,10 +161,10 @@ Use LDAP as server. Can be one LDAP server or a list of LDAP servers.
   (require 'ldap)
   (setq ldap-ldapsearch-args (quote ("-tt" "-LLL" "-x")))
   (add-to-list 'ldap-host-parameters-alist
-	       '(("ldap.infra.multis.p.fti.net"
-		  base "ou=People,dc=fti,dc=net"
-		  auth nil
-		  scope subtree)))
+	       '("ldap.infra.multis.p.fti.net"
+		 base "ou=People,dc=fti,dc=net"
+		 auth nil
+		 scope subtree))
   (vbe/gnus/eudc-init "ldap.infra.multis.p.fti.net"))
 
 (provide 'vbe/gnus/bbdb)
