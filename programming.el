@@ -15,4 +15,9 @@
 ;; SNMP
 (add-to-list 'auto-mode-alist '("-MIB$" . snmpv2-mode))
 
+;; C stuff
+(setq c-default-style "linux"           ; default style is "linux"
+      c-basic-offset 4                  ; with a 4 spaces indent
+      indent-tabs-mode nil)             ; don't use tabs
+
 (provide 'vbe/programming)
