@@ -35,6 +35,7 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
        "%10{│%}" "%10{%B%}" "%11{%s%}\n"))
 
 (setq
+ gnus-summary-to-prefix "→ "
  gnus-sum-thread-tree-single-indent   "◎ "
  gnus-sum-thread-tree-false-root      "  "
  gnus-sum-thread-tree-root            "┌ "
