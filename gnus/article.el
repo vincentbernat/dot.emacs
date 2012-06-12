@@ -8,7 +8,8 @@
 (setq gnus-inhibit-mime-unbuttonizing nil ; Display some buttons
       gnus-buttonized-mime-types '("multipart/alternative"
 				   "multipart/signed"
-				   "multipart/encrypted"))
+				   "multipart/encrypted")
+      mm-discouraged-alternatives '("text/html" "text/richtext"))
 
 ;; Visible headers
 (setq gnus-visible-headers 
