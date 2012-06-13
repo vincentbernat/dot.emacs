@@ -30,7 +30,8 @@ contain :init (executed when the package is initialized."
 
 ;; Modifications to existing recipes
 (setq el-get-sources
-      '((:name rainbow-mode :type elpa)))
+      '((:name rainbow-mode :type elpa)
+	(:name dpkg-dev-el :type apt-get)))
 
 ;; Package installation
 (defun vbe/sync-packages ()
