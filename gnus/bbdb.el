@@ -8,7 +8,7 @@
 					  ; ones automatically
 
   (setq bbdb-message-pop-up nil	      ; Display BBDB record but not always
-	bbdb-pop-up-window-size 0.8   ; Maximum size of the BBDB popup
+	bbdb-pop-up-window-size 1   ; Maximum size of the BBDB popup
 	;; When using ':' in summary, ask to create the record if it
 	;; does not exist
 	bbdb-mua-update-interactive-p '(query . query)
