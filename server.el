@@ -4,6 +4,7 @@
   (when (or (not server-process)
             (not (eq (process-status server-process)
                      'listen)))
-    (server-start)))
+    (unless (server-running-p server-name)
+      (server-start))))
 
 (provide 'vbe/server)
