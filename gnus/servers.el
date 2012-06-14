@@ -26,7 +26,7 @@
 (setq gnus-message-archive-group '((unless (message-news-p)
 				     (cond ((vbe/at 'orange) "INBOX.Sent")
 					   (t "Sent"))))
-      gnus-message-archive-method '(nnimap ""))
+      gnus-message-archive-method "nnimap:")
 
 ;; Scan news every 5 minutes if idle for more than 30 seconds
 (gnus-demon-add-handler 'gnus-demon-scan-news 5 30)
