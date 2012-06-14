@@ -32,7 +32,7 @@
     (when (> (length result) 0)
       (concat " " field ": " result))))
 
-(define-key gnus-summary-mode-map (kbd "v f") 'vbe/gnus/wide-reply-on-top)
+(define-key gnus-summary-mode-map (kbd "f") 'vbe/gnus/wide-reply-on-top)
 
 
 (provide 'vbe/gnus/composition)
