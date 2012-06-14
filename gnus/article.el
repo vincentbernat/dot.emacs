@@ -9,7 +9,8 @@
       gnus-buttonized-mime-types '("multipart/alternative"
 				   "multipart/signed"
 				   "multipart/encrypted")
-      mm-discouraged-alternatives '("text/html" "text/richtext"))
+      mm-discouraged-alternatives '("text/html" "text/richtext"
+				    "multipart/related"))
 
 ;; Visible headers
 (setq gnus-visible-headers 
