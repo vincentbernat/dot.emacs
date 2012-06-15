@@ -6,6 +6,14 @@
 (defun vbe/gnus/wide-reply-on-top (n)
   "Wide reply on top of the current message"
   (interactive "P")
+  (vbe/gnus/reply-somehow-on-top n 'gnus-summary-wide-reply-with-original))
+(defun vbe/gnus/reply-on-top (n)
+  "Reply on top of the current message"
+  (interactive "P")
+  (vbe/gnus/reply-somehow-on-top n 'gnus-summary-reply-with-original))
+
+(defun vbe/gnus/reply-somehow-on-top (n how)
+  "Reply using HOW on top of the current message"
   (let ((message-cite-reply-position 'above)
 	(message-citation-line-format
 	 (mapconcat 'identity
@@ -19,7 +27,7 @@
 			    ,(vbe/gnus/extract-names "Cc")
 			    ""))
 		    "\n")))
-    (gnus-summary-wide-reply-with-original n)))
+    (funcall how n)))
 
 (defun vbe/gnus/extract-names (field)
   "Extract the list of names from a given field"
@@ -33,6 +41,6 @@
       (concat " " field ": " result))))
 
 (define-key gnus-summary-mode-map (kbd "f") 'vbe/gnus/wide-reply-on-top)
-
+(define-key gnus-summary-mode-map (kbd "r") 'vbe/gnus/wide-reply-on-top)
 
 (provide 'vbe/gnus/composition)
