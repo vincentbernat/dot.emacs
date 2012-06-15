@@ -38,7 +38,15 @@
 			(or (mail-fetch-field field)
 			    "") t) "; "))))
     (when (> (length result) 0)
-      (concat " " field ": " result))))
+      (concat " " field ": "
+	      (with-temp-buffer
+		(insert result)
+		(fill-region (point-min) (point-max))
+		(replace-string "\n" (concat "\n"
+					     (make-string (+ 3 (length field))
+							  ? ))
+				nil (point-min) (point-max))
+		(buffer-substring (point-min) (point-max)))))))
 
 (define-key gnus-summary-mode-map (kbd "f") 'vbe/gnus/wide-reply-on-top)
 (define-key gnus-summary-mode-map (kbd "r") 'vbe/gnus/wide-reply-on-top)
