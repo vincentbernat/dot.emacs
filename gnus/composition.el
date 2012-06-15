@@ -49,6 +49,6 @@
 		(buffer-substring (point-min) (point-max)))))))
 
 (define-key gnus-summary-mode-map (kbd "f") 'vbe/gnus/wide-reply-on-top)
-(define-key gnus-summary-mode-map (kbd "r") 'vbe/gnus/wide-reply-on-top)
+(define-key gnus-summary-mode-map (kbd "r") 'vbe/gnus/reply-on-top)
 
 (provide 'vbe/gnus/composition)
