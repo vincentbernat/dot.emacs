@@ -6,10 +6,10 @@
 			      (t "bernat@luffy.cx")))
 (setq vbe/mail-addresses
       (mapcar '(lambda (name)
-		 (format "\\b%s@" name))
-	      (apply 'append	(mapcar 'split-string
-					'("bernat vbernat vincent.bernat"
-					  "Vincent.Bernat vbernat.ext")))))
+		 (format "\\b%s[@\\.]" name))
+	      (apply 'append (mapcar 'split-string
+				     '("bernat vbernat vincent.bernat"
+				       "Vincent.Bernat")))))
 
 (setq gnus-ignored-from-addresses vbe/mail-addresses  ; When to display To: instead of From:
       message-dont-reply-to-names vbe/mail-addresses) ; Addresses to prune on wide reply
