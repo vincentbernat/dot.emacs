@@ -1,4 +1,5 @@
-(vbe/add-package '(:name "magit" :init 'vbe/magit-init)) ; git with magit
+(vbe/add-package (list :name "magit"
+		       :init '(vbe/magit-init))) ; git with magit
 
 (defun vbe/magit-init ()
   "Initialize magit."
@@ -7,6 +8,5 @@
   ;; Where is located the code?
   (setq magit-repo-dirs (list (expand-file-name "~/code"))
 	magit-repo-dirs-depth 2))
-
 
 (provide 'vbe/magit)
