@@ -12,7 +12,10 @@
 				       "Vincent.Bernat")))))
 
 (setq gnus-ignored-from-addresses vbe/mail-addresses  ; When to display To: instead of From:
-      message-dont-reply-to-names vbe/mail-addresses) ; Addresses to prune on wide reply
+      message-dont-reply-to-names
+      (append vbe/mail-addresses
+	      (mapcar 'regexp-quote
+		      '("submit@bugs.debian.org")))) ; Addresses to prune on wide reply
 
 (defun vbe/mail-related-to (what &optional fields)
   "Determine if the current message has something to do with WHAT.
