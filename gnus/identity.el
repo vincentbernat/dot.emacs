@@ -72,6 +72,7 @@ if any of the given expressions in WHAT is present."
 					 "@lists.debian.org"
 					 "@bugs.debian.org"))
 		  (x-identity "debian")
+		  (eval (vbe/gnus/will-sign-message))
 		  (address "bernat@debian.org")
 		  (organization "Debian"))
 		 ((vbe/mail-related-to '("@enxio.fr" "@enx.io"))
@@ -79,6 +80,11 @@ if any of the given expressions in WHAT is present."
 		  (address "bernat@enx.io")
 		  (organization "ENXIO")
 		  (signature "Vincent Bernat ☯ https://enx.io")))))))
+
+(defun vbe/gnus/will-sign-message ()
+  "Setup a local hook to make the article signed."
+  (add-hook 'gnus-message-setup-hook
+	    'mml-secure-message-sign-pgpmime t t))
 
 (vbe/add-package (list :name "gnus-identities"
 		       :init '(vbe/init-identities)))
