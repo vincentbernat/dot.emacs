@@ -28,6 +28,12 @@
 					   (t "Sent"))))
       gnus-message-archive-method "nnimap:")
 
+;; How to grab old articles
+(setq gnus-refer-article-method
+      '(current				; Local server first
+	(nntp "news.gmane.org")))	; gmane
+
+
 ;; Scan news every 5 minutes if idle for more than 30 seconds
 (gnus-demon-add-handler 'gnus-demon-scan-news 5 30)
 
