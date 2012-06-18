@@ -28,4 +28,6 @@ The epigram is inserted at point if called interactively."
         (insert fortune-string))
     fortune-string))
 
+(setq gnus-signature-limit 12.0)	; No more than 12 lines for a signature
+
 (provide 'vbe/gnus/signature)
