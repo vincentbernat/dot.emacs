@@ -51,4 +51,8 @@
 (define-key gnus-summary-mode-map (kbd "f") 'vbe/gnus/wide-reply-on-top)
 (define-key gnus-summary-mode-map (kbd "r") 'vbe/gnus/reply-on-top)
 
+;; Increase score of followups
+(setq gnus-kill-files-directory (vbe/run-directory "gnus/scores"))
+(add-hook 'message-sent-hook 'gnus-score-followup-thread)
+
 (provide 'vbe/gnus/composition)

@@ -19,6 +19,14 @@ be searched in \"el-get.el\" in the user Emacs directory."
 	(error "[vbe/] Required feature `%s' was not found."
 	       fullfeature)))))
 
+(defun vbe/run-directory (name)
+  "Return a directory for runtime files. Create it if it does not exist."
+  (let ((dir (expand-file-name (format "run/%s" name)
+			       user-emacs-directory)))
+    (unless (file-directory-p dir)
+      (make-directory dir t))
+    dir))
+
 (vbe/require 'el-get)			; el-get initialization
 (vbe/require 'appareance)		; appareance/display related stuff
 (vbe/require 'behaviour)		; behavioral stuff

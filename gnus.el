@@ -14,10 +14,8 @@
   (vbe/sync-packages)
 )
 
-;; Do not store files in News, store them in ~/.cache/gnus
-(setq gnus-directory (expand-file-name "~/.cache/gnus"))
-(unless (file-directory-p gnus-directory)
-  (make-directory gnus-directory t))
+;; Do not store files in News
+(setq gnus-directory (vbe/run-directory "gnus"))
 
 ;; Install gnus package
 (vbe/add-package (list :name "nognus"
