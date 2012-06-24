@@ -26,7 +26,7 @@ if any of the given expressions in WHAT is present."
     (gnus-with-article-buffer
       (let ((what (if (listp what) what (list what)))
 	    (matched nil)
-	    (fields (if fields fields '("to" "from" "cc"))))
+	    (fields (if fields fields '("to" "from" "cc" "newsgroups"))))
 	(dolist (field (mapcar 'message-fetch-field fields))
 	  (when field
 	    (dolist (address (delq nil (mapcar 'second
@@ -72,6 +72,7 @@ if any of the given expressions in WHAT is present."
 		 ((vbe/mail-related-to '("*@crans.org"
 					 "*@*.crans.org"
 					 "*@crans.ens-cachan.fr"
+					 "crans.*" "tac.*"
 					 "*@ens-cachan.fr"))
 		  (x-identity "crans")
 		  (address "bernat@crans.org"))
