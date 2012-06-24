@@ -21,9 +21,8 @@
   "Determine if the current message has something to do with WHAT.
 It will search in FIELDS (default `To', `Cc' and `From') to check
 if any of the given expressions in WHAT is present."
-  (when (get-buffer gnus-article-buffer)
-    (save-excursion
-      (set-buffer gnus-article-buffer)
+  (when (buffer-live-p gnus-summary-buffer)
+    (gnus-with-article-buffer
       (let ((what (if (listp what) what (list what)))
 	    (matched nil)
 	    (fields (if fields fields '("to" "from" "cc"))))
