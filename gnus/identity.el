@@ -17,6 +17,7 @@
 	      (mapcar 'regexp-quote
 		      '("submit@bugs.debian.org")))) ; Addresses to prune on wide reply
 
+(require 'dired)
 (defun vbe/mail-related-to (what &optional fields)
   "Determine if the current message has something to do with WHAT.
 It will search in FIELDS (default `To', `Cc' and `From') to check
@@ -32,7 +33,8 @@ if any of the given expressions in WHAT is present."
 					       (mail-extract-address-components
 						field t))))
 	      (dolist (w what)
-		(when (string-match (concat "\\.*" (regexp-quote w)) address)
+		(message (dired-glob-regexp w))
+		(when (string-match (dired-glob-regexp w) address)
 		  (add-to-list 'matched address))))))
 	(when matched t)))))
 
@@ -64,17 +66,22 @@ if any of the given expressions in WHAT is present."
 		  (name "Vincent Bernat")
 		  (address "bernat@luffy.cx")
 		  (signature (fortune)))
-		 ((vbe/mail-related-to '("@bernat.im"))
+		 ((vbe/mail-related-to '("*@bernat.im"))
 		  (x-identity "bernat.im")
 		  (address "vincent@bernat.im"))
-		 ((vbe/mail-related-to '("@debian.org"
-					 "@lists.debian.org"
-					 "@bugs.debian.org"))
+		 ((vbe/mail-related-to '("*@crans.org"
+					 "*@*.crans.org"
+					 "*@crans.ens-cachan.fr"
+					 "*@ens-cachan.fr"))
+		  (x-identity "crans")
+		  (address "bernat@crans.org"))
+		 ((vbe/mail-related-to '("*@debian.org"
+					 "*@*.debian.org"))
 		  (x-identity "debian")
 		  (eval (vbe/gnus/will-sign-message))
 		  (address "bernat@debian.org")
 		  (organization "Debian"))
-		 ((vbe/mail-related-to '("@enxio.fr" "@enx.io"))
+		 ((vbe/mail-related-to '("*@enxio.fr" "*@enx.io"))
 		  (x-identity "enxio")
 		  (address "bernat@enx.io")
 		  (organization "ENXIO")
