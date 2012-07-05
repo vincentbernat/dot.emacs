@@ -29,6 +29,7 @@
   ; `set-face-attribute' since we can redefine only part of a face.
   (dolist (face `(mode-line minibuffer-prompt))
     (set-face-attribute face nil :font "DejaVu Sans-10"))
+  (vbe/gnus/custom-theme)
   (eval-after-load "gnus"
     '(add-hook 'gnus-started-hook 'vbe/gnus/custom-theme)))
 
