@@ -10,6 +10,7 @@
 		       :init '(setq coffee-tab-width 2))) ; coffee
 (vbe/add-package '(:name "auctex"))	 ; latex
 (vbe/add-package '(:name "php-mode"))
+(vbe/add-package '(:name "lua-mode"))
 (vbe/add-package '(:name
 		   "markdown-mode"))	 ; markdown
 
