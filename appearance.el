@@ -5,7 +5,7 @@
 (scroll-bar-mode -1)			; No scrollbar
 (blink-cursor-mode -1)			; No blinking cursor
 (show-paren-mode t)			; Display matching parenthesis
-(setq show-paren-style 'expression)	; Highlight the whole expression
+(setq show-paren-style 'mixed)	        ; Highlight the whole expression if the other paren is not visible
 (setq inhibit-splash-screen t)		; No splash screen
 
 ;; Font stuff
