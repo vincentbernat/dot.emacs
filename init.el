@@ -28,7 +28,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
     dir))
 
 (vbe/require 'el-get)			; el-get initialization
-(vbe/require 'appareance)		; appareance/display related stuff
+(vbe/require 'appearance)		; appearance/display related stuff
 (vbe/require 'behaviour)		; behavioral stuff
 (vbe/require 'bindings)			; keyboard bindings
 (vbe/require 'buffers)			; buffer stuff
