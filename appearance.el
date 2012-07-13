@@ -41,4 +41,4 @@
     (set-face-attribute (intern (format "gnus-header-%s-face" face))
 			nil :font "DejaVu Sans-10")))
 
-(provide 'vbe/appareance)
+(provide 'vbe/appearance)
