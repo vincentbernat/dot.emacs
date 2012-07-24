@@ -36,12 +36,28 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 (setq
  gnus-summary-to-prefix "→ "
  gnus-sum-thread-tree-single-indent   "◎ "
- gnus-sum-thread-tree-false-root      "╒ "
+ gnus-sum-thread-tree-false-root      "◌ "
  gnus-sum-thread-tree-root            "┌ "
  gnus-sum-thread-tree-vertical        "│"
  gnus-sum-thread-tree-leaf-with-other "├─►"
  gnus-sum-thread-tree-single-leaf     "╰─►"
- gnus-sum-thread-tree-indent          "  ")
+ gnus-sum-thread-tree-indent          "  "
+ gnus-summary-newsgroup-prefix "⇶"
+ ;; Marks
+ gnus-ticked-mark ?⚑
+ gnus-dormant-mark ?⚐
+ gnus-expirable-mark ?♻
+ gnus-read-mark ?✓
+ gnus-del-mark ?✗
+ gnus-killed-mark ?☠
+ gnus-replied-mark ?⟲
+ gnus-forwarded-mark ?⤳
+ gnus-cached-mark ?☍
+ gnus-recent-mark ?★
+ gnus-unseen-mark ?✩
+ gnus-unread-mark ?✉
+ gnus-score-over-mark ?↑           ; ↑ ☀
+ gnus-score-below-mark ?↓)         ; ↓ ☂
 
 ;; Group line format. Mostly stolen from Julien Danjou
 (setq gnus-group-line-format "%ue%uM %S%p %P%5y/%5t:%B%(%g%)%O\n")
