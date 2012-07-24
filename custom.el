@@ -1,6 +1,6 @@
 ;; Variables set by the customize interface
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(provide 'vbe/custom)
+(provide 'vbe:custom)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

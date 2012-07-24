@@ -1,17 +1,17 @@
 ;; cscope stuff
-(vbe/add-package (list :name "xcscope"
+(vbe:add-package (list :name "xcscope"
 		       :init '(add-hook 'c-mode-common-hook
 					'(lambda()
 					   (cscope-minor-mode)))))
 
 ;; Various packages
-(vbe/add-package '(:name "dtrt-indent")) ; autodetect indentation
-(vbe/add-package (list :name "coffee-mode"
+(vbe:add-package '(:name "dtrt-indent")) ; autodetect indentation
+(vbe:add-package (list :name "coffee-mode"
 		       :init '(setq coffee-tab-width 2))) ; coffee
-(vbe/add-package '(:name "auctex"))	 ; latex
-(vbe/add-package '(:name "php-mode"))
-(vbe/add-package '(:name "lua-mode"))
-(vbe/add-package '(:name
+(vbe:add-package '(:name "auctex"))	 ; latex
+(vbe:add-package '(:name "php-mode"))
+(vbe:add-package '(:name "lua-mode"))
+(vbe:add-package '(:name
 		   "markdown-mode"))	 ; markdown
 
 ;; SNMP
@@ -42,4 +42,4 @@
                        (inclass               . +)
                        (knr-argdecl-intro     . +)))))
 
-(provide 'vbe/programming)
+(provide 'vbe:programming)

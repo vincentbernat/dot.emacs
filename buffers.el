@@ -15,4 +15,4 @@
 (require 'saveplace)
 (setq-default save-place t)
 
-(provide 'vbe/buffers)
+(provide 'vbe:buffers)

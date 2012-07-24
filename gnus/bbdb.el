@@ -1,5 +1,5 @@
 ;; BBDB stuff
-(defun vbe/gnus/bbdb-init ()
+(defun vbe:gnus/bbdb-init ()
   "bbdb initialization"
   (bbdb-initialize 'gnus 'message)
   (bbdb-insinuate-gnus)
@@ -17,7 +17,7 @@
   ;; Add notes when updating a record
   (add-hook 'bbdb-notice-mail-hook 'bbdb-auto-notes)
   ;; Display the record when it exists
-  (add-hook 'gnus-article-prepare-hook 'vbe/gnus/bbdb-display-record)
+  (add-hook 'gnus-article-prepare-hook 'vbe:gnus/bbdb-display-record)
 
   ;; What to set in "Notes"?
   (setq bbdb-auto-notes-rules
@@ -25,7 +25,7 @@
        '("Organization"
          (".*" organization "\\1" nil))
        '("Subject"
-         (".*" subjects vbe/gnus/bbdb-subject-canonicalize nil))
+         (".*" subjects vbe:gnus/bbdb-subject-canonicalize nil))
        '("Newsgroups"
           ("[^,]+" newsgroups identity nil))
        '("Xref"
@@ -39,7 +39,7 @@
   ;; Start clean
   (setq bbdb-auto-notes-rules-expanded nil))
 
-(defun vbe/gnus/bbdb-subject-canonicalize (subject)
+(defun vbe:gnus/bbdb-subject-canonicalize (subject)
   "Canonicalize SUBJECT."
   (let ((newsubject
 	 (message-strip-subject-trailing-was
@@ -48,7 +48,7 @@
 	    (mail-decode-encoded-word-string subject))))))
     newsubject))
 
-(defun vbe/gnus/bbdb-display-record ()
+(defun vbe:gnus/bbdb-display-record ()
   "Display appropriate BBDB record for the current message."
   (unless
       (bbdb-mua-display-records nil 'search)
@@ -56,11 +56,11 @@
     (let ((window (get-buffer-window bbdb-buffer-name)))
       (when window (delete-window window)))))
 
-(vbe/add-package (list :name "bbdb"
-		       :init '(vbe/gnus/bbdb-init)))
+(vbe:add-package (list :name "bbdb"
+		       :init '(vbe:gnus/bbdb-init)))
 
 ;; We may also want to use EUDC.
-(defun vbe/gnus/eudc-init (ldap)
+(defun vbe:gnus/eudc-init (ldap)
   "Initialize EUDC subsystem.
 Use LDAP as server. Can be one LDAP server or a list of LDAP servers.
 "
@@ -99,16 +99,16 @@ Use LDAP as server. Can be one LDAP server or a list of LDAP servers.
 
   ;; Display real name if not available
   (eval-after-load "gnus-art"
-    '(add-hook 'gnus-article-prepare-hook 'vbe/gnus/eudc-prefer-real-name))
+    '(add-hook 'gnus-article-prepare-hook 'vbe:gnus/eudc-prefer-real-name))
   (eval-after-load "gnus-sum"
     '(defadvice gnus-summary-from-or-to-or-newsgroups
-       (around vbe/gnus:gnus-summary-from-or-to-or-newsgroups activate)
+       (around vbe:gnus:gnus-summary-from-or-to-or-newsgroups activate)
        "If the name is just an email address, try an eudc query."
        (let* ((result ad-do-it)
 	      (mailonly (and (string-match "^<\\([^>]+\\)>$" result)
 			     (match-string 1 result)))
 	      (real-name (when mailonly
-			   (vbe/gnus/eudc-cached-name-email mailonly))))
+			   (vbe:gnus/eudc-cached-name-email mailonly))))
 	 (setq ad-return-value
 	       (or real-name
 		   result)))))
@@ -117,34 +117,34 @@ Use LDAP as server. Can be one LDAP server or a list of LDAP servers.
   ;; Define keyboard shortcut
   (eval-after-load "message"
     '(define-key message-mode-map (kbd "TAB")
-       'vbe/gnus/eudc-expand-inline)))
+       'vbe:gnus/eudc-expand-inline)))
 
 ;; Cache email -> name association
-(setq vbe/gnus/eudc-cache-name-email (make-hash-table :test 'equal))
-(defun vbe/gnus/eudc-cached-name-email (email)
+(setq vbe:gnus/eudc-cache-name-email (make-hash-table :test 'equal))
+(defun vbe:gnus/eudc-cached-name-email (email)
   "Return the name of someone from its EMAIL. With cache."
-  (or (gethash email vbe/gnus/eudc-cache-name-email)
+  (or (gethash email vbe:gnus/eudc-cache-name-email)
       (let ((name
 	     (cdr (assoc 'cn (first
 			      (eudc-query
 			       `((email . ,email))))))))
 	(when name
-	  (puthash email name vbe/gnus/eudc-cache-name-email)))))
+	  (puthash email name vbe:gnus/eudc-cache-name-email)))))
 
-(defun vbe/gnus/eudc-prefer-real-name ()
+(defun vbe:gnus/eudc-prefer-real-name ()
   "Display real name if not available in From header"
   (gnus-with-article-headers
     (let* ((from (mail-fetch-field "from"))
 	   (mailonly (and (string-match "^ *<\\([^>]+\\)> *$" from)
 			  (match-string 1 from)))
 	   (real-name (when mailonly
-			(vbe/gnus/eudc-cached-name-email mailonly))))
+			(vbe:gnus/eudc-cached-name-email mailonly))))
       (when real-name
 	(message-remove-header "From" nil t)
 	(message-insert-header 'from (format "%s <%s>\n" real-name mailonly))))))
 
 ;; Expand by adding a "*" at the end of the request
-(defun vbe/gnus/eudc-expand-inline ()
+(defun vbe:gnus/eudc-expand-inline ()
   "EUDC expand using a wildcard."
   (interactive)
   (if (eq eudc-protocol 'ldap)
@@ -156,7 +156,7 @@ Use LDAP as server. Can be one LDAP server or a list of LDAP servers.
 	       (backward-delete-char-untabify 1)))
     (eudc-expand-inline)))
 
-(when (vbe/at 'orange)
+(when (vbe:at 'orange)
   ;; Configure LDAP server
   (require 'ldap)
   (setq ldap-ldapsearch-args (quote ("-tt" "-LLL" "-x")))
@@ -165,6 +165,6 @@ Use LDAP as server. Can be one LDAP server or a list of LDAP servers.
 		 base "ou=People,dc=fti,dc=net"
 		 auth nil
 		 scope subtree))
-  (vbe/gnus/eudc-init "ldap.infra.multis.p.fti.net"))
+  (vbe:gnus/eudc-init "ldap.infra.multis.p.fti.net"))
 
-(provide 'vbe/gnus/bbdb)
+(provide 'vbe:gnus/bbdb)

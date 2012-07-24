@@ -3,4 +3,4 @@
 (spam-initialize)
 ;; The spam is handled according to groups configuration.
 
-(provide 'vbe/gnus/spam)
+(provide 'vbe:gnus/spam)

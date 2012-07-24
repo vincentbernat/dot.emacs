@@ -1,24 +1,24 @@
-(vbe/require 'profile)
+(vbe:require 'profile)
 
 ;; Set user name and email address
 (setq user-full-name "Vincent Bernat"
-      user-mail-address (cond ((vbe/at 'orange) "vincent.bernat@wanadooportails.com")
+      user-mail-address (cond ((vbe:at 'orange) "vincent.bernat@wanadooportails.com")
 			      (t "bernat@luffy.cx")))
-(setq vbe/mail-addresses
+(setq vbe:mail-addresses
       (mapcar '(lambda (name)
 		 (format "\\b%s[@\\.]" name))
 	      (apply 'append (mapcar 'split-string
 				     '("bernat vbernat vincent.bernat"
 				       "Vincent.Bernat")))))
 
-(setq gnus-ignored-from-addresses vbe/mail-addresses  ; When to display To: instead of From:
+(setq gnus-ignored-from-addresses vbe:mail-addresses  ; When to display To: instead of From:
       message-dont-reply-to-names
-      (append vbe/mail-addresses
+      (append vbe:mail-addresses
 	      (mapcar 'regexp-quote
 		      '("submit@bugs.debian.org")))) ; Addresses to prune on wide reply
 
 (require 'dired)
-(defun vbe/mail-related-to (what &optional fields)
+(defun vbe:mail-related-to (what &optional fields)
   "Determine if the current message has something to do with WHAT.
 It will search in FIELDS (default `To', `Cc' and `From') to check
 if any of the given expressions in WHAT is present."
@@ -38,7 +38,7 @@ if any of the given expressions in WHAT is present."
 		  (add-to-list 'matched address))))))
 	(when matched t)))))
 
-(defun vbe/init-identities ()
+(defun vbe:init-identities ()
   "Initialize identity module"
   (require 'gnus-identities)
   ;; Do not mangle `message-dont-reply-to-names' on followups.
@@ -46,7 +46,7 @@ if any of the given expressions in WHAT is present."
   (ad-activate 'gnus-summary-followup)
   ;; Posting styles definition
   (setq gnus-posting-styles
-	(cond ((vbe/at 'orange)
+	(cond ((vbe:at 'orange)
 	 '((".*"
 	    (x-identity "default")
 	    (name "Vincent Bernat")
@@ -66,34 +66,34 @@ if any of the given expressions in WHAT is present."
 		  (name "Vincent Bernat")
 		  (address "bernat@luffy.cx")
 		  (signature (fortune)))
-		 ((vbe/mail-related-to '("*@bernat.im"))
+		 ((vbe:mail-related-to '("*@bernat.im"))
 		  (x-identity "bernat.im")
 		  (address "vincent@bernat.im"))
-		 ((vbe/mail-related-to '("*@crans.org"
+		 ((vbe:mail-related-to '("*@crans.org"
 					 "*@*.crans.org"
 					 "*@crans.ens-cachan.fr"
 					 "crans.*" "tac.*"
 					 "*@ens-cachan.fr"))
 		  (x-identity "crans")
 		  (address "bernat@crans.org"))
-		 ((vbe/mail-related-to '("*@debian.org"
+		 ((vbe:mail-related-to '("*@debian.org"
 					 "*@*.debian.org"))
 		  (x-identity "debian")
-		  (eval (vbe/gnus/will-sign-message))
+		  (eval (vbe:gnus/will-sign-message))
 		  (address "bernat@debian.org")
 		  (organization "Debian"))
-		 ((vbe/mail-related-to '("*@enxio.fr" "*@enx.io"))
+		 ((vbe:mail-related-to '("*@enxio.fr" "*@enx.io"))
 		  (x-identity "enxio")
 		  (address "bernat@enx.io")
 		  (organization "ENXIO")
 		  (signature "Vincent Bernat ☯ https://enx.io")))))))
 
-(defun vbe/gnus/will-sign-message ()
+(defun vbe:gnus/will-sign-message ()
   "Setup a local hook to make the article signed."
   (add-hook 'gnus-message-setup-hook
 	    'mml-secure-message-sign-pgpmime t t))
 
-(vbe/add-package (list :name "gnus-identities"
-		       :init '(vbe/init-identities)))
+(vbe:add-package (list :name "gnus-identities"
+		       :init '(vbe:init-identities)))
 
-(provide 'vbe/gnus/identity)
+(provide 'vbe:gnus/identity)

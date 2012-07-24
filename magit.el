@@ -1,7 +1,7 @@
-(vbe/add-package (list :name "magit"
-		       :init '(vbe/magit-init))) ; git with magit
+(vbe:add-package (list :name "magit"
+		       :init '(vbe:magit-init))) ; git with magit
 
-(defun vbe/magit-init ()
+(defun vbe:magit-init ()
   "Initialize magit."
   ;; Global binding for magit
   (global-set-key (kbd "C-x g") 'magit-status)
@@ -9,4 +9,4 @@
   (setq magit-repo-dirs (list (expand-file-name "~/code"))
 	magit-repo-dirs-depth 2))
 
-(provide 'vbe/magit)
+(provide 'vbe:magit)

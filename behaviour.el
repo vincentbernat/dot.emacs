@@ -8,14 +8,14 @@
 (setq use-dialog-box nil)
 
 ;; Various runtime directories
-(setq url-cache-directory (vbe/run-directory "url")
+(setq url-cache-directory (vbe:run-directory "url")
       auto-save-list-file-prefix (format "%s/saves-"
-					 (vbe/run-directory "auto-save"))
+					 (vbe:run-directory "auto-save"))
       tramp-persistency-file-name (format "%s/tramp-history"
-					  (vbe/run-directory "tramp")))
+					  (vbe:run-directory "tramp")))
 
 ;; Display colors with "colors"
-(vbe/add-package '(:name "rainbow-mode"))
+(vbe:add-package '(:name "rainbow-mode"))
 
 ;; Which browser to use? x-www-browser.
 (setq browse-url-browser-function 'browse-url-generic
@@ -25,4 +25,4 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
-(provide 'vbe/behaviour)
+(provide 'vbe:behaviour)

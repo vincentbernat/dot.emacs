@@ -19,11 +19,11 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
         ((* 30 (gnus-seconds-year)) . "%b %d '%y")
         (t . "")))
 
-(copy-face 'default 'vbe/proportional)
-(set-face-attribute 'vbe/proportional nil :font "DejaVu Sans-10")
+(copy-face 'default 'vbe:proportional)
+(set-face-attribute 'vbe:proportional nil :font "DejaVu Sans-10")
 (setq gnus-face-9  'font-lock-warning-face
       gnus-face-10 'shadow
-      gnus-face-11 'vbe/proportional
+      gnus-face-11 'vbe:proportional
       gnus-summary-line-format
       (concat
        "%U%R%z" "%10{│%}" "%1{%11,11&user-date;%}"
@@ -65,15 +65,15 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 
 
 (defun gnus-user-format-function-e (dummy)
-  (vbe/gnus-image-or-space (char-to-string gnus-unread-mark)
+  (vbe:gnus-image-or-space (char-to-string gnus-unread-mark)
 			   (expand-file-name "icons/email.png" user-emacs-directory)
 			   (> (string-to-number gnus-tmp-number-of-unread) 0)))
 (defun gnus-user-format-function-M (dummy)
-  (vbe/gnus-image-or-space (char-to-string gnus-ticked-mark)
+  (vbe:gnus-image-or-space (char-to-string gnus-ticked-mark)
 			   (expand-file-name "icons/important.png" user-emacs-directory)
                           (cdr (assq 'tick gnus-tmp-marked))))
 
-(defun vbe/gnus-image-or-space (string image image-p)
+(defun vbe:gnus-image-or-space (string image image-p)
   (let ((image (create-image image)))
     (if (display-images-p)
 	(if image-p
@@ -97,4 +97,4 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 ; Start in topic mode
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 
-(provide 'vbe/gnus/summary)
+(provide 'vbe:gnus/summary)

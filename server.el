@@ -7,4 +7,4 @@
     (unless (server-running-p server-name)
       (server-start))))
 
-(provide 'vbe/server)
+(provide 'vbe:server)

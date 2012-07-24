@@ -36,5 +36,5 @@
 			     (test . window-system)
 			     (type . "image/*")))
 
-(provide 'vbe/gnus/article)
+(provide 'vbe:gnus/article)
 

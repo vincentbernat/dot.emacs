@@ -4,4 +4,4 @@
       mm-decrypt-option 'always  ; always decrypt
       auth-source-gpg-encrypt-to user-mail-address)
 
-(provide 'vbe/gnus/gpg)
+(provide 'vbe:gnus/gpg)
