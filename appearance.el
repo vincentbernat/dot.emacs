@@ -4,8 +4,7 @@
 (tool-bar-mode -1)			; No toolbar
 (scroll-bar-mode -1)			; No scrollbar
 (blink-cursor-mode -1)			; No blinking cursor
-(show-paren-mode t)			; Display matching parenthesis
-(setq show-paren-style 'mixed)	        ; Highlight the whole expression if the other paren is not visible
+(show-paren-mode t)			; Display matching parenthesis ; C-M-n and C-M-p
 (setq inhibit-splash-screen t)		; No splash screen
 (line-number-mode 1)			; show line number
 (column-number-mode 1)			; show column number
