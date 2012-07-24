@@ -43,6 +43,29 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
  gnus-sum-thread-tree-single-leaf     "╰─►"
  gnus-sum-thread-tree-indent          "  ")
 
+;; Group line format. Mostly stolen from Julien Danjou
+(setq gnus-group-line-format "%ue%uM %S%p %P%5y/%5t:%B%(%g%)%O\n")
+
+(defun gnus-user-format-function-e (dummy)
+  (vbe/gnus-image-or-space (char-to-string gnus-unread-mark)
+			   (expand-file-name "icons/email.png" user-emacs-directory)
+			   (> (string-to-number gnus-tmp-number-of-unread) 0)))
+(defun gnus-user-format-function-M (dummy)
+  (vbe/gnus-image-or-space (char-to-string gnus-ticked-mark)
+			   (expand-file-name "icons/important.png" user-emacs-directory)
+                          (cdr (assq 'tick gnus-tmp-marked))))
+
+(defun vbe/gnus-image-or-space (string image image-p)
+  (let ((image (create-image image)))
+    (if (display-images-p)
+	(if image-p
+	    (propertize string 'display
+			(append image
+				'(:ascent center)))
+	  (propertize " " 'display `(space . (:width ,(car (image-size image))))))
+      string)))
+
+
 (setq nnmail-extra-headers
       '(To Cc Newsgroups Content-Type))
 
