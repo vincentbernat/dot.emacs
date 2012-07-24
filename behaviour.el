@@ -4,6 +4,8 @@
 
 ;; Always use y/n prompt
 (fset 'yes-or-no-p 'y-or-n-p)
+;; No dialog box
+(setq use-dialog-box nil)
 
 ;; Various runtime directories
 (setq url-cache-directory (vbe/run-directory "url")
