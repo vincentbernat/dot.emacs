@@ -79,7 +79,7 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 			(append image
 				'(:ascent center)))
 	  (propertize " " 'display `(space . (:width ,(car (image-size image))))))
-      string)))
+      (if image-p string " "))))
 
 
 (setq nnmail-extra-headers
