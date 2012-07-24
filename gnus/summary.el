@@ -60,7 +60,7 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
  gnus-score-below-mark ?↓)         ; ↓ ☂
 
 ;; Group line format. Mostly stolen from Julien Danjou
-(setq gnus-group-line-format "%ue%uM %S%p %P%5y/%5t:%B%(%g%)%O\n")
+(setq gnus-group-line-format "%ue%uM %S%p %P%5y:%B%(%g%)%O\n")
 
 (defun gnus-user-format-function-e (dummy)
   (vbe/gnus-image-or-space (char-to-string gnus-unread-mark)
