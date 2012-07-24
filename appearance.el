@@ -7,6 +7,9 @@
 (show-paren-mode t)			; Display matching parenthesis
 (setq show-paren-style 'mixed)	        ; Highlight the whole expression if the other paren is not visible
 (setq inhibit-splash-screen t)		; No splash screen
+(line-number-mode 1)			; show line number
+(column-number-mode 1)			; show column number
+(global-hl-line-mode 1)			; highlight current line
 
 ;; Font stuff
 (defvar vbe/default-font "DejaVu Sans Mono-10")
