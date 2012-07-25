@@ -6,6 +6,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; No dialog box
 (setq use-dialog-box nil)
+;; Auto revert (if no pending change, automatically revert a buffer)
+(global-auto-revert-mode 1)
 
 ;; Various runtime directories
 (setq url-cache-directory (vbe:run-directory "url")
