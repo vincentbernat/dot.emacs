@@ -26,7 +26,7 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
       gnus-face-11 'vbe:proportional
       gnus-summary-line-format
       (concat
-       "%U%R%z" "%10{│%}" "%1{%11,11&user-date;%}"
+       "%10{%U%R%z%}" "%10{│%}" "%1{%11,11&user-date;%}"
        "%10{│%}"
        "%9{%u&@;%}" "%(%-15,15f %)"
        "%*"
