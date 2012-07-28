@@ -58,6 +58,8 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
  gnus-unread-mark ?✉
  gnus-score-over-mark ?↑           ; ↑ ☀
  gnus-score-below-mark ?↓)         ; ↓ ☂
+;; Reevaluate gnus-auto-expirable-marks with those new symbols
+(setq gnus-auto-expirable-marks (eval (car (get 'gnus-auto-expirable-marks 'standard-value))))
 
 ;; Group line format. Mostly stolen from Julien Danjou
 (setq gnus-group-line-format "%ue%uM %S%p %P%5y:%B%(%g%)%O\n"
