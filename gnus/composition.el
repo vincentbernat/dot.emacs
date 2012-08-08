@@ -55,4 +55,11 @@
 (setq gnus-kill-files-directory (vbe:run-directory "gnus/scores"))
 (add-hook 'message-sent-hook 'gnus-score-followup-thread)
 
+;; Use the list of subscribed addresses for MFT from the group/topic parameters
+(setq message-subscribed-address-functions
+      '(gnus-find-subscribed-addresses))
+(setq gnus-parameters
+      '(("^OS\\.Debian\\."
+	 (subscribed . t))))
+
 (provide 'vbe:gnus/composition)
