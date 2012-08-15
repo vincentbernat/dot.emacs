@@ -40,6 +40,7 @@
                        (substatement          . +)
                        (arglist-cont-nonempty . *)
                        (inclass               . +)
+		       (inextern-lang         . 0)
                        (knr-argdecl-intro     . +)))))
 
 (provide 'vbe:programming)
