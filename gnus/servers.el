@@ -31,10 +31,13 @@
 (setq gnus-message-archive-group '((unless (message-news-p)
 				     (cond ((vbe:at 'orange) "INBOX.Sent")
 					   (t "Sent"))))
-      gnus-message-archive-method "nnimap:")
+      gnus-message-archive-method "nnimap:"
+
+;; Where to store local mails (drafts, ...)
+      message-directory (nnheader-concat gnus-home-directory "Mail")
 
 ;; How to grab old articles
-(setq gnus-refer-article-method
+      gnus-refer-article-method
       '(current				; Local server first
 	(nntp "news.gmane.org")))	; gmane
 
