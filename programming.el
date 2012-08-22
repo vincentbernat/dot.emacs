@@ -20,6 +20,8 @@
 ;; C stuff
 (setq c-default-style "linux"           ; default style is "linux"
       c-basic-offset 4                  ; with a 4 spaces indent
+      show-trailing-whitespace t        ; show extra space at end of lines
+      x-stretch-cursor t                ; stretch cursor to the width of the char (for example tab)
       indent-tabs-mode nil)             ; don't use tabs
 
 ;; More styles. To debug, use C-c C-s.
