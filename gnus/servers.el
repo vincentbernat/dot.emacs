@@ -1,5 +1,10 @@
 (vbe:require 'profile)
 
+;; No .newsrc
+(setq gnus-read-newsrc-file nil
+      gnus-save-newsrc-file nil
+      gnus-startup-file (nnheader-concat gnus-home-directory "newsrc"))
+
 ;; Search with nnir
 (require 'nnir)
 

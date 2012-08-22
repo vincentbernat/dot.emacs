@@ -15,7 +15,8 @@
 )
 
 ;; Do not store files in News
-(setq gnus-directory (vbe:run-directory "gnus"))
+(setq gnus-directory (vbe:run-directory "gnus")
+      gnus-home-directory gnus-directory)
 
 ;; Install gnus package
 (vbe:add-package (list :name "nognus"
