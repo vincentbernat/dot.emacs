@@ -1,3 +1,59 @@
+;; Citation format
+(setq message-citation-line-function 'message-insert-formatted-citation-line
+      message-citation-line-format " ❦ %e %B %Y %R %Z, %f :\n")
+
+;; Increase score of followups
+(setq gnus-kill-files-directory (vbe:run-directory "gnus/scores"))
+(add-hook 'message-sent-hook 'gnus-score-followup-thread)
+
+;; Use the list of subscribed addresses for MFT from the group/topic parameters
+(setq message-subscribed-address-functions
+      '(gnus-find-subscribed-addresses))
+(setq gnus-parameters
+      '(("^OS\\.Debian\\."
+	 (subscribed . t))))
+
+;; Sign messages
+(require 'epg)
+(setq mml2015-use 'epg		 ; use epg
+      mm-verify-option 'always	 ; always check for sigs
+      mm-decrypt-option 'always  ; always decrypt
+      auth-source-gpg-encrypt-to user-mail-address)
+
+;; Signature
+(setq message-signature 'vbe:fortune)
+(defconst vbe:fortune-program nil
+  "*Program used to generate epigrams, default \"fortune\".")
+
+(defvar vbe:fortune-switches (list "-e"
+			       "50%" (expand-file-name "~/.sigs/kernelcookies")
+			       "50%" (expand-file-name "~/.sigs/prog-style"))
+  "*List of extra arguments when `vbe:fortune-program' is invoked")
+
+(defun vbe:fortune (&optional long-p)
+  "Generate a random epigram.
+An optional prefix argument generates a long epigram.
+The epigram is inserted at point if called interactively."
+  (interactive "*P")
+  (let ((fortune-buffer (generate-new-buffer " fortune"))
+        (fortune-string "Have an adequate day."))
+    (unwind-protect
+        (save-excursion
+          (set-buffer fortune-buffer)
+          (apply 'call-process
+                 (append (list (or vbe:fortune-program "fortune") nil t nil)
+                         vbe:fortune-switches
+                         (list (if long-p "-l" "-s"))))
+          (skip-chars-backward "\n\t ")
+          (setq fortune-string (buffer-substring (point-min) (point))))
+      (kill-buffer fortune-buffer))
+    (if (interactive-p)
+        (insert fortune-string))
+    fortune-string))
+
+(setq gnus-signature-limit 12.0)	; No more than 12 lines for a signature
+
+;; Identities
 (vbe:require 'profile)
 
 ;; Set user name and email address
@@ -42,7 +98,8 @@ if any of the given expressions in WHAT is present."
   "Initialize identity module"
   (require 'gnus-identities)
   ;; Do not mangle `message-dont-reply-to-names' on followups.
-  (ad-disable-advice 'gnus-summary-followup 'before 'gnus-identities:gnus-summary-followup)
+  (ad-disable-advice 'gnus-summary-followup 'before
+		     'gnus-identities:gnus-summary-followup)
   (ad-activate 'gnus-summary-followup)
   ;; Posting styles definition
   (setq gnus-posting-styles
@@ -65,7 +122,7 @@ if any of the given expressions in WHAT is present."
 		  (x-identity "default")
 		  (name "Vincent Bernat")
 		  (address "bernat@luffy.cx")
-		  (signature (fortune)))
+		  (signature (vbe:fortune)))
 		 ((vbe:mail-related-to '("*@bernat.im"))
 		  (x-identity "bernat.im")
 		  (address "vincent@bernat.im"))
@@ -92,8 +149,3 @@ if any of the given expressions in WHAT is present."
   "Setup a local hook to make the article signed."
   (add-hook 'gnus-message-setup-hook
 	    'mml-secure-message-sign-pgpmime t t))
-
-(vbe:add-package (list :name "gnus-identities"
-		       :init '(vbe:init-identities)))
-
-(provide 'vbe:gnus/identity)

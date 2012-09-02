@@ -2,29 +2,34 @@
       mouse-1-click-follows-link nil	; Don't follow links with left click
       make-backup-files nil)		; Don't make backups, not used in ages
 
-;; Always use y/n prompt
-(fset 'yes-or-no-p 'y-or-n-p)
-;; No dialog box
-(setq use-dialog-box nil)
-;; Auto revert (if no pending change, automatically revert a buffer)
-(global-auto-revert-mode 1)
+(fset 'yes-or-no-p 'y-or-n-p) ; Always use y/n prompt
+(setq use-dialog-box nil)     ; No dialog box
+(global-auto-revert-mode 1)   ; Auto revert (when no pending changes)
 
 ;; Various runtime directories
 (setq url-cache-directory (vbe:run-directory "url")
       auto-save-list-file-prefix (format "%s/saves-"
-					 (vbe:run-directory "auto-save"))
-      tramp-persistency-file-name (format "%s/tramp-history"
-					  (vbe:run-directory "tramp")))
-
-;; Display colors with "colors"
-(vbe:add-package '(:name "rainbow-mode"))
-
-;; Which browser to use? x-www-browser.
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "x-www-browser")
+					 (vbe:run-directory "auto-save")))
 
 ;; Enable some disabled commands
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+;; Bindings
+(global-set-key (kbd "M-g") 'goto-line)
+(global-set-key (kbd "<delete>") 'delete-char)
+(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "C-x g") 'magit-status)
+
+;; Automode
+(add-to-list 'auto-mode-alist '("-MIB$" . snmpv2-mode))
+
+;; Other stuff we need
+(require 'point-stack)
+(require 'uniquify)
+(require 'ido)
+(require 'saveplace)
+(setq-default save-place t)
+
 
 (provide 'vbe:behaviour)

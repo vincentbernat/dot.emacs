@@ -1,0 +1,25 @@
+;; el-get configuration
+(setq el-get-is-lazy t)
+
+(el-get nil
+        '(
+	  ;; General
+	  naquadah-theme		; Theme from Julien Danjou
+	  point-stack			; Organize points into a stack
+	  ;; Programming
+	  autopair			; Auto pairing of parentheses
+          rainbow-mode			; Display colors
+	  dtrt-indent			; Autodetect indentation
+	  magit				; Git stuff, must-have!
+	  xcscope			; cscope interface (etags on steroids)
+	  ;; Modes
+	  auctex			; LaTeX mode
+	  coffee-mode			; Major mode for coffeescript
+	  lua-mode			; Major mode for lua
+	  markdown-mode			; Major mode for markdown
+	  php-mode			; Major mode PHP
+	  ;; Gnus and other stuff
+	  bbdb				; Big brother database
+	  nognus			; Gnus
+	  gnus-identities		; Manipulate Gnus identities
+	  ))
