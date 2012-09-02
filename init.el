@@ -49,6 +49,10 @@ substituting hyphens for slashes."
 	  (load target))
 	(setq directory (expand-file-name (car components) directory)
 	      components (cdr components))))))
+
+;; Load current features
+(mapc '(lambda (f) (vbe:after-load (symbol-name f))) features)
+;; Load future features
 (add-hook 'after-load-functions 'vbe:after-load)
 
 (defun vbe:run-directory (name)
