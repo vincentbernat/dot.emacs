@@ -23,6 +23,7 @@
       x-stretch-cursor t                ; stretch cursor to the width of the char (for example tab)
       indent-tabs-mode nil)             ; don't use tabs
 (add-hook 'c-mode-common-hook '(lambda nil (setq show-trailing-whitespace t)))
+(which-function-mode 1)			; display current function in modeline
 
 ;; More styles. To debug, use C-c C-s.
 ;;  - `+` means `c-basic-offset` times 1.
