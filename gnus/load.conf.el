@@ -1,5 +1,3 @@
-(vbe:require 'profile)
-
 ;; No .newsrc
 (setq gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil

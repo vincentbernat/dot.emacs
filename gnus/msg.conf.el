@@ -53,9 +53,6 @@ The epigram is inserted at point if called interactively."
 
 (setq gnus-signature-limit 12.0)	; No more than 12 lines for a signature
 
-;; Identities
-(vbe:require 'profile)
-
 ;; Set user name and email address
 (setq user-full-name "Vincent Bernat"
       user-mail-address (cond ((vbe:at 'orange) "vincent.bernat@wanadooportails.com")

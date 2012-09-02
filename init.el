@@ -3,29 +3,10 @@
   (error "Only Emacs 24 is supported. You seem to use Emacs %d"
 	 emacs-major-version))
 
-;; There are two ways to load some functionalities. The first one is
-;; to use `(vbe:require)` which is like `(require)` but does not need
-;; to alter `load-path`.
-(defun vbe:require (feature)
-  "Load FEATURE if not loaded (with added prefix).
-The appropriate prefix is added to the provided feature but the
-name is searched without prefix. For example, if FEATURE is
-\"el-get\", the loaded feature will be \"vbe:el-get\" and it will
-be searched in \"el-get.el\" in the user Emacs directory."
-  (let* ((filename (expand-file-name (symbol-name feature)
-				     user-emacs-directory))
-	 (prefix "vbe")
-	 (fullfeature (intern (format "%s:%s" prefix feature))))
-    (unless (featurep fullfeature)
-      (load filename)
-      (unless (featurep fullfeature)
-	(error "[vbe:] Required feature `%s' was not found."
-	       fullfeature)))))
-
-;; The second way is to put functionalities depending on some other
-;; file into a file `somelibrary.conf.el` which will be loaded when
-;; `somelibrary` is loaded. The system is a bit smart and if the
-;; library has hiphens in its name, it will also search into
+;; The main way to load a file is to put functionalities depending on
+;; some other file into a file `somelibrary.conf.el` which will be
+;; loaded when `somelibrary` is loaded. The system is a bit smart and
+;; if the library has hiphens in its name, it will also search into
 ;; subdirectories. This feature is inspired from Julien Danjou's emacs
 ;; configuration.
 (defun vbe:after-load (file)
@@ -62,6 +43,16 @@ substituting hyphens for slashes."
     (unless (file-directory-p dir)
       (make-directory dir t))
     dir))
+
+(defun vbe:at (where)
+  "Return `t' if the current profile is WHERE."
+  (string= (cond ((string-match (concat (regexp-quote ".p.fti.net") "$")
+			   (system-name))
+		  "orange")
+		 (t "unknown"))
+	   (cond ((symbolp where) (symbol-name where))
+		 ((stringp where) where)
+		 (t ""))))
 
 ;; Various directories
 (setq url-cache-directory (vbe:run-directory "url")

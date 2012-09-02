@@ -110,7 +110,6 @@ Use LDAP as server. Can be one LDAP server or a list of LDAP servers.
 	       (backward-delete-char-untabify 1)))
     (eudc-expand-inline)))
 
-(vbe:require 'profile)
 (when (vbe:at 'orange)
   ;; Configure LDAP server
   (require 'ldap)
