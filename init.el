@@ -59,16 +59,59 @@ substituting hyphens for slashes."
       (make-directory dir t))
     dir))
 
+;; Various directories
+(setq url-cache-directory (vbe:run-directory "url")
+      auto-save-list-file-prefix (format "%s/saves-"
+					 (vbe:run-directory "auto-save"))
+      custom-file (expand-file-name "custom.el" user-emacs-directory)
+      gnus-directory (vbe:run-directory "gnus")
+      gnus-home-directory gnus-directory)
+
 ;; Initialize el-get
 (setq el-get-dir (expand-file-name "vendor" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "el-get" el-get-dir))
 (require 'el-get)
 
-(vbe:require 'appearance)		; appearance/display related stuff
-(vbe:require 'behaviour)		; behavioral stuff
-(vbe:require 'custom)			; custom variables
-(vbe:require 'gnus)			; Ma Gnus
+;; Appearance
+(menu-bar-mode -1)			; No menu
+(tool-bar-mode -1)			; No toolbar
+(scroll-bar-mode -1)			; No scrollbar
+(blink-cursor-mode -1)			; No blinking cursor
+(show-paren-mode t)			; Display matching parenthesis ; C-M-n and C-M-p
+(setq inhibit-splash-screen t)		; No splash screen
+(line-number-mode 1)			; show line number
+(column-number-mode 1)			; show column number
+(global-hl-line-mode 1)			; highlight current line
+(mouse-avoidance-mode 'animate)		; nove the mouse away
+(require 'naquadah-theme)
 
+;; Behaviour
+(setq mouse-yank-at-point t		; Yank where the point currently is
+      mouse-1-click-follows-link nil	; Don't follow links with left click
+      make-backup-files nil)		; Don't make backups, not used in ages
+(fset 'yes-or-no-p 'y-or-n-p) ; Always use y/n prompt
+(setq use-dialog-box nil)     ; No dialog box
+(global-auto-revert-mode 1)   ; Auto revert (when no pending changes)
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
+;; Bindings
+(global-set-key (kbd "M-g") 'goto-line)
+(global-set-key (kbd "<delete>") 'delete-char)
+(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "C-x g") 'magit-status)
+
+;; Automode
+(add-to-list 'auto-mode-alist '("-MIB$" . snmpv2-mode))
+
+;; Other stuff we need
+(require 'point-stack)
+(require 'uniquify)
+(require 'ido)
+(require 'saveplace)
+(setq-default save-place t)
+
+;; Server
 (unless (string= (user-login-name) "root")
   (require 'server)
   (when (or (not server-process)
