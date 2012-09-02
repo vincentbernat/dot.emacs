@@ -9,6 +9,7 @@
 (line-number-mode 1)			; show line number
 (column-number-mode 1)			; show column number
 (global-hl-line-mode 1)			; highlight current line
+(mouse-avoidance-mode 'animate)		; nove the mouse away
 
 ;; Font stuff
 (defvar vbe:default-font "DejaVu Sans Mono-10")
