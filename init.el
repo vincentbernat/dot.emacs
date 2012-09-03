@@ -55,12 +55,9 @@ substituting hyphens for slashes."
 		 (t ""))))
 
 ;; Various directories
-(setq url-cache-directory (vbe:run-directory "url")
-      auto-save-list-file-prefix (format "%s/saves-"
+(setq auto-save-list-file-prefix (format "%s/saves-"
 					 (vbe:run-directory "auto-save"))
-      custom-file (expand-file-name "custom.el" user-emacs-directory)
-      gnus-directory (vbe:run-directory "gnus")
-      gnus-home-directory gnus-directory)
+      custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Initialize el-get
 (setq el-get-dir (expand-file-name "vendor" user-emacs-directory))

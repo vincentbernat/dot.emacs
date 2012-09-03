@@ -1,5 +1,7 @@
 ;; No .newsrc
-(setq gnus-read-newsrc-file nil
+(setq gnus-directory (vbe:run-directory "gnus")
+      gnus-home-directory gnus-directory
+      gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-startup-file (nnheader-concat gnus-home-directory "newsrc"))
 
