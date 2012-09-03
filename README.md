@@ -2,11 +2,8 @@ This configuration requires Emacs 24.x and el-get. To get el-get, you
 can either use `apt-get install el-get` or follow the instructions
 here: https://github.com/dimitri/el-get
 
-All my symbol names are prefixed with `vbe:`. Here is a list of
-important functions you may want to look at:
-
- - `vbe:require` (to load files in `~/.emacs.d`)
- - `vbe:add-package` (to add a package and execute something when loaded)
+All files are autoloaded when they are needed. They may be needed
+right at start.
 
 Feel free to explore what is done. Using the configuration as is may
 not be a good idea, but all those files are licensed under ISC
