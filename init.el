@@ -108,7 +108,6 @@ substituting hyphens for slashes."
 (require 'uniquify)
 (require 'ido)
 (require 'saveplace)
-(setq-default save-place t)
 
 ;; Server
 (unless (string= (user-login-name) "root")
