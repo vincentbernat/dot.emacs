@@ -44,7 +44,7 @@
 		(x-identity "enxio")
 		(address "bernat@enx.io")
 		(organization "ENXIO")
-		(signature "Vincent Bernat ☯ https://enx.io")))))))
+		(signature "Vincent Bernat ☯ https://enx.io"))))))
 
 (defun vbe:gnus/will-sign-message ()
   "Setup a local hook to make the article signed."
