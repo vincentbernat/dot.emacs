@@ -6,6 +6,7 @@
 	  ;; General
 	  naquadah-theme		; Theme from Julien Danjou
 	  point-stack			; Organize points into a stack
+          boxquote                      ; draw boxes
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
           rainbow-mode			; Display colors
