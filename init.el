@@ -90,7 +90,9 @@ substituting hyphens for slashes."
 (global-auto-revert-mode 1)   ; Auto revert (when no pending changes)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
-(setq next-screen-context-lines 5)	; Keep more lines when scrolling
+(setq-default indent-tabs-mode nil)   ; don't use tabs
+(setq next-screen-context-lines 5     ; Keep more lines when scrolling
+      x-stretch-cursor t)    ; stretch cursor to the width of the char
 
 ;; Bindings
 (global-set-key (kbd "M-g") 'goto-line)

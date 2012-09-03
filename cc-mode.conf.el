@@ -1,8 +1,6 @@
 ;; C stuff
 (setq c-default-style "linux"           ; default style is "linux
-      c-basic-offset 4                  ; with a 4 spaces indent
-      x-stretch-cursor t                ; stretch cursor to the width of the char (for example tab)
-      indent-tabs-mode nil)             ; don't use tabs
+      c-basic-offset 4)			; with a 4 spaces indent
 (add-hook 'c-mode-common-hook
 	  '(lambda nil (setq show-trailing-whitespace t)))
 (which-function-mode 1)			; display current function in modeline
