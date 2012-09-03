@@ -27,3 +27,4 @@ build your own Emacs configuration:
  - [Emacs Starter Kit](https://github.com/technomancy/emacs-starter-kit)
  - [Emacs Prelude](http://batsov.com/prelude/)
  - [Emacs Lisp Cookbook](http://wikemacs.org/wiki/Emacs_Lisp_Cookbook)
+ - [Julien Danjou's configuration](http://git.naquadah.org/?p=~jd/emacs.d.git;a=summary)
