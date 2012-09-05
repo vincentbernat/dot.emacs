@@ -3,7 +3,9 @@
       c-basic-offset 4)			; with a 4 spaces indent
 (add-hook 'c-mode-common-hook
 	  '(lambda nil (setq show-trailing-whitespace t)))
+
 (which-function-mode 1)			; display current function in modeline
+(require 'xcscope)
 
 ;; More styles. To debug, use C-c C-s.
 ;;  - `+` means `c-basic-offset` times 1.
