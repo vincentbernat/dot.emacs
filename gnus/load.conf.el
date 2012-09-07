@@ -20,9 +20,6 @@
 	       (nnimap-stream
 		,(cond ((vbe:at 'orange) 'ssl)
 		       (t 'tls))))
-      ;; Secondary servers
-      gnus-secondary-select-methods (cond ((vbe:at 'orange) nil)
-					  (t '((nntp "news.crans.org"))))
       message-send-mail-function 'message-send-mail-with-sendmail
       gnus-agent nil)
 			 
