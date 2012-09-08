@@ -21,6 +21,7 @@
 	  markdown-mode			; Major mode for markdown
 	  php-mode			; Major mode PHP
           yaml-mode                     ; Major mode for YAML
+          git-commit-mode               ; Mode for "git commit"
 	  ;; Gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
