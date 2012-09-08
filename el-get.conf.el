@@ -19,6 +19,7 @@
 	  lua-mode			; Major mode for lua
 	  markdown-mode			; Major mode for markdown
 	  php-mode			; Major mode PHP
+          yaml-mode                     ; Major mode for YAML
 	  ;; Gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
