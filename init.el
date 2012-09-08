@@ -101,6 +101,7 @@ substituting hyphens for slashes."
 (add-to-list 'auto-mode-alist '("-MIB$" . snmpv2-mode))
 
 ;; Other stuff we need
+(require 'autopair)
 (require 'point-stack)
 (require 'uniquify)
 (require 'ido)
