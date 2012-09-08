@@ -103,12 +103,6 @@ substituting hyphens for slashes."
 
 ;; Programming
 (defun vbe:customize-programming-language-mode ()
-  (font-lock-add-keywords
-   nil
-   '(("\\<\\(FIXME\\|HACK\\|XXX\\|TODO\\|NOTE\\)"
-      1
-      '(:box (:color "grey10" :line-width 2) :background "red" :bold t :foreground "yellow")
-      prepend)))
   (setq show-trailing-whitespace t)
   (highlight-parentheses-mode 1))
 (add-hook 'prog-mode-hook ; This is the mode perl, makefile,
