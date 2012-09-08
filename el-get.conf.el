@@ -9,6 +9,7 @@
           boxquote                      ; draw boxes
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
+          highlight-parentheses         ; Highlight parentheses surrounding the cursor
           rainbow-mode			; Display colors
 	  dtrt-indent			; Autodetect indentation
 	  magit				; Git stuff, must-have!
