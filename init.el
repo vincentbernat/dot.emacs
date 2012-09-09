@@ -74,7 +74,7 @@ substituting hyphens for slashes."
 (line-number-mode 1)			; show line number
 (column-number-mode 1)			; show column number
 (global-hl-line-mode 1)			; highlight current line
-(mouse-avoidance-mode 'animate)		; nove the mouse away
+(mouse-avoidance-mode 'jump)		; move the mouse away
 (set-default 'indicate-buffer-boundaries '((up . nil) (down . nil) (t . left)))
 (require 'naquadah-theme)
 
