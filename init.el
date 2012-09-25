@@ -117,6 +117,7 @@ substituting hyphens for slashes."
 (require 'uniquify)
 (require 'ido)
 (require 'saveplace)
+(require 'multiple-cursors)
 
 ;; Server
 (unless (string= (user-login-name) "root")

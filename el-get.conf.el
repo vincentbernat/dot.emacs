@@ -7,6 +7,7 @@
 	  naquadah-theme		; Theme from Julien Danjou
 	  point-stack			; Organize points into a stack
           boxquote                      ; draw boxes
+          multiple-cursors              ; multiple cursors
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
