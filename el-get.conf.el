@@ -22,6 +22,7 @@
 	  php-mode			; Major mode PHP
           yaml-mode                     ; Major mode for YAML
           git-commit-mode               ; Mode for "git commit"
+          zencoding-mode                ; Mode to expand CSS tags to HTML
 	  ;; Gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
