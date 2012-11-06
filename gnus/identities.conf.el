@@ -4,19 +4,16 @@
 (ad-activate 'gnus-summary-followup)
 ;; Posting styles definition
 (setq gnus-posting-styles
-      (cond ((vbe:at 'orange)
+      (cond ((vbe:at 'dailymotion)
 	     '((".*"
 		(x-identity "default")
 		(name "Vincent Bernat")
-		(address "vincent.bernat@wanadooportails.com")
-		(organization "OF/DMGP/Portail/DOP/Hébex/Bagnolet")
+		(address "vincent.bernat@dailymotion.com")
+		(organization "DailyMotion")
 		(signature (mapconcat 'identity
 				      '("Vincent Bernat"
 					""
-					"Société Freelance.com"
-					"pour Orange ☯ OF/DMGP/Portail/DOP/Hébex/Bagnolet"
-					"✆ +33 1 58 96 62 69"
-					"✉ vbernat.ext@orange.com")
+					"✉ vincent.bernat@dailymotion.com")
 				      "\n")))))
 	    (t
 	     '((".*"

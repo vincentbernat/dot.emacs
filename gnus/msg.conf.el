@@ -55,7 +55,7 @@ The epigram is inserted at point if called interactively."
 
 ;; Set user name and email address
 (setq user-full-name "Vincent Bernat"
-      user-mail-address (cond ((vbe:at 'orange) "vincent.bernat@wanadooportails.com")
+      user-mail-address (cond ((vbe:at 'dailymotion) "vincent.bernat@dailymotion.com")
 			      (t "bernat@luffy.cx")))
 (setq vbe:mail-addresses
       (mapcar '(lambda (name)

@@ -12,22 +12,15 @@
 (setq gnus-select-method
       ;; Primary server: IMAP
       `(nnimap ""
-	       (nnimap-address
-		,(cond ((vbe:at 'orange) "depotmail.infra.b1.p.fti.net")
-		       (t "imap.luffy.cx")))
+	       (nnimap-address "imap.luffy.cx")
 	       (nnimap-authenticator login)
 	       (nnir-search-engine imap)
-	       (nnimap-stream
-		,(cond ((vbe:at 'orange) 'ssl)
-		       (t 'tls))))
+	       (nnimap-stream tls))
       message-send-mail-function 'message-send-mail-with-sendmail
       gnus-agent nil)
-			 
 
 ;; How to archive sent messages
-(setq gnus-message-archive-group '((unless (message-news-p)
-				     (cond ((vbe:at 'orange) "INBOX.Sent")
-					   (t "Sent"))))
+(setq gnus-message-archive-group '((unless (message-news-p) "Sent"))
       gnus-message-archive-method "nnimap:"
 
 ;; Where to store local mails (drafts, ...)
