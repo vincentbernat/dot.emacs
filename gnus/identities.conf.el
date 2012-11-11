@@ -11,9 +11,8 @@
 		(address "vincent.bernat@dailymotion.com")
 		(organization "DailyMotion")
 		(signature (mapconcat 'identity
-				      '("Vincent Bernat"
-					""
-					"✉ vincent.bernat@dailymotion.com")
+				      '("Vincent Bernat | vincent.bernat@dailymotion.com"
+					"Dailymotion | 140 Boulevard Malesherbes | 75017 Paris | France")
 				      "\n")))))
 	    (t
 	     '((".*"
