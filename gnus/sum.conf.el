@@ -87,7 +87,7 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 
 
 (setq nnmail-extra-headers
-      '(To Cc Newsgroups Content-Type))
+      '(To Cc Newsgroups Content-Type Thread-Topic Thread-Index))
 
 (setq gnus-thread-hide-subtree nil	; expand threads
       gnus-summary-make-false-root 'empty ; add an empty node when needing a root node
