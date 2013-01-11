@@ -22,6 +22,7 @@
 	  markdown-mode			; Major mode for markdown
 	  php-mode			; Major mode PHP
           yaml-mode                     ; Major mode for YAML
+          scala-mode                    ; Major mode for Scala
           git-commit-mode               ; Mode for "git commit"
           zencoding-mode                ; Mode to expand CSS tags to HTML
 	  ;; Gnus and other stuff
