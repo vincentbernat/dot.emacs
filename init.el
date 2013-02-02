@@ -110,7 +110,8 @@ substituting hyphens for slashes."
 
 ;; Programming
 (defun vbe:customize-programming-language-mode ()
-  (setq show-trailing-whitespace t)
+  (whitespace-mode 1)
+  (fci-mode 1)
   (highlight-parentheses-mode 1))
 (add-hook 'prog-mode-hook ; This is the mode perl, makefile,
                           ; lisp-mode, scheme-mode, emacs-lisp-mode,
@@ -119,6 +120,7 @@ substituting hyphens for slashes."
           'vbe:customize-programming-language-mode)
 
 ;; Other stuff we need
+(require 'whitespace)
 (require 'autopair)
 (require 'point-stack)
 (require 'uniquify)
