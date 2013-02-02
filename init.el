@@ -120,7 +120,6 @@ substituting hyphens for slashes."
           'vbe:customize-programming-language-mode)
 
 ;; Other stuff we need
-(require 'whitespace)
 (require 'autopair)
 (require 'point-stack)
 (require 'uniquify)
