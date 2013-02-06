@@ -88,7 +88,6 @@ substituting hyphens for slashes."
       make-backup-files nil)		; Don't make backups, not used in ages
 (fset 'yes-or-no-p 'y-or-n-p) ; Always use y/n prompt
 (setq use-dialog-box nil)     ; No dialog box
-(global-auto-revert-mode 1)   ; Auto revert (when no pending changes)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (setq-default indent-tabs-mode nil)   ; don't use tabs
