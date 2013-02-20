@@ -1,6 +1,13 @@
 ;; el-get configuration
 (setq el-get-is-lazy t)
 
+(setq el-get-sources
+      '((:name actionscript-mode
+               :type github
+               :username "austinhaas"
+               :after (progn
+                        (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))))
+
 (el-get nil
         '(
 	  ;; General
@@ -26,6 +33,7 @@
           scala-mode                    ; Major mode for Scala
           git-commit-mode               ; Mode for "git commit"
           zencoding-mode                ; Mode to expand CSS tags to HTML
+          actionscript-mode             ; Mode for actionscript
 	  ;; Gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
