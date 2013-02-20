@@ -2,10 +2,13 @@
 (setq el-get-is-lazy t)
 
 (setq el-get-sources
-      '((:name actionscript-mode
-               :type github
-               :username "austinhaas"
+      '((:name php-mode
                :after (progn
+                        (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
+	(:name actionscript-mode
+	       :type github
+	       :username "austinhaas"
+	       :after (progn
                         (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))))
 
 (el-get nil
