@@ -4,8 +4,8 @@
 					; records, don't create new
 					; ones automatically
 
-(setq bbdb-message-pop-up nil	      ; Display BBDB record but not always
-      bbdb-pop-up-window-size 1   ; Maximum size of the BBDB popup
+(setq bbdb-mua-pop-up nil	      ; Display BBDB record but not always
+      bbdb-mua-pop-up-window-size 2   ; Maximum size of the BBDB popup
       ;; When using ':' in summary, ask to create the record if it
       ;; does not exist
       bbdb-mua-update-interactive-p '(query . query)
