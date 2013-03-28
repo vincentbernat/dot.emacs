@@ -51,3 +51,31 @@ substituting hyphens for slashes."
 	   (cond ((symbolp where) (symbol-name where))
 		 ((stringp where) where)
 		 (t ""))))
+
+;; http://stackoverflow.com/questions/6532898/is-there-a-apply-function-to-region-lines-in-emacs
+(defun vbe:apply-function-to-region-lines (fn)
+  (interactive "aFunction to apply to lines in region: ")
+  (save-excursion
+    (goto-char (region-end))
+    (let ((end-marker (copy-marker (point-marker)))
+          next-line-marker)
+      (goto-char (region-beginning))
+      (if (not (bolp))
+          (forward-line 1))
+      (setq next-line-marker (point-marker))
+      (while (< next-line-marker end-marker)
+        (let ((start nil)
+              (end nil))
+          (goto-char next-line-marker)
+          (save-excursion
+            (setq start (point))
+            (forward-line 1)
+            (set-marker next-line-marker (point))
+            (setq end (point)))
+          (save-excursion
+            (let ((mark-active nil))
+              (narrow-to-region start end)
+              (funcall fn)
+              (widen)))))
+      (set-marker end-marker nil)
+      (set-marker next-line-marker nil))))
