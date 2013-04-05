@@ -64,3 +64,5 @@ substituting hyphens for slashes."
              (buffer-substring-no-properties beg end))))
       (kill-region beg end)
       (insert resulting-text))))
+
+(provide 'vbe/utils)

@@ -3,7 +3,23 @@
   (error "Only Emacs 24 is supported. You seem to use Emacs %d"
 	 emacs-major-version))
 
-(require 'vbe-utils)
+(defun vbe/require (feature)
+  "Load FEATURE if not loaded (with added prefix).
+The appropriate prefix is added to the provided feature but the
+name is searched without prefix. For example, if FEATURE is
+\"el-get\", the loaded feature will be \"vbe/el-get\" and it will
+be searched in \"el-get.el\" in the user Emacs directory."
+  (let* ((prefix "vbe")
+	 (filename (expand-file-name (concat prefix "-" (symbol-name feature))
+				     user-emacs-directory))
+	 (fullfeature (intern (format "%s/%s" prefix feature))))
+    (unless (featurep fullfeature)
+      (load filename)
+      (unless (featurep fullfeature)
+	(error "[vbe/] Required feature `%s' was not found."
+	       fullfeature)))))
+
+(vbe/require 'utils)
 
 ;; Various directories
 (setq auto-save-list-file-prefix (format "%s/saves-"
