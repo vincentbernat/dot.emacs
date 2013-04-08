@@ -18,6 +18,7 @@
 	  point-stack			; Organize points into a stack
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
+          ace-jump-mode                 ; fast cursor movement
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
