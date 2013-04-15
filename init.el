@@ -42,6 +42,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (column-number-mode 1)			; show column number
 (global-hl-line-mode 1)			; highlight current line
 (mouse-avoidance-mode 'jump)		; move the mouse away
+(setq jit-lock-defer-time 0.1)          ; speed up scrolling in large buffers
 (set-default 'indicate-buffer-boundaries '((up . nil) (down . nil) (t . left)))
 (require 'naquadah-theme)
 
