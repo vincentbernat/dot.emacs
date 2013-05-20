@@ -9,7 +9,7 @@
 		(x-identity "default")
 		(name "Vincent Bernat")
 		(address "vincent.bernat@dailymotion.com")
-		(organization "DailyMotion")
+		(organization "Dailymotion")
 		(signature (mapconcat 'identity
 				      '("Vincent Bernat | vincent.bernat@dailymotion.com"
 					"Dailymotion | 140 Boulevard Malesherbes | 75017 Paris | France")
