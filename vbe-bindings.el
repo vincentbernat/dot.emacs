@@ -36,3 +36,5 @@ point reaches the beginning or end of the buffer, stop there."
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
                 'vbe/smarter-move-beginning-of-line)
+
+(provide 'vbe/bindings)
