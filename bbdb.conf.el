@@ -9,6 +9,7 @@
       ;; When using ':' in summary, ask to create the record if it
       ;; does not exist
       bbdb-mua-update-interactive-p '(query . query)
+      bbdb-update-records-p 'update
       bbdb-phone-style nil)	      ; Don't assume a phone style
 
 ;; Add notes when updating a record
