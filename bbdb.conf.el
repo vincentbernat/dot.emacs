@@ -1,6 +1,6 @@
 (bbdb-initialize 'gnus 'message)
 (bbdb-insinuate-gnus)
-(bbdb-mua-auto-update-init nil 'search) ; Only update existing
+(bbdb-mua-auto-update-init nil 'update) ; Only update existing
 					; records, don't create new
 					; ones automatically
 
@@ -9,7 +9,6 @@
       ;; When using ':' in summary, ask to create the record if it
       ;; does not exist
       bbdb-mua-update-interactive-p '(query . query)
-      bbdb-update-records-p 'update
       bbdb-phone-style nil)	      ; Don't assume a phone style
 
 ;; Add notes when updating a record
@@ -37,6 +36,20 @@
          (".*" mailer identity nil))))
 ;; Start clean
 (setq bbdb-auto-notes-rules-expanded nil)
+
+;; Auto create some records otherwise, update existing records
+(setq bbdb-update-records-p
+      (lambda ()
+  (let ((rest '(("From" . ".*@dailymotion.com")))
+        done elt)
+    (if (eq rest t)
+        (setq done t)
+      (while (and (setq elt (pop rest)) (not done))
+        (dolist (header (if (stringp (car elt)) (list (car elt)) (car elt)))
+          (if (bbdb-message-header-re header (cdr elt))
+              (setq done t)))))
+    (if invert (setq done (not done)))
+    (if done 'create 'update))))
 
 (defun vbe:gnus/bbdb-subject-canonicalize (subject)
   "Canonicalize SUBJECT."
