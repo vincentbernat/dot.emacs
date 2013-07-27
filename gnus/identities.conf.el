@@ -36,6 +36,15 @@
 		(eval (vbe:gnus/will-sign-message))
 		(address "bernat@debian.org")
 		(organization "Debian"))
+               ((vbe:mail-related-to '("*@dailymotion.com"))
+                (x-identity "dailymotion")
+		(name "Vincent Bernat")
+		(address "vincent.bernat@dailymotion.com")
+		(organization "Dailymotion")
+		(signature (mapconcat 'identity
+				      '("Vincent Bernat | vincent.bernat@dailymotion.com"
+					"Dailymotion | 140 Boulevard Malesherbes | 75017 Paris | France")
+				      "\n")))
 	       ((vbe:mail-related-to '("*@enxio.fr" "*@enx.io"))
 		(x-identity "enxio")
 		(address "bernat@enx.io")
