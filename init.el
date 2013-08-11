@@ -69,7 +69,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 ;; Programming
 (defun vbe:customize-programming-language-mode ()
   (whitespace-mode 1)
-  (fci-mode 1)
+  (fci-mode 0)
   (hs-minor-mode 1)
   (highlight-parentheses-mode 1))
 (add-hook 'prog-mode-hook ; This is the mode perl, makefile,
