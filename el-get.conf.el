@@ -35,6 +35,7 @@
 	  php-mode			; Major mode PHP
           yaml-mode                     ; Major mode for YAML
           scala-mode                    ; Major mode for Scala
+          go-mode                       ; Major mode for Go
           git-commit-mode               ; Mode for "git commit"
           zencoding-mode                ; Mode to expand CSS tags to HTML
           actionscript-mode             ; Mode for actionscript
