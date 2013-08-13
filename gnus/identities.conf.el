@@ -31,7 +31,9 @@
 		(x-identity "crans")
 		(address "bernat@crans.org"))
 	       ((vbe:mail-related-to '("*@debian.org"
-				       "*@*.debian.org"))
+				       "*@*.debian.org"
+                                       "*@debconf.org"
+                                       "*@*.debconf.org"))
 		(x-identity "debian")
 		(eval (vbe:gnus/will-sign-message))
 		(address "bernat@debian.org")
