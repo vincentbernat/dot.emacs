@@ -20,7 +20,8 @@
       gnus-agent nil)
 
 ;; How to archive sent messages
-(setq gnus-message-archive-group '((unless (message-news-p) "Sent"))
+(setq gnus-message-archive-group '((cond ((message-news-p) nil)
+                                         (t "Sent")))
       gnus-message-archive-method "nnimap:"
 
 ;; Where to store local mails (drafts, ...)

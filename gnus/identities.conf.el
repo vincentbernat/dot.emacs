@@ -43,6 +43,7 @@
 		(name "Vincent Bernat")
 		(address "vincent.bernat@dailymotion.com")
 		(organization "Dailymotion")
+                (gcc "nnimap:Boulot.Dailymotion.Sent")
 		(signature (mapconcat 'identity
 				      '("Vincent Bernat | vincent.bernat@dailymotion.com"
 					"Dailymotion | 140 Boulevard Malesherbes | 75017 Paris | France")
