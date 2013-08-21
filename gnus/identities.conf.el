@@ -38,6 +38,11 @@
 		(eval (vbe:gnus/will-sign-message))
 		(address "bernat@debian.org")
 		(organization "Debian"))
+               ((header "subject" "RFS: ")
+                (signature (mapconcat 'identity
+                                      '("Debian package sponsoring guidelines:"
+                                        " http://vincent.bernat.im/en/debian-package-sponsoring.html")
+                                      "\n")))
                ((vbe:mail-related-to '("*@dailymotion.com"))
                 (x-identity "dailymotion")
 		(name "Vincent Bernat")
