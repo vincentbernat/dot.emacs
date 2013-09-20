@@ -5,6 +5,10 @@
       '((:name php-mode
                :after (progn
                         (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
+        (:name systemtap-mode
+               :description "Emacs mode for SystemTap."
+               :type github
+               :pkgname "ruediger/systemtap-mode")
 	(:name actionscript-mode
 	       :type github
 	       :username "austinhaas"
@@ -39,6 +43,7 @@
           git-commit-mode               ; Mode for "git commit"
           zencoding-mode                ; Mode to expand CSS tags to HTML
           actionscript-mode             ; Mode for actionscript
+          systemtap-mode                ; Mode for systemtap
 	  ;; Gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
