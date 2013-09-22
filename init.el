@@ -58,6 +58,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (setq-default indent-tabs-mode nil)   ; don't use tabs
 (setq next-screen-context-lines 5     ; Keep more lines when scrolling
       x-stretch-cursor t)    ; stretch cursor to the width of the char
+(require 'auto-complete)
 
 ;; Bindings
 (vbe/require 'bindings)
