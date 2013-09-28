@@ -1,4 +1,6 @@
 (add-to-list 'ac-dictionary-directories (vbe:run-directory "ac-dict"))
+(setq ac-comphist-file (expand-file-name "run/ac-comphist.dat"
+                                         user-emacs-directory))
 (require 'auto-complete-config)
 (ac-config-default)
 
