@@ -9,16 +9,32 @@
                :description "Emacs mode for SystemTap."
                :type github
                :pkgname "ruediger/systemtap-mode")
+	(:name actionscript-mode
+	       :type github
+	       :username "austinhaas"
+	       :after (progn
+                        (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))
+
         (:name flx
                :description "Fuzzy matching with good sorting in ido"
                :type github
                :pkgname "lewang/flx"
                :features flx-ido)
-	(:name actionscript-mode
-	       :type github
-	       :username "austinhaas"
-	       :after (progn
-                        (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))))
+        (:name s
+               :description "The long lost Emacs string manipulation library."
+               :type github
+               :pkgname "magnars/s.el"
+               :features s)
+        (:name dash
+               :description "A modern list api for Emacs. No 'cl required."
+               :type github
+               :pkgname "magnars/dash.el")
+        (:name projectile
+               :description "Project navigation and management library for Emacs"
+               :type github
+               :pkgname "bbatsov/projectile"
+               :depends (dash s)
+               :features projectile)))
 
 (el-get nil
         '(
@@ -30,6 +46,7 @@
           ace-jump-mode                 ; fast cursor movement
           auto-complete                 ; universal autocompletion
           flx                           ; fuzzy matching for ido
+          projectile                    ; handling of projects
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
