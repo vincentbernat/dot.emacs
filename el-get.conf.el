@@ -9,6 +9,11 @@
                :description "Emacs mode for SystemTap."
                :type github
                :pkgname "ruediger/systemtap-mode")
+        (:name flx
+               :description "Fuzzy matching with good sorting in ido"
+               :type github
+               :pkgname "lewang/flx"
+               :features flx-ido)
 	(:name actionscript-mode
 	       :type github
 	       :username "austinhaas"
@@ -24,6 +29,7 @@
           multiple-cursors              ; multiple cursors
           ace-jump-mode                 ; fast cursor movement
           auto-complete                 ; universal autocompletion
+          flx                           ; fuzzy matching for ido
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
