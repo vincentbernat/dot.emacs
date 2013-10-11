@@ -15,6 +15,11 @@
 	       :after (progn
                         (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))
 
+        (:name ido-vertical-mode
+               :type github
+               :pkgname "rson/ido-vertical-mode.el"
+               :description "makes ido-mode display vertically"
+               :features ido-vertical-mode)
         (:name flx
                :description "Fuzzy matching with good sorting in ido"
                :type github
@@ -46,6 +51,7 @@
           ace-jump-mode                 ; fast cursor movement
           auto-complete                 ; universal autocompletion
           flx                           ; fuzzy matching for ido
+          ido-vertical-mode             ; vertical mode for ido
           projectile                    ; handling of projects
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
