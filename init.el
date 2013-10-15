@@ -66,6 +66,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 ;; Automode
 (add-to-list 'auto-mode-alist '("-MIB$" . snmpv2-mode))
 (add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 ;; Programming
 (defun vbe:customize-programming-language-mode ()
