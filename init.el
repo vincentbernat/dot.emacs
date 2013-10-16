@@ -3,6 +3,10 @@
   (error "Only Emacs 24 is supported. You seem to use Emacs %d"
 	 emacs-major-version))
 
+;; I don't like to use require to load my own configuration files
+;; because it is not possible to limit its use to a given directory. I
+;; don't want to mess with the load path and I don't want to load
+;; anything else than configuration file. Hence this custom function.
 (defun vbe/require (feature)
   "Load FEATURE if not loaded (with added prefix).
 The appropriate prefix is added to the provided feature but the
