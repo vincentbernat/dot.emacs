@@ -15,6 +15,12 @@
 	       :after (progn
                         (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))
 
+        (:name znc
+               :type github
+               :pkgname "sshirokov/ZNC.el"
+               :description "ERC and ZNC interface"
+               :features znc)
+
         (:name ido-vertical-mode
                :type github
                :pkgname "rson/ido-vertical-mode.el"
@@ -78,6 +84,8 @@
 	  bbdb				; Big brother database
 	  nognus			; Gnus
 	  gnus-identities		; Manipulate Gnus identities
+          ;; Misc
+          znc                           ; znc
 	  ))
 
 (require 'scala-mode-auto)
