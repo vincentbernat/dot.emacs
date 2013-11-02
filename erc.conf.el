@@ -5,5 +5,9 @@
 
 ;; Enable smileys
 (add-to-list 'erc-modules 'smiley)
-(erc-update-modules)
 
+;; Truncate too long buffers
+(add-to-list 'erc-modules 'truncate)
+(setq erc-truncate-buffer-on-save t)
+
+(erc-update-modules)
