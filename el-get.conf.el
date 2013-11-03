@@ -20,6 +20,29 @@
                :pkgname "sshirokov/ZNC.el"
                :description "ERC and ZNC interface"
                :features znc)
+        (:name gist
+               :depends (gh))
+        (:name gh
+               :type github
+               :pkgname "sigma/gh.el"
+               :depends (pcache logito request)
+               :description "Github API client libraries"
+               :website "http://github.com/sigma/gh.el")
+        (:name pcache
+               :type github
+               :pkgname "sigma/pcache"
+               :description "persistent caching for Emacs"
+               :website "http://github.com/sigma/pcache")
+        (:name logito
+               :type github
+               :pkgname "sigma/logito"
+               :description "logging library for Emacs"
+               :website "http://github.com/sigma/logito")
+        (:name request
+               :description "Easy HTTP request for Emacs Lisp"
+               :type github
+               :submodule nil
+               :pkgname "tkf/emacs-request")
 
         (:name ido-vertical-mode
                :type github
@@ -86,6 +109,7 @@
 	  gnus-identities		; Manipulate Gnus identities
           ;; Misc
           znc                           ; znc
+          gist                          ; gist integration
 	  ))
 
 (require 'scala-mode-auto)
