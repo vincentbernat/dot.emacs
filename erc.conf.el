@@ -10,4 +10,8 @@
 (add-to-list 'erc-modules 'truncate)
 (setq erc-truncate-buffer-on-save t)
 
+;; Use static filling
+(setq erc-fill-function 'erc-fill-static
+      erc-fill-static-center 16)
+
 (erc-update-modules)
