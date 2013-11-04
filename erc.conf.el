@@ -3,6 +3,9 @@
 ;; Don't track those changes.
 (setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT"))
 
+;; Don't reconnect automatically
+(setq erc-server-auto-reconnect nil)
+
 ;; Enable smileys
 (add-to-list 'erc-modules 'smiley)
 
