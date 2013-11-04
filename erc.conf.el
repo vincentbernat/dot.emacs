@@ -14,4 +14,7 @@
 (setq erc-fill-function 'erc-fill-static
       erc-fill-static-center 16)
 
+;; Enable keep-place module to not move the point
+(add-to-list 'erc-modules 'keep-place)
+
 (erc-update-modules)
