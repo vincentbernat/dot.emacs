@@ -41,4 +41,38 @@
      (when (not (erc-server-process-alive))
        (kill-buffer)))))
 
+;; ZNC will replay a buffer and prefix each message with a
+;; timestamp. Let's extract this timestamp and redefine current-time
+;; to make them appear as regular timestamp. We use an advice to be
+;; able to locally define `current-time` function.
+(defadvice erc-display-line-1 (around vbe/erc-display-line-1 first)
+  "Extract timestamp beginning a message and display it like a regular timestamp.
+
+For this advice to work, the timestamp should be `[TTxxxxxxx]'
+where `xxxxxxx' is the number of seconds since epoch."
+  (save-match-data
+    (let ((orig-string (ad-get-arg 0)))
+      (if (string-match "^\\s-*\\S-+ \\[TT\\([0-9]+\\)\\] " orig-string)
+          (let ((seconds (string-to-number (substring orig-string
+                                                      (match-beginning 1)
+                                                      (match-end 1))))
+                (start (- (match-beginning 1) 3))
+                (end (+ (match-end 1) 2)))
+            (message "%s %s" orig-string seconds)
+            (ad-set-arg 0 (concat (substring orig-string 0 start)
+                                  (substring orig-string end)))
+            (let (orig-current-time)
+              (fset 'orig-current-time (symbol-function 'current-time))
+              (fset 'current-time (lambda ()
+                                    (list (lsh seconds -16)
+                                          (logand seconds (- (lsh 1 16) 1))
+                                          0
+                                          0)))
+              (message "%s" (current-time))
+              (unwind-protect
+                  ad-do-it
+                (fset 'current-time (symbol-function 'orig-current-time)))))
+        ad-do-it))))
+(ad-activate 'erc-display-line-1)
+
 (erc-update-modules)
