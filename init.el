@@ -91,6 +91,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (require 'ido)
 (require 'saveplace)
 (require 'multiple-cursors)
+(require 'midnight)               ; clean up buffers from time to time
 
 ;; Server
 (unless (string= (user-login-name) "root")
