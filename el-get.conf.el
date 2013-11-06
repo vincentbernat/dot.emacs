@@ -82,6 +82,7 @@
           flx                           ; fuzzy matching for ido
           ido-vertical-mode             ; vertical mode for ido
           projectile                    ; handling of projects
+          expand-region                 ; smartly expand region
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
