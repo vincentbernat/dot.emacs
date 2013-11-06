@@ -53,8 +53,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 ;; Behaviour
 (setq mouse-yank-at-point t		; Yank where the point currently is
       x-select-enable-primary t         ; Yank use the primary selection if available
-      mouse-1-click-follows-link nil	; Don't follow links with left click
-      make-backup-files nil)		; Don't make backups, not used in ages
+      mouse-1-click-follows-link nil)	; Don't follow links with left click
 (fset 'yes-or-no-p 'y-or-n-p) ; Always use y/n prompt
 (setq use-dialog-box nil)     ; No dialog box
 (put 'downcase-region 'disabled nil)
