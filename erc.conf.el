@@ -33,4 +33,12 @@
 ;; Enable keep-place module to not move the point
 (add-to-list 'erc-modules 'keep-place)
 
+(defun vbe/erc-clean-closed ()
+  "Kill any buffer whose server is not alive"
+  (interactive)
+  (erc-buffer-list
+   (lambda ()
+     (when (not (erc-server-process-alive))
+       (kill-buffer)))))
+
 (erc-update-modules)
