@@ -89,7 +89,6 @@
 	  dtrt-indent			; Autodetect indentation
 	  magit				; Git stuff, must-have!
 	  xcscope			; cscope interface (etags on steroids)
-          fill-column-indicator         ; show fill column
 	  ;; Modes
 	  auctex			; LaTeX mode
 	  coffee-mode			; Major mode for coffeescript
