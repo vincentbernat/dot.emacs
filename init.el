@@ -7,7 +7,7 @@
 ;; because it is not possible to limit its use to a given directory. I
 ;; don't want to mess with the load path and I don't want to load
 ;; anything else than configuration file. Hence this custom function.
-(defun vbe/require (feature)
+(defun vbe:require (feature)
   "Load FEATURE if not loaded (with added prefix).
 The appropriate prefix is added to the provided feature but the
 name is searched without prefix. For example, if FEATURE is
@@ -23,7 +23,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 	(error "[vbe/] Required feature `%s' was not found."
 	       fullfeature)))))
 
-(vbe/require 'utils)
+(vbe:require 'utils)
 
 ;; Various directories
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -64,7 +64,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (require 'auto-complete)
 
 ;; Bindings
-(vbe/require 'bindings)
+(vbe:require 'bindings)
 
 ;; Automode
 (add-to-list 'auto-mode-alist '("-MIB$" . snmpv2-mode))

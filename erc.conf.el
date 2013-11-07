@@ -17,7 +17,7 @@
 (setq erc-fill-function 'erc-fill-static)
 (make-variable-buffer-local 'erc-fill-column)
 (make-variable-buffer-local 'erc-fill-static-center)
-(defun vbe/erc-configure-fill ()
+(defun vbe:erc-configure-fill ()
   (save-excursion
     (walk-windows
      (lambda (w)
@@ -28,12 +28,12 @@
                   (nick-width (max (/ width 4) 15)))
              (setq erc-fill-column (- width 4)
                    erc-fill-static-center nick-width))))))))
-(add-hook 'window-configuration-change-hook 'vbe/erc-configure-fill)
+(add-hook 'window-configuration-change-hook 'vbe:erc-configure-fill)
 
 ;; Enable keep-place module to not move the point
 (add-to-list 'erc-modules 'keep-place)
 
-(defun vbe/erc-clean-closed ()
+(defun vbe:erc-clean-closed ()
   "Kill any buffer whose server is not alive"
   (interactive)
   (erc-buffer-list
@@ -45,7 +45,7 @@
 ;; timestamp. Let's extract this timestamp and redefine current-time
 ;; to make them appear as regular timestamp. We use an advice to be
 ;; able to locally define `current-time` function.
-(defadvice erc-display-line-1 (around vbe/erc-display-line-1 first)
+(defadvice erc-display-line-1 (around vbe:erc-display-line-1 first)
   "Extract timestamp beginning a message and display it like a regular timestamp.
 
 For this advice to work, the timestamp should be `[TTxxxxxxx]'
