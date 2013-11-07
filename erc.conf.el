@@ -1,10 +1,14 @@
 ;; ERC configuration
 
-;; Don't track those changes.
-(setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT"))
-
-;; Don't reconnect automatically
-(setq erc-server-auto-reconnect nil)
+(setq
+ ;; Don't track those changes.
+ erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT")
+ ;; Don't reconnect automatically
+ erc-server-auto-reconnect nil
+ ;; When opening a new buffer, bury it
+ erc-join-buffer 'bury
+ ;; When someone query me, bury it too
+ erc-auto-query 'bury)
 
 ;; Enable smileys
 (add-to-list 'erc-modules 'smiley)
