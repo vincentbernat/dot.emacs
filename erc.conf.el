@@ -11,6 +11,12 @@
  ;; When someone query me, bury it too
  erc-auto-query 'bury)
 
+;; A query buffer is "urgent"
+(defadvice erc-track-find-face (around vbe:erc-track-find-face-promote-query activate)
+  (if (erc-query-buffer-p)
+      (setq ad-return-value (intern "erc-current-nick-face"))
+    ad-do-it))
+
 ;; Enable smileys
 (add-to-list 'erc-modules 'smiley)
 
