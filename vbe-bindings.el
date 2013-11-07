@@ -4,6 +4,7 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c j") 'ace-jump-mode)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-unset-key "\C-x\C-c")           ; Too easy to hit by
                                         ; accident. Never used. Use
                                         ; kill-emacs directly
