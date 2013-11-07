@@ -19,20 +19,8 @@
 
 ;; Use static filling
 (setq erc-fill-function 'erc-fill-static)
-(make-variable-buffer-local 'erc-fill-column)
-(make-variable-buffer-local 'erc-fill-static-center)
-(defun vbe:erc-configure-fill ()
-  (save-excursion
-    (walk-windows
-     (lambda (w)
-       (let ((buffer (window-buffer w)))
-         (set-buffer buffer)
-         (when (eq major-mode 'erc-mode)
-           (let* ((width (max 50 (min (window-width w) 100)))
-                  (nick-width (max (/ width 4) 15)))
-             (setq erc-fill-column (- width 4)
-                   erc-fill-static-center nick-width))))))))
-(add-hook 'window-configuration-change-hook 'vbe:erc-configure-fill)
+(setq erc-fill-column 90)
+(setq erc-fill-static-center 24)
 
 ;; Enable keep-place module to not move the point
 (add-to-list 'erc-modules 'keep-place)
