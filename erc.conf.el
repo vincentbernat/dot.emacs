@@ -58,7 +58,6 @@ where `xxxxxxx' is the number of seconds since epoch."
                                                       (match-end 1))))
                 (start (- (match-beginning 1) 3))
                 (end (+ (match-end 1) 2)))
-            (message "%s %s" orig-string seconds)
             (ad-set-arg 0 (concat (substring orig-string 0 start)
                                   (substring orig-string end)))
             (let (orig-current-time)
@@ -68,7 +67,6 @@ where `xxxxxxx' is the number of seconds since epoch."
                                           (logand seconds (- (lsh 1 16) 1))
                                           0
                                           0)))
-              (message "%s" (current-time))
               (unwind-protect
                   ad-do-it
                 (fset 'current-time (symbol-function 'orig-current-time)))))
