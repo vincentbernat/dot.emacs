@@ -81,6 +81,7 @@
           auto-complete                 ; universal autocompletion
           flx                           ; fuzzy matching for ido
           ido-vertical-mode             ; vertical mode for ido
+          smex                          ; IDO for M-x
           projectile                    ; handling of projects
           expand-region                 ; smartly expand region
 	  ;; Programming

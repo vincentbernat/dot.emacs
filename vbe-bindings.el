@@ -9,6 +9,8 @@
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-unset-key "\C-x\C-c")           ; Too easy to hit by
                                         ; accident. Never used. Use
                                         ; kill-emacs directly
