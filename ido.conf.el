@@ -1,6 +1,7 @@
 ;; IDO mode everywhere
 (require 'flx-ido)
 (require 'ido-vertical-mode)
+(require 'recentf)
 (setq ido-enable-flex-matching t        ; IDO flex matching
       ido-everywhere t                  ; use IDO whenever possible
       ido-use-virtual-buffers t         ; use closed buffers as well
