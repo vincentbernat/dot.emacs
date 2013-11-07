@@ -1,3 +1,11 @@
+(defun vbe:run-directory (name)
+  "Return a directory for runtime files. Create it if it does not exist."
+  (let ((dir (expand-file-name (format "run/%s" name)
+			       user-emacs-directory)))
+    (unless (file-directory-p dir)
+      (make-directory dir t))
+    dir))
+
 ;; The main way to load a file is to put functionalities depending on
 ;; some other file into a file `somelibrary.conf.el` which will be
 ;; loaded when `somelibrary` is loaded. The system is a bit smart and
@@ -30,14 +38,6 @@ substituting hyphens for slashes."
 (mapc '(lambda (f) (vbe:after-load (symbol-name f))) features)
 ;; Load future features
 (add-hook 'after-load-functions 'vbe:after-load)
-
-(defun vbe:run-directory (name)
-  "Return a directory for runtime files. Create it if it does not exist."
-  (let ((dir (expand-file-name (format "run/%s" name)
-			       user-emacs-directory)))
-    (unless (file-directory-p dir)
-      (make-directory dir t))
-    dir))
 
 (defun vbe:at (where)
   "Return `t' if the current profile is WHERE."

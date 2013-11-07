@@ -26,9 +26,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (vbe/require 'utils)
 
 ;; Various directories
-(setq auto-save-list-file-prefix (format "%s/saves-"
-					 (vbe:run-directory "auto-save"))
-      custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Initialize el-get
 (setq el-get-dir (expand-file-name "vendor" user-emacs-directory))
