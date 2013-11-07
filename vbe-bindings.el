@@ -5,6 +5,10 @@
 (global-set-key (kbd "C-c j") 'ace-jump-mode)
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
 (global-unset-key "\C-x\C-c")           ; Too easy to hit by
                                         ; accident. Never used. Use
                                         ; kill-emacs directly
