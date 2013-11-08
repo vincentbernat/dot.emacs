@@ -40,6 +40,15 @@
      (when (not (erc-server-process-alive))
        (kill-buffer)))))
 
+(defun vbe:erc-quit-all ()
+  "Close any open connection"
+  (interactive)
+  (erc-buffer-list
+   (lambda ()
+     (when (erc-server-process-alive)
+       (erc-quit-server "Gone"))))
+  (run-at-time 4 nil 'vbe:erc-clean-closed))
+
 ;; ZNC will replay a buffer and prefix each message with a
 ;; timestamp. Let's extract this timestamp and redefine current-time
 ;; to make them appear as regular timestamp. We use an advice to be
