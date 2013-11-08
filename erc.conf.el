@@ -53,14 +53,14 @@
 ;; timestamp. Let's extract this timestamp and redefine current-time
 ;; to make them appear as regular timestamp. We use an advice to be
 ;; able to locally define `current-time` function.
-(defadvice erc-display-line-1 (around vbe:erc-display-line-1 first)
+(defadvice erc-display-line-1 (around vbe:erc-display-line-1 activate)
   "Extract timestamp beginning a message and display it like a regular timestamp.
 
 For this advice to work, the timestamp should be `[TTxxxxxxx]'
 where `xxxxxxx' is the number of seconds since epoch."
   (save-match-data
     (let ((orig-string (ad-get-arg 0)))
-      (if (string-match "^\\s-*\\S-+ \\[TT\\([0-9]+\\)\\] " orig-string)
+      (if (string-match "^\\(?:\\s-*\\*\\)?\\s-*\\S-+ \\[TT\\([0-9]+\\)\\] " orig-string)
           (let ((seconds (string-to-number (substring orig-string
                                                       (match-beginning 1)
                                                       (match-end 1))))
@@ -79,6 +79,5 @@ where `xxxxxxx' is the number of seconds since epoch."
                   ad-do-it
                 (fset 'current-time (symbol-function 'orig-current-time)))))
         ad-do-it))))
-(ad-activate 'erc-display-line-1)
 
 (erc-update-modules)
