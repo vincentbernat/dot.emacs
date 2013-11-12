@@ -15,6 +15,13 @@
 	       :after (progn
                         (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))
 
+        (:name git-modes
+               :description "GNU Emacs modes for various Git-related files"
+               :type github
+               :pkgname "magit/git-modes")
+        (:name magit
+               :depends (git-modes))
+
         (:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
