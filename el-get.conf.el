@@ -86,6 +86,7 @@
           multiple-cursors              ; multiple cursors
           ace-jump-mode                 ; fast cursor movement
           auto-complete                 ; universal autocompletion
+          auto-complete-css
           flx                           ; fuzzy matching for ido
           ido-vertical-mode             ; vertical mode for ido
           smex                          ; IDO for M-x
