@@ -3,11 +3,13 @@
   (interactive)
 
   (clear-visited-file-modtime)
-  (let ((inhibit-read-only t))
-    (widen)
+  (widen)
+  (let ((inhibit-read-only t)
+        (current-point (point)))
     (delete-region (point-min) (point-max))
     (insert-file-contents (buffer-file-name))
     (not-modified)
+    (goto-char (current-position))
     (set-visited-file-modtime)))
 
 (setq revert-buffer-function 'vbe:revert-buffer-keep-history)
