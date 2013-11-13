@@ -9,7 +9,10 @@
  ;; When opening a new buffer, bury it
  erc-join-buffer 'bury
  ;; When someone query me, bury it too
- erc-auto-query 'bury)
+ erc-auto-query 'bury
+ ;; Special encoding for some channels
+ erc-server-coding-system '(utf-8 . utf-8)
+ erc-encoding-coding-alist '(("#gcu" . iso-8859-15)))
 
 ;; A query buffer is "urgent"
 (defadvice erc-track-find-face (around vbe:erc-track-find-face-promote-query activate)
