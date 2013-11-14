@@ -3,7 +3,6 @@
       c-basic-offset 4)			; with a 4 spaces indent
 
 (which-function-mode 1)			; display current function in modeline
-(require 'xcscope)                      ; cscope bindings
 (require 'dtrt-indent)                  ; autodetect indentation
 
 ;; More styles. To debug, use C-c C-s.
@@ -28,6 +27,7 @@
                        (knr-argdecl-intro     . +)))))
 
 (defun vbe:cc-mode-hook ()
+  (ggtags-mode 1)
   (require 'auto-complete-clang-async)
   (setq ac-sources '(ac-source-clang-async))
   (ac-clang-launch-completion-process))

@@ -29,7 +29,11 @@
                :features auto-complete-clang-async
                :prepare (setq ac-clang-complete-executable
                               (expand-file-name
-                               (concat (el-get-package-directory "clang-complete-async") "clang-complete"))))
+                               (concat (el-get-package-directory
+                                        "clang-complete-async") "clang-complete"))))
+        (:name ggtags
+               :type github
+               :pkgname "leoliu/ggtags")
 
         (:name znc
                :type github
@@ -108,7 +112,7 @@
           rainbow-mode			; Display colors
 	  dtrt-indent			; Autodetect indentation
 	  magit				; Git stuff, must-have!
-	  xcscope			; cscope interface (etags on steroids)
+	  ggtags			; gtags interface (etags on steroids)
 	  ;; Modes
 	  auctex			; LaTeX mode
 	  coffee-mode			; Major mode for coffeescript
