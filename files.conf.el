@@ -9,7 +9,7 @@
     (delete-region (point-min) (point-max))
     (insert-file-contents (buffer-file-name))
     (not-modified)
-    (goto-char (current-position))
+    (goto-char current-point)
     (set-visited-file-modtime)))
 
 (setq revert-buffer-function 'vbe:revert-buffer-keep-history)
