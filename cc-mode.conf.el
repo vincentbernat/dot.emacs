@@ -26,3 +26,9 @@
                        (inclass               . +)
 		       (inextern-lang         . 0)
                        (knr-argdecl-intro     . +)))))
+
+(defun vbe:cc-mode-hook ()
+  (require 'auto-complete-clang-async)
+  (setq ac-sources '(ac-source-clang-async))
+  (ac-clang-launch-completion-process))
+(add-hook 'c-mode-common-hook 'vbe:cc-mode-hook)
