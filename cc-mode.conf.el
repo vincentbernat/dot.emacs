@@ -27,8 +27,6 @@
                        (knr-argdecl-intro     . +)))))
 
 (defun vbe:cc-mode-hook ()
-  (ggtags-mode 1)
-  (require 'auto-complete-clang-async)
-  (setq ac-sources '(ac-source-clang-async))
-  (ac-clang-launch-completion-process))
+  (when (not (tramp-tramp-file-p (buffer-file-name)))
+    (ggtags-mode 1)))
 (add-hook 'c-mode-common-hook 'vbe:cc-mode-hook)
