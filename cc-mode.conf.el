@@ -27,8 +27,8 @@
                        (knr-argdecl-intro     . +)))))
 
 (defun vbe:cc-mode-hook ()
-  (when (not (and
-              (fboundp 'tramp-tramp-file-p)
-              (tramp-tramp-file-p (buffer-file-name))))
+  (unless (and
+           (fboundp 'tramp-tramp-file-p)
+           (tramp-tramp-file-p (buffer-file-name)))
     (ggtags-mode 1)))
 (add-hook 'c-mode-common-hook 'vbe:cc-mode-hook)
