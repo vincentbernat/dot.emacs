@@ -5,7 +5,9 @@
 (require 'auto-complete-clang-async)
 (ac-config-default)
 (defun vbe:clang-auto-complete-mode-hook ()
-  (unless (not (tramp-tramp-file-p (buffer-file-name)))
+  (unless (not (and
+                (fboundp 'tramp-tramp-file-p)
+                (tramp-tramp-file-p (buffer-file-name))))
     (setq ac-sources '(ac-source-clang-async))
     (ac-clang-launch-completion-process)))
 (add-hook 'c-mode-common-hook 'vbe:clang-auto-complete-mode-hook)
