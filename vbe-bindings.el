@@ -1,4 +1,3 @@
-(global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "<delete>") 'delete-char)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-x g") 'magit-status)
