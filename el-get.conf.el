@@ -31,6 +31,13 @@
                               (expand-file-name
                                (concat (el-get-package-directory
                                         "clang-complete-async") "clang-complete"))))
+
+        (:name geben
+               :website "https://code.google.com/p/geben-on-emacs/"
+               :type svn
+               :url "http://geben-on-emacs.googlecode.com/svn/trunk/"
+               :features geben)
+
         (:name ggtags
                :type github
                :pkgname "leoliu/ggtags")
@@ -113,6 +120,7 @@
 	  dtrt-indent			; Autodetect indentation
 	  magit				; Git stuff, must-have!
 	  ggtags			; gtags interface (etags on steroids)
+          geben                         ; emacs-on-geben (debugger for PHP)
 	  ;; Modes
 	  auctex			; LaTeX mode
 	  coffee-mode			; Major mode for coffeescript
