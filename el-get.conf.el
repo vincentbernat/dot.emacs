@@ -14,6 +14,12 @@
 	       :username "austinhaas"
 	       :after (progn
                         (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))
+        (:name vala-mode
+               :description "Emacs mode for Vala language"
+               :type elpa
+               :features vala-mode
+               :after (progn
+                        (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))))
 
         (:name git-modes
                :description "GNU Emacs modes for various Git-related files"
@@ -134,7 +140,8 @@
           zencoding-mode                ; Mode to expand CSS tags to HTML
           actionscript-mode             ; Mode for actionscript
           systemtap-mode                ; Mode for systemtap
-	  ;; Gnus and other stuff
+          vala-mode                     ; Mode for Vala
+	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
 	  gnus-identities		; Manipulate Gnus identities
