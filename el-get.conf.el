@@ -17,7 +17,6 @@
         (:name vala-mode
                :description "Emacs mode for Vala language"
                :type elpa
-               :features vala-mode
                :after (progn
                         (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))))
 
@@ -32,7 +31,6 @@
                :pkgname "Golevka/emacs-clang-complete-async"
                :build '(("make"))
                :depends auto-complete
-               :features auto-complete-clang-async
                :prepare (setq ac-clang-complete-executable
                               (expand-file-name
                                (concat (el-get-package-directory
@@ -41,8 +39,7 @@
         (:name geben
                :website "https://code.google.com/p/geben-on-emacs/"
                :type svn
-               :url "http://geben-on-emacs.googlecode.com/svn/trunk/"
-               :features geben)
+               :url "http://geben-on-emacs.googlecode.com/svn/trunk/")
 
         (:name ggtags
                :type github
@@ -51,8 +48,7 @@
         (:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
-               :description "ERC and ZNC interface"
-               :features znc)
+               :description "ERC and ZNC interface")
         (:name gist
                :depends (gh))
         (:name gh
@@ -80,18 +76,15 @@
         (:name ido-vertical-mode
                :type github
                :pkgname "rson/ido-vertical-mode.el"
-               :description "makes ido-mode display vertically"
-               :features ido-vertical-mode)
+               :description "makes ido-mode display vertically")
         (:name flx
                :description "Fuzzy matching with good sorting in ido"
                :type github
-               :pkgname "lewang/flx"
-               :features flx-ido)
+               :pkgname "lewang/flx")
         (:name s
                :description "The long lost Emacs string manipulation library."
                :type github
-               :pkgname "magnars/s.el"
-               :features s)
+               :pkgname "magnars/s.el")
         (:name dash
                :description "A modern list api for Emacs. No 'cl required."
                :type github
