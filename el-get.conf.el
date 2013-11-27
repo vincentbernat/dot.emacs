@@ -19,6 +19,12 @@
                :type elpa
                :after (progn
                         (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))))
+        (:name erlang-mode
+               :description "Major modes for editing and running Erlang"
+               :type http
+               :url "http://www.erlang.org/download/contrib/erlang.el"
+               :after (progn
+                        (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))))
 
         (:name git-modes
                :description "GNU Emacs modes for various Git-related files"
@@ -134,6 +140,7 @@
           actionscript-mode             ; Mode for actionscript
           systemtap-mode                ; Mode for systemtap
           vala-mode                     ; Mode for Vala
+          erlang-mode                   ; Mode for Erlang
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
