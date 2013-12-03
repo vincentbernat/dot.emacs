@@ -9,7 +9,7 @@
     (select-frame frame))
   (when window-system
     (set-face-attribute 'default nil :font vbe:default-font)
-    (dolist (face `(mode-line minibuffer-prompt))
+    (dolist (face `(mode-line mode-line-inactive minibuffer-prompt))
       (set-face-attribute face nil :font "DejaVu Sans-10"))))
 
 (vbe:set-font)
