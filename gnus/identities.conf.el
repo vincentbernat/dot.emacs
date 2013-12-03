@@ -4,15 +4,15 @@
 (ad-activate 'gnus-summary-followup)
 ;; Posting styles definition
 (setq gnus-posting-styles
-      (cond ((vbe:at 'dailymotion)
+      (cond ((vbe:at 'deezer)
 	     '((".*"
 		(x-identity "default")
 		(name "Vincent Bernat")
-		(address "vincent.bernat@dailymotion.com")
-		(organization "Dailymotion")
+		(address "vbe@deezer.com")
+		(organization "Deezer")
 		(signature (mapconcat 'identity
-				      '("Vincent Bernat | vincent.bernat@dailymotion.com"
-					"Dailymotion | 140 Boulevard Malesherbes | 75017 Paris | France")
+				      '("Vincent Bernat | vbe@deezer.com"
+					"Deezer | 12 rue d'Athènes | 75009 Paris | France")
 				      "\n")))))
 	    (t
 	     '((".*"
@@ -43,15 +43,14 @@
                                       '("Debian package sponsoring guidelines:"
                                         " http://vincent.bernat.im/en/debian-package-sponsoring.html")
                                       "\n")))
-               ((vbe:mail-related-to '("*@dailymotion.com"))
-                (x-identity "dailymotion")
+               ((vbe:mail-related-to '("*@deezer.com"))
+                (x-identity "deezer")
 		(name "Vincent Bernat")
-		(address "vincent.bernat@dailymotion.com")
-		(organization "Dailymotion")
-                (gcc "nnimap:Boulot.Dailymotion.Sent")
+		(address "vbe@deezer.com")
+		(organization "Deezer")
 		(signature (mapconcat 'identity
-				      '("Vincent Bernat | vincent.bernat@dailymotion.com"
-					"Dailymotion | 140 Boulevard Malesherbes | 75017 Paris | France")
+				      '("Vincent Bernat | vbe@deezer.com"
+					"Deezer | 12 rue d'Athènes | 75009 Paris | France")
 				      "\n")))
 	       ((vbe:mail-related-to '("*@enxio.fr" "*@enx.io"))
 		(x-identity "enxio")

@@ -40,7 +40,7 @@
 ;; Auto create some records otherwise, update existing records
 (setq bbdb-update-records-p
       (lambda ()
-  (let ((rest '(("From" . ".*@dailymotion.com")))
+  (let ((rest '(("From" . ".*@deezer.com")))
         done elt)
     (if (eq rest t)
         (setq done t)

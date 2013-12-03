@@ -9,9 +9,6 @@
       gnus-buttonized-mime-types '("multipart/alternative"
 				   "multipart/signed"
 				   "multipart/encrypted"))
-(unless (vbe:at 'dailymotion)
-      (setq mm-discouraged-alternatives '("text/html" "text/richtext"
-                                          "multipart/related")))
 
 ;; Visible headers
 (setq gnus-visible-headers

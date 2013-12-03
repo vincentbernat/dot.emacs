@@ -9,18 +9,34 @@
 (require 'nnir)
 
 ;; Servers to use
-(setq gnus-select-method
-      ;; Primary server: IMAP
-      `(nnimap ""
-	       (nnimap-address "imap.luffy.cx")
-	       (nnimap-authenticator login)
-	       (nnir-search-engine imap)
-	       (nnimap-stream tls))
-      message-send-mail-function 'message-send-mail-with-sendmail
-      gnus-agent nil)
+(cond ((vbe:at 'deezer)
+       (setq gnus-select-method
+             `(nnimap ""
+                      (nnimap-address "imap.gmail.com")
+                      (nnimap-server-port 993)
+                      (nnimap-stream ssl))
+             message-send-mail-function 'smtpmail-send-it
+             smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+             smtpmail-auth-credentials '(("smtp.gmail.com" 587
+                                          "vbe@deezer.com" nil))
+             smtpmail-default-smtp-server "smtp.gmail.com"
+             smtpmail-smtp-server "smtp.gmail.com"
+             smtpmail-smtp-service 587
+             gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]"))
+      (t
+       (setq gnus-select-method
+             ;; Primary server: IMAP
+             `(nnimap ""
+                      (nnimap-address "imap.luffy.cx")
+                      (nnimap-authenticator login)
+                      (nnir-search-engine imap)
+                      (nnimap-stream tls))
+             message-send-mail-function 'message-send-mail-with-sendmail)))
+(setq gnus-agent nil)
 
 ;; How to archive sent messages
 (setq gnus-message-archive-group '((cond ((message-news-p) nil)
+                                         ((vbe:at 'deezer) nil)
                                          (t "Sent")))
       gnus-message-archive-method "nnimap:"
 
