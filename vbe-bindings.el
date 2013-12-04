@@ -11,6 +11,13 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; org-mode
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+(global-set-key "\C-cc" 'org-capture)
+
 (global-unset-key "\C-x\C-c")           ; Too easy to hit by
                                         ; accident. Never used. Use
                                         ; kill-emacs directly
