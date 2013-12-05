@@ -12,7 +12,7 @@
 		(organization "Deezer")
 		(signature (mapconcat 'identity
 				      '("Vincent Bernat | vbe@deezer.com"
-					"Deezer | 12 rue d'Athènes | 75009 Paris | France")
+					"▅▃▇▅█ Deezer | 12 rue d'Athènes | 75009 Paris | France")
 				      "\n")))))
 	    (t
 	     '((".*"
@@ -50,7 +50,7 @@
 		(organization "Deezer")
 		(signature (mapconcat 'identity
 				      '("Vincent Bernat | vbe@deezer.com"
-					"Deezer | 12 rue d'Athènes | 75009 Paris | France")
+					"▅▃▇▅█ Deezer | 12 rue d'Athènes | 75009 Paris | France")
 				      "\n")))
 	       ((vbe:mail-related-to '("*@enxio.fr" "*@enx.io"))
 		(x-identity "enxio")
