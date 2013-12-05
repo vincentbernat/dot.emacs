@@ -33,7 +33,7 @@
 
 ;; Todo keywords
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "PROGRESS(p)" "|" "DONE(d)")
+      '((sequence "TODO(t)" "NEXT(n)" "PROGRESS(p)" "|" "DONE(d!)")
         (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))
       org-todo-keyword-faces
       `(("TODO"
