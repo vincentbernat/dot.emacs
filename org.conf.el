@@ -1,4 +1,5 @@
 (require 'dash)
+(require 's)
 
 ;; Agenda files are subdirectories of a given directory
 (setq org-agenda-files
@@ -71,5 +72,17 @@
          :background ,(naquadah-get-colors 'aluminium-5)
          :foreground "white"
          :weight bold)))
+
+;; Autocommit in git
+(defun vbe:org-git-auto-commit ()
+  "Autocommit the current buffer if this is an org buffer"
+  (let ((filename (buffer-file-name)))
+    (when (--any? (and (file-directory-p it)
+                       (s-starts-with? (file-name-as-directory it)
+                                       filename))
+                  org-agenda-files)
+      (shell-command (concat "git add " filename
+                             " && git commit -m Autocommit")))))
+(add-hook 'after-save-hook 'vbe:org-git-auto-commit)
 
 (require 'org-protocol)
