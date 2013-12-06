@@ -1,16 +1,9 @@
 (add-to-list 'ac-dictionary-directories (vbe:run-directory "ac-dict"))
 (setq ac-comphist-file (expand-file-name "run/ac-comphist.dat"
                                          user-emacs-directory))
+
 (require 'auto-complete-config)
-(require 'auto-complete-clang-async)
 (ac-config-default)
-(defun vbe:clang-auto-complete-mode-hook ()
-  (unless (and
-           (fboundp 'tramp-tramp-file-p)
-           (tramp-tramp-file-p (buffer-file-name)))
-    (setq ac-sources '(ac-source-clang-async))
-    (ac-clang-launch-completion-process)))
-(add-hook 'c-mode-common-hook 'vbe:clang-auto-complete-mode-hook)
 
 (setq ac-use-quick-help nil)            ;; It's slow
 

@@ -32,15 +32,6 @@
                :pkgname "magit/git-modes")
         (:name magit
                :depends (git-modes))
-        (:name clang-complete-async
-               :type github
-               :pkgname "Golevka/emacs-clang-complete-async"
-               :build '(("make"))
-               :depends auto-complete
-               :prepare (setq ac-clang-complete-executable
-                              (expand-file-name
-                               (concat (el-get-package-directory
-                                        "clang-complete-async") "clang-complete"))))
 
         (:name geben
                :website "https://code.google.com/p/geben-on-emacs/"
@@ -112,7 +103,6 @@
           ace-jump-mode                 ; fast cursor movement
           auto-complete                 ; universal autocompletion
           auto-complete-css
-          clang-complete-async
           flx                           ; fuzzy matching for ido
           ido-vertical-mode             ; vertical mode for ido
           smex                          ; IDO for M-x
