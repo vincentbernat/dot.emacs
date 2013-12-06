@@ -1,7 +1,5 @@
 (defun vbe:revert-buffer-keep-history (&rest -)
   "Revert buffer but keep undo history"
-  (interactive)
-
   (clear-visited-file-modtime)
   (widen)
   (let ((inhibit-read-only t)
