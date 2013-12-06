@@ -86,3 +86,4 @@
 (add-hook 'after-save-hook 'vbe:org-git-auto-commit)
 
 (require 'org-protocol)
+(require 'org-mime)

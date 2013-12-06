@@ -26,6 +26,14 @@
                :after (progn
                         (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))))
 
+        ;; This should be in contrib/ of org-mode but this is not
+        ;; shipped with Emacs. We take exactly the version we need to
+        ;; match org-mode in Emacs.
+        (:name org-mime
+               :description "org html export for text/html MIME emails"
+               :type http
+               :url "https://raw.github.com/jwiegley/org-mode/release_7.9.3f/contrib/lisp/org-mime.el")
+
         (:name git-modes
                :description "GNU Emacs modes for various Git-related files"
                :type github
@@ -135,6 +143,8 @@
 	  bbdb				; Big brother database
 	  nognus			; Gnus
 	  gnus-identities		; Manipulate Gnus identities
+          ;; org stuff
+          org-mime
           ;; Misc
           znc                           ; znc
           gist                          ; gist integration
