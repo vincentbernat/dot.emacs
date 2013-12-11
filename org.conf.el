@@ -30,6 +30,7 @@
  org-cycle-separator-lines 0            ; don't show blank lines between collapsed trees
  org-src-fontify-natively t             ; fontify code blocks
  org-edit-src-content-indentation 0     ; don't indent source blocks
+ org-catch-invisible-edits 'error       ; don't edit invisible text
 )
 
 ;; Todo keywords
