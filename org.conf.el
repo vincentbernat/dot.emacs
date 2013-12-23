@@ -74,6 +74,12 @@
          :foreground "white"
          :weight bold)))
 
+;; Use bullets
+(require 'org-bullets)
+(add-hook 'org-mode-hook
+          '(lambda ()
+             (org-bullets-mode 1)))
+
 ;; Autocommit in git
 (defun vbe:org-git-auto-commit ()
   "Autocommit the current buffer if this is an org buffer"
