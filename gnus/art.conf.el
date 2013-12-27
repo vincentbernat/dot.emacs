@@ -10,6 +10,10 @@
 				   "multipart/signed"
 				   "multipart/encrypted"))
 
+;; Better visibility of HTML emails
+(setq shr-color-visible-distance-min 10
+      shr-color-visible-luminance-min 60)
+
 ;; Visible headers
 (setq gnus-visible-headers
       (mapcar '(lambda (header) (format "^%s:" header))
