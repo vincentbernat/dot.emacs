@@ -43,7 +43,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (line-number-mode 1)			; show line number
 (column-number-mode 1)			; show column number
 (global-hl-line-mode 1)			; highlight current line
-(mouse-avoidance-mode 'jump)		; move the mouse away
+(setq make-pointer-invisible t)		; hide the mouse while typing
 (setq font-lock-maximum-decoration 2)   ; faster font-lock-mode
 (set-default 'indicate-buffer-boundaries '((up . nil) (down . nil) (t . left)))
 (require 'naquadah-theme)
