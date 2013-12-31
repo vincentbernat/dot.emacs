@@ -25,6 +25,11 @@
                :url "http://www.erlang.org/download/contrib/erlang.el"
                :after (progn
                         (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))))
+        (:name mediawiki
+               :after (progn
+                        (autoload 'mediawiki-mode "mediawiki.el"
+                          "Mode for mediawiki")
+                        (add-to-list 'auto-mode-alist '("\\.mw$" . mediawiki-mode))))
 
         ;; This should be in contrib/ of org-mode but this is not
         ;; shipped with Emacs. We take exactly the version we need to
@@ -143,6 +148,7 @@
           systemtap-mode                ; Mode for systemtap
           vala-mode                     ; Mode for Vala
           erlang-mode                   ; Mode for Erlang
+          mediawiki                     ; Mode for mediawiki
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
