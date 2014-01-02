@@ -20,11 +20,19 @@
                :after (progn
                         (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))))
         (:name erlang-mode
-               :description "Major modes for editing and running Erlang"
+               :description "Major mode for editing and running Erlang"
                :type http
                :url "http://www.erlang.org/download/contrib/erlang.el"
                :after (progn
                         (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))))
+        (:name gyp-mode
+               :description "Major mode for editing gyp files"
+               :type http
+               :url "https://gyp.googlecode.com/svn/trunk/tools/emacs/gyp.el"
+               :prepare (progn
+                          (autoload 'gyp-mode "gyp" "Major mode for editing gyp files")
+                          (add-to-list 'auto-mode-alist '("\\.gyp$" . gyp-mode))
+                          (add-to-list 'auto-mode-alist '("\\.gypi$" . gyp-mode))))
         (:name mediawiki
                :after (progn
                         (autoload 'mediawiki-mode "mediawiki.el"
@@ -149,6 +157,7 @@
           vala-mode                     ; Mode for Vala
           erlang-mode                   ; Mode for Erlang
           mediawiki                     ; Mode for mediawiki
+          gyp-mode                      ; Mode for gyp files
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
