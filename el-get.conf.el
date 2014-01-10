@@ -38,6 +38,13 @@
                         (autoload 'mediawiki-mode "mediawiki.el"
                           "Mode for mediawiki")
                         (add-to-list 'auto-mode-alist '("\\.mw$" . mediawiki-mode))))
+        (:name dockerfile-mode
+               :description "An emacs mode for handling Dockerfiles."
+               :type github
+               :pkgname "spotify/dockerfile-mode"
+               :post-init (progn
+                            (add-to-list 'auto-mode-alist
+                                         '("Dockerfile\\'" . dockerfile-mode))))
 
         ;; This should be in contrib/ of org-mode but this is not
         ;; shipped with Emacs. We take exactly the version we need to
@@ -158,6 +165,7 @@
           erlang-mode                   ; Mode for Erlang
           mediawiki                     ; Mode for mediawiki
           gyp-mode                      ; Mode for gyp files
+          dockerfile-mode               ; Mode for Dockerfile
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  nognus			; Gnus
