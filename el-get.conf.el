@@ -5,10 +5,6 @@
       '((:name php-mode
                :after (progn
                         (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
-        (:name systemtap-mode
-               :description "Emacs mode for SystemTap."
-               :type github
-               :pkgname "ruediger/systemtap-mode")
 	(:name actionscript-mode
 	       :type github
 	       :username "austinhaas"
@@ -38,13 +34,6 @@
                         (autoload 'mediawiki-mode "mediawiki.el"
                           "Mode for mediawiki")
                         (add-to-list 'auto-mode-alist '("\\.mw$" . mediawiki-mode))))
-        (:name dockerfile-mode
-               :description "An emacs mode for handling Dockerfiles."
-               :type github
-               :pkgname "spotify/dockerfile-mode"
-               :post-init (progn
-                            (add-to-list 'auto-mode-alist
-                                         '("Dockerfile\\'" . dockerfile-mode))))
 
         ;; This should be in contrib/ of org-mode but this is not
         ;; shipped with Emacs. We take exactly the version we need to
@@ -58,72 +47,15 @@
                :type github
                :username "sabof")
 
-        (:name git-modes
-               :description "GNU Emacs modes for various Git-related files"
-               :type github
-               :pkgname "magit/git-modes")
-        (:name magit
-               :depends (git-modes))
-
         (:name geben
                :website "https://code.google.com/p/geben-on-emacs/"
                :type svn
                :url "http://geben-on-emacs.googlecode.com/svn/trunk/")
 
-        (:name ggtags
-               :type github
-               :pkgname "leoliu/ggtags")
-
         (:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
-               :description "ERC and ZNC interface")
-        (:name gist
-               :depends (gh))
-        (:name gh
-               :type github
-               :pkgname "sigma/gh.el"
-               :depends (pcache logito request)
-               :description "Github API client libraries"
-               :website "http://github.com/sigma/gh.el")
-        (:name pcache
-               :type github
-               :pkgname "sigma/pcache"
-               :description "persistent caching for Emacs"
-               :website "http://github.com/sigma/pcache")
-        (:name logito
-               :type github
-               :pkgname "sigma/logito"
-               :description "logging library for Emacs"
-               :website "http://github.com/sigma/logito")
-        (:name request
-               :description "Easy HTTP request for Emacs Lisp"
-               :type github
-               :submodule nil
-               :pkgname "tkf/emacs-request")
-
-        (:name ido-vertical-mode
-               :type github
-               :pkgname "rson/ido-vertical-mode.el"
-               :description "makes ido-mode display vertically")
-        (:name flx
-               :description "Fuzzy matching with good sorting in ido"
-               :type github
-               :pkgname "lewang/flx")
-        (:name s
-               :description "The long lost Emacs string manipulation library."
-               :type github
-               :pkgname "magnars/s.el")
-        (:name dash
-               :description "A modern list api for Emacs. No 'cl required."
-               :type github
-               :pkgname "magnars/dash.el")
-        (:name projectile
-               :description "Project navigation and management library for Emacs"
-               :type github
-               :pkgname "bbatsov/projectile"
-               :depends (dash s)
-               :features projectile)))
+               :description "ERC and ZNC interface")))
 
 (el-get nil
         '(
@@ -168,7 +100,7 @@
           dockerfile-mode               ; Mode for Dockerfile
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
-	  nognus			; Gnus
+	  gnus				; Gnus
 	  gnus-identities		; Manipulate Gnus identities
           ;; org stuff
           org-mime
