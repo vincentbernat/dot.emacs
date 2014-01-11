@@ -8,19 +8,19 @@
 	(:name actionscript-mode
 	       :type github
 	       :username "austinhaas"
-	       :after (progn
-                        (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))
+	       :post-init (progn
+                            (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))
         (:name vala-mode
                :description "Emacs mode for Vala language"
                :type elpa
-               :after (progn
-                        (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))))
+               :post-init (progn
+                            (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))))
         (:name erlang-mode
                :description "Major mode for editing and running Erlang"
                :type http
                :url "http://www.erlang.org/download/contrib/erlang.el"
-               :after (progn
-                        (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))))
+               :post-init (progn
+                            (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))))
         (:name gyp-mode
                :description "Major mode for editing gyp files"
                :type http
