@@ -3,8 +3,8 @@
 
 (setq el-get-sources
       '((:name php-mode
-               :after (progn
-                        (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
+               :post-init (progn
+                            (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
 	(:name actionscript-mode
 	       :type github
 	       :username "austinhaas"
