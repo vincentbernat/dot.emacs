@@ -5,35 +5,6 @@
       '((:name php-mode
                :post-init (progn
                             (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
-	(:name actionscript-mode
-	       :type github
-	       :username "austinhaas"
-	       :post-init (progn
-                            (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))))
-        (:name vala-mode
-               :description "Emacs mode for Vala language"
-               :type elpa
-               :post-init (progn
-                            (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))))
-        (:name erlang-mode
-               :description "Major mode for editing and running Erlang"
-               :type http
-               :url "http://www.erlang.org/download/contrib/erlang.el"
-               :post-init (progn
-                            (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))))
-        (:name gyp-mode
-               :description "Major mode for editing gyp files"
-               :type http
-               :url "https://gyp.googlecode.com/svn/trunk/tools/emacs/gyp.el"
-               :prepare (progn
-                          (autoload 'gyp-mode "gyp" "Major mode for editing gyp files")
-                          (add-to-list 'auto-mode-alist '("\\.gyp$" . gyp-mode))
-                          (add-to-list 'auto-mode-alist '("\\.gypi$" . gyp-mode))))
-        (:name mediawiki
-               :after (progn
-                        (autoload 'mediawiki-mode "mediawiki.el"
-                          "Mode for mediawiki")
-                        (add-to-list 'auto-mode-alist '("\\.mw$" . mediawiki-mode))))
 
         ;; This should be in contrib/ of org-mode but this is not
         ;; shipped with Emacs. We take exactly the version we need to
