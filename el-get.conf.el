@@ -70,6 +70,7 @@
           gyp-mode                      ; Mode for gyp files
           dockerfile-mode               ; Mode for Dockerfile
           json-mode                     ; Mode for JSON
+          apache-mode                   ; Mode for Apache configuration files
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
