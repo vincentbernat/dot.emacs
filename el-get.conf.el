@@ -71,6 +71,7 @@
           dockerfile-mode               ; Mode for Dockerfile
           json-mode                     ; Mode for JSON
           apache-mode                   ; Mode for Apache configuration files
+          web-mode                      ; Mode for web stuff (better than html-mode)
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
