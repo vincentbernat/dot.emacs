@@ -111,20 +111,27 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 
 (defun vbe:gnus/reply-somehow-on-top (n how)
   "Reply using HOW on top of the current message"
-  (let ((message-cite-reply-position 'above)
-	(message-citation-line-format
-	 (mapconcat 'identity
-		    (delq nil
-			  `(" ――――――― Original Message ―――――――"
-			    " From: %f"
-			    " Sent: %e %B %Y %R %Z"
-			    ,(concat " Subject: " (gnus-with-article-headers
-						    (mail-fetch-field "Subject")))
-			    ,(vbe:gnus/extract-names "To")
-			    ,(vbe:gnus/extract-names "Cc")
-			    ""))
-		    "\n")))
-    (funcall how n)))
+  (flet ((escape (s) (if (and s (string-match "%" s))
+                         (mapconcat (lambda (c)
+                                      (if (eq c ?%)
+                                          "%%"
+                                        (char-to-string c)))
+                                    s "")
+                       s)))
+    (let ((message-cite-reply-position 'above)
+          (message-citation-line-format
+           (mapconcat 'identity
+                      (delq nil
+                            `(" ――――――― Original Message ―――――――"
+                              " From: %f"
+                              " Sent: %e %B %Y %R %Z"
+                              ,(escape (concat " Subject: " (gnus-with-article-headers
+                                                              (mail-fetch-field "Subject"))))
+                              ,(escape (vbe:gnus/extract-names "To"))
+                              ,(escape (vbe:gnus/extract-names "Cc"))
+                              ""))
+                      "\n")))
+    (funcall how n))))
 
 (define-key gnus-summary-mode-map (kbd "f") 'vbe:gnus/wide-reply-on-top)
 (define-key gnus-summary-mode-map (kbd "r") 'vbe:gnus/reply-on-top)
