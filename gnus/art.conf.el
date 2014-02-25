@@ -28,15 +28,3 @@
 ;; Gravatar
 (require 'gnus-gravatar)
 (add-hook 'gnus-article-prepare-hook 'gnus-treat-from-gravatar)
-
-;; Mailcap /etc/mailcap is not really maintained nowadays. We don't
-;; want bogus entries (for example `gv' for PDF files). It seems
-;; easier to start over and add only a handful of MIME types.
-(require 'mailcap)
-(setq mailcap-mime-data nil)
-(mailcap-add "application/pdf" "evince %s" 'window-system)
-(mailcap-add-mailcap-entry "image" ".*"
-			   '((viewer . "gpicview %s")
-			     (test . window-system)
-			     (type . "image/*")))
-
