@@ -72,6 +72,7 @@
           json-mode                     ; Mode for JSON
           apache-mode                   ; Mode for Apache configuration files
           web-mode                      ; Mode for web stuff (better than html-mode)
+          scss-mode                     ; Mode for SCSS files
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
