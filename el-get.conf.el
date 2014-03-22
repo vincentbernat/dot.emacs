@@ -23,6 +23,11 @@
                :type svn
                :url "http://geben-on-emacs.googlecode.com/svn/trunk/")
 
+        (:name editorconfig
+               :description "define and maintain consistent coding styles between editors"
+               :type github
+               :pkgname "editorconfig/editorconfig-emacs")
+
         (:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
