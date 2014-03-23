@@ -72,6 +72,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("/Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.html?$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; Programming
 (defun vbe:customize-programming-language-mode ()
