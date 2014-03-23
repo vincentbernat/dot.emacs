@@ -1,6 +1,7 @@
 ;; Where is located the code?
 (setq magit-repo-dirs (list (expand-file-name "~/code"))
-      magit-repo-dirs-depth 2)
+      magit-repo-dirs-depth 2
+      magit-diff-refine-hunk t)         ; word diff for current hunk
 
 ;; full screen magit-status
 ;; Stolen from: http://whattheemacsd.com/setup-magit.el-01.html
