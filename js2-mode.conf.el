@@ -11,3 +11,5 @@
                (0 (progn (compose-region (match-beginning 1)
                            (match-end 1) "\u2190")
                     nil)))))
+
+(setq-default js2-basic-offset 2)
