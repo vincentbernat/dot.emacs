@@ -78,7 +78,9 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (defun vbe:customize-programming-language-mode ()
   (whitespace-mode 1)
   (hs-minor-mode 1)
-  (highlight-parentheses-mode 1))
+  (unless (eq major-mode 'python-mode)
+    (electric-indent-mode 1)
+  (highlight-parentheses-mode 1)))
 (add-hook 'prog-mode-hook ; This is the mode perl, makefile,
                           ; lisp-mode, scheme-mode, emacs-lisp-mode,
                           ; sh-mode, java-mode, c-mode, c++-mode,
