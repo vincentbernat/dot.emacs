@@ -79,14 +79,21 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (defun vbe:customize-programming-language-mode ()
   (whitespace-mode 1)
   (hs-minor-mode 1)
-  (when (memq major-mode '(python-mode markdown-mode))
-    (set (make-local-variable 'electric-indent-mode) nil))
   (highlight-parentheses-mode 1))
 (add-hook 'prog-mode-hook ; This is the mode perl, makefile,
                           ; lisp-mode, scheme-mode, emacs-lisp-mode,
                           ; sh-mode, java-mode, c-mode, c++-mode,
                           ; python-mode inherits from.
-          'vbe:customize-programming-language-mode)
+  'vbe:customize-programming-language-mode)
+
+;; Disable electric indent mode on some mode
+(defun vbe:no-electric-indent-mode ()
+  (set (make-local-variable 'electric-indent-mode) nil))
+(let ((modes '(python-mode markdown-mode)))
+  (dolist (mode modes)
+    (add-hook
+      (intern (concat (symbol-name mode) "-hook"))
+      'vbe:no-electric-indent-mode)))
 
 ;; Other stuff we need
 (require 'point-stack)
