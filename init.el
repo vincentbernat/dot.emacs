@@ -43,6 +43,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (line-number-mode 1)			; show line number
 (column-number-mode 1)			; show column number
 (global-hl-line-mode 1)			; highlight current line
+(electric-indent-mode 1)                ; auto-indent (disabled for some modes below)
 (setq make-pointer-invisible t)		; hide the mouse while typing
 (setq font-lock-maximum-decoration 2)   ; faster font-lock-mode
 (set-default 'indicate-buffer-boundaries '((up . nil) (down . nil) (t . left)))
@@ -78,9 +79,9 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (defun vbe:customize-programming-language-mode ()
   (whitespace-mode 1)
   (hs-minor-mode 1)
-  (unless (memq major-mode '(python-mode markdown-mode))
-    (electric-indent-mode 1)
-  (highlight-parentheses-mode 1)))
+  (when (memq major-mode '(python-mode markdown-mode))
+    (set (make-local-variable 'electric-indent-mode) nil))
+  (highlight-parentheses-mode 1))
 (add-hook 'prog-mode-hook ; This is the mode perl, makefile,
                           ; lisp-mode, scheme-mode, emacs-lisp-mode,
                           ; sh-mode, java-mode, c-mode, c++-mode,
