@@ -80,6 +80,10 @@
           '(lambda ()
              (org-bullets-mode 1)))
 
+;; Babel
+(org-babel-do-load-languages 'org-babel-load-languages
+                             '((ledger . t)))
+
 ;; Autocommit in git
 (defun vbe:org-git-auto-commit ()
   "Autocommit the current buffer if this is an org buffer"
