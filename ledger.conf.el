@@ -8,3 +8,7 @@
                     :foreground "grey70")
 (set-face-attribute 'ledger-font-other-face nil
                     :foreground "violet")
+
+;; Align amounts automatically
+(setq ledger-post-auto-adjust-amounts t)
+
