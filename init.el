@@ -105,6 +105,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (require 'expand-region)
 (require 'multiple-cursors)
 (require 'midnight)               ; clean up buffers from time to time
+(global-flycheck-mode 1)
 
 ;; Server
 (unless (string= (user-login-name) "root")
