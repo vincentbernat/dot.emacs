@@ -18,6 +18,13 @@
                :type github
                :username "sabof")
 
+        (:name ledger-mode
+               :description "A major mode for editing ledger .dat files"
+               :type github
+               :pkgname "ledger/ledger"
+               :load-path "lisp"
+               :checkout "v3.0.2")
+
         (:name geben
                :website "https://code.google.com/p/geben-on-emacs/"
                :type svn
@@ -81,6 +88,7 @@
           scss-mode                     ; Mode for SCSS files
           js2-mode                      ; Mode for Javascript
           po-mode                       ; Mode for PO files
+          ledger-mode                   ; Mode for ledger
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
