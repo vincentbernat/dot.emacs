@@ -83,6 +83,8 @@
 ;; Babel
 (org-babel-do-load-languages 'org-babel-load-languages
                              '((ledger . t)))
+(setq org-confirm-babel-evaluate '(lambda (lang body)
+                                    (not (string= lang "ledger"))))
 
 ;; Autocommit in git
 (defun vbe:org-git-auto-commit ()
