@@ -59,7 +59,7 @@ The epigram is inserted at point if called interactively."
 			      (t "bernat@luffy.cx")))
 (setq vbe:mail-addresses
       (mapcar '(lambda (name)
-		 (format "\\b%s[@\\.]" name))
+		 (format "^%s[@\\.]" name))
 	      (apply 'append (mapcar 'split-string
 				     '("bernat vbernat vincent.bernat"
 				       "Vincent.Bernat")))))
