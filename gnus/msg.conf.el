@@ -62,8 +62,8 @@ The epigram is inserted at point if called interactively."
 		 (format "^%s[@\\.]" name))
 	      (apply 'append (mapcar 'split-string
 				     '("bernat vbernat vincent.bernat"
+                                       "vbe"
 				       "Vincent.Bernat")))))
-(add-to-list 'vbe:mail-addresses "vbe@deezer.com")
 
 (setq gnus-ignored-from-addresses vbe:mail-addresses  ; When to display To: instead of From:
       message-dont-reply-to-names
