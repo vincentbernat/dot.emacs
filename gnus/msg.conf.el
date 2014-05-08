@@ -59,13 +59,12 @@ The epigram is inserted at point if called interactively."
 			      (t "bernat@luffy.cx")))
 (setq vbe:mail-addresses
       (mapcar '(lambda (name)
-		 (format "^%s[@\\.]" name))
+		 (format "\\(^\\|[^.]\\)\\b%s[@\\.]" name))
 	      (apply 'append (mapcar 'split-string
 				     '("bernat vbernat vincent.bernat"
                                        "vbe"
-				       "Vincent.Bernat")))))
-
-(setq gnus-ignored-from-addresses vbe:mail-addresses  ; When to display To: instead of From:
+				       "Vincent.Bernat"))))
+      gnus-ignored-from-addresses vbe:mail-addresses  ; When to display To: instead of From:
       message-dont-reply-to-names
       (append vbe:mail-addresses
 	      (mapcar 'regexp-quote
