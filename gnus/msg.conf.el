@@ -69,7 +69,8 @@ The epigram is inserted at point if called interactively."
       message-dont-reply-to-names
       (append vbe:mail-addresses
 	      (mapcar 'regexp-quote
-		      '("submit@bugs.debian.org")))) ; Addresses to prune on wide reply
+		      '("control@bugs.debian.org"
+                        "submit@bugs.debian.org")))) ; Addresses to prune on wide reply
 
 (require 'dired)
 (defun vbe:mail-related-to (what &optional fields)
