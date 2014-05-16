@@ -50,8 +50,8 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
  gnus-read-mark ?✓
  gnus-del-mark ?✗
  gnus-killed-mark ?☠
- gnus-replied-mark ?⟲
- gnus-forwarded-mark ?⤳
+ gnus-replied-mark ?↶
+ gnus-forwarded-mark ?↝
  gnus-cached-mark ?☍
  gnus-recent-mark ?★
  gnus-unseen-mark ?✩
