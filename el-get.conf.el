@@ -89,6 +89,7 @@
           js2-mode                      ; Mode for Javascript
           po-mode                       ; Mode for PO files
           ledger-mode                   ; Mode for ledger
+          clojure-mode                  ; Mode for clojure
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
