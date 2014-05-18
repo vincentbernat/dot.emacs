@@ -1,3 +1,5 @@
+(require 'dash)
+
 (defun vbe:run-directory (name)
   "Return a directory for runtime files. Create it if it does not exist."
   (let ((dir (expand-file-name (format "run/%s" name)
@@ -25,14 +27,14 @@ substituting hyphens for slashes."
 	 (directory user-emacs-directory))
 
     ;; Do we have files for this?
-    (while components
+    (--dotimes (+ (length components) 1)
       (let ((target (expand-file-name
-		     (format "%s.conf.el"
-			     (mapconcat 'identity components "-")) directory)))
+		     (format "%s/%s/%s.conf.el"
+                             directory
+			     (mapconcat 'identity (or (-take it components) '("")) "/")
+                             (mapconcat 'identity (or (-drop it components) '("init")) "-")))))
 	(when (file-readable-p target)
-	  (load target))
-	(setq directory (expand-file-name (car components) directory)
-	      components (cdr components))))))
+	  (load target))))))
 
 ;; Load current features
 (mapc '(lambda (f) (vbe:after-load (symbol-name f))) features)
