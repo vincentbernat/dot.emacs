@@ -101,5 +101,3 @@
           znc                           ; znc
           gist                          ; gist integration
 	  ))
-
-(require 'scala-mode-auto)
