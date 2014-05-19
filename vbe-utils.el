@@ -1,5 +1,3 @@
-(require 'dash)
-
 (defun vbe:run-directory (name)
   "Return a directory for runtime files. Create it if it does not exist."
   (let ((dir (expand-file-name (format "run/%s" name)
@@ -28,12 +26,12 @@ substituting hyphens for slashes."
 
     ;; Do we have files for this?
     (unless (string-match "\\." name)
-            (--dotimes (+ (length components) 1)
+            (dolist (n (reverse (number-sequence 0 (+ (length components)))))
               (let ((target (expand-file-name
                              (format "%s/%s/%s.conf.el"
                                      directory
-                                     (mapconcat 'identity (or (-take it components) '("")) "/")
-                                     (mapconcat 'identity (or (-drop it components) '("init")) "-")))))
+                                     (mapconcat 'identity (or (butlast components n) '("")) "/")
+                                     (mapconcat 'identity (or (last components n) '("init")) "-")))))
                 (when (file-readable-p target)
                   (load target)))))))
 
