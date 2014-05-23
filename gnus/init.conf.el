@@ -42,6 +42,7 @@
 
 ;; Where to store local mails (drafts, ...)
       message-directory (nnheader-concat gnus-home-directory "Mail")
+      nnfolder-directory (nnheader-concat message-directory "archive")
 
 ;; How to grab old articles
       gnus-refer-article-method
