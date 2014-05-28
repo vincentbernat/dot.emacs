@@ -28,10 +28,10 @@
 (defun vbe:smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
 
-Move point to the first non-whitespace character on this line.
-If point is already there, move to the beginning of the line.
-Effectively toggle between the first non-whitespace character and
-the beginning of the line.
+Move point to the first non-whitespace/symbol character on this
+line.  If point is already there, move to the beginning of the
+line.  Effectively toggle between the first non-whitespace/symbol
+character and the beginning of the line.
 
 If ARG is not nil or 1, move forward ARG - 1 lines first.  If
 point reaches the beginning or end of the buffer, stop there."
@@ -44,7 +44,10 @@ point reaches the beginning or end of the buffer, stop there."
       (forward-line (1- arg))))
 
   (let ((orig-point (point)))
-    (back-to-indentation)
+    ;; Expanded from (back-to-indentation) but also skip symbols
+    (beginning-of-line 1)
+    (skip-syntax-forward " _" (line-end-position))
+    (backward-prefix-chars)
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
 
