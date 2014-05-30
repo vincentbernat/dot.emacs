@@ -90,6 +90,7 @@
           po-mode                       ; Mode for PO files
           ledger-mode                   ; Mode for ledger
           clojure-mode                  ; Mode for clojure
+          puppet-mode                   ; Mode for puppet
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
