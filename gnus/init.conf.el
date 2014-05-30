@@ -39,6 +39,7 @@
                                          ((vbe:at 'deezer) nil)
                                          (t "Sent")))
       gnus-message-archive-method "nnimap:"
+      gnus-update-message-archive-method t
 
 ;; Where to store local mails (drafts, ...)
       message-directory (nnheader-concat gnus-home-directory "Mail")
