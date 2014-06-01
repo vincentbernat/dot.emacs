@@ -12,7 +12,5 @@
     (dolist (face `(mode-line mode-line-inactive minibuffer-prompt))
       (set-face-attribute face nil :font "DejaVu Sans-10"))))
 
-(require 'powerline)
-
 (vbe:set-font)
 (add-hook 'after-make-frame-functions 'vbe:set-font)

@@ -64,7 +64,6 @@
 	  ggtags			; gtags interface (etags on steroids)
           geben                         ; emacs-on-geben (debugger for PHP)
           flycheck                      ; on-the-fly checker for many languages
-          powerline                     ; powerline theme
 	  ;; Modes
 	  auctex			; LaTeX mode
 	  coffee-mode			; Major mode for coffeescript
