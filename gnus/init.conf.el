@@ -49,6 +49,9 @@
       '(current				; Local server first
 	(nntp "news.gmane.org")))	; gmane
 
+(setq gnus-secondary-select-methods
+      `((nndraft ""
+                 (nndraft-directory ,(nnheader-concat message-directory "drafts")))))
 
 ;; Scan news every 5 minutes if idle for more than 30 seconds
 (gnus-demon-add-handler 'gnus-demon-scan-news 5 30)
