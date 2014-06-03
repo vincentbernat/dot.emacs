@@ -15,9 +15,24 @@
                (nnimap-address "imap.luffy.cx")
                (nnimap-authenticator login)
                (nnir-search-engine imap)
-               (nnimap-stream tls))
-      message-send-mail-function 'message-send-mail-with-sendmail)
+               (nnimap-stream tls)))
 (setq gnus-agent nil)
+
+;; SMTP
+(defun vbe:message-send-mail ()
+  (let ((server-and-port))
+    (save-restriction
+      (message-narrow-to-headers)
+      (mail-fetch-field "X-SMTP-Server") ":")
+    (cond ((stringp server-and-port)
+           ;; We need to use smtpmail-send-it
+           (message-remove-header "X-SMTP-Server")
+           (let* ((splitted (split-string server-and-port ":"))
+                  (smtpmail-smtp-server (car splitted))
+                  (smtpmail-smtp-port (number-to-string (car (cdr splitted)))))
+             (smtpmail-send-it)))
+          (t (message-send-mail-with-sendmail)))))
+(setq message-send-mail-function 'vbe:message-send-mail)
 
 ;; How to archive sent messages
 (setq gnus-message-archive-group '((cond ((message-news-p) nil)
