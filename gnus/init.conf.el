@@ -23,13 +23,13 @@
   (let ((server-and-port))
     (save-restriction
       (message-narrow-to-headers)
-      (mail-fetch-field "X-SMTP-Server") ":")
+      (setq server-and-port (mail-fetch-field "X-SMTP-Server"))
+      (message-remove-header "X-SMTP-Server"))
     (cond ((stringp server-and-port)
            ;; We need to use smtpmail-send-it
-           (message-remove-header "X-SMTP-Server")
            (let* ((splitted (split-string server-and-port ":"))
                   (smtpmail-smtp-server (car splitted))
-                  (smtpmail-smtp-port (number-to-string (car (cdr splitted)))))
+                  (smtpmail-smtp-service (string-to-number (car (cdr splitted)))))
              (smtpmail-send-it)))
           (t (message-send-mail-with-sendmail)))))
 (setq message-send-mail-function 'vbe:message-send-mail)
