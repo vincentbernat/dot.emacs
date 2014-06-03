@@ -31,7 +31,6 @@
                                 "*@exoscale.ch"))
          (x-identity "exoscale")
          (address "Vincent.Bernat@exoscale.ch")
-         (gcc "nnimap+exoscale:Sent")
          (organization "exoscale")
          ("X-SMTP-Server" "localhost:1025")
          (signature (mapconcat 'identity
