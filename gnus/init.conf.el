@@ -35,7 +35,13 @@
 	(nntp "news.gmane.org")))	; gmane
 
 (setq gnus-secondary-select-methods
-      `((nndraft ""
+      `((nnimap "exoscale"
+                (nnimap-address "localhost")
+                (nnimap-server-port 1143)
+                (nnimap-authenticator login)
+                (nnimap-stream network)
+                (nnir-search-engine imap))
+        (nndraft ""
                  (nndraft-directory ,(nnheader-concat message-directory "drafts")))))
 
 ;; Scan news every 5 minutes if idle for more than 30 seconds

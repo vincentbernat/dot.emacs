@@ -27,6 +27,16 @@
          (eval (vbe:gnus/will-sign-message))
          (address "bernat@debian.org")
          (organization "Debian"))
+        ((vbe:mail-related-to '("*@veltigroup.com"
+                                "*@exoscale.ch"))
+         (x-identity "exoscale")
+         (address "Vincent.Bernat@exoscale.ch")
+         (gcc "nnimap+exoscale:Sent")
+         (organization "exoscale")
+         (signature (mapconcat 'identity
+                               '("Vincent Bernat — Vincent.Bernat@exoscale.ch"
+                                 "❬❱ http://www.exoscale.ch")
+                               "\n")))
         ((header "subject" "RFS: ")
          (signature (mapconcat 'identity
                                '("Debian package sponsoring guidelines:"
