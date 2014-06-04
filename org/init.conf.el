@@ -96,8 +96,8 @@
                        (s-starts-with? (file-name-as-directory it)
                                        filename))
                   org-agenda-files)
-      (shell-command (concat "git add " filename
-                             " && git commit -m Autocommit")))))
+      (shell-command (concat "git add '" filename
+                             "' && git commit -m Autocommit")))))
 (add-hook 'after-save-hook 'vbe:org-git-auto-commit)
 
 (require 'org-protocol)
