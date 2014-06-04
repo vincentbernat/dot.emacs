@@ -73,6 +73,9 @@ The epigram is inserted at point if called interactively."
                         "control@bugs.debian.org"
                         "submit@bugs.debian.org")))) ; Addresses to prune on wide reply
 
+(setq message-valid-fqdn-regexp
+      (format "\\(%s\\|lanexpert\\.grp\\)" message-valid-fqdn-regexp))
+
 (require 'dired)
 (defun vbe:mail-related-to (what &optional fields)
   "Determine if the current message has something to do with WHAT.
