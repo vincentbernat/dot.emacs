@@ -18,22 +18,6 @@
                (nnimap-stream tls)))
 (setq gnus-agent nil)
 
-;; SMTP
-(defun vbe:message-send-mail ()
-  (let ((server-and-port))
-    (save-restriction
-      (message-narrow-to-headers)
-      (setq server-and-port (mail-fetch-field "X-SMTP-Server"))
-      (message-remove-header "X-SMTP-Server"))
-    (cond ((stringp server-and-port)
-           ;; We need to use smtpmail-send-it
-           (let* ((splitted (split-string server-and-port ":"))
-                  (smtpmail-smtp-server (car splitted))
-                  (smtpmail-smtp-service (string-to-number (car (cdr splitted)))))
-             (smtpmail-send-it)))
-          (t (message-send-mail-with-sendmail)))))
-(setq message-send-mail-function 'vbe:message-send-mail)
-
 ;; How to archive sent messages
 (setq gnus-message-archive-group '((cond ((message-news-p) nil)
                                          ((vbe:at 'deezer) nil)
