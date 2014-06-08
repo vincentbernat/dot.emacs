@@ -41,8 +41,28 @@
       (nndraft ""
                  (nndraft-directory ,(nnheader-concat message-directory "drafts")))))
 
-;; Scan news every 5 minutes if idle for more than 30 seconds
-(gnus-demon-add-handler 'gnus-demon-scan-news 5 30)
+;; Small wrapper around mbsync
+(defun vbe:mbsync (channel &optional quick)
+  "run the `mbsync` command asynchronously"
+  (interactive "sChannel: \np")
+  (let* ((name (format "*mbsync-%s*" channel))
+         (args (if quick (list (format "%s:INBOX" channel))
+                 channel))
+         (dummy (when (get-buffer name) (kill-buffer name)))
+         (proc (apply 'start-process name name "mbsync" args)))
+    (message (format "mbsync started for channel %s" (car args)))
+    (unless quick
+      (set-process-sentinel proc 'vbe:mbsync-sentinel))))
+(defun vbe:mbsync-sentinel (proc change)
+  (when (eq (process-status proc) 'exit)
+    (gnus-group-get-new-news)))
+
+;; How to trigger mbsync?
+(define-key gnus-group-mode-map (kbd "f") 'vbe:mbsync)
+(run-with-timer 2 60 'vbe:mbsync "luffy" t) ; quick sync
+(run-with-timer (* 5 60) (* 7 60) 'vbe:mbsync "luffy") ; full sync
+(run-with-timer 30 (* 3 60) 'vbe:mbsync "exoscale" t)
+(run-with-timer (* 11 60) (* 17 60) 'vbe:mbsync "exoscale")
 
 (require 'spam)
 (setq spam-install-hooks t)
