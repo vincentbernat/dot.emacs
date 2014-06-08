@@ -41,6 +41,9 @@
       (nndraft ""
                  (nndraft-directory ,(nnheader-concat message-directory "drafts")))))
 
+(require 'auth-source)
+(require 'comint)
+
 ;; Small wrapper around mbsync
 (defun vbe:mbsync (channel &optional quick)
   "run the `mbsync` command asynchronously"
@@ -51,7 +54,16 @@
          (previous (get-process name)))
     (if (and previous (process-live-p previous))
         (error "mbsync is already running")
-      (let ((proc (apply 'start-process name name "mbsync" args)))
+      (let* ((process-environment (copy-sequence process-environment))
+             (secrets (nth 0 (auth-source-search :max 1
+                                                       :host (format "mbsync-%s" channel)
+                                                       :require '(:user :secret))))
+             (secret (plist-get secrets :secret))
+             (dummy (setenv "USER" (plist-get secrets :user)))
+             (dummy (setenv "PASSWORD" (if (functionp secret)
+                                           (funcall secret)
+                                         secret)))
+             (proc (apply 'start-process name name "mbsync" args)))
         (unless quick
           (message (format "mbsync started for channel %s" (car args))))
         (process-put proc :quick quick)
