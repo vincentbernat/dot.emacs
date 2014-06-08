@@ -51,11 +51,29 @@
          (dummy (when (get-buffer name) (kill-buffer name)))
          (proc (apply 'start-process name name "mbsync" args)))
     (message (format "mbsync started for channel %s" (car args)))
-    (unless quick
-      (set-process-sentinel proc 'vbe:mbsync-sentinel))))
+    (process-put proc :quick quick)
+    (process-put proc :channel channel)
+    (set-process-filter proc 'vbe:mbsync-filter)
+    (set-process-sentinel proc 'vbe:mbsync-sentinel)))
+(setq vbe:mbsync-mode-line-string nil)
+(defun vbe:mbsync-update-mode-line (process)
+  "Update mode line information about mbsync process"
+  (setq vbe:mbsync-mode-line-string
+        (let ((status (process-status process)))
+          (when (eq status 'run)
+            (concat "mbsync:" (process-get process :channel)))))
+  (force-mode-line-update))
+(defun vbe:mbsync-mode-line ()
+  "Display current mbsync mode line if applicable"
+  (when (member major-mode '(gnus-group-mode))
+    vbe:mbsync-mode-line-string))
+(add-to-list 'global-mode-string '(:eval (vbe:mbsync-mode-line)) t)
+(defun vbe:mbsync-filter (proc msg)
+  (vbe:mbsync-update-mode-line proc))
 (defun vbe:mbsync-sentinel (proc change)
-  (when (eq (process-status proc) 'exit)
-    (gnus-group-get-new-news)))
+  (vbe:mbsync-update-mode-line proc)
+  (when (and (eq (process-status proc) 'exit) (not (process-get proc :quick)))
+    (gnus-group-get-new-news 2)))
 
 ;; How to trigger mbsync?
 (define-key gnus-group-mode-map (kbd "f") 'vbe:mbsync)
