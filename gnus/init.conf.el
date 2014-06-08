@@ -45,6 +45,10 @@
 (require 'comint)
 
 ;; Small wrapper around mbsync
+;;  PassCmd is expected to be `PassCmd "echo ${PASSWORD}"` or if you
+;;  want to make it work even when running mbsync from the command
+;;  line, use something like this:
+;;     PassCmd "echo ${PASSWORD:-$(gpg --no-tty -qd ~/.authinfo.gpg | sed ...)}"
 (defun vbe:mbsync (channel &optional quick)
   "run the `mbsync` command asynchronously"
   (interactive "sChannel: \nP")
