@@ -10,15 +10,14 @@
 
 ;; Servers to use
 (setq gnus-select-method
-      ;; Primary server: dovecot to offlineimap
+      ;; Primary server: dovecot
       `(nnimap ""
                (nnimap-stream shell)
-               (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.offlineimap/mails/luffy")
+               (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/luffy")
                (nnir-search-engine imap)))
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 
-(require 'offlineimap)
-(add-hook 'gnus-before-startup-hook 'offlineimap)
+(require 'mbsync)
 (setq gnus-agent nil)
 
 ;; How to archive sent messages
@@ -39,7 +38,7 @@
 (setq gnus-secondary-select-methods
       `((nnimap "exoscale"
                 (nnimap-stream shell)
-                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.offlineimap/mails/exoscale")
+                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/exoscale")
                 (nnir-search-engine imap))
       (nndraft ""
                  (nndraft-directory ,(nnheader-concat message-directory "drafts")))))

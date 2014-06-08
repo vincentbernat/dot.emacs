@@ -95,7 +95,7 @@
 	  bbdb				; Big brother database
 	  gnus				; Gnus
 	  gnus-identities		; Manipulate Gnus identities
-          offlineimap
+          mbsync
           ;; org stuff
           org-mime
           org-bullets
