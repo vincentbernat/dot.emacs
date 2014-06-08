@@ -52,7 +52,8 @@
     (if (and previous (process-live-p previous))
         (error "mbsync is already running")
       (let ((proc (apply 'start-process name name "mbsync" args)))
-        (message (format "mbsync started for channel %s" (car args)))
+        (unless quick
+          (message (format "mbsync started for channel %s" (car args))))
         (process-put proc :quick quick)
         (process-put proc :channel channel)
         (set-process-filter proc 'vbe:mbsync-filter)
