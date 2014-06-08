@@ -16,8 +16,6 @@
                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/luffy")
                (nnir-search-engine imap)))
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
-
-(require 'mbsync)
 (setq gnus-agent nil)
 
 ;; How to archive sent messages
