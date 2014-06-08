@@ -76,7 +76,7 @@
   (setq vbe:mbsync-mode-line-string
         (let ((status (process-status process)))
           (when (eq status 'run)
-            (concat "mbsync:" (process-get process :channel)))))
+            (concat " [mbsync:" (process-get process :channel) "] "))))
   (force-mode-line-update))
 (defun vbe:mbsync-mode-line ()
   "Display current mbsync mode line if applicable"
