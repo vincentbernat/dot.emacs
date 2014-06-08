@@ -13,7 +13,7 @@
       ;; Primary server: dovecot to offlineimap
       `(nnimap ""
                (nnimap-stream shell)
-               (nnimap-shell-program "/usr/lib/dovecot/imap")
+               (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.offlineimap/mails/luffy")
                (nnir-search-engine imap)))
 
 (require 'offlineimap)
@@ -36,7 +36,11 @@
 	(nntp "news.gmane.org")))	; gmane
 
 (setq gnus-secondary-select-methods
-      `((nndraft ""
+      `((nnimap "exoscale"
+                (nnimap-stream shell)
+                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.offlineimap/mails/exoscale")
+                (nnir-search-engine imap))
+      (nndraft ""
                  (nndraft-directory ,(nnheader-concat message-directory "drafts")))))
 
 ;; Scan news every 5 minutes if idle for more than 30 seconds
