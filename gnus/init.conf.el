@@ -15,6 +15,7 @@
                (nnimap-stream shell)
                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.offlineimap/mails/luffy")
                (nnir-search-engine imap)))
+(setq message-send-mail-function 'message-send-mail-with-sendmail)
 
 (require 'offlineimap)
 (add-hook 'gnus-before-startup-hook 'offlineimap)
