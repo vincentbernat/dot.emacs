@@ -44,9 +44,9 @@
 ;; Small wrapper around mbsync
 (defun vbe:mbsync (channel &optional quick)
   "run the `mbsync` command asynchronously"
-  (interactive "sChannel: \np")
+  (interactive "sChannel: \nP")
   (let* ((name (format "*mbsync-%s*" channel))
-         (args (if (eq quick 4) (list (format "%s:INBOX" channel))
+         (args (if quick (list (format "%s:INBOX" channel))
                  (list channel)))
          (previous (get-process name)))
     (if (and previous (process-live-p previous))
@@ -54,7 +54,7 @@
       (when (get-buffer name) (kill-buffer name))
       (let ((proc (apply 'start-process name name "mbsync" args)))
         (message (format "mbsync started for channel %s" (car args)))
-        (process-put proc :quick (eq quick 4))
+        (process-put proc :quick quick)
         (process-put proc :channel channel)
         (set-process-filter proc 'vbe:mbsync-filter)
         (set-process-sentinel proc 'vbe:mbsync-sentinel)))))
