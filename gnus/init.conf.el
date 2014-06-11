@@ -49,12 +49,16 @@
 ;;  want to make it work even when running mbsync from the command
 ;;  line, use something like this:
 ;;     PassCmd "echo ${PASSWORD:-$(gpg --no-tty -qd ~/.authinfo.gpg | sed ...)}"
-(defun vbe:mbsync (channel &optional quick)
+(defun vbe:mbsync (channel &optional only)
   "run the `mbsync` command asynchronously"
   (interactive "sChannel: \nP")
   (let* ((name (format "*mbsync-%s*" channel))
-         (args (if quick (list (format "%s:INBOX" channel))
-                 (list channel)))
+         (args (cond ((stringp only) (format "%s:%s" channel only))
+                     ((eq only nil) (format "%s" channel))
+                     ((equal only '(4)) (format "%s:INBOX" channel))
+                     ((listp only) (format "%s:%s" channel
+                                           (mapconcat 'identity only ",")))
+                     (t (format "%s:INBOX" channel))))
          (previous (get-process name)))
     (if (and previous (process-live-p previous))
         (error "mbsync is already running")
@@ -67,10 +71,10 @@
              (dummy (setenv "PASSWORD" (if (functionp secret)
                                            (funcall secret)
                                          secret)))
-             (proc (apply 'start-process name name "mbsync" args)))
-        (unless quick
-          (message (format "mbsync started for channel %s" (car args))))
-        (process-put proc :quick quick)
+             (proc (apply 'start-process name name "mbsync" (list args))))
+        (unless only
+          (message (format "mbsync started for channel %s" args)))
+        (process-put proc :quick only)
         (process-put proc :channel channel)
         (set-process-filter proc 'vbe:mbsync-filter)
         (set-process-sentinel proc 'vbe:mbsync-sentinel)))))
@@ -108,7 +112,7 @@
 
 ;; How to trigger mbsync?
 (define-key gnus-group-mode-map (kbd "f") 'vbe:mbsync)
-(run-with-timer 2 60 'vbe:mbsync "luffy" t) ; quick sync
+(run-with-timer 2 60 'vbe:mbsync "luffy" '("INBOX" "INBOX/archive")) ; quick sync
 (run-with-timer (* 5 60) (* 7 60) 'vbe:mbsync "luffy") ; full sync
 (run-with-timer 30 (* 3 60) 'vbe:mbsync "exoscale" t)
 (run-with-timer (* 11 60) (* 17 60) 'vbe:mbsync "exoscale")
