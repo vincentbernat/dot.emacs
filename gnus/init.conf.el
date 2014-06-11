@@ -96,13 +96,16 @@
 (defun vbe:mbsync-filter (proc msg)
   (with-current-buffer (process-buffer proc)
     (comint-truncate-buffer)
-    (when (buffer-live-p (process-buffer proc))
-      (let ((moving (= (point) (process-mark proc))))
-        (save-excursion
-          (goto-char (process-mark proc))
-          (insert msg)
-          (set-marker (process-mark proc) (point)))
-        (if moving (goto-char (process-mark proc))))))
+    (dolist (msg-line (nbutlast (split-string msg "[\n\r]+")))
+      (when (buffer-live-p (process-buffer proc))
+        (let ((moving (= (point) (process-mark proc))))
+          (save-excursion
+            (goto-char (process-mark proc))
+            (insert (format "%s: %s\n"
+                            (format-time-string "%Y-%m-%dT%T%z")
+                            msg-line))
+            (set-marker (process-mark proc) (point)))
+          (if moving (goto-char (process-mark proc)))))))
   (vbe:mbsync-update-mode-line proc))
 
 (defun vbe:mbsync-sentinel (proc change)
