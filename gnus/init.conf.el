@@ -101,9 +101,9 @@
         (let ((moving (= (point) (process-mark proc))))
           (save-excursion
             (goto-char (process-mark proc))
-            (insert (format "%s: %s\n"
-                            (format-time-string "%Y-%m-%dT%T%z")
-                            msg-line))
+            (insert (concat (propertize (format-time-string "[%Y-%m-%dT%T%z] ") 'face 'font-lock-doc-face)
+                            msg-line
+                            "\n"))
             (set-marker (process-mark proc) (point)))
           (if moving (goto-char (process-mark proc)))))))
   (vbe:mbsync-update-mode-line proc))
