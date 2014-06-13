@@ -115,10 +115,13 @@
 
 ;; How to trigger mbsync?
 (define-key gnus-group-mode-map (kbd "f") 'vbe:mbsync)
-(run-with-timer 2 60 'vbe:mbsync "luffy" '("INBOX" "INBOX/archive")) ; quick sync
-(run-with-timer (* 5 60) (* 7 60) 'vbe:mbsync "luffy") ; full sync
-(run-with-timer 30 (* 3 60) 'vbe:mbsync "exoscale" t)
-(run-with-timer (* 11 60) (* 17 60) 'vbe:mbsync "exoscale")
+(cancel-function-timers 'vbe:mbsync)
+(run-with-timer 10 61 'vbe:mbsync "luffy" '("INBOX" "INBOX/archive")) ; quick sync
+(run-with-timer (* 5 60) 421 'vbe:mbsync "luffy") ; full sync
+(run-with-timer 30 179 'vbe:mbsync "exoscale" t)
+(run-with-timer (* 11 60) 1019 'vbe:mbsync "exoscale")
+
+(vbe:mbsync "luffy")
 
 (require 'spam)
 (setq spam-install-hooks t)
