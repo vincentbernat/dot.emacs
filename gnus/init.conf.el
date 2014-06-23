@@ -127,3 +127,6 @@
 (setq spam-install-hooks t)
 (spam-initialize)
 ;; The spam is handled according to groups configuration.
+
+(require 'gnus-icalendar)
+(gnus-icalendar-setup)
