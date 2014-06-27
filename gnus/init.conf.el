@@ -113,15 +113,19 @@
   (when (and (eq (process-status proc) 'exit) (not (process-get proc :quick)))
     (gnus-group-get-new-news 2)))
 
+(defvar vbe:mbsync-something 0)
+(defun vbe:mbsync-something ()
+  "Sync something depending on how many time this function has been called"
+  (cond ((eq (% vbe:mbsync-something 2) 0) (vbe:mbsync "luffy" '("INBOX" "INBOX/archive")))
+        ((eq (% vbe:mbsync-something 5) 0) (vbe:mbsync "exoscale" t))
+        ((eq (% vbe:mbsync-something 7) 0) (vbe:mbsync "luffy"))
+        ((eq (% vbe:mbsync-something 31) 0) (vbe:mbsync "exoscale")))
+  (setq vbe:mbsync-something (1+ vbe:mbsync-something)))
+
 ;; How to trigger mbsync?
 (define-key gnus-group-mode-map (kbd "f") 'vbe:mbsync)
-(cancel-function-timers 'vbe:mbsync)
-(run-with-timer 10 61 'vbe:mbsync "luffy" '("INBOX" "INBOX/archive")) ; quick sync
-(run-with-timer (* 5 60) 421 'vbe:mbsync "luffy") ; full sync
-(run-with-timer 30 179 'vbe:mbsync "exoscale" t)
-(run-with-timer (* 11 60) 1019 'vbe:mbsync "exoscale")
-
-(vbe:mbsync "luffy")
+(cancel-function-timers 'vbe:mbsync-something)
+(run-with-timer 10 61 'vbe:mbsync-something)
 
 (require 'spam)
 (setq spam-install-hooks t)
