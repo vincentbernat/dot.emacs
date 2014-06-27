@@ -1,3 +1,5 @@
+(require 'dash)
+
 ;; No .newsrc
 (setq gnus-directory (vbe:run-directory "gnus")
       gnus-home-directory gnus-directory
@@ -113,14 +115,41 @@
   (when (and (eq (process-status proc) 'exit) (not (process-get proc :quick)))
     (gnus-group-get-new-news 2)))
 
+(require 'dbus)
 (defvar vbe:mbsync-something 0)
 (defun vbe:mbsync-something ()
   "Sync something depending on how many time this function has been called"
-  (cond ((eq (% vbe:mbsync-something 2) 0) (vbe:mbsync "luffy" '("INBOX" "INBOX/archive")))
-        ((eq (% vbe:mbsync-something 5) 0) (vbe:mbsync "exoscale" t))
-        ((eq (% vbe:mbsync-something 7) 0) (vbe:mbsync "luffy"))
-        ((eq (% vbe:mbsync-something 31) 0) (vbe:mbsync "exoscale")))
-  (setq vbe:mbsync-something (1+ vbe:mbsync-something)))
+  (let ((args (cond ((eq (% vbe:mbsync-something 2) 0) '("luffy" ("INBOX" "INBOX/archive")))
+                    ((eq (% vbe:mbsync-something 5) 0) '("exoscale" t))
+                    ((eq (% vbe:mbsync-something 7) 0) '("luffy"))
+                    ((eq (% vbe:mbsync-something 31) 0) '("exoscale"))
+                    nil))
+        (ofNM "org.freedesktop.NetworkManager"))
+    (when (and args
+               ;; Check we have a working cheap internet connection
+               (member ofNM
+                       (dbus-list-activatable-names :system))
+               (let ((primary-connection
+                      (dbus-get-property :system
+                                         ofNM "/org/freedesktop/NetworkManager"
+                                         ofNM "PrimaryConnection")))
+                 ;; We need a primary connection
+                 (and primary-connection
+                      ;; Is it a full connection ?
+                      (eq (dbus-get-property :system
+                                             ofNM "/org/freedesktop/NetworkManager"
+                                             ofNM "Connectivity")
+                          4)    ; 4 = NM_CONNECTIVITY_FULL
+                      ;; Does it involve a modem connection?
+                      (--none? (eq (dbus-get-property :system
+                                             ofNM it
+                                             (concat ofNM ".Device") "DeviceType")
+                                   8)   ; 8 = NM_DEVICE_TYPE_MODEM
+                               (dbus-get-property :system
+                                         ofNM primary-connection
+                                         (concat ofNM ".Connection.Active") "Devices")))))
+      (apply 'vbe:mbsync args))
+    (setq vbe:mbsync-something (1+ vbe:mbsync-something))))
 
 ;; How to trigger mbsync?
 (define-key gnus-group-mode-map (kbd "f") 'vbe:mbsync)
