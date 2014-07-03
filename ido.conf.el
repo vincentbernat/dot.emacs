@@ -3,6 +3,7 @@
 (require 'ido-vertical-mode)
 (require 'recentf)
 (setq ido-enable-flex-matching t        ; IDO flex matching
+      ido-save-directory-list-file (expand-file-name "run/bookmarks" user-emacs-directory)
       ido-everywhere t                  ; use IDO whenever possible
       ido-use-virtual-buffers t         ; use closed buffers as well
       ido-use-faces nil)                ; let flx-ido do this job
