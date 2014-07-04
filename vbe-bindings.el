@@ -21,6 +21,11 @@
 (global-unset-key "\C-x\C-c")           ; Too easy to hit by
                                         ; accident. Never used. Use
                                         ; kill-emacs directly
+(global-unset-key (kbd "<insert>"))     ; on my X1, this key is mapped
+                                        ; near other modifiers, this
+                                        ; is easy to strike it by
+                                        ; error
+
 (when window-system
   (global-unset-key "\C-z"))
 
