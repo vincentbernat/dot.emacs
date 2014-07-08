@@ -5,6 +5,9 @@
       '((:name php-mode
                :post-init (progn
                             (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
+        (:name junos-mode
+               :type github
+               :pkgname "vincentbernat/junos-mode")
 
         ;; This should be in contrib/ of org-mode but this is not
         ;; shipped with Emacs. We take exactly the version we need to
@@ -91,6 +94,7 @@
           ledger-mode                   ; Mode for ledger
           clojure-mode                  ; Mode for clojure
           puppet-mode                   ; Mode for puppet
+          junos-mode                    ; Mode for JunOS
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
