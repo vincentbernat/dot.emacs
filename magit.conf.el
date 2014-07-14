@@ -1,6 +1,7 @@
 ;; Where is located the code?
 (setq magit-repo-dirs (list (expand-file-name "~/code"))
       magit-repo-dirs-depth 2
+      magit-stage-all-confirm nil       ; don't confirm stage all
       magit-diff-refine-hunk t)         ; word diff for current hunk
 
 ;; full screen magit-status
