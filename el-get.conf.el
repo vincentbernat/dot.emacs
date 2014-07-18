@@ -95,6 +95,7 @@
           clojure-mode                  ; Mode for clojure
           puppet-mode                   ; Mode for puppet
           junos-mode                    ; Mode for JunOS
+          cisco-router-mode             ; Mode for Cisco
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
