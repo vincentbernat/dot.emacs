@@ -130,8 +130,5 @@ where `xxxxxxx' is the number of seconds since epoch."
 				   (vbe:erc-get-color-for-nick nick 't)))))))
 
 (add-hook 'erc-insert-modify-hook 'vbe:erc-put-color-on-nick)
-(add-hook 'erc-mode-hook (lambda ()
-                           (modify-syntax-entry ?\_ "w" nil)
-                           (modify-syntax-entry ?\- "w" nil)))
 
 (erc-update-modules)
