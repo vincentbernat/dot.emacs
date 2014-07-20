@@ -1,5 +1,9 @@
 ;; ERC configuration
 
+(require 'erc)
+(require 'erc-fill)
+(require 'erc-track)
+
 (setq
  ;; Don't track those changes.
  erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
@@ -82,5 +86,54 @@ where `xxxxxxx' is the number of seconds since epoch."
                   ad-do-it
                 (fset 'current-time (symbol-function 'orig-current-time)))))
         ad-do-it))))
+
+
+;; Use different colors for nick. This is mainly stolen from:
+;;   http://www.emacswiki.org/emacs/ErcNickColors
+
+(defmacro vbe:unpack-color (color red green blue &rest body)
+  `(let ((,red   (car ,color))
+         (,green (car (cdr ,color)))
+         (,blue  (car (cdr (cdr ,color)))))
+     ,@body))
+
+(defun vbe:rgb-to-html (color)
+  (vbe:unpack-color color red green blue
+   (concat "#" (format "%02x%02x%02x" red green blue))))
+
+(defun vbe:hexcolor-luminance (color)
+  (vbe:unpack-color color red green blue
+   (floor (+ (* 0.299 red) (* 0.587 green) (* 0.114 blue)))))
+
+(defun vbe:invert-color (color)
+  (vbe:unpack-color color red green blue
+   `(,(- 255 red) ,(- 255 green) ,(- 255 blue))))
+
+(defun vbe:erc-get-color-for-nick (nick dark)
+  (let* ((hash     (md5 (downcase nick)))
+         (red      (mod (string-to-number (substring hash 0 10) 16) 256))
+         (blue     (mod (string-to-number (substring hash 10 20) 16) 256))
+         (green    (mod (string-to-number (substring hash 20 30) 16) 256))
+         (color    `(,red ,green ,blue)))
+    (vbe:rgb-to-html (if (if dark (< (vbe:hexcolor-luminance color) 85)
+                       (> (vbe:hexcolor-luminance color) 170))
+                     (vbe:invert-color color)
+                   color))))
+
+(defun vbe:erc-put-color-on-nick ()
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "\\w+" nil t)
+      (let* ((bounds (bounds-of-thing-at-point 'word))
+             (nick   (buffer-substring-no-properties (car bounds) (cdr bounds))))
+        (when (erc-get-server-user nick)
+          (put-text-property
+           (car bounds) (cdr bounds) 'face
+           (cons 'foreground-color (vbe:erc-get-color-for-nick nick 't))))))))
+
+(add-hook 'erc-insert-modify-hook 'vbe:erc-put-color-on-nick)
+(add-hook 'erc-mode-hook (lambda ()
+                           (modify-syntax-entry ?\_ "w" nil)
+                           (modify-syntax-entry ?\- "w" nil)))
 
 (erc-update-modules)
