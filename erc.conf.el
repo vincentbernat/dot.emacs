@@ -123,13 +123,11 @@ where `xxxxxxx' is the number of seconds since epoch."
 (defun vbe:erc-put-color-on-nick ()
   (save-excursion
     (goto-char (point-min))
-    (while (re-search-forward "\\w+" nil t)
-      (let* ((bounds (bounds-of-thing-at-point 'word))
-             (nick   (buffer-substring-no-properties (car bounds) (cdr bounds))))
-        (when (erc-get-server-user nick)
-          (put-text-property
-           (car bounds) (cdr bounds) 'face
-           (cons 'foreground-color (vbe:erc-get-color-for-nick nick 't))))))))
+    (if (looking-at "<\\([^>]*\\)>")
+	(let ((nick (match-string 1)))
+	  (put-text-property (match-beginning 1) (match-end 1) 'face
+			     (cons 'foreground-color
+				   (vbe:erc-get-color-for-nick nick 't)))))))
 
 (add-hook 'erc-insert-modify-hook 'vbe:erc-put-color-on-nick)
 (add-hook 'erc-mode-hook (lambda ()
