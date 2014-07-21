@@ -129,6 +129,7 @@ where `xxxxxxx' is the number of seconds since epoch."
 			     (cons 'foreground-color
 				   (vbe:erc-get-color-for-nick nick 't)))))))
 
+(add-hook 'erc-insert-modify-hook 'erc-fill) ; Order is important
 (add-hook 'erc-insert-modify-hook 'vbe:erc-put-color-on-nick)
 
 (erc-update-modules)
