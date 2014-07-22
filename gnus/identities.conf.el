@@ -11,14 +11,16 @@
          (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@bernat.im"))
          (x-identity "bernat.im")
-         (address "vincent@bernat.im"))
+         (address "vincent@bernat.im")
+         (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@crans.org"
                                 "*@*.crans.org"
                                 "*@crans.ens-cachan.fr"
                                 "crans.*" "tac.*"
                                 "*@ens-cachan.fr"))
          (x-identity "crans")
-         (address "bernat@crans.org"))
+         (address "bernat@crans.org")
+         (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@debian.org"
                                 "*@*.debian.org"
                                 "*@debconf.org"
@@ -26,7 +28,8 @@
          (x-identity "debian")
          (eval (vbe:gnus/will-sign-message))
          (address "bernat@debian.org")
-         (organization "Debian"))
+         (organization "Debian")
+         (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@veltigroup.com"
                                 "*@exoscale.ch"))
          (x-identity "exoscale")
