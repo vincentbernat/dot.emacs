@@ -21,10 +21,19 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 
 (defface vbe:gnus-summary-subject-face
   '((((type graphic))
-    :font "DejaVu Sans-10"))
-  "Subject font in Gnus summary")
-(setq gnus-face-9  'font-lock-warning-face
-      gnus-face-10 'shadow
+    :family "DejaVu Sans"))
+  "Subject font in Gnus summary"
+  :group 'gnus-sum)
+(defface vbe:gnus-summary-@-face
+  '((t :inherit font-lock-warning-face))
+  "Font for @ (attachments) sign in Gnus summary"
+  :group 'gnus-sum)
+(defface vbe:gnus-summary-symbols-face
+  '((t :inherit shadow))
+  "Font for symbols in Gnus summary"
+  :group 'gnus-sum)
+(setq gnus-face-9  'vbe:gnus-summary-@-face
+      gnus-face-10 'vbe:gnus-summary-symbols-face
       gnus-face-11 'vbe:gnus-summary-subject-face
       gnus-summary-line-format
       (concat
