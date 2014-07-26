@@ -14,3 +14,13 @@
 
 (vbe:set-font)
 (add-hook 'after-make-frame-functions 'vbe:set-font)
+
+;; Alter naquadah a bit
+(naquadah-theme-set-faces
+ 'naquadah
+ '(gnus-summary-normal-ticked (:background scarlet-red-3))
+ '(gnus-summary-high-unread (:inherit gnus-summary-normal-unread
+                                      :background sky-blue-2))
+ '(gnus-summary-high-read (:inherit gnus-summary-normal-read
+                                    :background sky-blue-3))
+ '(hl-line (:background aluminium-6)))
