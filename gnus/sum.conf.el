@@ -19,11 +19,13 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
         ((* 30 (gnus-seconds-year)) . "%b %d '%y")
         (t . "")))
 
-(copy-face 'default 'vbe:proportional)
-(set-face-attribute 'vbe:proportional nil :font "DejaVu Sans-10")
+(defface vbe:gnus-summary-subject-face
+  '((((type graphic))
+    :font "DejaVu Sans-10"))
+  "Subject font in Gnus summary")
 (setq gnus-face-9  'font-lock-warning-face
       gnus-face-10 'shadow
-      gnus-face-11 'vbe:proportional
+      gnus-face-11 'vbe:gnus-summary-subject-face
       gnus-summary-line-format
       (concat
        "%10{%U%R%z%}" " " "%1{%11,11&user-date;%}"
