@@ -19,6 +19,7 @@
 (naquadah-theme-set-faces
  'naquadah
  '(gnus-summary-normal-ticked (:background scarlet-red-3))
+ '(gnus-summary-normal-read (:foreground aluminium-3 :italic t))
  '(gnus-summary-high-unread (:inherit gnus-summary-normal-unread
                                       :background sky-blue-2))
  '(gnus-summary-high-read (:inherit gnus-summary-normal-read
