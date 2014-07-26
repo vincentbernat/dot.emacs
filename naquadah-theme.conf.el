@@ -18,7 +18,7 @@
 ;; Alter naquadah a bit
 (naquadah-theme-set-faces
  'naquadah
- '(gnus-summary-selected (:background sky-blue-1 :foreground black))
+ '(gnus-summary-selected (:background chameleon-3 :foreground black))
  '(gnus-summary-normal-ticked (:background scarlet-red-3))
  '(gnus-summary-normal-read (:foreground aluminium-3 :italic t))
  '(gnus-summary-high-unread (:inherit gnus-summary-normal-unread
