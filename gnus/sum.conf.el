@@ -39,13 +39,18 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
      :background ,(face-attribute 'default :background)))
   "Font for thread symbols in Gnus summary"
   :group 'gnus-sum)
+(defface vbe:gnus-summary-mouse-face
+  '((t))                                ; Remove highlighting
+  "Font for mouse highlight in Gnus summary"
+  :group 'gnus-sum)
 (setq gnus-face-9  'vbe:gnus-summary-@-face
       gnus-face-10 'vbe:gnus-summary-symbols-face
       gnus-face-11 'vbe:gnus-summary-subject-face
       gnus-face-12 'vbe:gnus-summary-threads-face
+      gnus-mouse-face-13 'vbe:gnus-summary-mouse-face
       gnus-summary-line-format
       (concat
-       "%(" "%10{%U%R%z%}" " " "%1{%11,11&user-date;%}"
+       "%13(" "%10{%U%R%z%}" " " "%1{%11,11&user-date;%}"
        "%10{│%}"
        "%9{%u&@;%}" "%-15,15f " "%)"
        "%*"
