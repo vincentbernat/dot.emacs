@@ -50,7 +50,7 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
       gnus-mouse-face-13 'vbe:gnus-summary-mouse-face
       gnus-summary-line-format
       (concat
-       "%13(" "%10{%U%R%z%}" " " "%1{%11,11&user-date;%}"
+       "%10{%U%R%z%}" "%13(" " " "%1{%11,11&user-date;%}"
        "%10{│%}"
        "%9{%u&@;%}" "%-15,15f " "%)"
        "%*"
