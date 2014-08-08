@@ -29,15 +29,7 @@
       gnus-gcc-mark-as-read t
 
 ;; Where to store local mails (drafts, ...)
-      message-directory (nnheader-concat gnus-home-directory "mail")
-
-;; How to grab old articles
-      gnus-refer-article-method
-      '(current				; Local server first
-        (nnir "nnimap:Sent")
-        (nnir "nnimap:INBOX")
-        (nnir "nnimap:INBOX.archive")
-	(nntp "news.gmane.org")))	; gmane
+      message-directory (nnheader-concat gnus-home-directory "mail"))
 
 (setq gnus-secondary-select-methods
       `((nnimap "exoscale"
