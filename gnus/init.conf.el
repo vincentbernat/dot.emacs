@@ -34,6 +34,9 @@
 ;; How to grab old articles
       gnus-refer-article-method
       '(current				; Local server first
+        (nnir "nnimap:Sent")
+        (nnir "nnimap:INBOX")
+        (nnir "nnimap:INBOX.archive")
 	(nntp "news.gmane.org")))	; gmane
 
 (setq gnus-secondary-select-methods
