@@ -28,11 +28,6 @@
                :load-path "lisp"
                :checkout "v3.0.2")
 
-        (:name geben
-               :website "https://code.google.com/p/geben-on-emacs/"
-               :type svn
-               :url "http://geben-on-emacs.googlecode.com/svn/trunk/")
-
         (:name editorconfig
                :description "define and maintain consistent coding styles between editors"
                :type github
@@ -65,7 +60,6 @@
 	  dtrt-indent			; Autodetect indentation
 	  magit				; Git stuff, must-have!
 	  ggtags			; gtags interface (etags on steroids)
-          geben                         ; emacs-on-geben (debugger for PHP)
           flycheck                      ; on-the-fly checker for many languages
 	  ;; Modes
 	  auctex			; LaTeX mode
