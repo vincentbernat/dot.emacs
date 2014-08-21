@@ -49,7 +49,9 @@
 ;;     PassCmd "echo ${PASSWORD:-$(gpg --no-tty -qd ~/.authinfo.gpg | sed ...)}"
 (defun vbe:mbsync (channel &optional only)
   "run the `mbsync` command asynchronously"
-  (interactive "sChannel: \nP")
+  (interactive (list (completing-read "Channel: "
+                                 (vbe:mbsync-channels) nil t)
+                     current-prefix-arg))
   (let* ((name (format "*mbsync-%s*" channel))
          (args (cond ((stringp only) (format "%s:%s" channel only))
                      ((eq only nil) (format "%s" channel))
@@ -105,6 +107,18 @@
             (set-marker (process-mark proc) (point)))
           (if moving (goto-char (process-mark proc)))))))
   (vbe:mbsync-update-mode-line proc))
+
+(defun vbe:mbsync-channels (&optional mbsyncrc)
+  "Return existing channels for mbsync"
+  (let ((mbsyncrc (or mbsyncrc (expand-file-name "~/.mbsyncrc")))
+        (result))
+    (with-temp-buffer
+      (insert-file-contents mbsyncrc)
+      (goto-char 1)
+      (save-match-data
+        (while (re-search-forward "^Channel\\s-+\\(\\w+\\)\\s-*$" nil t)
+          (setq result (append result (list (match-string 1)))))))
+    result))
 
 (defun vbe:mbsync-sentinel (proc change)
   (vbe:mbsync-update-mode-line proc)
