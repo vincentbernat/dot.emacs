@@ -23,6 +23,8 @@
          (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@debian.org"
                                 "*@*.debian.org"
+                                "*@debian.ch"
+                                "*@*.debian.ch"
                                 "*@debconf.org"
                                 "*@*.debconf.org"))
          (x-identity "debian")
