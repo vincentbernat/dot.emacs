@@ -6,6 +6,11 @@
                :post-init (progn
                             (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
 
+        (:name org-passwords
+               :description "Password manager for Org"
+               :type git
+               :url "https://bitbucket.org/alfaromurillo/org-passwords.el.git")
+
         ;; This should be in contrib/ of org-mode but this is not
         ;; shipped with Emacs. We take exactly the version we need to
         ;; match org-mode in Emacs.
@@ -89,6 +94,7 @@
           ;; org stuff
           org-mime
           org-bullets
+          org-passwords
           ;; Misc
           znc                           ; znc
           gist                          ; gist integration
