@@ -5,9 +5,6 @@
       '((:name php-mode
                :post-init (progn
                             (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
-        (:name junos-mode
-               :type github
-               :pkgname "vincentbernat/junos-mode")
 
         ;; This should be in contrib/ of org-mode but this is not
         ;; shipped with Emacs. We take exactly the version we need to
