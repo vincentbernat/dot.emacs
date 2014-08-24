@@ -25,11 +25,6 @@
                :load-path "lisp"
                :checkout "v3.0.2")
 
-        (:name editorconfig
-               :description "define and maintain consistent coding styles between editors"
-               :type github
-               :pkgname "editorconfig/editorconfig-emacs")
-
         (:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
