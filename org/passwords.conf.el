@@ -6,13 +6,13 @@
       org-passwords-time-opened "5 min")
 
 (define-key org-passwords-mode-map
-  (kbd "C-c u")
+  (kbd "C-c d u")
   'org-passwords-copy-username)
 (define-key org-passwords-mode-map
-  (kbd "C-c s")
+  (kbd "C-c d p")
   'org-passwords-copy-password)
 (define-key org-passwords-mode-map
-  (kbd "C-c g")
+  (kbd "C-c d g")
   'org-passwords-open-url)
 
 ;;; passwords.conf.el ends here
