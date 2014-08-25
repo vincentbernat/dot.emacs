@@ -9,10 +9,7 @@
         (:name org-passwords
                :description "Password manager for Org"
                :type git
-               :url "https://bitbucket.org/alfaromurillo/org-passwords.el.git"
-               :prepare (progn
-                          (autoload 'org-passwords "org-passwords")
-                          (autoload 'org-passwords-mode "org-passwords")))
+               :url "https://bitbucket.org/alfaromurillo/org-passwords.el.git")
 
         ;; This should be in contrib/ of org-mode but this is not
         ;; shipped with Emacs. We take exactly the version we need to
