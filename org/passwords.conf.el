@@ -1,5 +1,6 @@
 ;;; Code:
 
+(require 's)
 (require 'org-passwords)
 (setq org-passwords-file "~/Documents/org/passwords.gpg"
       org-passwords-random-words-dictionary "/usr/share/dict/american-english"
@@ -14,5 +15,15 @@
 (define-key org-passwords-mode-map
   (kbd "C-c d g")
   'org-passwords-open-url)
+(define-key org-passwords-mode-map
+  (kbd "C-c d o")
+  'vbe:org-passwords-copy-otp)
+
+(defun vbe:org-passwords-copy-otp ()
+  "Execute the OTP program for the current entry and copy its
+result in the kill-ring buffer"
+  (interactive)
+  (kill-new (s-trim (shell-command-to-string
+                     (org-passwords-get-property "OTP")))))
 
 ;;; passwords.conf.el ends here
