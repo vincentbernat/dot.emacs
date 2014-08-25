@@ -22,7 +22,7 @@
   (kbd "C-c u")
   'org-passwords-copy-username)
 (define-key org-passwords-mode-map
-  (kbd "C-c p")
+  (kbd "C-c s")
   'org-passwords-copy-password)
 (define-key org-passwords-mode-map
   (kbd "C-c g")
