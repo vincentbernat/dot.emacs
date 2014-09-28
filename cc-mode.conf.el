@@ -3,6 +3,7 @@
       c-basic-offset 4)			; with a 4 spaces indent
 
 (require 'dtrt-indent)                  ; autodetect indentation
+(require 'dash)
 
 ;; More styles. To debug, use C-c C-s.
 ;;  - `+` means `c-basic-offset` times 1.
@@ -31,6 +32,11 @@
            (tramp-tramp-file-p (buffer-file-name)))
     (ggtags-mode 1)))
 (add-hook 'c-mode-common-hook 'vbe:cc-mode-hook)
+
+(setq c-font-lock-extra-types (-union c-font-lock-extra-types
+                                      '("Gdk\\sw+" "Gtk\\sw+"
+                                        "gchar" "gboolean" "gint" "guint" "glong" "gdouble"
+                                        "gpointer")))
 
 ;; Fix @Override indentation in Java
 (add-hook 'java-mode-hook
