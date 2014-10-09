@@ -157,6 +157,6 @@ substituting hyphens for slashes."
     (kill-buffer (current-buffer))
     (switch-to-buffer original)
     (when wincfg
-      (set-window-configuration org-edit-src-saved-temp-window-config))))
+      (set-window-configuration wincfg))))
 
 (provide 'vbe/utils)
