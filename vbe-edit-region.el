@@ -32,6 +32,11 @@
     (overlay-put ovl 'face 'secondary-selection)
     (overlay-put ovl :read-only "Leave me alone")
 
+    ;; Add current shortcut to \\[vbe:edit-region-mode-map]
+    (define-key vbe:edit-region-mode-map (kbd (substitute-command-keys
+                                               "\\[vbe:edit-region-in-another-buffer]"))
+      'vbe:edit-region-exit)
+
     ;; Create a new buffer with the appropriate content
     (with-current-buffer buffer
       (insert code)
@@ -57,7 +62,6 @@
     (pop-to-buffer buffer)
     (message (substitute-command-keys
               "Edit, then exit with \\[vbe:edit-region-exit]"))))
-(global-set-key "\C-c'" 'vbe:edit-region-in-another-buffer)
 
 ;; Compute left margin of a region
 (defun vbe:compute-left-margin (code)

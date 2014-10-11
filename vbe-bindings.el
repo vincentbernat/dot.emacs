@@ -11,6 +11,7 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c '") 'vbe:edit-region-in-another-buffer)
 
 ;; org-mode
 (global-set-key "\C-cl" 'org-store-link)
