@@ -101,7 +101,6 @@ be searched in \"el-get.el\" in the user Emacs directory."
       'vbe:no-electric-indent-mode)))
 
 ;; Other stuff we need
-(vbe:require 'edit-region)
 (require 'point-stack)
 (require 'uniquify)
 (require 'ido)
@@ -110,6 +109,8 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (require 'multiple-cursors)
 (require 'midnight)               ; clean up buffers from time to time
 (global-flycheck-mode 1)
+(autoload 'vbe:edit-region-in-another-buffer "vbe-edit-region"
+  "Edit region in another buffer" t nil)
 
 ;; Server
 (unless (string= (user-login-name) "root")
