@@ -101,6 +101,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
       'vbe:no-electric-indent-mode)))
 
 ;; Other stuff we need
+(vbe:require 'edit-region)
 (require 'point-stack)
 (require 'uniquify)
 (require 'ido)
