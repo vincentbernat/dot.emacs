@@ -1,3 +1,16 @@
+;;; Commentary
+
+;; This is an attempt to mimic \\[org-edit-src-code] on a
+;; region. Unfortunately, the code from `org-mode' is not flexible
+;; enough to be reused.
+;;
+;; The user selects a region and invoke
+;; \\[vbe:edit-region-in-another-buffer]. The content of the region
+;; will be copied to another buffer. Any left margin is removed. When
+;; finished, the content of the buffer is copied back and the left
+;; margin is restored. When no mode is specified, auto-detection is
+;; attempted, otherwise the provided major mode is loaded.
+
 ;;; Code:
 
 (require 's)
