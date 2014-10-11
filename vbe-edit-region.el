@@ -2,7 +2,6 @@
 (require 'dash)
 
 (defvar vbe:edit-region-mode-map (make-sparse-keymap))
-(define-key vbe:edit-region-mode-map "\C-c'" 'vbe:edit-region-exit)
 (define-key vbe:edit-region-mode-map "\C-xk" 'vbe:edit-region-exit)
 (define-minor-mode vbe:edit-region-mode
   "Minor mode to edit region with another mode")
@@ -33,9 +32,10 @@
     (overlay-put ovl :read-only "Leave me alone")
 
     ;; Add current shortcut to \\[vbe:edit-region-mode-map]
-    (define-key vbe:edit-region-mode-map (kbd (substitute-command-keys
-                                               "\\[vbe:edit-region-in-another-buffer]"))
-      'vbe:edit-region-exit)
+    (let ((current-key (where-is-internal 'vbe:edit-region-in-another-buffer)))
+      (when current-key
+        (define-key vbe:edit-region-mode-map (car current-key)
+          'vbe:edit-region-exit)))
 
     ;; Create a new buffer with the appropriate content
     (with-current-buffer buffer
