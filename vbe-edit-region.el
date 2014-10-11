@@ -1,3 +1,5 @@
+;;; Code:
+
 (require 's)
 (require 'dash)
 
@@ -6,11 +8,13 @@
 (define-minor-mode vbe:edit-region-mode
   "Minor mode to edit region with another mode")
 
-;; Edit region in another buffer.  This could have been done with just
-;; an indirect buffer and narrowing but we want to remove and restore
-;; any indentation. For example, this allows one to edit a block
-;; literal in YAML. Can specify a mode to use.
 (defun vbe:edit-region-in-another-buffer (start end &optional arg)
+  "Edit region in another buffer.
+
+This could have been done with just an indirect buffer and
+narrowing but we want to remove and restore any indentation. For
+example, this allows one to edit a block literal in YAML. Can
+specify a mode to use."
   (interactive "r\nP")
   (let* ((mode (if arg (intern (completing-read
                                 "Mode: "
@@ -63,14 +67,14 @@
     (message (substitute-command-keys
               "Edit, then exit with \\[vbe:edit-region-exit]"))))
 
-;; Compute left margin of a region
 (defun vbe:compute-left-margin (code)
+  "Compute left margin of a string of code."
   (-min
    (-map '(lambda (line) (length (car (s-match "^\\s-*" line))))
          (-remove 's-blank? (s-lines code)))))
 
-;; Exit editing region in buffer
 (defun vbe:edit-region-exit ()
+  "Exit edition of region in buffer."
   (interactive)
   (let ((start vbe:edit-region--start)
         (end vbe:edit-region--end)
@@ -94,3 +98,4 @@
       (set-window-configuration wincfg))))
 
 (provide 'vbe/edit-region)
+;;; vbe-edit-region ends here
