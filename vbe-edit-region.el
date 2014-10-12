@@ -10,6 +10,14 @@
 ;; finished, the content of the buffer is copied back and the left
 ;; margin is restored. When no mode is specified, auto-detection is
 ;; attempted, otherwise the provided major mode is loaded.
+;;
+;; Also note that Emacs comes with an amazing feature called "indirect
+;; buffers". This could simplify a lot our use case. See this blog post:
+;;  http://demonastery.org/2013/04/emacs-narrow-to-region-indirect/
+;;
+;; The drawback is that you cannot narrow to a rectangle, so if there
+;; is a left margin, you are out of luck. Hence the complicate code
+;; below.
 
 ;;; Code:
 
