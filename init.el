@@ -109,7 +109,9 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (require 'multiple-cursors)
 (require 'midnight)               ; clean up buffers from time to time
 (global-flycheck-mode 1)
-(autoload 'vbe:edit-region-in-another-buffer "vbe-edit-region"
+(autoload 'vbe:edit-region-in-another-buffer
+  (expand-file-name "vbe-edit-region"
+                    user-emacs-directory)
   "Edit region in another buffer" t nil)
 
 ;; Server
