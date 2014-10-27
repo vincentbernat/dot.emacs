@@ -91,8 +91,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 ;; Disable electric indent mode on some mode
 (defun vbe:no-electric-indent-mode ()
   (set (make-local-variable 'electric-indent-mode) nil))
-(let ((modes '(python-mode
-               markdown-mode rst-mode yaml-mode
+(let ((modes '(markdown-mode rst-mode yaml-mode
                ledger-mode message-mode
                fundamental-mode)))
   (dolist (mode modes)
