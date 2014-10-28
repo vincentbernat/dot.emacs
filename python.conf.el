@@ -1,7 +1,7 @@
 ;;; Code:
 
 (setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "--classic --no-banner"
+      python-shell-interpreter-args "--classic --no-banner --pprint"
       python-shell-completion-setup-code
       "from IPython.core.completerlib import module_completion"
       python-shell-completion-module-string-code

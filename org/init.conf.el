@@ -88,7 +88,7 @@
                                (sh . t)))
 (setq org-confirm-babel-evaluate '(lambda (lang body)
                                     (not (string= lang "ledger")))
-      org-babel-python-command "ipython --no-banner --classic --no-confirm-exit")
+      org-babel-python-command "ipython --no-banner --classic --no-confirm-exit --pprint")
 
 
 ;; Autocommit in git
