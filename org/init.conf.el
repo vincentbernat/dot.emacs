@@ -87,9 +87,19 @@
                                (python . t)
                                (sh . t)))
 (setq org-confirm-babel-evaluate '(lambda (lang body)
-                                    (not (string= lang "ledger")))
-      org-babel-python-command "ipython --no-banner --classic --no-confirm-exit --pprint")
+                                    (not (string= lang "ledger"))))
 
+;; Python with ipython
+(setq org-babel-python-command "ipython --no-banner --classic --no-confirm-exit --pprint")
+;; use %cpaste to paste code into ipython in org mode
+(defadvice org-babel-python-evaluate-session
+  (around org-python-use-cpaste
+          (session body &optional result-type result-params) activate)
+  "Add a %cpaste and '--' to the body, so that ipython does the right
+thing."
+  (setq body (concat "%cpaste -q\n" body "\n--"))
+  ad-do-it
+  ad-return-value)
 
 ;; Autocommit in git
 (defun vbe:org-git-auto-commit ()
