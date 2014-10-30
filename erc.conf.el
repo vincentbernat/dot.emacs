@@ -136,5 +136,3 @@ where `xxxxxxx' is the number of seconds since epoch."
 
 ;; Too easy to hit C-c C-c instead of C-c C-space
 (define-key erc-mode-map "\C-c\C-c" nil)
-
-(erc-update-modules)
