@@ -58,6 +58,7 @@
 	  magit				; Git stuff, must-have!
 	  ggtags			; gtags interface (etags on steroids)
           flycheck                      ; on-the-fly checker for many languages
+          pretty-mode                   ; pretty symbols for many modes
 	  ;; Modes
 	  auctex			; LaTeX mode
 	  coffee-mode			; Major mode for coffeescript
