@@ -32,6 +32,7 @@
  org-src-fontify-natively t             ; fontify code blocks
  org-edit-src-content-indentation 0     ; don't indent source blocks
  org-catch-invisible-edits 'error       ; don't edit invisible text
+ org-time-clocksum-format '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)
 )
 
 ;; Todo keywords
