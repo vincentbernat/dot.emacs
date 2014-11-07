@@ -48,4 +48,21 @@
         (when (> col-no 0)
           (forward-char (1- col-no)))))))
 
+(defadvice server-visit-files (before parse-numbers-in-lines
+                                      (files proc &optional nowait)
+                                      activate)
+  "Looks for filenames like file:line or file:line:position and
+reparses name in such manner that position in file"
+  (save-match-data
+    (ad-set-arg 0
+                (mapcar (lambda (fn)
+                          (let ((path (car fn)))
+                            (if (string-match "^\\(.*?\\):\\([0-9]+\\):?\\([0-9]*\\):?$" path)
+                              (cons
+                               (match-string 1 path)
+                               (cons (string-to-number (match-string 2 path))
+                                     (string-to-number (or (match-string 3 path) "")))
+                               )
+                            fn))) files))))
+
 ;;; files.conf.el ends here
