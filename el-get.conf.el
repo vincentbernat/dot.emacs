@@ -91,6 +91,7 @@
           cisco-router-mode             ; Mode for Cisco
           haskell-mode                  ; Mode for haskell
           flycheck-haskell              ; Flycheck for haskell
+          protobuf-mode                 ; Mode for protobuf
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
