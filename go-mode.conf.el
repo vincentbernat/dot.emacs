@@ -5,8 +5,11 @@
 (defun vbe:go-mode-setup-gopath ()
   "Setup GOPATH to the root of the project + build."
   (let* ((initial-gopath (split-string (getenv "GOPATH") ":"))
-         (root (projectile-project-root))
-         (additionals (list root (format "%sbuild" (projectile-project-root))))
+         (root (if (projectile-project-p)
+                   (projectile-project-root)
+                 default-directory))
+         (additionals (list root
+                            (format "%sbuild" root)))
          (new-gopath (append (--filter (file-accessible-directory-p it) additionals)
                              initial-gopath))
          (gopath (mapconcat 'identity new-gopath ":")))
