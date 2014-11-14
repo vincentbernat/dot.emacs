@@ -21,6 +21,4 @@
 
 (add-hook 'go-mode-hook 'vbe:go-mode-setup-gopath)
 
-(locate-dominating-file "/home/bernat/code/deezer/dashkiosk/" "Makefile")
-
 ;;; go-mode.conf.el ends here
