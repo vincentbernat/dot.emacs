@@ -11,8 +11,10 @@
          (altroot (locate-dominating-file default-directory "Makefile"))
          (additionals (list root
                             (format "%sbuild" root)
+                            (format "%sbuild~" root)
                             (and altroot (expand-file-name altroot))
-                            (and altroot (format "%sbuild" (expand-file-name altroot)))))
+                            (and altroot (format "%sbuild" (expand-file-name altroot)))
+                            (and altroot (format "%sbuild~" (expand-file-name altroot)))))
          (new-gopath (append (-filter 'file-accessible-directory-p (-non-nil additionals))
                              initial-gopath))
          (gopath (mapconcat 'identity new-gopath ":")))
