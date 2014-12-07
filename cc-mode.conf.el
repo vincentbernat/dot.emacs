@@ -33,6 +33,22 @@
     (ggtags-mode 1)))
 (add-hook 'c-mode-common-hook 'vbe:cc-mode-hook)
 
+(defun vbe:flycheck-fix-clang-include-path ()
+  "Setup include path to also look in alternate directories"
+  (let* ((root (if (projectile-project-p)
+                   (projectile-project-root)
+                 default-directory))
+         (altroot (locate-dominating-file default-directory "configure.ac"))
+         (additionals (list root
+                            (format "%sbuild" root)
+                            (format "%sbuild~" root)
+                            (and altroot (expand-file-name altroot))
+                            (and altroot (format "%sbuild" (expand-file-name altroot)))
+                            (and altroot (format "%sbuild~" (expand-file-name altroot)))))
+         (candidates (-filter 'file-accessible-directory-p (-non-nil additionals))))
+    (setq-local flycheck-clang-include-path (-distinct candidates))))
+(add-hook 'c-mode-hook 'vbe:flycheck-fix-clang-include-path)
+
 (setq c-font-lock-extra-types (-union c-font-lock-extra-types
                                       '("Gdk\\sw+" "Gtk\\sw+"
                                         "gchar" "gboolean" "gint" "guint" "glong" "gdouble"
