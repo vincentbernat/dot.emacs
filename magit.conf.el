@@ -18,10 +18,6 @@
 (define-key magit-status-mode-map (kbd "q") 'vbe:magit-quit-session)
 
 ;; Add a "latest commits" section
-(magit-define-section-jumper latest "Latest commits")
-(defun vbe:magit-insert-latest-commits ()
-  (magit-git-insert-section (latest "Latest commits:")
-      (apply-partially 'magit-wash-log 'unique)
-    "log" "--format=format:%h %s"
-    "HEAD~5..HEAD"))
-(add-to-list 'magit-status-sections-hook 'vbe:magit-insert-latest-commits t)
+(magit-add-section-hook 'magit-status-sections-hook
+                        'magit-insert-unpulled-or-recent-commits
+                        'magit-insert-unpulled-commits t)
