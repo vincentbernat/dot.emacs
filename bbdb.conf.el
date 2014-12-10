@@ -40,15 +40,11 @@
 ;; Auto create some records otherwise, update existing records
 (setq bbdb-update-records-p
       (lambda ()
-  (let ((rest '(("From" . ".*@deezer.com")))
-        done elt)
-    (if (eq rest t)
-        (setq done t)
-      (while (and (setq elt (pop rest)) (not done))
-        (dolist (header (if (stringp (car elt)) (list (car elt)) (car elt)))
-          (if (bbdb-message-header-re header (cdr elt))
-              (setq done t)))))
-    (if invert (setq done (not done)))
+  (let (done elt)
+    (while (and (setq elt (pop rest)) (not done))
+      (dolist (header (if (stringp (car elt)) (list (car elt)) (car elt)))
+        (if (bbdb-message-header-re header (cdr elt))
+            (setq done t))))
     (if done 'create 'update))))
 
 (defun vbe:gnus/bbdb-subject-canonicalize (subject)

@@ -22,7 +22,6 @@
 
 ;; How to archive sent messages
 (setq gnus-message-archive-group '((cond ((message-news-p) nil)
-                                         ((vbe:at 'deezer) nil)
                                          (t "Sent")))
       gnus-message-archive-method "nnimap:"
       gnus-update-message-archive-method t
