@@ -63,7 +63,7 @@
   "*Program used to generate epigrams, default \"fortune\".")
 
 (defvar vbe:fortune-switches (list "-e"
-			       "50%" (expand-file-name "~/.sigs/kernelcookies")
+			       "50%" (expand-file-name "~/.sigs/literature")
 			       "50%" (expand-file-name "~/.sigs/prog-style"))
   "*List of extra arguments when `vbe:fortune-program' is invoked")
 
