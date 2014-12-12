@@ -126,8 +126,8 @@
 (defun vbe:mbsync-something ()
   "Sync something depending on how many time this function has been called"
   (let ((args (cond ((eq (% vbe:mbsync-something 2) 0) '("luffy" t))
-                    ((eq (% vbe:mbsync-something 5) 0) '("exoscale" t))
-                    ((eq (% vbe:mbsync-something 7) 0) '("luffy"))
+                    ((eq (% vbe:mbsync-something 5) 0) '("luffy"))
+                    ((eq (% vbe:mbsync-something 7) 0) '("exoscale" t))
                     ((eq (% vbe:mbsync-something 31) 0) '("exoscale"))
                     nil))
         (ofNM "org.freedesktop.NetworkManager"))
