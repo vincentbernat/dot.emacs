@@ -81,7 +81,6 @@
           apache-mode                   ; Mode for Apache configuration files
           web-mode                      ; Mode for web stuff (better than html-mode)
           scss-mode                     ; Mode for SCSS files
-          js2-mode                      ; Mode for Javascript
           po-mode                       ; Mode for PO files
           ledger-mode                   ; Mode for ledger
           clojure-mode                  ; Mode for clojure
