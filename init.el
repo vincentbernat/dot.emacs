@@ -77,6 +77,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (add-to-list 'auto-mode-alist '("\\.html?$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js-mode))
 
 ;; Programming

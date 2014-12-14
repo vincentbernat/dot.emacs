@@ -2,11 +2,7 @@
 (setq el-get-is-lazy t)
 
 (setq el-get-sources
-      '((:name php-mode
-               :post-init (progn
-                            (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
-
-        (:name org-passwords
+      '((:name org-passwords
                :description "Password manager for Org"
                :type git
                :url "https://bitbucket.org/alfaromurillo/org-passwords.el.git")
