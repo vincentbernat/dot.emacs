@@ -14,15 +14,6 @@
                :type github
                :username "sabof")
 
-        (:name jsx-mode
-               :description "A major mode for editing React JSX files"
-               :type github
-               :pkgname "jsx/jsx-mode.el"
-               :load-path "src"
-               :checkout "0.1.10"
-               :prepare (progn
-                          (add-to-list 'auto-mode-alist '("\\.jsx$" . jsx-mode))))
-
         (:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
@@ -84,7 +75,6 @@
           haskell-mode                  ; Mode for haskell
           flycheck-haskell              ; Flycheck for haskell
           protobuf-mode                 ; Mode for protobuf
-          jsx-mode                      ; Mode for JSX
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
