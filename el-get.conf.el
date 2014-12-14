@@ -2,12 +2,7 @@
 (setq el-get-is-lazy t)
 
 (setq el-get-sources
-      '((:name org-passwords
-               :description "Password manager for Org"
-               :type git
-               :url "https://bitbucket.org/alfaromurillo/org-passwords.el.git")
-
-        ;; This should be in contrib/ of org-mode but this is not
+      '(;; This should be in contrib/ of org-mode but this is not
         ;; shipped with Emacs. We take exactly the version we need to
         ;; match org-mode in Emacs.
         (:name org-mime
