@@ -14,13 +14,6 @@
                :type github
                :username "sabof")
 
-        (:name ledger-mode
-               :description "A major mode for editing ledger .dat files"
-               :type github
-               :pkgname "ledger/ledger"
-               :load-path "lisp"
-               :checkout "v3.0.2")
-
         (:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
