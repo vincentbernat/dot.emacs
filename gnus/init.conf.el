@@ -68,8 +68,6 @@
                                            (funcall secret)
                                          secret)))
              (proc (apply 'start-process name name "mbsync" (list args))))
-        (unless only
-          (message (format "mbsync started for channel %s" args)))
         (process-put proc :quick only)
         (process-put proc :channel channel)
         (set-process-filter proc 'vbe:mbsync-filter)
