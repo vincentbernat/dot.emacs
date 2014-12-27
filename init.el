@@ -3,6 +3,9 @@
   (error "Only Emacs 24 is supported. You seem to use Emacs %d"
 	 emacs-major-version))
 
+;; Ensure we don't load outdated bytecodes
+(setq load-prefer-newer t)
+
 ;; I don't like to use require to load my own configuration files
 ;; because it is not possible to limit its use to a given directory. I
 ;; don't want to mess with the load path and I don't want to load
