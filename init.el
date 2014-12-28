@@ -3,7 +3,9 @@
   (error "Only Emacs 24 is supported. You seem to use Emacs %d"
 	 emacs-major-version))
 
-;; Ensure we don't load outdated bytecodes
+;; Ensure we don't load outdated bytecodes. This needs to be put
+;; early. Another possibility is to use `auto-compile`:
+;;  https://github.com/tarsius/auto-compile/blob/master/auto-compile.el
 (setq load-prefer-newer t)
 
 ;; I don't like to use require to load my own configuration files
