@@ -34,6 +34,7 @@
           smex                          ; IDO for M-x
           projectile                    ; handling of projects
           expand-region                 ; smartly expand region
+          auto-compile                  ; automatically compile outdated stuff
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
