@@ -17,10 +17,15 @@
   (jump-to-register :vbe/magit-fullscreen))
 (define-key magit-status-mode-map (kbd "q") 'vbe:magit-quit-session)
 
+(defun vbe:magit-insert-recent-commits ()
+  (magit-git-insert-section (recent "Recent commits:")
+      (apply-partially 'magit-wash-log 'unique)
+    "log" "--format=format:%h %s" "-n" "10"))
+
 ;; Add a "latest commits" section
 (magit-add-section-hook 'magit-status-sections-hook
-                        'magit-insert-unpulled-or-recent-commits
-                        'magit-insert-unpulled-commits t)
+                        'vbe:magit-insert-recent-commits
+                        'magit-insert-unpulled-commits)
 
 ;; Don't use auto revert mode, we use the global one
 (magit-auto-revert-mode -1)
