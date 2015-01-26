@@ -14,11 +14,6 @@
                :type github
                :username "sabof")
 
-        (:name bison-mode
-               :description "bison major-mode for Emacs"
-               :type github
-               :pkgname "Wilfred/bison-mode")
-
         (:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
