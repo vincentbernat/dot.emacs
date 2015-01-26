@@ -14,6 +14,11 @@
                :type github
                :username "sabof")
 
+        (:name bison-mode
+               :description "bison major-mode for Emacs"
+               :type github
+               :pkgname "Wilfred/bison-mode")
+
         (:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
@@ -77,6 +82,7 @@
           haskell-mode                  ; Mode for haskell
           flycheck-haskell              ; Flycheck for haskell
           protobuf-mode                 ; Mode for protobuf
+          bison-mode                    ; Mode for bison
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
