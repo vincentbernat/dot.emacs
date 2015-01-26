@@ -51,8 +51,13 @@
 
 (setq c-font-lock-extra-types (-union c-font-lock-extra-types
                                       '("Gdk\\sw+" "Gtk\\sw+"
-                                        "gchar" "gboolean" "gint" "guint" "glong" "gdouble"
-                                        "gpointer")))
+                                        "gchar" "gboolean" "guchar"
+                                        "gshort" "gushort" "glong" "gulong"
+                                        "gint" "gint8" "gint16" "gint32" "gint64"
+                                        "guint" "guint8" "guint16" "guint32" "guint64"
+                                        "glong" "gdouble" "goffset"
+                                        "gsize" "gssize"
+                                        "gpointer" "guintptr")))
 
 ;; Fix @Override indentation in Java
 (add-hook 'java-mode-hook
