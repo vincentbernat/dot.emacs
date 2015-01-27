@@ -62,6 +62,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (setq mouse-yank-at-point t		; Yank where the point currently is
       x-select-enable-primary t         ; Yank use the primary selection if available
       save-interprogram-paste-before-kill t ; Put clipboard/selection into kill ring
+      x-selection-timeout 10                ; Workaround. See https://debbugs.gnu.org/16737
       mouse-1-click-follows-link nil)	; Don't follow links with left click
 (fset 'yes-or-no-p 'y-or-n-p) ; Always use y/n prompt
 (setq use-dialog-box nil)     ; No dialog box
