@@ -3,4 +3,9 @@
             (not (eq (process-status server-process)
                      'listen)))
     (unless (server-running-p server-name)
-      (server-start))))
+      (server-start)
+      (defun vbe:raise-frame-and-give-focus ()
+        (when window-system
+          (raise-frame)
+          (x-focus-frame (selected-frame))))
+      (add-hook 'server-switch-hook 'vbe:raise-frame-and-give-focus))))
