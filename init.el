@@ -112,6 +112,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
       'vbe:no-electric-indent-mode)))
 
 ;; Other stuff we need
+(require 'server)
 (require 'point-stack)
 (require 'uniquify)
 (require 'ido)
@@ -124,12 +125,3 @@ be searched in \"el-get.el\" in the user Emacs directory."
   (expand-file-name "vbe-edit-region"
                     user-emacs-directory)
   "Edit region in another buffer" t nil)
-
-;; Server
-(unless (string= (user-login-name) "root")
-  (require 'server)
-  (when (or (not server-process)
-            (not (eq (process-status server-process)
-                     'listen)))
-    (unless (server-running-p server-name)
-      (server-start))))
