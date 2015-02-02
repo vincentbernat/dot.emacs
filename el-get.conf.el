@@ -12,7 +12,7 @@
         (:name org-bullets
                :description "utf-8 bullets for org-mode"
                :type github
-               :username "sabof")
+               :pkgname "sabof/org-bullets")
 
         (:name znc
                :type github
