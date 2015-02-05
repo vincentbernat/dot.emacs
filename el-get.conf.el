@@ -35,6 +35,7 @@
           projectile                    ; handling of projects
           expand-region                 ; smartly expand region
           auto-compile                  ; automatically compile outdated stuff
+          browse-kill-ring              ; browse kill ring
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
