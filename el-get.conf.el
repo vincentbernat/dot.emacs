@@ -79,6 +79,7 @@
           flycheck-haskell              ; Flycheck for haskell
           protobuf-mode                 ; Mode for protobuf
           bison-mode                    ; Mode for bison
+          rust-mode                     ; Mode for Rust
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
