@@ -126,7 +126,7 @@
   (let ((args (cond ((eq (% vbe:mbsync-something 2) 0) '("luffy" t))
                     ((eq (% vbe:mbsync-something 5) 0) '("luffy"))
                     ((eq (% vbe:mbsync-something 7) 0) '("exoscale" t))
-                    ((eq (% vbe:mbsync-something 31) 0) '("exoscale"))
+                    ((eq (% vbe:mbsync-something 17) 0) '("exoscale"))
                     nil))
         (ofNM "org.freedesktop.NetworkManager"))
     (when (and args
