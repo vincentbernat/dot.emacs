@@ -80,7 +80,7 @@
           protobuf-mode                 ; Mode for protobuf
           bison-mode                    ; Mode for bison
           rust-mode                     ; Mode for Rust
-          slime-mode                    ; Mode for Common Lisp
+          slime				; Mode for Common Lisp
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
