@@ -26,6 +26,3 @@
 (magit-add-section-hook 'magit-status-sections-hook
                         'vbe:magit-insert-recent-commits
                         'magit-insert-unpushed-commits t)
-
-;; Don't use auto revert mode, we use the global one
-(magit-auto-revert-mode -1)
