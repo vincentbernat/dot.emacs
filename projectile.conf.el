@@ -5,3 +5,5 @@
 ;; Detect SVN projects
 (add-to-list 'projectile-project-root-files ".svn")
 (add-to-list 'projectile-globally-ignored-directories ".svn")
+
+(diminish 'projectile-mode)

@@ -26,3 +26,5 @@
 (magit-add-section-hook 'magit-status-sections-hook
                         'vbe:magit-insert-recent-commits
                         'magit-insert-unpushed-commits t)
+
+(diminish 'magit-auto-revert-mode)
