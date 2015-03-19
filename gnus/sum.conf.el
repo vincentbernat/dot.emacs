@@ -139,13 +139,13 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 
 (defun vbe:gnus/reply-somehow-on-top (n how)
   "Reply using HOW on top of the current message"
-  (flet ((escape (s) (if (and s (string-match "%" s))
-                         (mapconcat (lambda (c)
-                                      (if (eq c ?%)
-                                          "%%"
-                                        (char-to-string c)))
-                                    s "")
-                       s)))
+  (cl-flet ((escape (s) (if (and s (string-match "%" s))
+                            (mapconcat (lambda (c)
+                                         (if (eq c ?%)
+                                             "%%"
+                                           (char-to-string c)))
+                                       s "")
+                          s)))
     (let ((message-cite-reply-position 'above)
           (message-citation-line-format
            (mapconcat 'identity
