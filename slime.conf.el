@@ -1,8 +1,7 @@
 ;;; Code:
 
 (add-to-list 'slime-contribs 'slime-fancy)
+(add-to-list 'slime-contribs 'slime-asdf)
 (setq inferior-lisp-program "sbcl")
-
-(require 'slim-asdf)
 
 ;;; web-mode.conf.el ends here
