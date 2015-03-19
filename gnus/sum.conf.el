@@ -167,8 +167,8 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
 (defun vbe:gnus/extract-names (field)
   "Extract the list of names from a given field"
   (let ((result (gnus-with-article-headers
-	    (mapconcat '(lambda (x) (or (first x)
-					(second x)))
+	    (mapconcat #'(lambda (x) (or (first x)
+                                    (second x)))
 		       (mail-extract-address-components
 			(or (mail-fetch-field field)
 			    "") t) "; "))))

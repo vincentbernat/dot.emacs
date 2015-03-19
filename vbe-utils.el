@@ -36,7 +36,7 @@ substituting hyphens for slashes."
                   (load target)))))))
 
 ;; Load current features
-(mapc '(lambda (f) (vbe:after-load (symbol-name f))) features)
+(mapc #'(lambda (f) (vbe:after-load (symbol-name f))) features)
 ;; Load future features
 (add-hook 'after-load-functions 'vbe:after-load)
 

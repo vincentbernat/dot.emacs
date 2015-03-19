@@ -1,2 +1,2 @@
 (add-hook 'css-mode-hook
-          '(lambda () (rainbow-mode 1)))
+          #'(lambda () (rainbow-mode 1)))

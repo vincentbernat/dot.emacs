@@ -91,7 +91,7 @@ specify a mode to use."
 (defun vbe:compute-left-margin (code)
   "Compute left margin of a string of code."
   (-min
-   (-map '(lambda (line) (length (car (s-match "^\\s-*" line))))
+   (-map #'(lambda (line) (length (car (s-match "^\\s-*" line))))
          (-remove 's-blank? (s-lines code)))))
 
 (defun vbe:edit-region-exit ()

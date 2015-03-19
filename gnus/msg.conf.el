@@ -27,7 +27,7 @@
       user-mail-address (cond ((vbe:at 'deezer) "vbe@deezer.com")
 			      (t "bernat@luffy.cx")))
 (setq vbe:mail-addresses
-      (mapcar '(lambda (name)
+      (mapcar #'(lambda (name)
 		 (format "\\(^\\|[^.]\\)\\b%s[@\\.]" name))
 	      (apply 'append (mapcar 'split-string
 				     '("bernat vbernat vincent.bernat"

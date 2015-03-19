@@ -14,7 +14,7 @@
 ;; Disable C-c [ and C-c ] and C-c ; in org-mode. We want to keep the
 ;; list of agenda files as defined above.
 (add-hook 'org-mode-hook
-          '(lambda ()
+          #'(lambda ()
              ;; Undefine C-c [ and C-c ] since this breaks my
              ;; org-agenda files when directories are include It
              ;; expands the files in the directories individually
@@ -80,7 +80,7 @@
 ;; Use bullets
 (require 'org-bullets)
 (add-hook 'org-mode-hook
-          '(lambda ()
+          #'(lambda ()
              (org-bullets-mode 1)))
 
 ;; Babel
@@ -88,7 +88,7 @@
                              '((ledger . t)
                                (python . t)
                                (sh . t)))
-(setq org-confirm-babel-evaluate '(lambda (lang body)
+(setq org-confirm-babel-evaluate #'(lambda (lang body)
                                     (not (string= lang "ledger"))))
 
 ;; Python with ipython

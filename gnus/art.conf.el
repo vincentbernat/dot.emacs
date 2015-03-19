@@ -16,7 +16,7 @@
 
 ;; Visible headers
 (setq gnus-visible-headers
-      (mapcar '(lambda (header) (format "^%s:" header))
+      (mapcar #'(lambda (header) (format "^%s:" header))
 	      (split-string (mapconcat 'identity
 				       '("From Organization Subject Newsgroups"
 					 "To Cc Reply-To Followup-To Mail-Followup-To"
