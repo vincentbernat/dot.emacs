@@ -158,7 +158,7 @@
 ;; How to trigger mbsync?
 (define-key gnus-group-mode-map (kbd "f") 'vbe:mbsync)
 (cancel-function-timers 'vbe:mbsync-something)
-(run-with-timer 10 61 'vbe:mbsync-something)
+(run-at-time "10 sec" 61 'vbe:mbsync-something)
 
 (require 'spam)
 (setq spam-install-hooks t)
