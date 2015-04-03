@@ -132,7 +132,7 @@
     (when (and args
                ;; Check we have a working cheap internet connection
                (member ofNM
-                       (dbus-list-activatable-names :system))
+                       (dbus-list-names :system))
                (let ((primary-connection
                       (dbus-get-property :system
                                          ofNM "/org/freedesktop/NetworkManager"
