@@ -85,6 +85,10 @@
              (org-bullets-mode 1)))
 
 ;; Babel
+(org-babel-do-load-languages 'org-babel-load-languages
+                             '((ledger . t)
+                               (python . t)
+                               (sh . t)))
 (setq org-confirm-babel-evaluate #'(lambda (lang body)
                                     (not (string= lang "ledger"))))
 
