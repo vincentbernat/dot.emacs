@@ -17,8 +17,30 @@
                (nnimap-stream shell)
                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/luffy")
                (nnir-search-engine imap)))
-(setq message-send-mail-function 'message-send-mail-with-sendmail)
 (setq gnus-agent nil)
+
+;; SMTP
+(defun vbe:message-send-mail ()
+  (let ((server-and-port))
+    (save-restriction
+      (message-narrow-to-headers)
+      (setq server-and-port (mail-fetch-field "X-SMTP-Server"))
+      (message-remove-header "X-SMTP-Server"))
+    (cond ((stringp server-and-port)
+           ;; We need to use smtpmail-send-it
+           (let ((server-and-port "vincent.bernat@exoscale.ch@mail.infomaniak.ch:587"))
+             (when (string-match "^\\(?:\\(.+\\)@\\)?\\([^:]+\\)\\(?::\\([0-9]+\\)\\)?$"
+                                 server-and-port)
+               (let* ((login (match-string 1 server-and-port))
+                      (server (match-string 2 server-and-port))
+                      (port (string-to-number (or (match-string 3 server-and-port) "25")))
+                      (smtpmail-starttls-credentials (when login `((,server ,port nil nil))))
+                      (smtpmail-auth-credentials (when login `((,server ,port ,login nil))))
+                      (smtpmail-smtp-server server)
+                      (smtpmail-smtp-service port))
+                 (smtpmail-send-it)))))
+           (t (message-send-mail-with-sendmail)))))
+(setq message-send-mail-function 'vbe:message-send-mail)
 
 ;; How to archive sent messages
 (setq gnus-message-archive-group '((cond ((message-news-p) nil)
