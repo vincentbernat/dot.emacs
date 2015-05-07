@@ -2,14 +2,15 @@
 (require 's)
 
 ;; Agenda files are subdirectories of a given directory
-(setq org-agenda-files
-      (let ((base (file-name-as-directory (expand-file-name "~/Documents/org"))))
-        (--filter (not (file-exists-p (concat it "/.disabled")))
-                  (--map (concat base it)
-                         (-difference
-                          (--map (nth 0 it)
-                                 (--filter (nth 1 it) (directory-files-and-attributes base)))
-                          '("." ".."))))))
+(if nil
+    (setq org-agenda-files
+          (let ((base (file-name-as-directory (expand-file-name "~/Documents/org"))))
+            (--filter (not (file-exists-p (concat it "/.disabled")))
+                      (--map (concat base it)
+                             (-difference
+                              (--map (nth 0 it)
+                                     (--filter (nth 1 it) (directory-files-and-attributes base)))
+                              '("." "..")))))))
 
 ;; Disable C-c [ and C-c ] and C-c ; in org-mode. We want to keep the
 ;; list of agenda files as defined above.
