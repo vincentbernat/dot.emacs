@@ -111,6 +111,9 @@ be searched in \"el-get.el\" in the user Emacs directory."
       (intern (concat (symbol-name mode) "-hook"))
       'vbe:no-electric-indent-mode)))
 
+;; magit warning
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 ;; Other stuff we need
 (require 'server)
 (require 'point-stack)

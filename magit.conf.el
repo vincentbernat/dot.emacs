@@ -2,8 +2,7 @@
 (setq magit-repo-dirs (list (expand-file-name "~/code"))
       magit-repo-dirs-depth 2
       magit-stage-all-confirm nil       ; don't confirm stage all
-      magit-diff-refine-hunk nil
-      magit-last-seen-setup-instructions "1.4.0")
+      magit-diff-refine-hunk nil)
 
 ;; full screen magit-status
 ;; Stolen from: http://whattheemacsd.com/setup-magit.el-01.html
