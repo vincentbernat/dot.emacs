@@ -89,7 +89,8 @@
                              '((ledger . t)
                                (python . t)
                                (sh . t)))
-(setq org-confirm-babel-evaluate #'(lambda (lang body)
+(setq org-export-babel-evaluate nil
+      org-confirm-babel-evaluate #'(lambda (lang body)
                                     (not (string= lang "ledger"))))
 
 ;; Python with ipython
