@@ -2,15 +2,15 @@
 (require 's)
 
 ;; Agenda files are subdirectories of a given directory
-(if nil
-    (setq org-agenda-files
-          (let ((base (file-name-as-directory (expand-file-name "~/Documents/org"))))
-            (--filter (not (file-exists-p (concat it "/.disabled")))
-                      (--map (concat base it)
-                             (-difference
-                              (--map (nth 0 it)
-                                     (--filter (nth 1 it) (directory-files-and-attributes base)))
-                              '("." "..")))))))
+(setq vbe:org-agenda-files
+      (let ((base (file-name-as-directory (expand-file-name "~/Documents/org"))))
+        (--filter (not (file-exists-p (concat it "/.disabled")))
+                  (--map (concat base it)
+                         (-difference
+                          (--map (nth 0 it)
+                                 (--filter (nth 1 it) (directory-files-and-attributes base)))
+                          '("." ".."))))))
+(if nil (setq org-agenda-files vbe:org-agenda-files))
 
 ;; Disable C-c [ and C-c ] and C-c ; in org-mode. We want to keep the
 ;; list of agenda files as defined above.
@@ -111,7 +111,7 @@ thing."
     (when (--any? (and (file-directory-p it)
                        (s-starts-with? (file-name-as-directory it)
                                        filename))
-                  org-agenda-files)
+                  vbe:org-agenda-files)
       (shell-command (concat "git add " (shell-quote-argument filename)
                              " && git commit -m Autocommit")))))
 (add-hook 'after-save-hook 'vbe:org-git-auto-commit)
