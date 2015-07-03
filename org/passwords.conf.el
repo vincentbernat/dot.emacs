@@ -24,6 +24,6 @@
 result in the kill-ring buffer"
   (interactive)
   (kill-new (s-trim (shell-command-to-string
-                     (org-passwords-get-property "OTP")))))
+                     (org-entry-get (point) "OTP")))))
 
 ;;; passwords.conf.el ends here
