@@ -81,6 +81,7 @@
           protobuf-mode                 ; Mode for protobuf
           bison-mode                    ; Mode for bison
           rust-mode                     ; Mode for Rust
+          toml-mode                     ; Mode for toml files
           slime				; Mode for Common Lisp
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
