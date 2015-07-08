@@ -11,6 +11,7 @@
 (setq load-prefer-newer t)
 (require 'auto-compile)
 (auto-compile-on-load-mode 1)
+(auto-compile-on-save-mode 1)
 
 ;; I don't like to use require to load my own configuration files
 ;; because it is not possible to limit its use to a given directory. I
