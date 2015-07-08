@@ -5,6 +5,7 @@
 	 emacs-major-version))
 
 ;; Ensure we don't load outdated bytecodes. This needs to be done early.
+(add-to-list 'load-path (expand-file-name "vendor/dash" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "vendor/packed" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "vendor/auto-compile" user-emacs-directory))
 (setq load-prefer-newer t)
