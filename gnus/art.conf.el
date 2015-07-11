@@ -27,4 +27,11 @@
 
 ;; Gravatar
 (require 'gnus-gravatar)
-(add-hook 'gnus-article-prepare-hook 'gnus-treat-from-gravatar)
+(defun vbe:gnus-treat-from-gravatar ()
+  "Display gravatar, only when online."
+  ;; We do that because DNS requests in Emacs is not asynchronous and
+  ;; moreover, even without any route, we may end up waiting for the
+  ;; timeout...
+  (when (vbe:working-network-connection?)
+    (gnus-treat-from-gravatar)))
+(add-hook 'gnus-article-prepare-hook 'vbe:gnus-treat-from-gravatar)
