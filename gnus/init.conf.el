@@ -149,31 +149,8 @@
                     ((eq (% vbe:mbsync-something 5) 0) '("luffy"))
                     ((eq (% vbe:mbsync-something 7) 0) '("exoscale" t))
                     ((eq (% vbe:mbsync-something 17) 0) '("exoscale"))
-                    nil))
-        (ofNM "org.freedesktop.NetworkManager"))
-    (when (and args
-               ;; Check we have a working cheap internet connection
-               (member ofNM
-                       (dbus-list-names :system))
-               (let ((primary-connection
-                      (dbus-get-property :system
-                                         ofNM "/org/freedesktop/NetworkManager"
-                                         ofNM "PrimaryConnection")))
-                 ;; We need a primary connection
-                 (and primary-connection
-                      ;; Is it a full connection ?
-                      (eq (dbus-get-property :system
-                                             ofNM "/org/freedesktop/NetworkManager"
-                                             ofNM "Connectivity")
-                          4)    ; 4 = NM_CONNECTIVITY_FULL
-                      ;; Does it involve a modem connection?
-                      (--none? (eq (dbus-get-property :system
-                                             ofNM it
-                                             (concat ofNM ".Device") "DeviceType")
-                                   8)   ; 8 = NM_DEVICE_TYPE_MODEM
-                               (dbus-get-property :system
-                                         ofNM primary-connection
-                                         (concat ofNM ".Connection.Active") "Devices")))))
+                    nil)))
+    (when (and args (vbe:working-network-connection?))
       (apply 'vbe:mbsync args))
     (setq vbe:mbsync-something (1+ vbe:mbsync-something))))
 
