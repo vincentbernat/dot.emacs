@@ -26,7 +26,7 @@
 	  point-stack			; Organize points into a stack
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
-          ace-jump-mode                 ; fast cursor movement
+          avy                           ; fast cursor movement
           auto-complete                 ; universal autocompletion
           auto-complete-css
           flx                           ; fuzzy matching for ido
