@@ -5,3 +5,6 @@
 
 (remove-hook 'git-commit-finish-query-functions
              'git-commit-check-style-conventions)
+
+;; Remove unneeded prompts
+(add-to-list 'magit-no-confirm 'stage-all-changes)
