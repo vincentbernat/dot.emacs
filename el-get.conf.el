@@ -37,6 +37,7 @@
           auto-compile                  ; automatically compile outdated stuff
           browse-kill-ring              ; browse kill ring
           diminish                      ; remove stuff from modeline
+          powerline                     ; powerline for mode-line
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
           highlight-parentheses         ; Highlight parentheses surrounding the cursor

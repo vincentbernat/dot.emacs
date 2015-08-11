@@ -59,6 +59,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (setq font-lock-maximum-decoration 2)   ; faster font-lock-mode
 (set-default 'indicate-buffer-boundaries '((up . nil) (down . nil) (t . left)))
 (require 'naquadah-theme)
+(require 'powerline)
 
 ;; Behaviour
 (setq mouse-yank-at-point t		; Yank where the point currently is
