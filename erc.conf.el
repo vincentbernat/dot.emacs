@@ -8,8 +8,8 @@
  ;; Don't track those changes.
  erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
                            "324" "329" "332" "333" "353" "477")
- ;; Switch to the most important buffer first
- erc-track-switch-direction 'importance
+ ;; Switch to the most active buffer first
+ erc-track-switch-direction 'mostactive
  ;; Don't reconnect automatically
  erc-server-auto-reconnect nil
  ;; When opening a new buffer, bury it
