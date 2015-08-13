@@ -8,8 +8,6 @@
  ;; Don't track those changes.
  erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
                            "324" "329" "332" "333" "353" "477")
- ;; Switch to the most active buffer first
- erc-track-switch-direction 'mostactive
  ;; Don't reconnect automatically
  erc-server-auto-reconnect nil
  ;; When opening a new buffer, bury it
@@ -19,6 +17,12 @@
  ;; Special encoding for some channels
  erc-server-coding-system '(utf-8 . utf-8)
  erc-encoding-coding-alist '(("#gcu" . iso-8859-15)))
+
+(setq
+ ;; Switch to the most active buffer first
+ erc-track-switch-direction 'mostactive)
+;; But put very important messages first
+(add-hook 'erc-track-list-changed-hook 'erc-track-sort-by-importance)
 
 ;; A query buffer is "urgent"
 (defadvice erc-track-find-face (around vbe:erc-track-find-face-promote-query activate)
