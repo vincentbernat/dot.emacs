@@ -28,18 +28,17 @@
       (message-remove-header "X-SMTP-Server"))
     (cond ((stringp server-and-port)
            ;; We need to use smtpmail-send-it
-           (let ((server-and-port "vincent.bernat@exoscale.ch@mail.infomaniak.ch:587"))
-             (when (string-match "^\\(?:\\(.+\\)@\\)?\\([^:]+\\)\\(?::\\([0-9]+\\)\\)?$"
-                                 server-and-port)
-               (let* ((login (match-string 1 server-and-port))
-                      (server (match-string 2 server-and-port))
-                      (port (string-to-number (or (match-string 3 server-and-port) "25")))
-                      (smtpmail-starttls-credentials (when login `((,server ,port nil nil))))
-                      (smtpmail-auth-credentials (when login `((,server ,port ,login nil))))
-                      (smtpmail-smtp-server server)
-                      (smtpmail-smtp-service port))
-                 (smtpmail-send-it)))))
-           (t (message-send-mail-with-sendmail)))))
+           (when (string-match "^\\(?:\\(.+\\)@\\)?\\([^:]+\\)\\(?::\\([0-9]+\\)\\)?$"
+                               server-and-port)
+             (let* ((login (match-string 1 server-and-port))
+                    (server (match-string 2 server-and-port))
+                    (port (string-to-number (or (match-string 3 server-and-port) "25")))
+                    (smtpmail-starttls-credentials (when login `((,server ,port nil nil))))
+                    (smtpmail-auth-credentials (when login `((,server ,port ,login nil))))
+                    (smtpmail-smtp-server server)
+                    (smtpmail-smtp-service port))
+               (smtpmail-send-it))))
+          (t (message-send-mail-with-sendmail)))))
 (setq message-send-mail-function 'vbe:message-send-mail)
 
 ;; How to archive sent messages
