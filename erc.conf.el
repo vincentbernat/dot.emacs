@@ -47,7 +47,7 @@ Unicode chars."
                         (lambda (subst) (s-starts-with? (car subst) l)) substitutions))
                 (s-prepend (nth 1 subst) (s-chop-prefix (car subst) l))
               l))
-     (erc-track-shorten-names channel-names))))
+     (-non-nil (erc-track-shorten-names channel-names)))))
 
 ;; Enable smileys
 (add-to-list 'erc-modules 'smiley)
