@@ -36,18 +36,21 @@
 (setq
  erc-track-shorten-cutoff 4        ; shorten from 4 characters or more
  erc-track-shorten-function 'vbe:erc-track-shorten-names)
+
+(defvar vbe:erc-track-substitutions
+  "Substitutions to use when shortening channel names."
+  '(("#debian-" "#꩜")))
 (defun vbe:erc-track-shorten-names (channel-names)
   "Shorten channel names even more than
 `erc-track-shorten-names'.  Some suffix are changed to some
 Unicode chars."
-  (let ((substitutions '(("#debian-" "#꩜"))))
-    (-map
-     (lambda (l) (-if-let
-                (subst (-first
-                        (lambda (subst) (s-starts-with? (car subst) l)) substitutions))
-                (s-prepend (nth 1 subst) (s-chop-prefix (car subst) l))
-              l))
-     (-non-nil (erc-track-shorten-names channel-names)))))
+  (-map
+   (lambda (l) (-if-let
+              (subst (-first
+                      (lambda (subst) (s-starts-with? (car subst) l)) vbe:erc-track-substitutions))
+              (s-prepend (nth 1 subst) (s-chop-prefix (car subst) l))
+            l))
+   (-non-nil (erc-track-shorten-names channel-names))))
 
 ;; Enable smileys
 (add-to-list 'erc-modules 'smiley)
