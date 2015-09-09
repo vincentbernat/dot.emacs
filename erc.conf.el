@@ -38,8 +38,17 @@
  erc-track-shorten-function 'vbe:erc-track-shorten-names)
 
 (defvar vbe:erc-track-substitutions
-  "Substitutions to use when shortening channel names."
-  '(("#debian-" "#꩜")))
+  `(("#debian-" ,(let ((str "#꩜"))
+                   (when (display-images-p)
+                     (add-text-properties
+                      1 2
+                      (list 'display (append
+                                      (create-image (expand-file-name "icons/debian.png" user-emacs-directory))
+                                      '(:ascent center)))
+                      str))
+                    str)))
+  "Substitutions to use when shortening channel names.")
+
 (defun vbe:erc-track-shorten-names (channel-names)
   "Shorten channel names even more than
 `erc-track-shorten-names'.  Some suffix are changed to some
