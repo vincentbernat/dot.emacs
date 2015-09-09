@@ -3,6 +3,8 @@
 (require 'erc)
 (require 'erc-fill)
 (require 'erc-track)
+(require 'dash)
+(require 's)
 
 (setq
  ;; Don't track those changes.
@@ -29,6 +31,23 @@
   (if (erc-query-buffer-p)
       (setq ad-return-value (intern "erc-current-nick-face"))
     ad-do-it))
+
+;; Shorten names in mode-line
+(setq
+ erc-track-shorten-cutoff 4        ; shorten from 4 characters or more
+ erc-track-shorten-function 'vbe:erc-track-shorten-names)
+(defun vbe:erc-track-shorten-names (channel-names)
+  "Shorten channel names even more than
+`erc-track-shorten-names'.  Some suffix are changed to some
+Unicode chars."
+  (let ((substitutions '(("#debian-" "#꩜"))))
+    (-map
+     (lambda (l) (-if-let
+                (subst (-first
+                        (lambda (subst) (s-starts-with? (car subst) l)) substitutions))
+                (s-prepend (nth 1 subst) (s-chop-prefix (car subst) l))
+              l))
+     (erc-track-shorten-names channel-names))))
 
 ;; Enable smileys
 (add-to-list 'erc-modules 'smiley)
