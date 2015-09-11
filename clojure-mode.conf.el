@@ -7,7 +7,7 @@
 ;; Use cider-mode and midje-mode as well
 (add-hook 'clojure-mode-hook #'cider-mode)
 (add-hook 'clojure-mode-hook #'midje-mode)
-(add-hook 'clojure-mode-hook #'smartparens-mode)
+(add-hook 'clojure-mode-hook #'paredit-mode)
 
 ;; Some indentation preferences
 ;;; Midje-related:

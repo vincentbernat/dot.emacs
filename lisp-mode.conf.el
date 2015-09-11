@@ -1,5 +1,5 @@
 ;;; Code:
 
-(add-hook 'lisp-mode-hook #'smartparens-mode)
+(add-hook 'lisp-mode-hook #'paredit-mode)
 
 ;;; lisp-mode.conf.el ends here
