@@ -40,6 +40,7 @@
           powerline                     ; powerline for mode-line
 	  ;; Programming
 	  autopair			; Auto pairing of parentheses
+          smartparens                   ; Parentheses management
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
           rainbow-mode			; Display colors
 	  dtrt-indent			; Autodetect indentation

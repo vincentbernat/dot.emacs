@@ -5,8 +5,9 @@
 (remove-hook 'clojure-mode-hook 'clojure-test-maybe-enable)
 
 ;; Use cider-mode and midje-mode as well
-(add-hook 'clojure-mode-hook 'cider-mode)
-(add-hook 'clojure-mode-hook 'midje-mode)
+(add-hook 'clojure-mode-hook #'cider-mode)
+(add-hook 'clojure-mode-hook #'midje-mode)
+(add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 
 ;; Some indentation preferences
 ;;; Midje-related:
