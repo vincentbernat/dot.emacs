@@ -96,7 +96,9 @@ be searched in \"el-get.el\" in the user Emacs directory."
 ;; Programming
 (defun vbe:customize-programming-language-mode ()
   (whitespace-mode 1)
-  (highlight-parentheses-mode 1))
+  (highlight-parentheses-mode 1)
+  (diminish 'whitespace-mode)
+  (diminish 'highlight-parentheses-mode))
 (add-hook 'prog-mode-hook ; This is the mode perl, makefile,
                           ; lisp-mode, scheme-mode, emacs-lisp-mode,
                           ; sh-mode, java-mode, c-mode, c++-mode,
