@@ -13,6 +13,4 @@
 (put-clojure-indent 'fact 1)
 (put-clojure-indent 'facts 1)
 
-(diminish 'eldoc-mode)
-
 ;;; clojure-mode.conf.el ends here

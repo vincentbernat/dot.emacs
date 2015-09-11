@@ -1,0 +1,1 @@
+(diminish 'hs-minor-mode)
