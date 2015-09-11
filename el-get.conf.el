@@ -73,6 +73,7 @@
           ledger-mode                   ; Mode for ledger
           clojure-mode                  ; Mode for clojure
           cider                         ; REPL for cider
+          midje-mode                    ; Mode for Midje (clojure stuff)
           puppet-mode                   ; Mode for puppet
           junos-mode                    ; Mode for JunOS
           cisco-router-mode             ; Mode for Cisco

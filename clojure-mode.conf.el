@@ -4,8 +4,9 @@
 ;; a silly hook to clojure-mode triggering an error. Remove this hook.
 (remove-hook 'clojure-mode-hook 'clojure-test-maybe-enable)
 
-;; Use cider-mode as well
+;; Use cider-mode and midje-mode as well
 (add-hook 'clojure-mode-hook 'cider-mode)
+(add-hook 'clojure-mode-hook 'midje-mode)
 
 ;; Some indentation preferences
 ;;; Midje-related:
