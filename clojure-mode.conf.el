@@ -7,4 +7,9 @@
 ;; Use cider-mode as well
 (add-hook 'clojure-mode-hook 'cider-mode)
 
+;; Some indentation preferences
+;;; Midje-related:
+(put-clojure-indent 'fact 1)
+(put-clojure-indent 'facts 1)
+
 ;;; clojure-mode.conf.el ends here
