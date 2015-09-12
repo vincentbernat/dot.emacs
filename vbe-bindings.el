@@ -12,6 +12,7 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c '") 'vbe:edit-region-in-another-buffer)
+(global-set-key (kbd "C-c |") #'align-current)
 
 ;; org-mode
 (global-set-key "\C-cl" 'org-store-link)
