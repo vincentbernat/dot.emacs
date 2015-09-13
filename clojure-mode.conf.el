@@ -15,11 +15,12 @@
 (put-clojure-indent 'facts 1)
 
 ;; Alignment for :as
-(add-to-list 'align-rules-list
-             '(clojure-require-refer-and-as
-               (regexp   . "\\[[^]]*\\(\\s-\\s-*\\)\\(:as\\|:refer\\)\\s-*[^]]*\\]")
-               (group    . 1)
-               (modes    . '(clojure-mode))
-               (tab-stop . nil)))
+(with-eval-after-load "align"
+  (add-to-list 'align-rules-list
+               '(clojure-require-refer-and-as
+                 (regexp   . "\\[[^]]*\\(\\s-\\s-*\\)\\(:as\\|:refer\\)\\s-*[^]]*\\]")
+                 (group    . 1)
+                 (modes    . '(clojure-mode))
+                 (tab-stop . nil))))
 
 ;;; clojure-mode.conf.el ends here
