@@ -38,7 +38,7 @@
  erc-track-shorten-function 'vbe:erc-track-shorten-names)
 
 (defvar vbe:erc-track-substitutions
-  `(("#debian-" ,(let ((str "#꩜"))
+  `(("#debian-" ,(let ((str "#@"))
                    (when (display-images-p)
                      (add-text-properties
                       1 2
