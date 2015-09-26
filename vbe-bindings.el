@@ -3,7 +3,6 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (define-key goto-map "j" 'avy-goto-subword-1)
 (define-key goto-map "M-j" 'avy-goto-subword-1)
-(global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)

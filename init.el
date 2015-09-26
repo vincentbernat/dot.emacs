@@ -122,7 +122,6 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (require 'uniquify)
 (require 'ido)
 (require 'saveplace)
-(require 'expand-region)
 (require 'multiple-cursors)
 (require 'midnight)               ; clean up buffers from time to time
 (global-flycheck-mode 1)
