@@ -27,8 +27,6 @@
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
           avy                           ; fast cursor movement
-          auto-complete                 ; universal autocompletion
-          auto-complete-css
           flx                           ; fuzzy matching for ido
           ido-vertical-mode             ; vertical mode for ido
           smex                          ; IDO for M-x
@@ -47,6 +45,8 @@
 	  ggtags			; gtags interface (etags on steroids)
           flycheck                      ; on-the-fly checker for many languages
           pretty-mode                   ; pretty symbols for many modes
+          ;; Autocompletion
+          company-mode                  ; company-mode
 	  ;; Modes
 	  auctex			; LaTeX mode
 	  coffee-mode			; Major mode for coffeescript
