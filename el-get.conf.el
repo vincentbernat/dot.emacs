@@ -27,8 +27,8 @@
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
           avy                           ; fast cursor movement
-          flx                           ; fuzzy matching for ido
-          ido-vertical-mode             ; vertical mode for ido
+          flx                           ; fuzzy matching
+          swiper                        ; search with context (contains ivy)
           smex                          ; IDO for M-x
           projectile                    ; handling of projects
           auto-compile                  ; automatically compile outdated stuff
