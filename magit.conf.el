@@ -8,6 +8,3 @@
 
 ;; Remove unneeded prompts
 (add-to-list 'magit-no-confirm 'stage-all-changes)
-
-;; Use ivy
-(setq magit-completing-read-function 'ivy-completing-read)

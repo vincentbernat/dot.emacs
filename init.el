@@ -120,10 +120,10 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (require 'server)
 (require 'point-stack)
 (require 'uniquify)
+(require 'ido)
 (require 'saveplace)
 (require 'multiple-cursors)
 (require 'midnight)               ; clean up buffers from time to time
-(ivy-mode 1)
 (global-flycheck-mode 1)
 (autoload 'vbe:edit-region-in-another-buffer
   (expand-file-name "vbe-edit-region"

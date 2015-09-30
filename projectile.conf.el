@@ -6,7 +6,4 @@
 (add-to-list 'projectile-project-root-files ".svn")
 (add-to-list 'projectile-globally-ignored-directories ".svn")
 
-;; Use ivy
-(setq projectile-completion-system 'ivy)
-
 (diminish 'projectile-mode)
