@@ -12,6 +12,8 @@
                            "324" "329" "332" "333" "353" "477")
  ;; Don't track changes in server buffers
  erc-track-exclude-server-buffer t
+ ;; Don't track KGB-* (in #debian-* channels mostly)
+ erc-track-exclude '("KGB-0" "KGB-1" "KGB-2" "KGB-3")
  ;; Don't reconnect automatically
  erc-server-auto-reconnect nil
  ;; When opening a new buffer, bury it
