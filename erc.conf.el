@@ -10,6 +10,8 @@
  ;; Don't track those changes.
  erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
                            "324" "329" "332" "333" "353" "477")
+ ;; Don't track changes in server buffers
+ erc-track-exclude-server-buffer t
  ;; Don't reconnect automatically
  erc-server-auto-reconnect nil
  ;; When opening a new buffer, bury it
