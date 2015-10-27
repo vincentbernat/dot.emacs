@@ -77,6 +77,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
       x-stretch-cursor t)    ; stretch cursor to the width of the char
 (projectile-global-mode 1)
 (global-company-mode 1)
+(beacon-mode 1)
 
 ;; Bindings
 (vbe:require 'bindings)

@@ -23,6 +23,7 @@
         '(
 	  ;; General
 	  naquadah-theme		; Theme from Julien Danjou
+          beacon                        ; Beacon at cursor position
 	  point-stack			; Organize points into a stack
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
