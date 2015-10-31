@@ -47,7 +47,6 @@
           pretty-mode                   ; pretty symbols for many modes
           ;; Autocompletion
           company-mode                  ; company-mode
-          company-anaconda              ; completion for Python
 	  ;; Modes
 	  auctex			; LaTeX mode
 	  coffee-mode			; Major mode for coffeescript
