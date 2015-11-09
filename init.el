@@ -1,17 +1,8 @@
-;;; Code:
+;;; init.el --- user init file      -*- no-byte-compile: t -*-
 ;; Check we are using Emacs 24
 (when (/= emacs-major-version 24)
   (error "Only Emacs 24 is supported. You seem to use Emacs %d"
 	 emacs-major-version))
-
-;; Ensure we don't load outdated bytecodes. This needs to be done early.
-(add-to-list 'load-path (expand-file-name "vendor/dash" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "vendor/packed" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "vendor/auto-compile" user-emacs-directory))
-(setq load-prefer-newer t)
-(require 'auto-compile)
-(auto-compile-on-load-mode 1)
-(auto-compile-on-save-mode 1)
 
 ;; I don't like to use require to load my own configuration files
 ;; because it is not possible to limit its use to a given directory. I
