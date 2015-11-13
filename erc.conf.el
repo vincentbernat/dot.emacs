@@ -80,6 +80,12 @@ Unicode chars."
 ;; Enable keep-place module to not move the point
 (add-to-list 'erc-modules 'keep-place)
 
+(defun vbe:reset-erc-track-mode ()
+  "Reset channel tracking."
+  (interactive)
+  (setq erc-modified-channels-alist nil)
+  (erc-modified-channels-update))
+
 (defun vbe:erc-clean-closed ()
   "Kill any buffer whose server is not alive"
   (interactive)
