@@ -45,7 +45,6 @@
 	  ggtags			; gtags interface (etags on steroids)
           flycheck                      ; on-the-fly checker for many languages
           pretty-mode                   ; pretty symbols for many modes
-          clj-refactor                 ; refactoring for clojure
           ;; Autocompletion
           company-mode                  ; company-mode
 	  ;; Modes
