@@ -10,8 +10,8 @@
  ;; Don't track those changes.
  erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
                            "324" "329" "332" "333" "353" "477")
- ;; Don't track changes in server buffers
- erc-track-exclude-server-buffer t
+ ;; Track changes in server buffers
+ erc-track-exclude-server-buffer nil
  ;; Don't track KGB-* (in #debian-* channels mostly)
  erc-track-exclude '("KGB-0" "KGB-1" "KGB-2" "KGB-3")
  ;; Don't reconnect automatically
