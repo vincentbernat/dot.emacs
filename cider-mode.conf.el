@@ -6,7 +6,11 @@
 ;; Enable paredit on REPL
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 
-;; Change the spinner type to stay at constant-width
-(setq cider-eval-spinner-type 'vertical-breathing)
+
+(setq
+ ;; Change the spinner type to stay at constant-width
+ cider-eval-spinner-type 'vertical-breathing
+ ;; Don't font-lock too much
+ cider-font-lock-dynamically '(macro function deprecated))
 
 ;;; cider-mode.conf.el ends here
