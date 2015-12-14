@@ -84,6 +84,7 @@
           rust-mode                     ; Mode for Rust
           toml-mode                     ; Mode for toml files
           slime				; Mode for Common Lisp
+          groovy-emacs-mode             ; Mode for Groovy (incl gradle)
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus				; Gnus
