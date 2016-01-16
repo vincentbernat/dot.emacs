@@ -97,7 +97,7 @@
 (setq org-babel-python-command "ipython --no-banner --classic --no-confirm-exit --pprint")
 ;; use %cpaste to paste code into ipython in org mode
 (defadvice org-babel-python-evaluate-session
-  (around org-python-use-cpaste
+  (around vbe:org-python-use-cpaste
           (session body &optional result-type result-params) activate)
   "Add a %cpaste and '--' to the body, so that ipython does the right
 thing."

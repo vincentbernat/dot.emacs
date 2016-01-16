@@ -1,7 +1,7 @@
 (setq smex-save-file (expand-file-name "run/smex-items"
                                        user-emacs-directory))
 
-(defadvice smex (around space-inserts-hyphen activate compile)
+(defadvice smex (around vbe:space-inserts-hyphen activate compile)
   "Insert an hyphen when using space. This mimics default M-x
   behaviour."
   (let ((ido-cannot-complete-command
