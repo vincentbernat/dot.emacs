@@ -89,6 +89,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . git-commit-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))
+(elpy-enable)
 
 ;; Programming
 (defun vbe:customize-programming-language-mode ()
