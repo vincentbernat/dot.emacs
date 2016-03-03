@@ -56,6 +56,7 @@
           yaml-mode                     ; Major mode for YAML
           scala-mode                    ; Major mode for Scala
           go-mode                       ; Major mode for Go
+          python-mode                   ; Major mode for Python (replace python.el)
           zencoding-mode                ; Mode to expand CSS tags to HTML
           actionscript-mode             ; Mode for actionscript
           systemtap-mode                ; Mode for systemtap
