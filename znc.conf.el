@@ -36,4 +36,4 @@ the appropriate network slug that we extract from the nick."
 
 ;; Define networks
 (vbe:znc-add-server "znc.luffy.cx" 7667 "bernat"
-                    '(oftc freenode exoscale))
+                    '(oftc freenode exoscale gitter))
