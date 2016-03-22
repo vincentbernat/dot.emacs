@@ -2,19 +2,7 @@
 (setq el-get-is-lazy t)
 
 (setq el-get-sources
-      '(;; This should be in contrib/ of org-mode but this is not
-        ;; shipped with Emacs. We take exactly the version we need to
-        ;; match org-mode in Emacs.
-        (:name org-mime
-               :description "org html export for text/html MIME emails"
-               :type http
-               :url "https://raw.github.com/jwiegley/org-mode/release_7.9.3f/contrib/lisp/org-mime.el")
-        (:name org-bullets
-               :description "utf-8 bullets for org-mode"
-               :type github
-               :pkgname "sabof/org-bullets")
-
-        (:name znc
+      '((:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
                :description "ERC and ZNC interface")))
@@ -91,8 +79,8 @@
 	  gnus				; Gnus
 	  gnus-identities		; Manipulate Gnus identities
           ;; org stuff
-          org-mime
-          org-bullets
+          org-mode
+          org-reveal
           org-passwords
           ;; Misc
           znc                           ; znc
