@@ -55,7 +55,15 @@
   common prefix can be substitued with a logo.")
 
 (defvar vbe:erc-track-prefix-network
-  '(("exonet" "❬❱"))
+  `(("exonet" ,(let ((str "❬❱"))
+                 (when (display-images-p)
+                   (add-text-properties
+                    0 2
+                    (list 'display (append
+                                    (create-image (expand-file-name "icons/exoscale.png" user-emacs-directory))
+                                    '(:ascent center)))
+                    str))
+                 str)))
   "Prefix the channel with the given string (after #) if the
   channel is part of the given network. This is useful if some
   network is using too generic names.")
