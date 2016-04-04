@@ -51,19 +51,47 @@
                                       '(:ascent center)))
                       str))
                     str)))
-  "Substitutions to use when shortening channel names.")
+  "Substitutions to use when shortening channel names. Notably, a
+  common prefix can be substitued with a logo.")
 
-(defun vbe:erc-track-shorten-names (channel-names)
-  "Shorten channel names even more than
-`erc-track-shorten-names'.  Some suffix are changed to some
-Unicode chars."
+(defvar vbe:erc-track-prefix-network
+  '(("exonet" "❬❱"))
+  "Prefix the channel with the given string (after #) if the
+  channel is part of the given network. This is useful if some
+  network is using too generic names.")
+
+(defun vbe:erc-track-transform-names (channel-names)
+  "Transform channel names with bells and whistles. Some suffixes
+  are changed to some Unicode chars. Additionally, for some
+  servers, we may add an additional prefix."
   (-map
    (lambda (l) (-if-let
               (subst (-first
                       (lambda (subst) (s-starts-with? (car subst) l)) vbe:erc-track-substitutions))
               (s-prepend (nth 1 subst) (s-chop-prefix (car subst) l))
             l))
-   (-non-nil (erc-track-shorten-names channel-names))))
+   (-map
+    (lambda (l) (-if-let
+               (prefix (and (s-starts-with? "#" l)
+                            (get-buffer l)
+                            (with-current-buffer l
+                              (-first (lambda (pfx) (equal (and (fboundp 'erc-network-name) (erc-network-name))
+                                                      (car pfx))) vbe:erc-track-prefix-network))))
+               (s-prepend (concat "#" (nth 1 prefix)) (s-chop-prefix "#" l))
+             l))
+    channel-names)))
+
+(defun vbe:erc-track-shorten-names (channel-names)
+  "Shorten channel names even more than
+`erc-track-shorten-names'.  Some suffix are changed to some
+Unicode chars. Additionally, for some servers, we may add an
+additional suffix."
+  (erc-unique-channel-names
+   (vbe:erc-track-transform-names (erc-all-buffer-names))
+   (vbe:erc-track-transform-names channel-names)
+   (lambda (s)
+     (> (length s) erc-track-shorten-cutoff))
+   erc-track-shorten-start))
 
 ;; Enable smileys
 (add-to-list 'erc-modules 'smiley)
