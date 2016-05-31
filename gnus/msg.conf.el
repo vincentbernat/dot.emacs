@@ -6,6 +6,9 @@
 (setq gnus-kill-files-directory (vbe:run-directory "gnus/scores"))
 (add-hook 'message-sent-hook 'gnus-score-followup-thread)
 
+;; Prefer 8-bit encoding
+(add-to-list 'mm-content-transfer-encoding-defaults '("text/plain" 8bit))
+
 ;; Use the list of subscribed addresses for MFT from the group/topic parameters
 (setq message-subscribed-address-functions
       '(gnus-find-subscribed-addresses))
