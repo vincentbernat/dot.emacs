@@ -76,7 +76,7 @@
           groovy-emacs-mode             ; Mode for Groovy (incl gradle)
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
-	  gnus				; Gnus
+	  ; gnus			; Gnus, not available anymore...
 	  gnus-identities		; Manipulate Gnus identities
           ;; org stuff
           org-mode
