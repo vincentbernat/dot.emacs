@@ -41,12 +41,12 @@
          (gcc "nnimap+exoscale:Sent")
          (signature (mapconcat 'identity
                                '("Vincent Bernat — Vincent.Bernat@exoscale.ch"
-                                 "❬❱ http://www.exoscale.ch")
+                                 "❬❱ https://www.exoscale.ch")
                                "\n")))
         ((header "subject" "RFS: ")
          (signature (mapconcat 'identity
                                '("Debian package sponsoring guidelines:"
-                                 " http://vincent.bernat.im/en/debian-package-sponsoring.html")
+                                 " https://vincent.bernat.im/en/debian-package-sponsoring.html")
                                "\n")))
         ((vbe:mail-related-to '("*@enxio.fr" "*@enx.io"))
          (x-identity "enxio")
