@@ -110,8 +110,8 @@
       (insert-file-contents mbsyncrc)
       (goto-char 1)
       (save-match-data
-        (while (re-search-forward "^Channel\\s-+\\(\\w+\\)\\s-*$" nil t)
-          (setq result (append result (list (match-string 1)))))))
+        (while (re-search-forward "^\\(Channel\\|Group\\)\\s-+\\(\\w+\\)\\s-*$" nil t)
+          (setq result (append result (list (match-string 2)))))))
     result))
 
 (defun vbe:mbsync-sentinel (proc change)
