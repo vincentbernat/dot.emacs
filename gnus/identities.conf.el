@@ -37,8 +37,7 @@
          (x-identity "exoscale")
          (address "Vincent.Bernat@exoscale.ch")
          (organization "exoscale")
-         ("X-Message-SMTP-Method" "smtp mail.infomaniak.ch 587 vincent.bernat@exoscale.ch")
-         (gcc "nnimap+exoscale:Sent")
+         ("X-Message-SMTP-Method" "smtp smtp.gmail.com 587 vbe@exoscale.ch")
          (signature (mapconcat 'identity
                                '("Vincent Bernat — Vincent.Bernat@exoscale.ch"
                                  "❬❱ https://www.exoscale.ch")
