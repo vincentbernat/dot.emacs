@@ -38,6 +38,7 @@
          (address "Vincent.Bernat@exoscale.ch")
          (organization "exoscale")
          ("X-Message-SMTP-Method" "smtp smtp.gmail.com 587 vbe@exoscale.ch")
+         (gcc nil)
          (signature (mapconcat 'identity
                                '("Vincent Bernat — Vincent.Bernat@exoscale.ch"
                                  "❬❱ https://www.exoscale.ch")
