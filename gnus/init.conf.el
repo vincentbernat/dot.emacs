@@ -60,8 +60,8 @@
         (error "mbsync is already running")
       (let* ((process-environment (copy-sequence process-environment))
              (secrets (nth 0 (auth-source-search :max 1
-                                                       :host (format "mbsync-%s" channel)
-                                                       :require '(:user :secret))))
+                                                 :host (format "mbsync-%s" channel)
+                                                 :require '(:user :secret))))
              (secret (plist-get secrets :secret))
              (dummy (setenv "USER" (plist-get secrets :user)))
              (dummy (setenv "PASSWORD" (if (functionp secret)
