@@ -45,7 +45,6 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (column-number-mode 1)			; show column number
 (global-hl-line-mode 1)			; highlight current line
 (global-pretty-mode t)                  ; pretty minor mode globally enabled
-(global-emojify-mode t)
 (electric-indent-mode 1)                ; auto-indent (disabled for some modes below)
 (setq make-pointer-invisible t)		; hide the mouse while typing
 (setq font-lock-maximum-decoration 2)   ; faster font-lock-mode

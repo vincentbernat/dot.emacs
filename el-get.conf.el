@@ -11,7 +11,6 @@
         '(
 	  ;; General
 	  naquadah-theme		; Theme from Julien Danjou
-          emojify                       ; Emojis
           beacon                        ; Beacon at cursor position
 	  point-stack			; Organize points into a stack
           boxquote                      ; draw boxes
