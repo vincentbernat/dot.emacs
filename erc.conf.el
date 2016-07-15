@@ -214,6 +214,7 @@ where `xxxxxxx' is the number of seconds since epoch."
 
 (add-hook 'erc-insert-modify-hook 'erc-fill) ; Order is important
 (add-hook 'erc-insert-modify-hook 'vbe:erc-put-color-on-nick)
+(add-hook 'erc-mode-hook 'emojify-mode)
 
 ;; Too easy to hit C-c C-c instead of C-c C-space
 (define-key erc-mode-map "\C-c\C-c" nil)
