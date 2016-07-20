@@ -9,6 +9,19 @@
     (make-local-variable 'process-environment)
     (setq process-environment (cons (format "GOPATH=%s" gopath) process-environment))))
 
+;; I am allergic to the GOPATH concept. I use kludge to work around them.
+(defun vbe:custom-gopath ()
+  "Guess gopath if we have a `.gopath' along with a `vendor'
+directory. In this case, GOPATH is both of them. This usually
+requires to have a symlink in vendor with `src' pointing back to
+`vendor'."
+  (let* ((d (locate-dominating-file buffer-file-name ".gopath"))
+         (src (concat d (file-name-as-directory "vendor"))))
+    (if (and d
+             (file-exists-p src))
+        (list (concat d (file-name-as-directory ".gopath")) src))))
+(add-to-list 'go-guess-gopath-functions 'vbe:custom-gopath)
+
 (add-hook 'go-mode-hook 'vbe:go-mode-setup-gopath)
 (add-hook 'before-save-hook 'gofmt-before-save)
 
