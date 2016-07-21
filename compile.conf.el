@@ -6,4 +6,6 @@
     (ansi-color-apply-on-region compilation-filter-start (point-max))))
 (add-hook 'compilation-filter-hook 'vbe:colorize-compilation-buffer)
 
+(setq compilation-ask-about-save nil)
+
 ;;;
