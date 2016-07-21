@@ -73,6 +73,7 @@
           bison-mode                    ; Mode for bison
           rust-mode                     ; Mode for Rust
           toml-mode                     ; Mode for toml files
+          systemd-mode                  ; Mode for systemd files
           slime				; Mode for Common Lisp
           groovy-emacs-mode             ; Mode for Groovy (incl gradle)
 	  ;; gnus and other stuff
