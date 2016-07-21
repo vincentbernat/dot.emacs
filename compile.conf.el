@@ -7,5 +7,6 @@
 (add-hook 'compilation-filter-hook 'vbe:colorize-compilation-buffer)
 
 (setq compilation-ask-about-save nil)
+(global-set-key (kbd "<f9>") 'recompile)
 
 ;;;
