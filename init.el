@@ -116,7 +116,6 @@ be searched in \"el-get.el\" in the user Emacs directory."
 
 ;; Other stuff we need
 (require 'server)
-(require 'point-stack)
 (require 'uniquify)
 (require 'ido)
 (require 'saveplace)

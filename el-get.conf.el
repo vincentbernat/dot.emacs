@@ -13,7 +13,6 @@
 	  naquadah-theme		; Theme from Julien Danjou
           emojify                       ; Emojis
           beacon                        ; Beacon at cursor position
-	  point-stack			; Organize points into a stack
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
           avy                           ; fast cursor movement
@@ -25,6 +24,7 @@
           browse-kill-ring              ; browse kill ring
           diminish                      ; remove stuff from modeline
           powerline                     ; powerline for mode-line
+          bm                            ; bookmarking
 	  ;; Programming
           paredit                       ; Parentheses management
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
