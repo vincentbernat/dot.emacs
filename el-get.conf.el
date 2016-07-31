@@ -84,6 +84,7 @@
           org-mode
           org-reveal
           org-passwords
+          ob-ipython
           ;; Misc
           znc                           ; znc
           gist                          ; gist integration
