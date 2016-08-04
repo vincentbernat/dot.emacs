@@ -1,3 +1,5 @@
+;;; Code:
+
 (defun vbe:znc-add-server (server port user networks)
   "Add a server to the list of ZNC servers.
 
@@ -36,4 +38,6 @@ the appropriate network slug that we extract from the nick."
 
 ;; Define networks
 (vbe:znc-add-server "znc.luffy.cx" 7667 "bernat"
-                    '(oftc freenode exoscale gitter))
+                    '(oftc freenode exoscale))
+
+;;; End
