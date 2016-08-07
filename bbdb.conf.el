@@ -22,12 +22,6 @@
       (list
        '("Organization"
          (".*" organization "\\1" nil))
-       '("Subject"
-         (".*" subjects vbe:gnus/bbdb-subject-canonicalize nil))
-       '("Newsgroups"
-	 ("[^,]+" newsgroups identity nil))
-       '("Xref"
-         ("[^ ]+ \\([^ :]+\\):[0-9]+" newsgroups "\\1" nil))
        '("User-Agent"
          (".*" mailer identity nil))
        '("X-Mailer"
