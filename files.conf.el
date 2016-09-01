@@ -63,6 +63,13 @@ reparses name in such manner that position in file"
                                (cons (string-to-number (match-string 2 path))
                                      (string-to-number (or (match-string 3 path) "")))
                                )
-                            fn))) files))))
+                              fn))) files))))
+
+(defun vbe:sudo-save ()
+  "Save a file as root."
+  (interactive)
+  (if (not buffer-file-name)
+      (write-file (concat "/sudo:root@localhost:" (ido-read-file-name "File:")))
+    (write-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
 ;;; files.conf.el ends here
