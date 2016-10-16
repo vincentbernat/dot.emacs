@@ -1,7 +1,10 @@
 ;;; init.el --- user init file      -*- no-byte-compile: t -*-
+
+;; (package-initialize)
+
 ;; Check we are using Emacs 24
-(when (/= emacs-major-version 24)
-  (error "Only Emacs 24 is supported. You seem to use Emacs %d"
+(when (not (>= emacs-major-version 23))
+  (error "Only Emacs 24+ is supported. You seem to use Emacs %d"
 	 emacs-major-version))
 
 ;; I don't like to use require to load my own configuration files
