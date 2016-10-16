@@ -1,3 +1,4 @@
+(require 'bbdb-loaddefs)
 (bbdb-initialize 'gnus 'message)
 (bbdb-mua-auto-update-init nil 'update) ; Only update existing
 					; records, don't create new
