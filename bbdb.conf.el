@@ -1,5 +1,4 @@
 (bbdb-initialize 'gnus 'message)
-(bbdb-insinuate-gnus)
 (bbdb-mua-auto-update-init nil 'update) ; Only update existing
 					; records, don't create new
 					; ones automatically
