@@ -87,7 +87,6 @@
 (org-babel-do-load-languages 'org-babel-load-languages
                              '((ledger . t)
                                (python . t)
-                               (ipython . t)
                                (sh . t)))
 (setq org-export-babel-evaluate nil
       org-confirm-babel-evaluate #'(lambda (lang body)
