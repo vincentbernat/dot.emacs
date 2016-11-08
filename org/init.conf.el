@@ -78,6 +78,14 @@
          :foreground "white"
          :weight bold)))
 
+;; Face modification
+(face-spec-set 'org-tag `((t (:background ,(naquadah-get-colors 'aluminium-5)
+                              :foreground "white"
+                              :box (:line-width 1 :color ,(naquadah-get-colors 'aluminium-3))
+                              :slant oblique
+                              :weight normal
+                              :height 0.8))))
+
 ;; Use bullets
 (add-hook 'org-mode-hook
           #'(lambda ()
