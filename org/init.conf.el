@@ -97,8 +97,7 @@
                                (python . t)
                                (sh . t)))
 (setq org-export-babel-evaluate nil
-      org-confirm-babel-evaluate #'(lambda (lang body)
-                                    (not (string= lang "ledger"))))
+      org-confirm-babel-evaluate nil)
 
 ;; Autocommit in git
 (defun vbe:org-git-auto-commit ()
