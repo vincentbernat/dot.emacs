@@ -49,6 +49,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (global-hl-line-mode 1)			; highlight current line
 (global-pretty-mode t)                  ; pretty minor mode globally enabled
 (electric-indent-mode 1)                ; auto-indent (disabled for some modes below)
+(save-place-mode 1)                     ; save position in files
 (setq make-pointer-invisible t)		; hide the mouse while typing
 (setq font-lock-maximum-decoration 2)   ; faster font-lock-mode
 (set-default 'indicate-buffer-boundaries '((up . nil) (down . nil) (t . left)))
@@ -121,7 +122,6 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (require 'server)
 (require 'uniquify)
 (require 'ido)
-(require 'saveplace)
 (require 'multiple-cursors)
 (require 'midnight)               ; clean up buffers from time to time
 (global-flycheck-mode 1)
