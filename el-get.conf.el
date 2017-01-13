@@ -87,4 +87,5 @@
           ;; Misc
           znc                           ; znc
           gist                          ; gist integration
+          uuid                          ; compute UUID
 	  ))
