@@ -46,7 +46,7 @@
         ((header "subject" "RFS: ")
          (signature (mapconcat 'identity
                                '("Debian package sponsoring guidelines:"
-                                 " https://vincent.bernat.im/en/debian-package-sponsoring.html")
+                                 " https://vincent.bernat.im/en/debian-package-sponsoring")
                                "\n")))
         ((vbe:mail-related-to '("*@enxio.fr" "*@enx.io"))
          (x-identity "enxio")
