@@ -23,7 +23,6 @@ requires to have a symlink in vendor with `src' pointing back to
                             (file-exists-p src))
                        (list (concat d (file-name-as-directory gopath)) src)))))
     (or (add ".gopath") (add ".gopath~"))))
-(vbe:custom-gopath)
 (add-to-list 'go-guess-gopath-functions 'vbe:custom-gopath)
 
 (add-hook 'go-mode-hook 'vbe:go-mode-setup-gopath)
