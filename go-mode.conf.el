@@ -16,13 +16,14 @@
 directory. In this case, GOPATH is both of them. This usually
 requires to have a symlink in vendor with `src' pointing back to
 `vendor'."
-  (cl-letf ((add (gopath)
+  (cl-flet ((add (gopath)
                  (let* ((d (locate-dominating-file buffer-file-name gopath))
                         (src (concat d (file-name-as-directory "vendor"))))
                    (if (and d
                             (file-exists-p src))
                        (list (concat d (file-name-as-directory gopath)) src)))))
     (or (add ".gopath") (add ".gopath~"))))
+(vbe:custom-gopath)
 (add-to-list 'go-guess-gopath-functions 'vbe:custom-gopath)
 
 (add-hook 'go-mode-hook 'vbe:go-mode-setup-gopath)
