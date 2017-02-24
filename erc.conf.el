@@ -116,7 +116,7 @@ additional suffix."
 ;; Enable keep-place module to not move the point
 (add-to-list 'erc-modules 'keep-place)
 
-(defun vbe:reset-erc-track-mode ()
+(defun vbe:erc-reset-track-mode ()
   "Reset channel tracking."
   (interactive)
   (setq erc-modified-channels-alist nil)
