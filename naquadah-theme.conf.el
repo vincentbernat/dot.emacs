@@ -27,4 +27,5 @@
                                       :background sky-blue-2))
  '(gnus-summary-high-read (:inherit gnus-summary-normal-read
                                     :background sky-blue-3))
- '(comint-highlight-prompt (:foreground orange-2 :weight bold)))
+ '(comint-highlight-prompt (:foreground orange-2 :weight bold))
+ '(hl-line (:background aluminium-6)))

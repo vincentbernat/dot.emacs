@@ -57,6 +57,10 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
        " " "%12{%B%}"
        "%11{%s%}\n"))
 
+;; Disable hl-line-mode for Gnus summary
+(make-variable-buffer-local 'global-hl-line-mode)
+(add-hook 'gnus-summary-mode-hook (lambda () (setq global-hl-line-mode nil)))
+
 (setq
  gnus-summary-to-prefix "→ "
  gnus-sum-thread-tree-single-indent   "◎ "
