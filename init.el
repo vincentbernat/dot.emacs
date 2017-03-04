@@ -74,7 +74,6 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (projectile-global-mode 1)
 (global-company-mode 1)
 (global-prettify-symbols-mode 1)
-(beacon-mode 1)
 
 ;; Bindings
 (vbe:require 'bindings)

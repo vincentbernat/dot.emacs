@@ -12,7 +12,6 @@
 	  ;; General
 	  naquadah-theme		; Theme from Julien Danjou
           emojify                       ; Emojis
-          beacon                        ; Beacon at cursor position
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
           avy                           ; fast cursor movement
