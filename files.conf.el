@@ -1,6 +1,7 @@
 ;;; Code:
 
 (global-auto-revert-mode 1)   ; Auto revert (when no pending changes)
+(setq create-lockfiles nil)     ; Don't create lock files
 
 ;; Backups and auto saves
 (let ((tmp (concat (vbe:run-directory "saves") "/saves-")))
