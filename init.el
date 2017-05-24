@@ -94,17 +94,22 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))
 (elpy-enable)
 
+;; Whitespace mode for some selected modes
+(defun vbe:enable-whitespace-mode ()
+  (whitespace-mode 1)
+  (diminish 'whitespace-mode))
+(add-hook 'markdown-mode-hook 'vbe:enable-whitespace-mode)
+
 ;; Programming
 (defun vbe:customize-programming-language-mode ()
-  (whitespace-mode 1)
+  (vbe:enable-whitespace-mode)
   (highlight-parentheses-mode 1)
-  (diminish 'whitespace-mode)
   (diminish 'highlight-parentheses-mode))
 (add-hook 'prog-mode-hook ; This is the mode perl, makefile,
                           ; lisp-mode, scheme-mode, emacs-lisp-mode,
                           ; sh-mode, java-mode, c-mode, c++-mode,
                           ; python-mode inherits from.
-  'vbe:customize-programming-language-mode)
+          'vbe:customize-programming-language-mode)
 
 ;; Disable electric indent mode on some mode
 (defun vbe:no-electric-indent-mode ()
