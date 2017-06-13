@@ -19,7 +19,7 @@
 ;; Sign messages
 (require 'epg)
 (setq mml2015-use 'epg		 ; use epg
-      mm-verify-option 'always	 ; always check for sigs
+      mm-verify-option 'never	 ; never check for sigs (for SMIME, this takes too long)
       mm-decrypt-option 'always  ; always decrypt
       auth-source-gpg-encrypt-to user-mail-address)
 
