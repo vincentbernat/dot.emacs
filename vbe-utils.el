@@ -84,8 +84,8 @@ cheap enough."
                 ;; Is it a full connection ?
                 (eq (dbus-get-property :system
                                        ofNM "/org/freedesktop/NetworkManager"
-                                       ofNM "Connectivity")
-                    4)    ; 4 = NM_CONNECTIVITY_FULL
+                                       ofNM "State")
+                    70)                 ; network manager state is NM_STATE_CONNECTED_GLOBAL
                 ;; Does it involve a modem connection?
                 (--none? (eq (dbus-get-property :system
                                                 ofNM it
