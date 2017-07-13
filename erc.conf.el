@@ -216,19 +216,5 @@ where `xxxxxxx' is the number of seconds since epoch."
 (add-hook 'erc-insert-modify-hook 'vbe:erc-put-color-on-nick)
 (add-hook 'erc-mode-hook 'emojify-mode)
 
-;; Notifications
-(require 'notifications)
-(defun vbe:erc-notify-message (match-type nick message)
-  "Notify when a message is recieved."
-  (when (< 20
-     (float-time (or (current-idle-time)
-		     '(0 0 0))))
-    (notifications-notify
-     :title (concat "From " nick)
-     :body message
-     :app-icon "/usr/share/icons/Adwaita/32x32/actions/mail-message-new.png"
-     :urgency 'low)))
-(add-hook 'erc-text-matched-hook 'vbe:erc-notify-message)
-
 ;; Too easy to hit C-c C-c instead of C-c C-space
 (define-key erc-mode-map "\C-c\C-c" nil)
