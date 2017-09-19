@@ -8,3 +8,5 @@
 
 ;; Remove unneeded prompts
 (add-to-list 'magit-no-confirm 'stage-all-changes)
+
+(setq magit-hide-campaign-header t)
