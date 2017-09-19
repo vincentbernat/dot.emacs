@@ -80,6 +80,7 @@
 	  gnus-identities		; Manipulate Gnus identities
           ;; org stuff
           org-mode
+          org-mime
           org-reveal
           org-passwords
           ;; Misc
