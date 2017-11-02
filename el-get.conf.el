@@ -12,6 +12,8 @@
                :checkout "v0.15.1")
         (:name clojure-mode
                :checkout "5.6.1")
+        (:name bbdb
+               :checkout "c951e15cd01d")
         (:name magit
                :checkout "2.11.0")))
 
