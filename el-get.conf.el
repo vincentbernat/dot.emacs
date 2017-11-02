@@ -58,7 +58,6 @@
           systemtap-mode                ; Mode for systemtap
           vala-mode                     ; Mode for Vala
           erlang-mode                   ; Mode for Erlang
-          mediawiki                     ; Mode for mediawiki
           gyp-mode                      ; Mode for gyp files
           dockerfile-mode               ; Mode for Dockerfile
           json-mode                     ; Mode for JSON
