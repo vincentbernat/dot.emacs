@@ -95,7 +95,7 @@
 (org-babel-do-load-languages 'org-babel-load-languages
                              '((ledger . t)
                                (python . t)
-                               (sh . t)))
+                               (shell . t)))
 (setq org-export-babel-evaluate nil
       org-confirm-babel-evaluate nil)
 
