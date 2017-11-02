@@ -5,7 +5,15 @@
       '((:name znc
                :type github
                :pkgname "sshirokov/ZNC.el"
-               :description "ERC and ZNC interface")))
+               :description "ERC and ZNC interface")
+        (:name org-mode
+               :checkout "release_9.1.2")
+        (:name cider
+               :checkout "v0.15.1")
+        (:name clojure-mode
+               :checkout "5.6.1")
+        (:name magit
+               :checkout "2.11.0")))
 
 (el-get nil
         '(
