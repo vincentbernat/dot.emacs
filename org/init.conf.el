@@ -35,7 +35,10 @@
  org-catch-invisible-edits 'error       ; don't edit invisible text
  org-pretty-entities t                  ; use "pretty entities"
  org-time-clocksum-format '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)
-)
+ )
+
+(add-to-list 'org-structure-template-alist
+             '("n" "#+BEGIN_NOTES\n?\n#+END_NOTES"))
 
 ;; Todo keywords
 (setq org-todo-keywords
