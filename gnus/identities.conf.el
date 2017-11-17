@@ -33,6 +33,7 @@
          (organization "Debian")
          (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@veltigroup.com"
+                                "*@exoscale.net"
                                 "*@exoscale.ch"))
          (x-identity "exoscale")
          (address "Vincent.Bernat@exoscale.ch")
