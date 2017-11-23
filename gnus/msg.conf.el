@@ -46,7 +46,7 @@
                         "submit@bugs.debian.org")))) ; Addresses to prune on wide reply
 
 (setq message-valid-fqdn-regexp
-      (format "\\(%s\\|lanexpert\\.grp\\)" message-valid-fqdn-regexp))
+      (format "\\(%s\\|.*\\.digital\\|.*\\.group\\)" message-valid-fqdn-regexp))
 
 (require 'dired)
 (defun vbe:mail-related-to (what &optional fields)
