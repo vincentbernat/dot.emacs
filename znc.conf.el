@@ -23,6 +23,7 @@ the appropriate network slug that we extract from the nick."
   (let* ((user (nth 0 (split-string (plist-get R :nick) "/")))
          (slug (nth 1 (split-string (plist-get R :nick) "/")))
          (found (nth 0 (auth-source-search :host (plist-get R :server)
+                                           :port (plist-get R :port)
                                            :user user
                                            :require '(:user :secret)
                                            :max 1))))
