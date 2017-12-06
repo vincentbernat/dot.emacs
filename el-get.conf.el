@@ -7,7 +7,7 @@
                :pkgname "sshirokov/ZNC.el"
                :description "ERC and ZNC interface")
         (:name org-mode
-               :checkout "release_9.1.3")
+               :checkout "release_9.1.4")
         (:name cider
                :checkout "v0.15.1")
         (:name clojure-mode
