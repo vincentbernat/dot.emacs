@@ -27,6 +27,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 	(error "[vbe/] Required feature `%s' was not found."
 	       fullfeature)))))
 
+(setq load-prefer-newer t)
 (vbe:require 'utils)
 
 ;; Various directories
