@@ -15,7 +15,7 @@
         (:name bbdb
                :checkout "c951e15cd01d")
         (:name magit
-               :checkout "2.11.0")))
+               :checkout "2.12.0")))
 
 (el-get nil
         '(
