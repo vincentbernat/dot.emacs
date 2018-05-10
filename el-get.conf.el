@@ -6,6 +6,10 @@
                :type github
                :pkgname "sshirokov/ZNC.el"
                :description "ERC and ZNC interface")
+        (:name edit-indirect
+               :type github
+               :pkgname "Fanael/edit-indirect"
+               :description "Edit regions in separate buffers")
         (:name org-mode
                :checkout "release_9.1.4")
         (:name cider
@@ -34,6 +38,7 @@
           diminish                      ; remove stuff from modeline
           powerline                     ; powerline for mode-line
           bm                            ; bookmarking
+          edit-region                   ; edit region in separate buffers
 	  ;; Programming
           paredit                       ; Parentheses management
           highlight-parentheses         ; Highlight parentheses surrounding the cursor

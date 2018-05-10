@@ -10,7 +10,7 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c '") 'vbe:edit-region-in-another-buffer)
+(global-set-key (kbd "C-c '") #'edit-indirect-region)
 (global-set-key (kbd "C-c |") #'align-current)
 (global-set-key (kbd "C-c C-.") #'bm-toggle)
 (global-set-key (kbd "C-c C-/") #'bm-next)
