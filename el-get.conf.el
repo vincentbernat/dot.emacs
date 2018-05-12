@@ -38,7 +38,7 @@
           diminish                      ; remove stuff from modeline
           powerline                     ; powerline for mode-line
           bm                            ; bookmarking
-          edit-region                   ; edit region in separate buffers
+          edit-indirect                 ; edit region in separate buffers
 	  ;; Programming
           paredit                       ; Parentheses management
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
