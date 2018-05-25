@@ -48,12 +48,7 @@
          (signature (mapconcat 'identity
                                '("Debian package sponsoring guidelines:"
                                  " https://vincent.bernat.im/en/debian-package-sponsoring")
-                               "\n")))
-        ((vbe:mail-related-to '("*@enxio.fr" "*@enx.io"))
-         (x-identity "enxio")
-         (address "bernat@enx.io")
-         (organization "ENXIO")
-         (signature "Vincent Bernat ☯ https://enx.io"))))
+                               "\n")))))
 
 (defun vbe:gnus/will-sign-message ()
   "Setup a local hook to make the article signed."
