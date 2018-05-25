@@ -32,17 +32,17 @@
          (address "bernat@debian.org")
          (organization "Debian")
          (signature (vbe:fortune)))
-        ((vbe:mail-related-to '("*@veltigroup.com"
-                                "*@exoscale.net"
+        ((vbe:mail-related-to '("*@exoscale.net"
+                                "*@exoscale.com"
                                 "*@exoscale.ch"))
          (x-identity "exoscale")
-         (address "Vincent.Bernat@exoscale.ch")
+         (address "Vincent.Bernat@exoscale.com")
          (organization "exoscale")
          ("X-Message-SMTP-Method" "smtp smtp.gmail.com 587 vbe@exoscale.ch")
          (gcc nil)
          (signature (mapconcat 'identity
-                               '("Vincent Bernat — Vincent.Bernat@exoscale.ch"
-                                 "❬❱ https://www.exoscale.ch")
+                               '("Vincent Bernat — Vincent.Bernat@exoscale.com"
+                                 "❬❱ https://www.exoscale.com")
                                "\n")))
         ((header "subject" "RFS: ")
          (signature (mapconcat 'identity
