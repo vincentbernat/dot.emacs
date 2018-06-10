@@ -38,7 +38,6 @@
           smex                          ; IDO for M-x
           projectile                    ; handling of projects
           auto-compile                  ; automatically compile outdated stuff
-          browse-kill-ring              ; browse kill ring
           diminish                      ; remove stuff from modeline
           powerline                     ; powerline for mode-line
           bm                            ; bookmarking
