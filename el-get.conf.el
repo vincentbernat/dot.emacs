@@ -10,10 +10,6 @@
                :type github
                :pkgname "Fanael/edit-indirect"
                :description "Edit regions in separate buffers")
-        (:name nix-mode
-               :type github
-               :pkgname "NixOS/nix-mode")
-        ;; Stick some packages to a specific version
         (:name org-mode
                :checkout "release_9.1.4")
         (:name cider
