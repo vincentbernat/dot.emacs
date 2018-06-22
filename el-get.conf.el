@@ -23,8 +23,8 @@
 
 (el-get nil
         '(
-	  ;; General
-	  naquadah-theme		; Theme from Julien Danjou
+          ;; General
+          naquadah-theme                ; Theme from Julien Danjou
           emojify                       ; Emojis
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
@@ -38,23 +38,23 @@
           powerline                     ; powerline for mode-line
           bm                            ; bookmarking
           edit-indirect                 ; edit region in separate buffers
-	  ;; Programming
+          ;; Programming
           paredit                       ; Parentheses management
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
-          rainbow-mode			; Display colors
-	  dtrt-indent			; Autodetect indentation
-	  magit				; Git stuff, must-have!
-	  ggtags			; gtags interface (etags on steroids)
+          rainbow-mode                  ; Display colors
+          dtrt-indent                   ; Autodetect indentation
+          magit                         ; Git stuff, must-have!
+          ggtags                        ; gtags interface (etags on steroids)
           flycheck                      ; on-the-fly checker for many languages
           pretty-mode                   ; pretty symbols for many modes
           ;; Autocompletion
           company-mode                  ; company-mode
-	  ;; Modes
-	  auctex			; LaTeX mode
-	  coffee-mode			; Major mode for coffeescript
-	  lua-mode			; Major mode for lua
-	  markdown-mode			; Major mode for markdown
-	  php-mode			; Major mode PHP
+          ;; Modes
+          auctex                        ; LaTeX mode
+          coffee-mode                   ; Major mode for coffeescript
+          lua-mode                      ; Major mode for lua
+          markdown-mode                 ; Major mode for markdown
+          php-mode                      ; Major mode PHP
           yaml-mode                     ; Major mode for YAML
           scala-mode                    ; Major mode for Scala
           go-mode                       ; Major mode for Go
@@ -86,12 +86,12 @@
           rust-mode                     ; Mode for Rust
           toml-mode                     ; Mode for toml files
           systemd-mode                  ; Mode for systemd files
-          slime				; Mode for Common Lisp
+          slime                         ; Mode for Common Lisp
           groovy-emacs-mode             ; Mode for Groovy (incl gradle)
           nix-mode                      ; Mode for Nix
-	  ;; gnus and other stuff
-	  bbdb				; Big brother database
-	  gnus-identities		; Manipulate Gnus identities
+          ;; gnus and other stuff
+          bbdb                          ; Big brother database
+          gnus-identities               ; Manipulate Gnus identities
           ;; org stuff
           org-mode
           org-mime
@@ -101,4 +101,4 @@
           znc                           ; znc
           gist                          ; gist integration
           uuid                          ; compute UUID
-	  ))
+          ))
