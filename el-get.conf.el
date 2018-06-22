@@ -88,6 +88,7 @@
           systemd-mode                  ; Mode for systemd files
           slime				; Mode for Common Lisp
           groovy-emacs-mode             ; Mode for Groovy (incl gradle)
+          nix-mode                      ; Mode for Nix
 	  ;; gnus and other stuff
 	  bbdb				; Big brother database
 	  gnus-identities		; Manipulate Gnus identities
