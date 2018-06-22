@@ -11,7 +11,7 @@
                :pkgname "Fanael/edit-indirect"
                :description "Edit regions in separate buffers")
         (:name org-mode
-               :checkout "release_9.1.4")
+               :checkout "release_9.1.13")
         (:name cider
                :checkout "v0.15.1")
         (:name clojure-mode
