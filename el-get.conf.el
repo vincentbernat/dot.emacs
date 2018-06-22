@@ -13,7 +13,7 @@
         (:name org-mode
                :checkout "release_9.1.13")
         (:name cider
-               :checkout "v0.15.1")
+               :checkout "v0.17.0")
         (:name clojure-mode
                :checkout "5.6.1")
         (:name bbdb
