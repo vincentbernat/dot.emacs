@@ -2,7 +2,6 @@
 (setq c-default-style "linux"           ; default style is "linux
       c-basic-offset 4)			; with a 4 spaces indent
 
-(require 'dtrt-indent)                  ; autodetect indentation
 (require 'dash)
 
 ;; Stolen from: https://raw.githubusercontent.com/hogand/openbsd-knf-emacs/master/openbsd-knf-style.el
