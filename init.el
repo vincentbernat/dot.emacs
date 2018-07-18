@@ -128,8 +128,9 @@ be searched in \"el-get.el\" in the user Emacs directory."
 ;; Other stuff we need
 (require 'server)
 (require 'uniquify)
-(require 'ido)
 (require 'multiple-cursors)
 (require 'midnight)               ; clean up buffers from time to time
 (global-flycheck-mode 1)
-(which-key-mode)
+(which-key-mode 1)
+(ivy-mode 1)
+(counsel-mode 1)

@@ -25,7 +25,6 @@
           'append)
 
 (setq
- org-completion-use-ido t               ; use IDO for completion
  org-startup-indented t                 ; indent by default
  org-tags-column -70                    ; align tags on the 70th columns
  org-hide-leading-stars t               ; don't show leading stars

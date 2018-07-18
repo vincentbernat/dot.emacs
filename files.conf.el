@@ -54,7 +54,7 @@ reparses name in such manner that position in file"
   "Save a file as root."
   (interactive)
   (if (not buffer-file-name)
-      (write-file (concat "/sudo:root@localhost:" (ido-read-file-name "File:")))
+      (write-file (concat "/sudo:root@localhost:" (read-file-name "File:")))
     (write-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
 ;;; files.conf.el ends here

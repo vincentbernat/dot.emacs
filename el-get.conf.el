@@ -29,14 +29,12 @@
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
           avy                           ; fast cursor movement
-          flx                           ; fuzzy matching for ido
-          ido-vertical-mode             ; vertical mode for ido
-          smex                          ; IDO for M-x
           projectile                    ; handling of projects
           auto-compile                  ; automatically compile outdated stuff
           diminish                      ; remove stuff from modeline
           powerline                     ; powerline for mode-line
           bm                            ; bookmarking
+          swiper                        ; ivy, counsel, swiper
           edit-indirect                 ; edit region in separate buffers
           which-key                     ; display which keys is available
           ;; Programming
