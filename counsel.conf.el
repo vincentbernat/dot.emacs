@@ -1,0 +1,1 @@
+(diminish 'counsel-mode)
