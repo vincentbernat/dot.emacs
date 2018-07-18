@@ -15,7 +15,7 @@
         (:name cider
                :checkout "v0.17.0")
         (:name clojure-mode
-               :checkout "5.6.1")
+               :checkout "5.8.1")
         (:name bbdb
                :checkout "c951e15cd01d")
         (:name magit
