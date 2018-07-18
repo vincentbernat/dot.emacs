@@ -8,6 +8,8 @@
 (add-to-list 'projectile-project-root-files ".svn")
 (add-to-list 'projectile-globally-ignored-directories ".svn")
 
+(setq projectile-completion-system 'ivy)
+
 (diminish 'projectile-mode)
 
 (defun vbe:set-compilation-save-buffer-predicate ()
