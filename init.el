@@ -132,3 +132,4 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (require 'multiple-cursors)
 (require 'midnight)               ; clean up buffers from time to time
 (global-flycheck-mode 1)
+(which-key-mode)

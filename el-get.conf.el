@@ -38,6 +38,7 @@
           powerline                     ; powerline for mode-line
           bm                            ; bookmarking
           edit-indirect                 ; edit region in separate buffers
+          which-key                     ; display which keys is available
           ;; Programming
           paredit                       ; Parentheses management
           highlight-parentheses         ; Highlight parentheses surrounding the cursor
