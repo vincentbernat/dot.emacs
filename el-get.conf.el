@@ -29,6 +29,7 @@
           boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
           avy                           ; fast cursor movement
+          smex                          ; remember last M-x commands
           projectile                    ; handling of projects
           auto-compile                  ; automatically compile outdated stuff
           diminish                      ; remove stuff from modeline
