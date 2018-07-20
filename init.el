@@ -49,7 +49,6 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (column-number-mode 1)			; show column number
 (global-hl-line-mode 1)			; highlight current line
 (global-pretty-mode t)                  ; pretty minor mode globally enabled
-(dtrt-indent-global-mode)               ; enable dtrt globally
 (electric-indent-mode 1)                ; auto-indent (disabled for some modes below)
 (save-place-mode 1)                     ; save position in files
 (setq make-pointer-invisible t)		; hide the mouse while typing
@@ -134,3 +133,4 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (which-key-mode 1)
 (ivy-mode 1)
 (counsel-mode 1)
+(dtrt-indent-global-mode 1)
