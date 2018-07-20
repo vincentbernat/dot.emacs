@@ -15,3 +15,5 @@
       ivy-extra-directories nil
       ivy-format-function #'vbe:ivy-format-function-arrow)
 
+;; Alias for S-SPC
+(define-key ivy-minibuffer-map (kbd "C-SPC") 'ivy-restrict-to-matches)
