@@ -13,4 +13,5 @@
  ;; Speedup compilation by saving intermediate files.
  flycheck-go-build-install-deps t)
 
-;;;
+;; Disable emacs-lisp-checkdoc
+(add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
