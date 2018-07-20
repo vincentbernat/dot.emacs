@@ -62,7 +62,6 @@
           zencoding-mode                ; Mode to expand CSS tags to HTML
           actionscript-mode             ; Mode for actionscript
           systemtap-mode                ; Mode for systemtap
-          vala-mode                     ; Mode for Vala
           erlang-mode                   ; Mode for Erlang
           gyp-mode                      ; Mode for gyp files
           dockerfile-mode               ; Mode for Dockerfile
