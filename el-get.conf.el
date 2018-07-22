@@ -34,6 +34,7 @@
           auto-compile                  ; automatically compile outdated stuff
           diminish                      ; remove stuff from modeline
           powerline                     ; powerline for mode-line
+          spaceline                     ; spaceline (a theme for powerline)
           bm                            ; bookmarking
           swiper                        ; ivy, counsel, swiper
           edit-indirect                 ; edit region in separate buffers

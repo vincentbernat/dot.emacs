@@ -1,10 +1,13 @@
 ;;; Powerline settings
 ;;; Code:
 
-(powerline-default-theme)
-(setq powerline-default-separator 'arrow
+(require 'spaceline-config)
+(setq powerline-default-separator 'wave
       powerline-display-buffer-size t
-      powerline-display-hud nil)
+      powerline-display-hud nil
+      powerline-height (round (* 1.3 (frame-char-height)))
+      spaceline-buffer-encoding-abbrev-p nil)
+(spaceline-emacs-theme)
 
 ;; Handle DPI change
 (defun vbe/after-font-setting-change-default-font (display-or-frame set-font)
