@@ -2,7 +2,7 @@
 ;;; Code:
 
 (require 'spaceline-config)
-(setq powerline-default-separator 'wave
+(setq powerline-default-separator 'zigzag
       powerline-display-buffer-size t
       powerline-display-hud nil
       powerline-height (round (* 1.3 (frame-char-height)))
