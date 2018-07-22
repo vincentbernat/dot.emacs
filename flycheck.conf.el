@@ -5,6 +5,8 @@
  flycheck-temp-prefix ".flycheck"
  ;; Do not hijack next-error
  flycheck-standard-error-navigation nil
+ ;; Do not display anything in modeline (see spaceline)
+ flycheck-mode-line nil
  ;; Don't enable flycheck on some modes
  flycheck-global-modes '(not erc-mode))
 
