@@ -74,12 +74,18 @@
         (set-process-sentinel proc 'vbe:mbsync-sentinel)))))
 
 (setq vbe:mbsync-mode-line-string nil)
+(setq vbe:mbsync-update-mode-line nil)
 (defun vbe:mbsync-update-mode-line (process)
   "Update mode line information about mbsync process"
   (setq vbe:mbsync-mode-line-string
-        (let ((status (process-status process)))
-          (when (eq status 'run)
-            (concat "📨" (process-get process :channel)))))
+        (let ((status (process-status process))
+              (channel (process-get process :channel)))
+          (cond ((eq status 'run)
+                 (add-to-list 'vbe:mbsync-update-mode-line channel t))
+                ((eq status 'exit)
+                 (setq vbe:mbsync-update-mode-line (delete channel vbe:mbsync-update-mode-line))))
+          (when vbe:mbsync-update-mode-line
+            (concat "📨" (mapconcat 'identity vbe:mbsync-update-mode-line ",")))))
   (force-mode-line-update))
 (defun vbe:mbsync-mode-line ()
   "Display current mbsync mode line if applicable"
