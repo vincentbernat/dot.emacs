@@ -79,12 +79,13 @@
   (setq vbe:mbsync-mode-line-string
         (let ((status (process-status process)))
           (when (eq status 'run)
-            (concat "⇋" (process-get process :channel)))))
+            (concat " ⇋" (process-get process :channel) " "))))
   (force-mode-line-update))
 (defun vbe:mbsync-mode-line ()
   "Display current mbsync mode line if applicable"
   (when (member major-mode '(gnus-group-mode))
     vbe:mbsync-mode-line-string))
+(add-to-list 'global-mode-string '(:eval (vbe:mbsync-mode-line)) t)
 
 (defun vbe:mbsync-filter (proc msg)
   (with-current-buffer (process-buffer proc)

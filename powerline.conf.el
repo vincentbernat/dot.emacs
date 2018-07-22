@@ -8,14 +8,7 @@
       powerline-height (round (* 1.3 (frame-char-height)))
       spaceline-hud-p nil
       spaceline-buffer-encoding-abbrev-p nil)
-
-
-(spaceline-define-segment mbsync
-  "Status of mbsync."
-  (when (fboundp 'vbe:mbsync-mode-line)
-    (vbe:mbsync-mode-line))
-  :enabled t)
-(spaceline-emacs-theme 'mbsync)
+(spaceline-emacs-theme)
 
 ;; Handle DPI change
 (defun vbe/after-font-setting-change-default-font (display-or-frame set-font)
