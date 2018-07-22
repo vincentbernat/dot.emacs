@@ -6,6 +6,7 @@
       powerline-display-buffer-size t
       powerline-display-hud nil
       powerline-height (round (* 1.3 (frame-char-height)))
+      spaceline-hud-p nil
       spaceline-buffer-encoding-abbrev-p nil)
 (spaceline-emacs-theme)
 
