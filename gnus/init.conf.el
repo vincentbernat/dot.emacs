@@ -85,7 +85,7 @@
                 ((eq status 'exit)
                  (setq vbe:mbsync-update-mode-line (delete channel vbe:mbsync-update-mode-line))))
           (when vbe:mbsync-update-mode-line
-            (concat "📨" (mapconcat 'identity vbe:mbsync-update-mode-line ",")))))
+            (concat "📨" (mapconcat 'identity vbe:mbsync-update-mode-line " ")))))
   (force-mode-line-update))
 (defun vbe:mbsync-mode-line ()
   "Display current mbsync mode line if applicable"
