@@ -5,6 +5,7 @@
 (define-key goto-map "M-j" 'avy-goto-subword-1)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-s") #'swiper)
+(global-set-key (kbd "C-c C-r") #'ivy-resume)
 (global-set-key (kbd "C-c '") #'edit-indirect-region)
 (global-set-key (kbd "C-c |") #'align-current)
 (global-set-key (kbd "C-c C-.") #'bm-toggle)
