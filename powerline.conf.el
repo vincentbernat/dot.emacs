@@ -16,4 +16,7 @@
 (advice-add 'font-setting-change-default-font
             :after #'vbe/after-font-setting-change-default-font)
 
+;; Don't change the modeline on focus out
+(remove-hook 'focus-out-hook 'powerline-unset-selected-window)
+
 ;;; powerline.conf.el ends here
