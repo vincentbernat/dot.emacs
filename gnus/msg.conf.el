@@ -27,8 +27,7 @@
 
 ;; Set user name and email address
 (setq user-full-name "Vincent Bernat"
-      user-mail-address (cond ((vbe:at 'deezer) "vbe@deezer.com")
-			      (t "bernat@luffy.cx")))
+      user-mail-address "bernat@luffy.cx")
 (setq vbe:mail-addresses
       (mapcar #'(lambda (name)
 		 (format "\\(^\\|[^.]\\)\\b%s[@\\.]" name))

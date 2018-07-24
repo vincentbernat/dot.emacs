@@ -40,35 +40,6 @@ substituting hyphens for slashes."
 ;; Load future features
 (add-hook 'after-load-functions 'vbe:after-load)
 
-(defun vbe:at (where)
-  "Return `t' if the current profile is WHERE."
-  (string= (cond ((string-match (concat (regexp-quote ".p.fti.net") "$")
-			   (system-name))
-		  "orange")
-                 ((string-match (concat (regexp-quote ".corp.dailymotion.com") "$")
-                                (system-name))
-                  "dailymotion")
-                 ((string-match (concat (regexp-quote ".deezer.com") "$")
-                                (system-name))
-                  "deezer")
-		 (t "unknown"))
-	   (cond ((symbolp where) (symbol-name where))
-		 ((stringp where) where)
-		 (t ""))))
-
-;; http://stackoverflow.com/questions/14201740/replace-region-with-result-of-calling-a-function-on-region
-(defun vbe:apply-function-to-region (fn)
-  (interactive "aFunction to apply to region: ")
-  (save-excursion
-    (let* ((beg (region-beginning))
-           (end (region-end))
-           (resulting-text
-            (funcall
-             fn
-             (buffer-substring-no-properties beg end))))
-      (kill-region beg end)
-      (insert resulting-text))))
-
 (defun vbe:working-network-connection? ()
   "Check we have a working connection. Also check that it is
 cheap enough."
