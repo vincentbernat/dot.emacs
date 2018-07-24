@@ -2,5 +2,4 @@
 *.elc
 #*#
 /vendor/
-/old/
 /run/
