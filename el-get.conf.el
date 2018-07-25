@@ -26,7 +26,6 @@
           ;; General
           naquadah-theme                ; Theme from Julien Danjou
           emojify                       ; Emojis
-          boxquote                      ; draw boxes
           multiple-cursors              ; multiple cursors
           avy                           ; fast cursor movement
           smex                          ; remember last M-x commands
