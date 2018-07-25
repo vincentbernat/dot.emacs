@@ -1,1 +1,0 @@
-(diminish 'which-key-mode)

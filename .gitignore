@@ -1,5 +1,7 @@
 *~
 *.elc
 #*#
-/vendor/
+
+/custom.el
 /run/
+/site-lisp/

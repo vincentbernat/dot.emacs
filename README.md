@@ -1,13 +1,8 @@
-This configuration requires Emacs 24.x and el-get. To get el-get, you
-can either use `apt-get install el-get` or follow the instructions
-here: https://github.com/dimitri/el-get
-
-All files are autoloaded when they are needed. They may be needed
-right at start.
+This configuration requires Emacs 24.x.
 
 Feel free to explore what is done. Using the configuration as is may
-not be a good idea, but all those files are licensed under ISC
-license:
+not be a good idea, but all those files are licensed both as GPLv3 (or
+any later version) and under the ISC license:
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose with or without fee is hereby granted, provided that the above
@@ -20,11 +15,3 @@ license:
     WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
     ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
     OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-Here is a list of resources you may be interested in if you want to
-build your own Emacs configuration:
-
- - [Emacs Starter Kit](https://github.com/technomancy/emacs-starter-kit)
- - [Emacs Prelude](http://batsov.com/prelude/)
- - [Emacs Lisp Cookbook](http://wikemacs.org/wiki/Emacs_Lisp_Cookbook)
- - [Julien Danjou's configuration](http://git.naquadah.org/?p=~jd/emacs.d.git;a=summary)

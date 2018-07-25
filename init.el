@@ -1,136 +1,53 @@
-;;; init.el --- user init file      -*- no-byte-compile: t -*-
+;;; init.el --- Emacs init file                      -*- lexical-binding: t; -*-
 
-;; (package-initialize)
+;; Copyright (C) 2018  Vincent Bernat
 
-;; Check we are using Emacs 24
-(when (not (>= emacs-major-version 23))
-  (error "Only Emacs 24+ is supported. You seem to use Emacs %d"
-	 emacs-major-version))
+;; Author: Vincent Bernat <bernat@luffy.cx>
 
-;; I don't like to use require to load my own configuration files
-;; because it is not possible to limit its use to a given directory. I
-;; don't want to mess with the load path and I don't want to load
-;; anything else than configuration file. Hence this custom function.
-(defun vbe:require (feature)
-  "Load FEATURE if not loaded (with added prefix).
-The appropriate prefix is added to the provided feature but the
-name is searched without prefix. For example, if FEATURE is
-\"el-get\", the loaded feature will be \"vbe/el-get\" and it will
-be searched in \"el-get.el\" in the user Emacs directory."
-  (let* ((prefix "vbe")
-	 (filename (expand-file-name (concat prefix "-" (symbol-name feature))
-				     user-emacs-directory))
-	 (fullfeature (intern (format "%s/%s" prefix feature))))
-    (unless (featurep fullfeature)
-      (load filename)
-      (unless (featurep fullfeature)
-	(error "[vbe/] Required feature `%s' was not found."
-	       fullfeature)))))
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Code:
+
+;(package-initialize)
+
+;; Setup environment to load other files.
 
 (setq load-prefer-newer t)
-(vbe:require 'utils)
+(setq user-emacs-directory (file-name-directory
+                        (or (buffer-file-name) (file-chase-links load-file-name))))
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
-;; Various directories
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(require 'vbe-package)
+(require 'vbe-appearance)
+(require 'vbe-ergonomics)
+(require 'vbe-programming)
+(require 'vbe-server)
 
-;; Initialize el-get
-(setq el-get-dir (expand-file-name "vendor" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "el-get" el-get-dir))
-(require 'el-get)
-(exec-path-from-shell-initialize)
+(use-package gnus
+  :commands (gnus)
+  :config
+  (require 'vbe-gnus))
 
-;; Appearance
-(menu-bar-mode -1)			; No menu
-(tool-bar-mode -1)			; No toolbar
-(scroll-bar-mode -1)			; No scrollbar
-(blink-cursor-mode -1)			; No blinking cursor
-(show-paren-mode t)			; Display matching parenthesis ; C-M-n and C-M-p
-(setq inhibit-splash-screen t)		; No splash screen
-(line-number-mode 1)			; show line number
-(column-number-mode 1)			; show column number
-(global-hl-line-mode 1)			; highlight current line
-(electric-indent-mode 1)                ; auto-indent (disabled for some modes below)
-(save-place-mode 1)                     ; save position in files
-(setq make-pointer-invisible t)		; hide the mouse while typing
-(setq font-lock-maximum-decoration 2)   ; faster font-lock-mode
-(set-default 'indicate-buffer-boundaries '((up . nil) (down . nil) (t . left)))
-(require 'naquadah-theme)
-(require 'powerline)
+(use-package org
+  :mode ("\\.org\\'" . org-mode)
+  :config
+  (require 'vbe-orgmode))
 
-;; Behaviour
-(setq mouse-yank-at-point t		; Yank where the point currently is
-      x-select-enable-primary t         ; Yank use the primary selection if available
-      x-select-enable-clipboard t       ; Yank use the clipboard if available
-      save-interprogram-paste-before-kill t ; Put clipboard/selection into kill ring
-      x-selection-timeout 10                ; Workaround. See https://debbugs.gnu.org/16737
-      echo-keystrokes 0.1               ; Show keystrokes early
-      mouse-1-click-follows-link nil)	; Don't follow links with left click
-(fset 'yes-or-no-p 'y-or-n-p) ; Always use y/n prompt
-(setq use-dialog-box nil)     ; No dialog box
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(setq-default indent-tabs-mode nil)   ; don't use tabs
-(setq sentence-end-double-space nil)
-(setq next-screen-context-lines 5     ; Keep more lines when scrolling
-      x-stretch-cursor t)    ; stretch cursor to the width of the char
-(projectile-global-mode 1)
-(global-company-mode 1)
-(global-prettify-symbols-mode 1)
+(use-package erc
+  :commands (znc-erc znc-all erc)
+  :config
+  (require 'vbe-erc))
 
-;; Bindings
-(vbe:require 'bindings)
-
-;; Automode
-(add-to-list 'auto-mode-alist '("-MIB$" . snmpv2-mode))
-(add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
-(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("README.md$" . gfm-mode))
-(add-to-list 'auto-mode-alist '("/Rakefile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.html?$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
-(add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))
-(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . git-commit-mode))
-(add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))
-(elpy-enable)
-
-;; Whitespace mode for some selected modes
-(defun vbe:enable-whitespace-mode ()
-  (whitespace-mode 1)
-  (diminish 'whitespace-mode))
-(add-hook 'markdown-mode-hook 'vbe:enable-whitespace-mode)
-
-;; Programming
-(defun vbe:customize-programming-language-mode ()
-  (vbe:enable-whitespace-mode)
-  (highlight-parentheses-mode 1)
-  (diminish 'highlight-parentheses-mode))
-(add-hook 'prog-mode-hook ; This is the mode perl, makefile,
-                          ; lisp-mode, scheme-mode, emacs-lisp-mode,
-                          ; sh-mode, java-mode, c-mode, c++-mode,
-                          ; python-mode inherits from.
-          'vbe:customize-programming-language-mode)
-
-;; Disable electric indent mode on some mode
-(defun vbe:no-electric-indent-mode ()
-  (set (make-local-variable 'electric-indent-mode) nil))
-(let ((modes '(markdown-mode rst-mode yaml-mode
-               ledger-mode message-mode
-               fundamental-mode)))
-  (dolist (mode modes)
-    (add-hook
-      (intern (concat (symbol-name mode) "-hook"))
-      'vbe:no-electric-indent-mode)))
-
-;; Other stuff we need
-(require 'server)
-(require 'uniquify)
-(require 'multiple-cursors)
-(require 'midnight)               ; clean up buffers from time to time
-(global-flycheck-mode 1)
-(which-key-mode 1)
-(ivy-mode 1)
-(counsel-mode 1)
-(dtrt-indent-global-mode 1)
+;;; init.el ends here
