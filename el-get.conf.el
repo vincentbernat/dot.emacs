@@ -38,6 +38,7 @@
           swiper                        ; ivy, counsel, swiper
           edit-indirect                 ; edit region in separate buffers
           which-key                     ; display which keys is available
+          exec-path-from-shell          ; change exec path to match shell one
           ;; Programming
           paredit                       ; Parentheses management
           highlight-parentheses         ; Highlight parentheses surrounding the cursor

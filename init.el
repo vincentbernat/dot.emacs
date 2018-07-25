@@ -37,6 +37,7 @@ be searched in \"el-get.el\" in the user Emacs directory."
 (setq el-get-dir (expand-file-name "vendor" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "el-get" el-get-dir))
 (require 'el-get)
+(exec-path-from-shell-initialize)
 
 ;; Appearance
 (menu-bar-mode -1)			; No menu
