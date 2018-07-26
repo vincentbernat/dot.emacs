@@ -178,6 +178,12 @@
   :config
   (setq tramp-persistency-file-name (vbe:runtime-file "tramp" "history")))
 
+(use-package pcache
+  :ensure nil
+  :defer t
+  :config
+  (setq pcache-directory (vbe:runtime-directory "pcache")))
+
 ;; Auto revert buffers
 (global-auto-revert-mode 1)
 (setq
