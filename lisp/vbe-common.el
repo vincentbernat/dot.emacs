@@ -51,10 +51,10 @@ ethernet."
                                       ofNM "State")
                    70))               ; 70 = NM_STATE_CONNECTED_GLOBAL
       ;; Is it metered?
-      (-when-let ((primary-connection
-                   (dbus-get-property :system
-                                      ofNM "/org/freedesktop/NetworkManager"
-                                      ofNM "PrimaryConnection")))
+      (-when-let (primary-connection
+                  (dbus-get-property :system
+                                     ofNM "/org/freedesktop/NetworkManager"
+                                     ofNM "PrimaryConnection"))
         (--all? (memq (dbus-get-property :system
                                          ofNM it
                                          (concat ofNM ".Device") "Metered")
