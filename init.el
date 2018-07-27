@@ -42,6 +42,7 @@
 
 (use-package org
   :mode ("\\.org\\'" . org-mode)
+  :pin "gnu"                            ; no effect?
   :config
   (require 'vbe-orgmode))
 
