@@ -62,12 +62,14 @@
    '(gnus-summary-normal-read   (:foreground aluminium-3 :italic t))
    '(gnus-summary-high-unread   (:inherit gnus-summary-normal-unread :background sky-blue-2))
    '(gnus-summary-high-read     (:inherit gnus-summary-normal-read :background sky-blue-3))
+
    '(org-tag                    (:background aluminium-5
                                  :foreground "white"
                                  :box (:line-width 1 :color aluminium-3)
                                  :slant oblique
                                  :weight normal
                                  :height 0.8))
+
    '(comint-highlight-prompt    (:foreground orange-2 :weight bold))
    '(hl-line                    (:background aluminium-6))))
 

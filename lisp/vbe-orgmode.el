@@ -39,46 +39,27 @@
 (add-to-list 'org-structure-template-alist
              '("n" "#+BEGIN_NOTES\n?\n#+END_NOTES"))
 
+(defun vbe:org-todo-keyword-face (keyword color1 color2)
+  "Build a face for KEYWORD using COLOR1 and COLOR2."
+  `(,keyword
+    :box (:line-width 1 :color ,(naquadah-get-colors color1))
+    :backgound ,(naquadah-get-colors color2)
+    :foreground "white"
+    :weight bold))
+
 ;; Todo keywords
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "PROGRESS(p!)" "|" "DONE(d!)")
         (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))
       org-todo-keyword-faces
-      `(("TODO"
-         :box (:line-width 1 :color ,(naquadah-get-colors 'scarlet-red-1))
-         :background ,(naquadah-get-colors 'scarlet-red-3)
-         :foreground "white"
-         :weight bold)
-        ("NEXT"
-         :box (:line-width 1 :color ,(naquadah-get-colors 'sky-blue-1))
-         :background ,(naquadah-get-colors 'sky-blue-3)
-         :foreground "white"
-         :weight bold)
-        ("PROGRESS"
-         :box (:line-width 1 :color ,(naquadah-get-colors 'chocolate-1))
-         :background ,(naquadah-get-colors 'chocolate-3)
-         :foreground "white"
-         :weight bold)
-        ("DONE"
-         :box (:line-width 1 :color ,(naquadah-get-colors 'chameleon-1))
-         :background ,(naquadah-get-colors 'chameleon-3)
-         :foreground "white"
-         :weight bold)
-        ("WAITING"
-         :box (:line-width 1 :color ,(naquadah-get-colors 'orange-1))
-         :background ,(naquadah-get-colors 'orange-3)
-         :foreground "white"
-         :weight bold)
-        ("HOLD"
-         :box (:line-width 1 :color ,(naquadah-get-colors 'plum-1))
-         :background ,(naquadah-get-colors 'plum-3)
-         :foreground "white"
-         :weight bold)
-        ("CANCELLED"
-         :box (:line-width 1 :color ,(naquadah-get-colors 'aluminium-3))
-         :background ,(naquadah-get-colors 'aluminium-5)
-         :foreground "white"
-         :weight bold)))
+      (-map (-applify 'vbe:org-todo-keyword-face)
+            '(("TODO"      scarlet-red-1 scarlet-red-3)
+              ("NEXT"      sky-blue-1 sky-blue-3)
+              ("PROGRESS"  chocolate-1 chocolate-3)
+              ("DONE"      chameleon-1 chameleon-3)
+              ("WAITING"   orange-1 orange-3)
+              ("HOLD"      plum-1 plum-3)
+              ("CANCELLED" aluminium-3 aluminium-5))))
 
 ;; Git auto-commit
 (defvar vbe:git-auto-commit-mode-for-orgmode-directories
