@@ -513,7 +513,9 @@ requires to have a symlink in vendor with `src' pointing back to
   :mode ("\\.toml\\'"))
 
 (use-package junos-mode
-  :quelpa (junos-mode :fetcher github :repo "vincentbernat/junos-mode")
+  :quelpa (junos-mode :fetcher github
+                      :repo "vincentbernat/junos-mode"
+                      :files (:defaults "junos.py"))
   :commands junos-mode)
 
 (provide 'vbe-programming)
