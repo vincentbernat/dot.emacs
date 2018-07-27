@@ -21,7 +21,7 @@
 
 (require 'package)
 (require 'tls)
-(setq package-user-dir (concat user-emacs-directory "site-lisp/elpa"))
+(setq package-user-dir (concat user-emacs-directory "site-lisp"))
 
 ;; Archive to search for.
 (setq package-archives '(("melpa"    . "https://melpa.org/packages/")
@@ -76,7 +76,7 @@
 
 (use-package quelpa
   :init
-  (setq quelpa-dir (concat user-emacs-directory "site-lisp/quelpa")
+  (setq quelpa-dir (concat user-emacs-directory "run/quelpa")
         quelpa-checkout-melpa-p nil
         quelpa-update-melpa-p nil))
 (use-package quelpa-use-package
