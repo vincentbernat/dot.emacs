@@ -172,18 +172,6 @@
 (use-package hippie-exp
   :bind (("M-/" . hippie-expand)))
 
-;; Configure TRAMP
-(use-package tramp
-  :defer t
-  :config
-  (setq tramp-persistency-file-name (vbe:runtime-file "tramp" "history")))
-
-(use-package pcache
-  :ensure nil
-  :defer t
-  :config
-  (setq pcache-directory (vbe:runtime-directory "pcache")))
-
 ;; Auto revert buffers
 (global-auto-revert-mode 1)
 (setq
@@ -237,6 +225,21 @@ point reaches the beginning or end of the buffer, stop there."
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
+
+
+;; Miscellaneous tweaks for non-packages
+(use-package tramp
+  :ensure nil :defer t :config
+  (setq tramp-persistency-file-name (vbe:runtime-file "tramp" "history")))
+
+(use-package pcache
+  :ensure nil :defer t :config
+  (setq pcache-directory (vbe:runtime-directory "pcache")))
+
+(use-package url-cache
+  :ensure nil :defer t :config
+  (setq url-cache-directory (vbe:runtime-directory "url")))
+
 
 (provide 'vbe-ergonomics)
 ;;; vbe-ergonomics.el ends here
