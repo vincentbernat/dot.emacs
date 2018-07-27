@@ -450,34 +450,10 @@ requires to have a symlink in vendor with `src' pointing back to
                    (modes    . '(clojure-mode))
                    (tab-stop . nil)))))
 
-(use-package lisp-mode
-  :ensure nil
-  :defer t
+;; Evaluate last sexp "inline", like with CIDER
+(use-package eros
   :config
-  ;; Inline results when evaluating sexps
-  ;; Reference: http://endlessparentheses.com/eval-result-overlays-in-emacs-lisp.html
-  (autoload 'cider--make-result-overlay "cider-overlays")
-  (defun vbe:eval-overlay (value point)
-    (cider--make-result-overlay (format "%S" value)
-      :where point
-      :duration 'command)
-    ;; Preserve the return value.
-    value)
-  (advice-add 'eval-region :around
-              (lambda (f beg end &rest r)
-                (vbe:eval-overlay
-                 (apply f beg end r)
-                 end)))
-  (advice-add 'eval-last-sexp :filter-return
-              (lambda (r)
-                (vbe:eval-overlay r (point))))
-  (advice-add 'eval-defun :filter-return
-              (lambda (r)
-                (vbe:eval-overlay
-                 r
-                 (save-excursion
-                   (end-of-defun)
-                   (point))))))
+  (eros-mode 1))
 
 (use-package dockerfile-mode
   :mode "Dockerfile\\'")
