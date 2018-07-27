@@ -1,4 +1,4 @@
-;;; vbe-gnus-summary.el --- Gnus summary configuration  -*- lexical-binding: t; -*-
+;;; vbe-gnus-appearance.el --- Gnus appearance  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Vincent Bernat
 
@@ -219,5 +219,5 @@ Uses the process/prefix convention with N."
                 (buffer-substring (point-min) (point-max)))))))
 
 
-(provide 'vbe-gnus-summary)
-;;; vbe-gnus-summary.el ends here
+(provide 'vbe-gnus-appearance)
+;;; vbe-gnus-appearance.el ends here

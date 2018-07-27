@@ -20,7 +20,7 @@
 ;;; Code:
 
 (require 'vbe-gnus-general)
-(require 'vbe-gnus-summary)
+(require 'vbe-gnus-appereance)
 
 (use-package gnus-identities
   :quelpa (gnus-identities :fetcher github :repo "renard/gnus-identities")
