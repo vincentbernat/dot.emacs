@@ -73,6 +73,8 @@
                                  :height 0.8))
 
    '(comint-highlight-prompt    (:foreground orange-2 :weight bold))
+
+   '(highlight                  (:background scarlet-red-3))
    '(hl-line                    (:background aluminium-6))))
 
 ;; Modeline theme.
