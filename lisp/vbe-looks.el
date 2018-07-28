@@ -23,6 +23,8 @@
 
 (defvar vbe:default-font "DejaVu Sans Mono-11"
   "Default font.")
+(defvar vbe:modeline-font "DejaVu Sans-10"
+  "Font to use for the modeline (and minibuffer prompt).")
 
 ;; Disable various graphical widgets
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode horizontal-scroll-bar-mode blink-cursor-mode))
@@ -45,10 +47,10 @@
       (when frame
         (select-frame frame))
       (set-face-attribute 'default nil :font vbe:default-font)
-      (dolist (face `(mode-line mode-line-inactive minibuffer-prompt))
-        (set-face-attribute face nil :font "DejaVu Sans-10"))
-      (set-fontset-font
-       t 'symbol (font-spec :family "Symbola") nil 'prepend)))
+      (dolist (face '(mode-line
+                      mode-line-inactive
+                      minibuffer-prompt))
+        (set-face-attribute face nil :font vbe:modeline-font))))
 
 ;; Main theme.
 (use-package naquadah-theme
