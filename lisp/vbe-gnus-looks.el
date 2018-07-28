@@ -1,4 +1,4 @@
-;;; vbe-gnus-appearance.el --- Gnus appearance  -*- lexical-binding: t; -*-
+;;; vbe-gnus-looks.el --- Gnus looks  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Vincent Bernat
 
@@ -161,5 +161,5 @@ space instead."
 ; Start in topic mode
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 
-(provide 'vbe-gnus-appearance)
-;;; vbe-gnus-appearance.el ends here
+(provide 'vbe-gnus-looks)
+;;; vbe-gnus-looks.el ends here

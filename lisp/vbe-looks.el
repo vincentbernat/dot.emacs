@@ -1,4 +1,4 @@
-;;; vbe-appearance.el --- Fashion and aesthetics     -*- lexical-binding: t; -*-
+;;; vbe-looks.el --- Fashion and aesthetics     -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Vincent Bernat
 
@@ -101,5 +101,5 @@
   :config
   (setq emojify-emojis-dir (vbe:runtime-directory "emojis")))
 
-(provide 'vbe-appearance)
-;;; vbe-appearance.el ends here
+(provide 'vbe-looks)
+;;; vbe-looks.el ends here

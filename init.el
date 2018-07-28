@@ -30,7 +30,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 (require 'vbe-package)
-(require 'vbe-appearance)
+(require 'vbe-looks)
 (require 'vbe-ergonomics)
 (require 'vbe-programming)
 (require 'vbe-server)
