@@ -42,20 +42,20 @@
 (set-default 'indicate-buffer-boundaries '((up . nil) (down . nil) (t . left)))
 
 (defun vbe:set-font (&optional frame)
-    "Change default font for the given FRAME."
+    "Change default font for the given FRAME.
+If not frame is provided, the font is applied to all frames and
+future frames."
     (when window-system
-      (when frame
-        (select-frame frame))
-      (set-face-attribute 'default nil :font vbe:default-font)
+      (set-face-attribute 'default frame :font vbe:default-font)
       (dolist (face '(mode-line
                       mode-line-inactive
                       minibuffer-prompt))
-        (set-face-attribute face nil :font vbe:modeline-font))))
+        (set-face-attribute face frame :font vbe:modeline-font))))
 
 ;; Main theme.
 (use-package naquadah-theme
   :config
-  (vbe:set-font)
+  (vbe:set-font (selected-frame))
   (add-hook 'after-make-frame-functions 'vbe:set-font)
   (naquadah-theme-set-faces
    'naquadah
