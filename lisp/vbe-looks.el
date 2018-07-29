@@ -50,8 +50,7 @@ future frames."
       (dolist (face '(mode-line
                       mode-line-inactive
                       minibuffer-prompt))
-        (set-face-attribute face frame :font vbe:modeline-font)))
-    (set-fontset-font nil 'symbol (font-spec :family "Symbola") frame 'prepend))
+        (set-face-attribute face frame :font vbe:modeline-font))))
 
 ;; Main theme.
 (use-package naquadah-theme

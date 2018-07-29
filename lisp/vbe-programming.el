@@ -99,7 +99,7 @@
 
 ;; Paredit for parenthesis
 (use-package paredit
-  :diminish (paredit-mode . "⦅⦆")
+  :diminish (paredit-mode . "()")
   :hook ((cidr-repl-mode
           clojure-mode
           lisp-mode
