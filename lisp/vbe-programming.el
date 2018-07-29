@@ -399,29 +399,41 @@ arglist-cont-nonempty"
 (use-package go-mode
   :mode "\\.go\\'"
   :config
-  (defun vbe:go-mode-setup-gopath ()
-    "Setup GOPATH from guessed possibilities."
-    (let ((gopath (or (go-guess-gopath (current-buffer))
-                      (go-original-gopath))))
-      (make-local-variable 'process-environment)
-      (setq process-environment (cons (format "GOPATH=%s" gopath) process-environment))))
-
   ;; I am allergic to the GOPATH concept. I use kludge to work around them.
-  (require 'cl)
   (defun vbe:custom-gopath ()
-    "Guess gopath if we have a GOPATH along with a `vendor'
-directory. In this case, GOPATH is both of them. This usually
-requires to have a symlink in vendor with `src' pointing back to
-`vendor'."
-    (cl-flet ((add (gopath)
-                   (let* ((d (locate-dominating-file buffer-file-name gopath))
-                          (src (concat d (file-name-as-directory "vendor"))))
-                     (if (and d
-                              (file-exists-p src))
-                         (list (concat d (file-name-as-directory gopath)) src)))))
-      (or (add ".gopath") (add ".gopath~"))))
+    "Guess gopath if we have a .gopath or .gopath~ directory."
+    (-slice (-non-nil (-map (lambda (gopath)
+                              (-when-let (d (locate-dominating-file buffer-file-name gopath))
+                                (f-join d gopath)))
+                            '(".gopath" ".gopath~")))
+            0 1))
+  (defun vbe:custom-go-executable ()
+    "Guess a custom Go executable"
+    (-when-let (gopath (-first-item (vbe:custom-gopath)))
+      (let ((go-exec (f-join (f-dirname gopath) "go~")))
+        (when (not (f-exists? go-exec))
+          (f-write-text (format "#!/bin/sh
+
+# Set GOPATH
+export GOPATH=%s
+
+# Translate the current directory into a directory in GOPATH
+current=$(realpath --relative-to=$GOPATH/.. $PWD)
+for d in $(find $GOPATH/src -type l -print); do
+    readlink -f $d | grep -qFx $(readlink -f $GOPATH/..) && {
+        newroot=$d
+        break
+    }
+done
+target=$newroot/$current
+[ -d  ] && cd $target
+
+exec go \"$@\"
+" gopath) 'utf-8 go-exec)
+          (set-file-modes go-exec #o755))
+        (setq-local flycheck-go-build-executable go-exec))))
   (add-to-list 'go-guess-gopath-functions 'vbe:custom-gopath)
-  (add-hook 'go-mode-hook 'vbe:go-mode-setup-gopath)
+  (add-to-list 'go-mode-hook 'vbe:custom-go-executable)
   (add-hook 'before-save-hook 'gofmt-before-save))
 
 (use-package cider
