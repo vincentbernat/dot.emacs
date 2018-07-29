@@ -184,8 +184,10 @@
   (setq auto-save-list-file-prefix tmp
         auto-save-file-name-transforms `((".*" ,tmp t))))
 
-;; Use kill-emacs instead of this binding.
-(global-unset-key (kbd "C-x C-c"))
+;; How to quit Emacs
+(setq confirm-kill-emacs #'y-or-n-p
+      confirm-kill-processes nil)
+
 ;; Disable Insert as on my X1 this key is mapped near other modifiers
 ;; and can be hit by accident.
 (global-unset-key (kbd "<insert>"))
