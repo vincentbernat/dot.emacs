@@ -21,11 +21,6 @@
 
 (require 'vbe-common)
 
-(defvar vbe:default-font "DejaVu Sans Mono-11"
-  "Default font.")
-(defvar vbe:modeline-font "DejaVu Sans-10"
-  "Font to use for the modeline (and minibuffer prompt).")
-
 ;; Disable various graphical widgets
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode horizontal-scroll-bar-mode blink-cursor-mode))
     (when (fboundp mode) (funcall mode -1)))
@@ -46,11 +41,22 @@
 If not frame is provided, the font is applied to all frames and
 future frames."
     (when window-system
-      (set-face-attribute 'default frame :font vbe:default-font)
-      (dolist (face '(mode-line
-                      mode-line-inactive
-                      minibuffer-prompt))
-        (set-face-attribute face frame :font vbe:modeline-font))))
+      (let ((vbe:fontset-monospace (create-fontset-from-ascii-font "DejaVu Sans Mono-11"
+                                                                   nil
+                                                                   "monospace"))
+            (vbe:fontset-sans (create-fontset-from-ascii-font "DejaVu Sans-10"
+                                                              nil
+                                                              "sans")))
+        (set-fontset-font vbe:fontset-monospace 'unicode (font-spec :name "DejaVu Sans Mono-11") frame)
+        (set-fontset-font vbe:fontset-monospace 'unicode (font-spec :name "Symbola-11") frame 'append)
+
+        (set-fontset-font vbe:fontset-sans 'unicode (font-spec :name "DejaVu Sans-10") frame)
+        (set-fontset-font vbe:fontset-sans 'unicode (font-spec :name "Symbola-10") frame 'append)
+        (set-face-attribute 'default frame :font vbe:fontset-monospace)
+        (dolist (face '(mode-line
+                        mode-line-inactive
+                        minibuffer-prompt))
+          (set-face-attribute face frame :font vbe:fontset-sans)))))
 
 ;; Main theme.
 (use-package naquadah-theme
