@@ -23,6 +23,7 @@
 (require 'erc)
 (require 'erc-fill)
 (require 'erc-track)
+(require 'erc-log)
 
 (setq
  ;; Don't track those changes.
@@ -289,7 +290,7 @@ the appropriate network slug that we extract from the nick."
 
   ;; Define networks
   (vbe:znc-add-server "znc.luffy.cx" 7667 "bernat"
-                      '(oftc freenode exoscale)))
+                      '(exoscale oftc freenode)))
 
 (provide 'vbe-erc)
 ;;; vbe-erc.el ends here
