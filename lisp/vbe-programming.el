@@ -69,7 +69,7 @@
 
 ;; Indentation detection.
 (use-package dtrt-indent
-  :diminish dtrt-indent-mode
+  :diminish
   :hook (groovy-mode . dtrt-indent-mode)
   :defer 5
   :config
@@ -78,7 +78,7 @@
 
 ;; Completion with company mode
 (use-package company
-  :diminish company-mode
+  :diminish
   :config
   ;; Don't use up/down arrow (use M-n, M-p only) to browse list
   (define-key company-active-map [down] nil)
@@ -115,7 +115,7 @@
 
 ;; Eldoc
 (use-package eldoc
-  :diminish eldoc-mode
+  :diminish
   :defer t)
 
 ;; ggtags
@@ -134,7 +134,7 @@
 
 ;; Display whitespaces.
 (use-package whitespace
-  :diminish whitespace-mode
+  :diminish
   :hook ((prog-mode markdown-mode) . whitespace-mode)
   :config
   (setq whitespace-style '(face trailing)))
@@ -145,7 +145,7 @@
 
 ;; Highlight parentheses
 (use-package highlight-parentheses
-  :diminish highlight-parentheses-mode
+  :diminish
   :hook (prog-mode . highlight-parentheses-mode))
 
 ;; Gists

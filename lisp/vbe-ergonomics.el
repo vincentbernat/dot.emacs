@@ -41,13 +41,13 @@
 
 ;; After a pause, describe the current map.
 (use-package which-key
-  :diminish which-key-mode
+  :diminish
   :config
   (which-key-mode 1))
 
 ;; Setup ivy/swiper/counsel
 (use-package ivy
-  :diminish ivy-mode
+  :diminish
   :bind (("C-c C-r" . ivy-resume))
   :demand t
   :config
@@ -75,13 +75,13 @@
   :config
   (setq smex-save-file (vbe:runtime-file "smex-items")))
 (use-package counsel
-  :diminish counsel-mode
+  :diminish
   :config
   (counsel-mode 1))
 
 ;; Setup projectile
 (use-package projectile
-  :diminish projectile-mode
+  :diminish
   :bind-keymap (("C-c p" . projectile-command-map))
   :config
   (setq projectile-known-projects-file (vbe:runtime-file "projectile" "bookmarks.eld")
