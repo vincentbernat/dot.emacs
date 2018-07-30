@@ -89,6 +89,13 @@ future frames."
         spaceline-buffer-encoding-abbrev-p nil)
   (spaceline-emacs-theme)
 
+  ;; Modify VCS mode line to display branch icon instead of Git
+  (with-eval-after-load "vc-hooks"
+    (defadvice vc-mode-line (after vbe:vc-mode-line () activate)
+      (when (stringp vc-mode)
+        (let ((gitlogo (replace-regexp-in-string "^ Git." "  " vc-mode)))
+          (setq vc-mode gitlogo)))))
+
   ;; Handle DPI change.
   (defun vbe:powerline-reset ()
     (setq powerline-height (round (* 1.3 (frame-char-height))))
