@@ -79,7 +79,7 @@ future frames."
 
 ;; Modeline theme.
 (use-package spaceline
-  :pin "m-stable"
+  :pin "melpa"
   :config
   (require 'spaceline-config)
   (setq powerline-default-separator 'zigzag
