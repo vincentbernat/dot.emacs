@@ -120,7 +120,12 @@
 
 ;; ggtags
 (use-package ggtags
+  :diminish
   :hook (c-mode-common . ggtags-mode))
+
+(use-package abbrev
+  :ensure nil
+  :diminish)
 
 ;; Electric indent
 (use-package electric-indent
