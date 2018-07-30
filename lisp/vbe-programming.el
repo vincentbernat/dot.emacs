@@ -164,18 +164,17 @@
 This function is from nicm@ and also in gsoares@'s config.
 Most useful with c-offset-alist entries that are lists such as
 arglist-cont-nonempty"
-  (save-excursion
-    (goto-char (cdr langelem))
-    (setq syntax (car (car (c-guess-basic-syntax))))
-    (while (or (eq syntax 'arglist-intro)
-	       (or (eq syntax 'arglist-cont)
-		   (eq syntax 'arglist-cont-nonempty)))
-      (forward-line -1)
-      (setq syntax (car (car (c-guess-basic-syntax)))))
-    (beginning-of-line)
-    (re-search-forward "[^ \t]" (c-point 'eol))
-    (goto-char (+ (match-beginning 0) 4))
-    (vector (current-column))))
+    (save-excursion
+      (goto-char (cdr langelem))
+      (while (let ((syntax (car (car (c-guess-basic-syntax)))))
+               (or (eq syntax 'arglist-intro)
+                   (eq syntax 'arglist-cont)
+                   (eq syntax 'arglist-cont-nonempty)))
+        (forward-line -1))
+      (beginning-of-line)
+      (re-search-forward "[^ \t]" (c-point 'eol))
+      (goto-char (+ (match-beginning 0) 4))
+      (vector (current-column))))
 
   ;; More styles. To debug, use C-c C-s.
   ;;  - `+` means `c-basic-offset` times 1.
