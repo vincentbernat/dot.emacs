@@ -119,6 +119,12 @@ some servers, we may add an additional suffix."
      (> (length s) erc-track-shorten-cutoff))
    erc-track-shorten-start))
 
+(defadvice erc-modified-channels-object (after vbe:erc-modified-channels-object activate)
+  "Shorten even more the modified-channels object.
+It needs to not be too long for it to be displayed in the
+modeline. Otherwise, spaceline would just hide it."
+  (setq ad-return-value (s-truncate 20 ad-return-value)))
+
 ;; Truncate too long buffers
 (add-to-list 'erc-modules 'truncate)
 (setq erc-truncate-buffer-on-save t)
