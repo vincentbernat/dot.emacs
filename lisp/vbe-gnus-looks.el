@@ -158,6 +158,10 @@ space instead."
       gnus-build-sparse-threads 'some   ; fetch some messages to get better threads
       gnus-single-article-buffer t)     ; no more than one buffer per article
 
+;; Better visibility of HTML emails
+(setq shr-color-visible-distance-min 10
+      shr-color-visible-luminance-min 60)
+
 ; Start in topic mode
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 
