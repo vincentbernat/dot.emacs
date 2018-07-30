@@ -43,8 +43,7 @@
   ;; Remove unneeded prompts
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
-  (setq magit-hide-campaign-header t
-        magit-completing-read-function 'ivy-completing-read))
+  (setq magit-completing-read-function 'ivy-completing-read))
 
 ;; Then, flycheck. Needs to be enabled for each mode.
 (use-package flycheck
