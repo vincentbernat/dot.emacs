@@ -56,7 +56,7 @@ future frames."
 (use-package naquadah-theme
   :config
   (vbe:set-font (selected-frame))
-  (add-hook 'after-make-frame-functions 'vbe:set-font)
+  (add-hook 'after-make-frame-functions #'vbe:set-font)
   (naquadah-theme-set-faces
    'naquadah
    '(gnus-summary-selected      (:background chameleon-3 :foreground black))
@@ -101,7 +101,7 @@ future frames."
     (setq powerline-height (round (* 1.3 (frame-char-height))))
     (pl/reset-cache))
   (vbe:powerline-reset)
-  (add-hook 'vbe:dpi-change-hook 'vbe:powerline-reset)
+  (add-hook 'vbe:dpi-change-hook #'vbe:powerline-reset)
 
   ;; Don't change the modeline on focus out.
   (remove-hook 'focus-out-hook 'powerline-unset-selected-window))

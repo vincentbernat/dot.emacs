@@ -45,9 +45,9 @@
         bbdb-phone-style nil)	      ; Don't assume a phone style
 
   ;; Add notes when updating a record
-  (add-hook 'bbdb-notice-mail-hook 'bbdb-auto-notes)
+  (add-hook 'bbdb-notice-mail-hook #'bbdb-auto-notes)
   ;; Display the record when it exists
-  (add-hook 'gnus-article-prepare-hook 'vbe:gnus/bbdb-display-record)
+  (add-hook 'gnus-article-prepare-hook #'vbe:gnus/bbdb-display-record)
 
   ;; What to set in "Notes"?
   (setq bbdb-auto-notes-rules

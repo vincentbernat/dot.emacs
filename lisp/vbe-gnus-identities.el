@@ -94,7 +94,7 @@ if any of the given expressions in WHAT is present."
 (defun vbe:gnus/will-sign-message ()
   "Setup a local hook to make the article signed."
   (add-hook 'gnus-message-setup-hook
-            'mml-secure-message-sign-pgpmime t t))
+            #'mml-secure-message-sign-pgpmime t t))
 
 ;; Signature
 (defconst vbe:fortune-program nil

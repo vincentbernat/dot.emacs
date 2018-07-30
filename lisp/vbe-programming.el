@@ -437,9 +437,9 @@ exec go \"$@\"
 " gopath) 'utf-8 go-exec)
           (set-file-modes go-exec #o755))
         (setq-local flycheck-go-build-executable go-exec))))
-  (add-to-list 'go-guess-gopath-functions 'vbe:custom-gopath)
-  (add-to-list 'go-mode-hook 'vbe:custom-go-executable)
-  (add-hook 'before-save-hook 'gofmt-before-save))
+  (add-hook 'go-guess-gopath-functions #'vbe:custom-gopath)
+  (add-hook 'go-mode-hook #'vbe:custom-go-executable)
+  (add-hook 'before-save-hook #'gofmt-before-save))
 
 (use-package cider
   :hook (clojure-mode . cider-mode)

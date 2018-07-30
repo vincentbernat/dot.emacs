@@ -163,11 +163,11 @@ space instead."
       shr-color-visible-luminance-min 60)
 
 ; Start in topic mode
-(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+(add-hook 'gnus-group-mode-hook #'gnus-topic-mode)
 
 ;; Use emojify for emojis
-(add-hook 'gnus-article-mode-hook 'emojify-mode)
-(add-hook 'message-mode-hook 'emojify-mode)
+(add-hook 'gnus-article-mode-hook #'emojify-mode)
+(add-hook 'message-mode-hook #'emojify-mode)
 
 (provide 'vbe-gnus-looks)
 ;;; vbe-gnus-looks.el ends here

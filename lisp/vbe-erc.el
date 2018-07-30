@@ -47,7 +47,7 @@
  ;; Switch to the most active buffer first
  erc-track-switch-direction 'mostactive)
 ;; But put very important messages first
-(add-hook 'erc-track-list-changed-hook 'erc-track-sort-by-importance)
+(add-hook 'erc-track-list-changed-hook #'erc-track-sort-by-importance)
 
 (defadvice erc-track-find-face (around vbe:erc-track-find-face-promote-query activate)
   "Make query buffer \"urgent\"."
@@ -241,9 +241,9 @@ DARK tells if we have a dark theme or not."
 			     (cons 'foreground-color
 				   (vbe:erc-get-color-for-nick nick 't)))))))
 
-(add-hook 'erc-insert-modify-hook 'erc-fill) ; Order is important
-(add-hook 'erc-insert-modify-hook 'vbe:erc-put-color-on-nick)
-(add-hook 'erc-mode-hook 'emojify-mode)
+(add-hook 'erc-insert-modify-hook #'erc-fill) ; Order is important
+(add-hook 'erc-insert-modify-hook #'vbe:erc-put-color-on-nick)
+(add-hook 'erc-mode-hook #'emojify-mode)
 
 ;; Too easy to hit C-c C-c instead of C-c C-space
 (define-key erc-mode-map "\C-c\C-c" nil)

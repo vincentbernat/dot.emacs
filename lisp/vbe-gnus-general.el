@@ -106,7 +106,7 @@
   "Display gravatar, only when online."
   (when (vbe:online?)
     (gnus-treat-from-gravatar)))
-(add-hook 'gnus-article-prepare-hook 'vbe:gnus-treat-from-gravatar)
+(add-hook 'gnus-article-prepare-hook #'vbe:gnus-treat-from-gravatar)
 
 ;; Citation format
 (setq message-citation-line-function 'message-insert-formatted-citation-line
@@ -114,7 +114,7 @@
 
 ;; Increase score of followups
 (setq gnus-kill-files-directory (vbe:runtime-directory "gnus" "scores"))
-(add-hook 'message-sent-hook 'gnus-score-followup-thread)
+(add-hook 'message-sent-hook #'gnus-score-followup-thread)
 
 ;; Prefer 8-bit encoding
 (add-to-list 'mm-content-transfer-encoding-defaults '("text/plain" 8bit))
