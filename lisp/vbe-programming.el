@@ -71,9 +71,10 @@
 (use-package dtrt-indent
   :diminish dtrt-indent-mode
   :hook (groovy-mode . dtrt-indent-mode)
+  :defer 5
   :config
   (add-to-list 'dtrt-indent-hook-mapping-list '(groovy-mode c/c++/java groovy-indent-offset))
-  (global-dtrt-indent-mode 1))
+  (dtrt-indent-global-mode 1))
 
 ;; Completion with company mode
 (use-package company
