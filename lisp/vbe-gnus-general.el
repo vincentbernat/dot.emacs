@@ -136,14 +136,15 @@
              (apply 'append (-map 'split-string
                                   '("bernat vbernat vincent.bernat"
                                     "vbe Vincent.Bernat"))))
-      gnus-ignored-from-addresses vbe:mail-addresses  ; When to display To: instead of From:
-      message-dont-reply-to-names
-      (append vbe:mail-addresses
-              (-map 'regexp-quote
-                    '("@noreply.github.com"
-                      "notifications@github.com"
-                      "control@bugs.debian.org"
-                      "submit@bugs.debian.org")))) ; Addresses to prune on wide reply
+      ;; When to display To: instead of From:
+      gnus-ignored-from-addresses vbe:mail-addresses
+      ;; Addresses to prune on wide reply
+      message-dont-reply-to-names (append vbe:mail-addresses
+                                          (-map 'regexp-quote
+                                                '("@noreply.github.com"
+                                                  "notifications@github.com"
+                                                  "control@bugs.debian.org"
+                                                  "submit@bugs.debian.org"))))
 
 (setq message-valid-fqdn-regexp
       (format "\\(%s\\|.*\\.digital\\|.*\\.group\\)" message-valid-fqdn-regexp))
