@@ -110,7 +110,7 @@
 
 ;; Citation format
 (setq message-citation-line-function 'message-insert-formatted-citation-line
-      message-citation-line-format " ❦ %e %B %Y %R %Z, %f :\n")
+      message-citation-line-format " ❦ %e %B %Y %R %Z, %f:\n")
 
 ;; Increase score of followups
 (setq gnus-kill-files-directory (vbe:runtime-directory "gnus" "scores"))
