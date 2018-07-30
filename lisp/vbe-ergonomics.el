@@ -88,7 +88,7 @@
         projectile-cache-file (vbe:runtime-file "projectile" "cache")
         projectile-completion-system 'ivy
         projectile-keymap-prefix (kbd "C-c p"))
-  (projectile-global-mode 1))
+  (projectile-mode 1))
 
 ;; Edit indirect allows to edit a region into a separate buffer
 (use-package edit-indirect
