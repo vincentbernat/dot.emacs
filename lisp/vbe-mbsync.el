@@ -100,15 +100,16 @@ Process is PROC and received line is MSG."
   (with-current-buffer (process-buffer proc)
     (comint-truncate-buffer)
     (dolist (msg-line (nbutlast (split-string msg "[\n\r]+")))
-      (when (buffer-live-p (process-buffer proc))
-        (let ((moving (= (point) (process-mark proc))))
-          (save-excursion
-            (goto-char (process-mark proc))
-            (insert (concat (propertize (format-time-string "[%Y-%m-%dT%T%z] ") 'face 'font-lock-doc-face)
-                            msg-line
-                            "\n"))
-            (set-marker (process-mark proc) (point)))
-          (if moving (goto-char (process-mark proc)))))))
+      (when (s-present? msg-line)
+        (when (buffer-live-p (process-buffer proc))
+          (let ((moving (= (point) (process-mark proc))))
+            (save-excursion
+              (goto-char (process-mark proc))
+              (insert (concat (propertize (format-time-string "[%Y-%m-%dT%T%z] ") 'face 'font-lock-doc-face)
+                              msg-line
+                              "\n"))
+              (set-marker (process-mark proc) (point)))
+            (if moving (goto-char (process-mark proc))))))))
   (vbe:mbsync-update-mode-line proc))
 
 (defun vbe:mbsync-channels (&optional mbsyncrc)
