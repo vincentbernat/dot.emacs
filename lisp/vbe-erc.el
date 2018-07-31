@@ -138,9 +138,10 @@ And until `point-max'."
     (goto-char (point-min))
     (looking-at "^\\(\\S-+\\)")
     (let ((nick (match-string 1))
-          (min-width 20)
+          (min-width (+ erc-fill-static-center 20))
           (max-width 120))
-      (let ((fill-column (- (min max-width (max min-width (- (point-max) (point-min))))
+      (let ((fill-column (- (min max-width (max min-width
+                                                (- (frame-width) erc-fill-static-center 10)))
                             (erc-timestamp-offset)))
             (fill-prefix (make-string erc-fill-static-center 32)))
         (insert (make-string (max 0 (- erc-fill-static-center
