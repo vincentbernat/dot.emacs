@@ -21,9 +21,9 @@
 
 (require 'vbe-common)
 
-(defvar vbe:default-font "Iosevka-12"
+(defvar vbe:default-font "DejaVu Sans Mono-11"
   "Default font.")
-(defvar vbe:modeline-font "Iosevka-11"
+(defvar vbe:modeline-font "DejaVu Sans-10"
   "Font to use for the modeline (and minibuffer prompt).")
 
 ;; Disable various graphical widgets
