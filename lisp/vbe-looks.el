@@ -87,7 +87,7 @@ future frames."
         powerline-display-hud nil
         spaceline-hud-p nil
         spaceline-buffer-encoding-abbrev-p nil)
-  (spaceline-emacs-theme)
+  (spaceline-emacs-theme 'projectile-root)
 
   ;; Modify VCS mode line to display branch icon instead of Git
   (with-eval-after-load "vc-hooks"
