@@ -112,5 +112,11 @@ future frames."
   :config
   (setq emojify-emojis-dir (vbe:runtime-directory "emojis")))
 
+;; Display ^L as break lines
+(use-package page-break-lines
+  :diminish
+  :config
+  (global-page-break-lines-mode 1))
+
 (provide 'vbe-looks)
 ;;; vbe-looks.el ends here
