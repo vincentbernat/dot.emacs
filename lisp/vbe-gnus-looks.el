@@ -100,20 +100,20 @@ Take a HEADER as argument."
  gnus-sum-thread-tree-leaf-with-other "├─►"
  gnus-sum-thread-tree-single-leaf     "╰─►"
  gnus-sum-thread-tree-indent          "  "
- gnus-summary-newsgroup-prefix "⇶"
+ gnus-summary-newsgroup-prefix "⇋"
  ;; Marks
  gnus-ticked-mark ?⚑
  gnus-dormant-mark ?⚐
- gnus-expirable-mark ?♻
+ gnus-expirable-mark ?◌
  gnus-read-mark ?✓
  gnus-del-mark ?✗
- gnus-killed-mark ?☠
- gnus-replied-mark ?↶
- gnus-forwarded-mark ?↝
- gnus-cached-mark ?☍
+ gnus-killed-mark ?⚡
+ gnus-replied-mark ?↩
+ gnus-forwarded-mark ?⇥
+ gnus-cached-mark ?∞
  gnus-recent-mark ?★
- gnus-unseen-mark ?✩
- gnus-unread-mark ?✉
+ gnus-unseen-mark ?⊚
+ gnus-unread-mark ?●
  gnus-score-over-mark ?↑           ; ↑ ☀
  gnus-score-below-mark ?↓)         ; ↓ ☂
 ;; Reevaluate gnus-auto-expirable-marks with those new symbols
