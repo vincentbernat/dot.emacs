@@ -511,5 +511,8 @@ exec go \"$@\"
                       :files (:defaults "junos.py"))
   :commands junos-mode)
 
+(use-package realgud
+  :defer t)
+
 (provide 'vbe-programming)
 ;;; vbe-programming.el ends here
