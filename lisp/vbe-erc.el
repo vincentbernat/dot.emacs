@@ -130,9 +130,25 @@ modeline. Otherwise, spaceline would just hide it."
 (add-to-list 'erc-modules 'truncate)
 (setq erc-truncate-buffer-on-save t)
 
-;; Use static filling
-(setq erc-fill-function 'erc-fill-static)
-(setq erc-fill-column 90)
+;; Define filling
+(defun vbe:erc-fill ()
+  "Fills a text such that messages start at column `erc-fill-static-center'.
+And until `point-max'."
+  (save-match-data
+    (goto-char (point-min))
+    (looking-at "^\\(\\S-+\\)")
+    (let ((nick (match-string 1))
+          (min-width 20)
+          (max-width 120))
+      (let ((fill-column (- (min max-width (max min-width (- (point-max) (point-min))))
+                            (erc-timestamp-offset)))
+            (fill-prefix (make-string erc-fill-static-center 32)))
+        (insert (make-string (max 0 (- erc-fill-static-center
+                                       (length nick) 1))
+                             32))
+        (erc-fill-regarding-timestamp))
+      (erc-restore-text-properties))))
+(setq erc-fill-function 'vbe:erc-fill)
 (setq erc-fill-static-center 24)
 
 ;; Enable keep-place module to not move the point
