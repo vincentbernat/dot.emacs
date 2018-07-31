@@ -87,22 +87,15 @@
                          :url "https://bitbucket.org/vbernat/org-passwords.el.git"
                          :branch "feature/clear-clipboard")
   :commands (org-passwords)
+  :bind (:map org-passwords-mode-map
+              ("C-c d u" . org-passwords-copy-username)
+              ("C-c d p" . org-passwords-copy-password)
+              ("C-c d g" . org-passwords-open-url)
+              ("C-c d o" . vbe:org-passwords-copy-otp))
   :config
   (setq org-passwords-file "~/Documents/org/passwords.gpg"
         org-passwords-random-words-dictionary "/usr/share/dict/american-english"
         org-passwords-time-opened "2 min")
-  (define-key org-passwords-mode-map
-    (kbd "C-c d u")
-    'org-passwords-copy-username)
-  (define-key org-passwords-mode-map
-    (kbd "C-c d p")
-    'org-passwords-copy-password)
-  (define-key org-passwords-mode-map
-    (kbd "C-c d g")
-    'org-passwords-open-url)
-  (define-key org-passwords-mode-map
-    (kbd "C-c d o")
-    'vbe:org-passwords-copy-otp)
 
   (defun vbe:org-passwords-copy-otp ()
     "Copy OTP password for the current entry.

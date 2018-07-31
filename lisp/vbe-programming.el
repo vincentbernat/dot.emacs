@@ -81,9 +81,8 @@
   :diminish
   :config
   ;; Don't use up/down arrow (use M-n, M-p only) to browse list
-  (define-key company-active-map [down] nil)
-  (define-key company-active-map [up] nil)
-
+  (unbind-key "<up>" company-active-map)
+  (unbind-key "<down>" company-active-map)
   ;; Enable globally
   (global-company-mode 1))
 
@@ -105,9 +104,9 @@
           clojure-mode
           lisp-mode
           emacs-lisp-mode) . paredit-mode)
+  :bind (:map paredit-mode-map
+              ("M-k" . paredit-copy-as-kill))
   :config
-  ;; Map `paredit-copy-as-kill' to a key.
-  (define-key paredit-mode-map (kbd "M-k") 'paredit-copy-as-kill)
   (with-eval-after-load "eldoc"
     (eldoc-add-command
      'paredit-backward-delete
@@ -477,8 +476,9 @@ exec go \"$@\"
 
 (use-package puppet-mode
   :mode "\\.pp\\'"
-  :config
-  (define-key puppet-mode-map (kbd "C-c |") #'puppet-align-block))
+  :commands (puppet-align-block)
+  :bind (:map puppet-mode-map
+              ("C-c |" . puppet-align-block)))
 
 (use-package debian-changelog-mode
   :ensure nil

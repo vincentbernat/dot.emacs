@@ -48,7 +48,10 @@
 ;; Setup ivy/swiper/counsel
 (use-package ivy
   :diminish
-  :bind (("C-c C-r" . ivy-resume))
+  :bind (("C-c C-r" . ivy-resume)
+         :map ivy-minibuffer-map
+         ("C-SPC" . ivy-restrict-to-matches)
+         ("<C-return>" . ivy-call))
   :demand t
   :config
   (defun vbe:ivy-format-function-arrow (cands)
@@ -64,10 +67,6 @@
         ivy-count-format "(%d/%d) "
         ivy-extra-directories nil
         ivy-format-function #'vbe:ivy-format-function-arrow)
-  ;; Alias for S-SPC (restrict to current matches)
-  (define-key ivy-minibuffer-map (kbd "C-SPC") 'ivy-restrict-to-matches)
-  ;; Alias for M-RET (call action without exiting)
-  (define-key ivy-minibuffer-map (kbd "<C-return>") 'ivy-call)
   (ivy-mode 1))
 (use-package swiper
   :bind (("C-s" . swiper)))

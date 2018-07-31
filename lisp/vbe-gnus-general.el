@@ -66,7 +66,6 @@
 
 ;; Sync IMAP with mbsync
 (require 'vbe-mbsync)
-(define-key gnus-group-mode-map (kbd "f") 'vbe:mbsync)
 (cancel-function-timers 'vbe:mbsync-something)
 (run-at-time "10 sec" 61 'vbe:mbsync-something)
 
@@ -191,9 +190,6 @@ Uses the process/prefix convention with N."
                                 "")))))
     (funcall how n))))
 
-(define-key gnus-summary-mode-map (kbd "f") 'vbe:gnus/wide-reply-on-top)
-(define-key gnus-summary-mode-map (kbd "r") 'vbe:gnus/reply-on-top)
-
 (defun vbe:gnus/extract-names (field)
   "Extract the list of names from a given FIELD."
   (let ((result (gnus-with-article-headers
@@ -213,6 +209,11 @@ Uses the process/prefix convention with N."
                                 nil (point-min) (point-max))
                 (buffer-substring (point-min) (point-max)))))))
 
+(bind-keys :map gnus-group-mode-map
+           ("f" . vbe:mbsync)
+           :map gnus-summary-mode-map
+           ("f" . vbe:gnus/wide-reply-on-top)
+           ("r" . vbe:gnus/reply-on-top))
 
 (provide 'vbe-gnus-general)
 ;;; vbe-gnus-general.el ends here

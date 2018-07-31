@@ -263,7 +263,8 @@ DARK tells if we have a dark theme or not."
 (add-hook 'erc-mode-hook #'emojify-mode)
 
 ;; Too easy to hit C-c C-c instead of C-c C-space
-(define-key erc-mode-map "\C-c\C-c" nil)
+(bind-keys :map erc-mode-map
+           ("C-c C-c" . nil))
 
 ;; Also configure ZNC
 (use-package znc
