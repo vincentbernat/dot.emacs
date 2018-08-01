@@ -512,6 +512,7 @@ exec go \"$@\"
   :commands junos-mode)
 
 (use-package realgud
+  :commands (realhud:gdb)
   :defer t)
 
 (provide 'vbe-programming)
