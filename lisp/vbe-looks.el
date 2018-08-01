@@ -21,7 +21,7 @@
 
 (require 'vbe-common)
 
-(defvar vbe:default-font "DejaVu Sans Mono-11"
+(defvar vbe:default-font "Hack-11"
   "Default font.")
 (defvar vbe:modeline-font "DejaVu Sans-10"
   "Font to use for the modeline (and minibuffer prompt).")
