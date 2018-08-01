@@ -100,7 +100,7 @@ future frames."
   (with-eval-after-load "vc-hooks"
     (defadvice vc-mode-line (after vbe:vc-mode-line () activate)
       (when (stringp vc-mode)
-        (let ((gitlogo (replace-regexp-in-string "^ Git." "  " vc-mode)))
+        (let ((gitlogo (replace-regexp-in-string "^ Git." " ⎇ " vc-mode)))
           (setq vc-mode gitlogo)))))
 
   ;; Handle DPI change.
