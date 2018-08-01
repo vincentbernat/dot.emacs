@@ -52,6 +52,13 @@ future frames."
                       minibuffer-prompt))
         (set-face-attribute face frame :font vbe:modeline-font))))
 
+;; Fringe
+(defun vbe:fringe-mode ()
+  "Fix fringe width, depending on DPI."
+  (fringe-mode (frame-char-width)))
+(vbe:fringe-mode)
+(add-hook 'vbe:dpi-change-hook #'vbe:fringe-mode)
+
 ;; Main theme.
 (use-package naquadah-theme
   :config
