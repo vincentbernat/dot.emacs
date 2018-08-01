@@ -135,7 +135,9 @@ modeline. Otherwise, spaceline would just hide it."
 ;; Define filling
 (defun vbe:erc-fill ()
   "Fills a text such that messages start at column `erc-fill-static-center'.
-And until `point-max'."
+And until value of `frame-width'. Also, alter `erc-fill-column'
+to match this value to enable the timestamp to be correctly
+positioned."
   (save-match-data
     (goto-char (point-min))
     (looking-at "^\\(\\S-+\\)")
@@ -143,9 +145,10 @@ And until `point-max'."
           (min-width (+ erc-fill-static-center 20))
           (max-width 120))
       (let ((fill-column (- (min max-width (max min-width
-                                                (- (frame-width) erc-fill-static-center 10)))
+                                                (- (frame-width) 10)))
                             (erc-timestamp-offset)))
             (fill-prefix (make-string erc-fill-static-center 32)))
+        (setq erc-fill-column fill-column)
         (insert (make-string (max 0 (- erc-fill-static-center
                                        (length nick) 1))
                              32))
