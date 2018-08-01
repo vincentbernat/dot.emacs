@@ -21,6 +21,8 @@
 
 (require 'vbe-common)
 
+;; TODO: https://github.com/cpitclaudel/monospacifier
+
 (defvar vbe:default-font "Hack-11"
   "Default font.")
 (defvar vbe:modeline-font "DejaVu Sans-10"
