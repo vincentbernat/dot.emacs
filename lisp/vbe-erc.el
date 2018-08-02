@@ -313,6 +313,12 @@ the appropriate network slug that we extract from the nick."
             (apply 'erc-tls R)))))
   (setq znc-erc-ssl-connector 'vbe:znc-erc-ssl-connector)
 
+  ;; Redefine prompt function to not use deprecated default initial-input.
+  (defun znc-prompt-string-or-nil (prompt &optional completions default require-match)
+    (let* ((string (completing-read (concat prompt ": ") completions nil require-match nil nil default))
+           (string (if (equal string "") nil string)))
+      string))
+
   ;; Define networks
   (vbe:znc-add-server "znc.luffy.cx" 7667 "bernat"
                       '(exoscale oftc freenode)))
