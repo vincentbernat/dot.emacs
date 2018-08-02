@@ -41,6 +41,8 @@
  erc-auto-query 'bury
  ;; Kill buffers for server messages after quitting the server
  erc-kill-server-buffer-on-quit t
+ ;; Do not enable logging
+ erc-log-channels-directory nil
  ;; Special encoding for some channels
  erc-server-coding-system '(utf-8 . utf-8)
  erc-encoding-coding-alist '(("#gcu" . iso-8859-15)))
