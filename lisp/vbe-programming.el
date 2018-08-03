@@ -535,8 +535,7 @@ exec go \"$@\"
 (use-package company-lsp
   :after (lsp-mode)
   :config
-  (push 'company-lsp company-backends)
-  (setq company-lsp-async t))
+  (push 'company-lsp company-backends))
 
 (provide 'vbe-programming)
 ;;; vbe-programming.el ends here
