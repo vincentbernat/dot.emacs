@@ -117,11 +117,7 @@
   :diminish
   :defer t)
 
-;; ggtags
-(use-package ggtags
-  :diminish
-  :hook (c-mode-common . ggtags-mode))
-
+;; Abbrev
 (use-package abbrev
   :ensure nil
   :diminish)
@@ -514,6 +510,37 @@ exec go \"$@\"
 (use-package realgud
   :commands (realhud:gdb)
   :defer t)
+
+
+;;; Emacs LSP
+(use-package lsp-mode
+  :defer t
+  :config
+  (require 'projectile))
+
+(use-package lsp-ui
+  :bind (:map lsp-ui-mode-map
+              ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+              ([remap xref-find-references] . lsp-ui-peek-find-references))
+  :hook ((lsp-mode . lsp-ui-mode))
+  :config
+  ;; Don't show flycheck errors in sideline.
+  (setq lsp-ui-sideline-show-flycheck nil)
+  ;; Wait a bit before showing sideline
+  (setq lsp-ui-sideline-delay 0.8))
+
+(use-package cquery
+  :ensure-system-package (cquery . "nix-env -i cquery")
+  :hook ((c-mode . lsp-cquery-enable)
+         (c++-mode . lsp-cquery-enable))
+  :config
+  (setq cquery-cache-dir ".cquery_cached_index~/"))
+
+(use-package company-lsp
+  :after (lsp-mode)
+  :config
+  (push 'company-lsp company-backends)
+  (setq company-lsp-async t))
 
 (provide 'vbe-programming)
 ;;; vbe-programming.el ends here
