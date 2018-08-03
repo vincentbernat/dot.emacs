@@ -314,7 +314,9 @@ the appropriate network slug that we extract from the nick."
   (setq znc-erc-ssl-connector 'vbe:znc-erc-ssl-connector)
 
   ;; Redefine prompt function to not use deprecated default initial-input.
-  (defun znc-prompt-string-or-nil (prompt &optional completions default require-match)
+  (defadvice znc-prompt-string-or-nil (around vbe:znc-prompt-string-or-nil
+                                              (prompt &optional completions default require-match)
+                                              activate)
     (let* ((string (completing-read (concat prompt ": ") completions nil require-match nil nil default))
            (string (if (equal string "") nil string)))
       string))
