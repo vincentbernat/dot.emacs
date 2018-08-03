@@ -445,11 +445,7 @@ exec go \"$@\"
 (use-package clojure-mode
   :mode "\\.clj\\'"
   :config
-  ;; For some reason, `clojure-test-maybe-enable' is autoloaded and add
-  ;; a silly hook to clojure-mode triggering an error. Remove this hook.
-  (remove-hook 'clojure-mode-hook 'clojure-test-maybe-enable)
-
-  ;; Some indentation preferences
+  ;; Some indentation preferences (for midje)
   (put-clojure-indent 'fact 1)
   (put-clojure-indent 'facts 1)
 
