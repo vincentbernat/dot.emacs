@@ -131,8 +131,8 @@ Process is PROC and change is CHANGE."
 (defvar vbe:mbsync-something 0)
 (defun vbe:mbsync-something ()
   "Sync something depending on how many time this function has been called."
-  (let ((args (cond ((eq (% vbe:mbsync-something 2) 0) '("luffy" t))
-                    ((eq (% vbe:mbsync-something 5) 0) '("luffy"))
+  (let ((args (cond ((eq (% vbe:mbsync-something 2) 0) '("fastmail" t))
+                    ((eq (% vbe:mbsync-something 5) 0) '("fastmail"))
                     ((eq (% vbe:mbsync-something 7) 0) '("exoscale-gmail-default" t))
                     ((eq (% vbe:mbsync-something 17) 0) '("exoscale"))
                     nil)))
