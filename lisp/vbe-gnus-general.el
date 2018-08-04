@@ -131,10 +131,14 @@
 (setq user-full-name "Vincent Bernat"
       user-mail-address "bernat@luffy.cx")
 (setq vbe:mail-addresses
-      (--map (format "\\(^\\|[^.]\\)\\b%s[@\\.]" it)
-             (apply 'append (-map 'split-string
-                                  '("bernat vbernat vincent.bernat"
-                                    "vbe Vincent.Bernat"))))
+      (-flatten (list
+                 (--map (format "^%s[@+]" it)
+                        (-map 'regexp-quote
+                              (-flatten (-map 'split-string
+                                              '("bernat vbernat vincent.bernat"
+                                                "vbe Vincent.Bernat")))))
+                 (-map 'regexp-quote
+                       '("@vincent.bernat."))))
       ;; When to display To: instead of From:
       gnus-ignored-from-addresses vbe:mail-addresses
       ;; Addresses to prune on wide reply
