@@ -33,9 +33,9 @@
          (name "Vincent Bernat")
          (address "bernat@luffy.cx")
          (signature (vbe:fortune)))
-        ((vbe:mail-related-to '("*@bernat.im"))
-         (x-identity "bernat.im")
-         (address "vincent@bernat.im")
+        ((vbe:mail-related-to '("*@bernat.im" "*@bernat.ch"))
+         (x-identity "bernat.ch")
+         (address "vincent@bernat.ch")
          (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@crans.org"
                                 "*@*.crans.org"
