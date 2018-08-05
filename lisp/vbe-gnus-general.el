@@ -91,13 +91,13 @@
 
 ;; Visible headers
 (setq gnus-visible-headers
-      (mapcar #'(lambda (header) (format "^%s:" header))
-              (-flatten (-map 'split-string '("From Organization Subject Newsgroups"
-                                              "To Cc Reply-To Followup-To Mail-Followup-To"
-                                              "Thread-Topic"
-                                              "X-Mailer X-Newsreader"
-                                              "User-Agent X-Posting-Agent"
-                                              "X-Spam-Level" "Date")))))
+      (--map (format "^%s:" it)
+             (-map 'regexp-quote
+                   (-flatten (-map 'split-string '("From Organization Subject Newsgroups"
+                                                   "To Cc Reply-To Followup-To Mail-Followup-To"
+                                                   "X-Mailer X-Newsreader User-Agent"
+                                                   "X-Spam-Level X-Spam-Score"
+                                                   "Date"))))))
 
 ;; Gravatar
 (require 'gnus-gravatar)
