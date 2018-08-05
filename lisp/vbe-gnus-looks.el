@@ -121,7 +121,8 @@ Take a HEADER as argument."
 
 ;; Group line format. Mostly stolen from Julien Danjou
 (setq gnus-group-line-format "%ue%uM %S%p %P%5y:%B%(%g%)%O\n"
-      gnus-topic-line-format "%i— %(%{%n%}%) %v\n")
+      gnus-topic-line-format "%i— %(%{%n%}%) %v\n"
+      gnus-topic-display-empty-topics nil)
 
 (defun gnus-user-format-function-e (_)
   "Format function for e."
