@@ -20,6 +20,8 @@
 ;;; Code:
 
 (require 'vbe-common)
+(require 'gnus)
+(require 'gnus-msg)
 (require 'gnus-identities)
 
 ;; Do not mangle `message-dont-reply-to-names' on followups.
@@ -109,19 +111,20 @@ if any of the given expressions in WHAT is present."
 An optional prefix LONG-P argument generates a long epigram.
 The epigram is inserted at point if called interactively."
   (interactive "*P")
-  (let ((fortune-buffer (generate-new-buffer " fortune"))
-        (fortune-string "Have an adequate day."))
-    (unwind-protect
-        (save-excursion
-          (set-buffer fortune-buffer)
-          (apply 'call-process
-                 (append (list (or vbe:fortune-program "fortune") nil t nil)
-                         vbe:fortune-switches
-                         (list (if long-p "-l" "-s"))))
-          (skip-chars-backward "\n\t ")
-          (setq fortune-string (buffer-substring (point-min) (point))))
-      (kill-buffer fortune-buffer))
-    (if (interactive-p)
+  (let* ((fortune-buffer (generate-new-buffer " fortune"))
+         (fortune-string
+          (or
+           (unwind-protect
+               (with-current-buffer fortune-buffer
+                 (apply 'call-process
+                        (append (list (or vbe:fortune-program "fortune") nil t nil)
+                                vbe:fortune-switches
+                                (list (if long-p "-l" "-s"))))
+                 (skip-chars-backward "\n\t ")
+                 (buffer-substring (point-min) (point))))
+           "Have an adequate day.")))
+    (kill-buffer fortune-buffer)
+    (if (called-interactively-p 'any)
         (insert fortune-string))
     fortune-string))
 
