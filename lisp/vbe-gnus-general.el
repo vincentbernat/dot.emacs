@@ -137,8 +137,8 @@
                               (-flatten (-map 'split-string
                                               '("bernat vbernat vincent.bernat"
                                                 "vbe Vincent.Bernat")))))
-                 (-map 'regexp-quote
-                       '("@vincent.bernat."))))
+                 "^vincent@bernat\\\."
+                 "@vincent\\\.bernat\\\."))
       ;; When to display To: instead of From:
       gnus-ignored-from-addresses vbe:mail-addresses
       ;; Addresses to prune on wide reply
