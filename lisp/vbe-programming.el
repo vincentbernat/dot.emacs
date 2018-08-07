@@ -539,7 +539,9 @@ exec go \"$@\"
            ;; Not for some too big projects
            (not (-contains? '("linux") (projectile-project-name))))
       (lsp-cquery-enable)))
-  (setq cquery-cache-dir ".cquery_cached_index~/"))
+  (setq cquery-cache-dir ".cquery_cached_index~/"
+        cquery-executable "nice"
+        cquery-extra-args "cquery"))
 
 (use-package company-lsp
   :after (lsp-mode)
