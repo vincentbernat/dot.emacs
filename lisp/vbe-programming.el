@@ -536,12 +536,13 @@ exec go \"$@\"
     (when (and
            ;; Only for true C/C++ modes
            (-contains? '(c-mode cc-mode) major-mode)
-           ;; Not for some too big projects
-           (not (-contains? '("linux") (projectile-project-name))))
+           ;; For some projects, check we have a compile_commands.json at the root
+           (or (not (-contains? '("linux") (projectile-project-name)))
+               (f-exists? (f-join (projectile-project-root) "compile_commands.json"))))
       (lsp-cquery-enable)))
   (setq cquery-cache-dir ".cquery_cached_index~/"
         cquery-executable "nice"
-        cquery-extra-args "cquery"
+        cquery-extra-args '("cquery")
         cquery-extra-init-params '(:cacheFormat "msgpack")))
 
 (use-package company-lsp
