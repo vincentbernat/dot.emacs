@@ -541,7 +541,8 @@ exec go \"$@\"
       (lsp-cquery-enable)))
   (setq cquery-cache-dir ".cquery_cached_index~/"
         cquery-executable "nice"
-        cquery-extra-args "cquery"))
+        cquery-extra-args "cquery"
+        cquery-extra-init-params '(:cacheFormat "msgpack")))
 
 (use-package company-lsp
   :after (lsp-mode)
