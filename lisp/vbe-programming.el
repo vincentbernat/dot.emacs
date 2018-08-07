@@ -527,9 +527,18 @@ exec go \"$@\"
 
 (use-package cquery
   :ensure-system-package (cquery . "nix-env -i cquery")
-  :hook ((c-mode . lsp-cquery-enable)
-         (c++-mode . lsp-cquery-enable))
+  :hook ((c-mode . vbe:lsp-cquery-enable)
+         (c++-mode . vbe:lsp-cquery-enable))
   :config
+  (require 'projectile)
+  (defun vbe:lsp-cquery-enable ()
+    "Enable cquery, only for specific conditions."
+    (when (and
+           ;; Only for true C/C++ modes
+           (-contains? '(c-mode cc-mode) major-mode)
+           ;; Not for some too big projects
+           (not (-contains? '("linux") (projectile-project-name))))
+      (lsp-cquery-enable)))
   (setq cquery-cache-dir ".cquery_cached_index~/"))
 
 (use-package company-lsp
