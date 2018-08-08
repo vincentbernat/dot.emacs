@@ -77,7 +77,7 @@
 It will search in FIELDS (default `To', `Cc' and `From') to check
 if any of the given expressions in WHAT is present."
   (when (buffer-live-p gnus-summary-buffer)
-    (gnus-with-article-buffer
+    (with-current-buffer gnus-original-article-buffer
       (let ((what (-list what))
             (fields (or (-list fields) '("to" "from" "cc" "newsgroups"))))
         (-any?
@@ -93,7 +93,7 @@ if any of the given expressions in WHAT is present."
                                      (string-match (dired-glob-regexp w) address))
                                    what)))
                           (-non-nil (-map #'second (mail-extract-address-components field t)))))))
-               (-map #'message-fetch-field fields)))))))
+               (-map #'message-field-value fields)))))))
 
 (defun vbe:gnus/will-sign-message ()
   "Setup a local hook to make the article signed."
