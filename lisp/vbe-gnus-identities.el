@@ -36,11 +36,7 @@
          (address "vincent@bernat.ch")
          (signature (vbe:fortune)))
         ((or (vbe:mail-related-to "*@luffy.cx")
-             ;; Handle mailing lists
-             ;; (vbe:mail-related-to "*=luffy.cx@*" "x-mail-from")
-             (and (vbe:mail-related-to "*@luffy.cx" "x-delivered-to")
-                  (with-current-buffer gnus-original-article-buffer
-                    (not (null (message-field-value "list-id"))))))
+             (vbe:mail-related-to "*@luffy.cx" "x-delivered-to"))
          (x-identity "luffy")
          (address "bernat@luffy.cx")
          (signature (vbe:fortune)))
