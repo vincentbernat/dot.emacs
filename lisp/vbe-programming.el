@@ -538,7 +538,8 @@ exec go \"$@\"
            (-contains? '(c-mode cc-mode) major-mode)
            ;; For some projects, check we have a compile_commands.json
            ;; at the root. This file can be generated with "bear
-           ;; make".
+           ;; make". If a build directory is used, symlink
+           ;; compile_commands.json from build directory to root.
            (or (not (-contains? '("linux") (projectile-project-name)))
                (f-exists? (f-join (projectile-project-root) "compile_commands.json"))))
       (lsp-cquery-enable)))
