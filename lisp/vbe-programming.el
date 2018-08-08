@@ -536,7 +536,9 @@ exec go \"$@\"
     (when (and
            ;; Only for true C/C++ modes
            (-contains? '(c-mode cc-mode) major-mode)
-           ;; For some projects, check we have a compile_commands.json at the root
+           ;; For some projects, check we have a compile_commands.json
+           ;; at the root. This file can be generated with "bear
+           ;; make".
            (or (not (-contains? '("linux") (projectile-project-name)))
                (f-exists? (f-join (projectile-project-root) "compile_commands.json"))))
       (lsp-cquery-enable)))
