@@ -536,12 +536,10 @@ exec go \"$@\"
     (when (and
            ;; Only for true C/C++ modes
            (-contains? '(c-mode cc-mode) major-mode)
-           ;; For some projects, check we have a compile_commands.json
-           ;; at the root. This file can be generated with "bear
-           ;; make". If a build directory is used, symlink
-           ;; compile_commands.json from build directory to root.
-           (or (not (-contains? '("linux") (projectile-project-name)))
-               (f-exists? (f-join (projectile-project-root) "compile_commands.json"))))
+           ;; Only if we have a compile_commands.json file at the
+           ;; root. Use a symlink when using a build directory. Build
+           ;; with "bear make" or similar to get one.
+           (f-exists? (f-join (projectile-project-root) "compile_commands.json")))
       (lsp-cquery-enable)))
   (setq cquery-cache-dir ".cquery_cached_index~/"
         cquery-executable "nice"
