@@ -96,13 +96,22 @@ future frames."
         powerline-display-hud nil
         spaceline-hud-p nil
         spaceline-buffer-encoding-abbrev-p nil)
-  (spaceline-emacs-theme 'projectile-root)
+
+ (spaceline-define-segment vbe:projectile-root
+  "Show the current projectile root."
+  (when (fboundp 'projectile-project-name)
+    (let ((project-name (projectile-project-name)))
+      (unless (or (string= project-name "-")
+                  (string= project-name (buffer-name)))
+        project-name))))
+
+  (spaceline-emacs-theme 'vbe:projectile-root)
 
   ;; Modify VCS mode line to display branch icon instead of Git
   (with-eval-after-load "vc-hooks"
     (defadvice vc-mode-line (after vbe:vc-mode-line () activate)
       (when (stringp vc-mode)
-        (let ((gitlogo (replace-regexp-in-string "^ Git." " ⎇ " vc-mode)))
+        (let ((gitlogo (replace-regexp-in-string "^ Git." "⎇ " vc-mode)))
           (setq vc-mode gitlogo)))))
 
   ;; Handle DPI change.
