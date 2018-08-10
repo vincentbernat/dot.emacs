@@ -483,7 +483,7 @@ exec go \"$@\"
         (-rotate 1 debian-changelog-allowed-distributions)))
 
 (use-package groovy-mode
-  :mode ("\\.gradle\\'" "\\.groovy\\'"))
+  :mode ("\\.gradle\\'" "\\.groovy\\'" "\\.dsl\\'"))
 
 (use-package snmp-mode
   :mode ("-MIB\\'" . snmpv2-mode))
