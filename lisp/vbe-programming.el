@@ -149,6 +149,13 @@
   :config
   (setq gist-view-gist t))
 
+;; Ediff
+(use-package ediff
+  :defer t
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+  (setq ediff-split-window-function 'split-window-horizontally))
+
 
 ;;; Modes
 
