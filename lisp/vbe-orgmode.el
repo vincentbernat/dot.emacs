@@ -61,6 +61,13 @@
               ("HOLD"      plum-1 plum-3)
               ("CANCELLED" aluminium-3 aluminium-5))))
 
+;; Babel modes
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python     . t)
+   (sh         . t)
+   (emacs-lisp . t)))
+
 ;; Git auto-commit
 (defvar vbe:git-auto-commit-mode-for-orgmode-directories
   '("~/Documents/org")
