@@ -548,10 +548,12 @@ exec go \"$@\"
            ;; with "bear make" or similar to get one.
            (f-exists? (f-join (projectile-project-root) "compile_commands.json")))
       (lsp-cquery-enable)))
+  (add-to-list 'cquery-project-root-matchers "build~/compile_commands.json")
   (setq cquery-cache-dir ".cquery_cached_index~/"
         cquery-executable "nice"
         cquery-extra-args '("cquery")
-        cquery-extra-init-params '(:cacheFormat "msgpack")))
+        cquery-extra-init-params '(:compilationDatabaseDirectory "build~"
+                                   :cacheFormat "msgpack")))
 
 (use-package company-lsp
   :after (lsp-mode)
