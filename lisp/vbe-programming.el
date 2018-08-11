@@ -541,7 +541,6 @@ exec go \"$@\"
   (setq lsp-ui-sideline-delay 0.8))
 
 (use-package cquery
-  :ensure-system-package (cquery . "nix-env -i cquery")
   :hook ((c-mode . vbe:lsp-cquery-enable)
          (c++-mode . vbe:lsp-cquery-enable))
   :config
@@ -559,7 +558,7 @@ exec go \"$@\"
   (add-to-list 'cquery-project-root-matchers "build~/compile_commands.json")
   (setq cquery-cache-dir ".cquery_cached_index~/"
         cquery-executable "nice"
-        cquery-extra-args '("cquery")
+        cquery-extra-args (list (vbe:executable-path "cquery"))
         cquery-extra-init-params '(:compilationDatabaseDirectory "build~"
                                    :cacheFormat "msgpack")))
 

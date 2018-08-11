@@ -70,7 +70,6 @@
 ;; Load some additional packages to use :diminish and :bind* options.
 (use-package diminish)
 (use-package bind-key)
-(use-package use-package-ensure-system-package)
 
 ;; Install quelpa
 (defvar quelpa-dir)

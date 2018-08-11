@@ -1,0 +1,8 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i sh -p cquery
+
+exec cquery "$@"
+
+# Local Variables:
+# mode: sh
+# End:
