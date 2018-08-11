@@ -517,9 +517,17 @@ exec go \"$@\"
 
 ;;; Emacs LSP
 (use-package lsp-mode
-  :defer t
+  :hook ((python-mode . lsp-python-enable))
   :config
-  (require 'projectile))
+  (require 'projectile)
+
+  ;; Python. Still need to figure out if it's not better to use a virtualenv.
+  (lsp-define-stdio-client lsp-python "python"
+                           (lsp-make-traverser
+                            (lambda (dir)
+                              (directory-files dir nil
+                                               "setup.py\\|Pipfile\\|setup.cfg\\|tox.ini")))
+                           (list (vbe:executable-path "pyls"))))
 
 (use-package lsp-ui
   :bind (:map lsp-ui-mode-map

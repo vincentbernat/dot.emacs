@@ -74,6 +74,10 @@ The filename is the last NAMES provided while the remaining ones
 are used for directory. The directory is created if needed."
   (f-join (apply 'vbe:runtime-directory (-drop-last 1 names))
           (-last-item names)))
+(defun vbe:executable-path (name)
+  "Return the path for executable NAME.
+This only looks in ~/.emacs.d/bin!"
+  (f-join user-emacs-directory "bin" name))
 
 (defvar vbe:dpi-change-hook nil
   "Hook run when there is a DPI change.")
