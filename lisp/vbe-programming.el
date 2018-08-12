@@ -390,6 +390,7 @@ arglist-cont-nonempty"
   :mode "\\.lua\\'")
 
 (use-package markdown-mode
+  :pin "melpa"
   :mode ("\\.md\\'" "\\.markdown\\'"
          ("README.md\\'" . gfm-mode)))
 
