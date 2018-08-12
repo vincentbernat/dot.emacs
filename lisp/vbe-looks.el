@@ -135,6 +135,7 @@ future frames."
         line-column)
        :priority 96)
       (buffer-position :priority 99)))
+  (setq-default mode-line-format '("%e" (:eval (spaceline-ml-main))))
 
   ;; Handle DPI change.
   (defun vbe:powerline-reset ()
