@@ -102,7 +102,8 @@ future frames."
     (when (fboundp 'projectile-project-name)
       (let ((project-name (projectile-project-name)))
         (unless (or (string= project-name "-")
-                    (string= project-name (buffer-name)))
+                    (string= project-name (buffer-name))
+                    (not (buffer-file-name)))
           project-name))))
 
   (spaceline-define-segment vbe:version-control
