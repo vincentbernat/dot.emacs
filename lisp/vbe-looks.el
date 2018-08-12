@@ -97,15 +97,43 @@ future frames."
         spaceline-hud-p nil
         spaceline-buffer-encoding-abbrev-p nil)
 
- (spaceline-define-segment vbe:projectile-root
-  "Show the current projectile root."
-  (when (fboundp 'projectile-project-name)
-    (let ((project-name (projectile-project-name)))
-      (unless (or (string= project-name "-")
-                  (string= project-name (buffer-name)))
-        project-name))))
+  (spaceline-define-segment vbe:projectile-root
+    "Show the current projectile root and nothing if no root is detected."
+    (when (fboundp 'projectile-project-name)
+      (let ((project-name (projectile-project-name)))
+        (unless (or (string= project-name "-")
+                    (string= project-name (buffer-name)))
+          project-name))))
 
-  (spaceline-emacs-theme 'vbe:projectile-root)
+  (spaceline-define-segment vbe:version-control
+    "Show version vc-mode, without any flag."
+    (when vc-mode
+      (powerline-raw (s-trim vc-mode))))
+
+  (spaceline-compile
+    ;; Left
+    `(((buffer-modified
+        buffer-size)
+       :face highlight-face
+       :priority 100)
+      ((buffer-id remote-host)
+       :priority 98)
+      (major-mode :priority 89)
+      (process :when active)
+      ((flycheck-error flycheck-warning flycheck-info)
+       :when active :priority 79)
+      (minor-modes :when active :priority 9)
+      (erc-track :when active :priority 80)
+      (vbe:projectile-root :priority 60)
+      (vbe:version-control :when active :priority 68)
+      (org-clock :when active :priority 75))
+    ;; Right
+    `((global :when active)
+      which-function
+      ((point-position
+        line-column)
+       :priority 96)
+      (buffer-position :priority 99)))
 
   ;; Modify VCS mode line to display branch icon instead of Git
   (with-eval-after-load "vc-hooks"
