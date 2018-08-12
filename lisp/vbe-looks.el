@@ -108,7 +108,8 @@ future frames."
   (spaceline-define-segment vbe:version-control
     "Show version vc-mode, without any flag."
     (when vc-mode
-      (powerline-raw (s-trim vc-mode))))
+      (powerline-raw (s-trim
+                      (replace-regexp-in-string "^ Git." "⎇ " vc-mode)))))
 
   (spaceline-compile
     ;; Left
@@ -134,13 +135,6 @@ future frames."
         line-column)
        :priority 96)
       (buffer-position :priority 99)))
-
-  ;; Modify VCS mode line to display branch icon instead of Git
-  (with-eval-after-load "vc-hooks"
-    (defadvice vc-mode-line (after vbe:vc-mode-line () activate)
-      (when (stringp vc-mode)
-        (let ((gitlogo (replace-regexp-in-string "^ Git." "⎇ " vc-mode)))
-          (setq vc-mode gitlogo)))))
 
   ;; Handle DPI change.
   (defun vbe:powerline-reset ()
