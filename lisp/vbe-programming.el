@@ -518,7 +518,7 @@ exec go \"$@\"
 
 ;;; Emacs LSP
 (use-package lsp-mode
-  :hook ((python-mode . lsp-python-enable))
+  :commands (lsp-python-enable)
   :config
   (require 'projectile)
 
@@ -540,20 +540,9 @@ exec go \"$@\"
   (setq lsp-ui-sideline-delay 0.8))
 
 (use-package cquery
-  :hook ((c-mode . vbe:lsp-cquery-enable)
-         (c++-mode . vbe:lsp-cquery-enable))
+  :commands (lsp-cquery-enable)
   :config
   (require 'projectile)
-  (defun vbe:lsp-cquery-enable ()
-    "Enable cquery, only for specific conditions."
-    (when (and
-           ;; Only for true C/C++ modes
-           (-contains? '(c-mode cc-mode) major-mode)
-           ;; Only if we have a compile_commands.json file at the
-           ;; root. Use a symlink when using a build directory. Build
-           ;; with "bear make" or similar to get one.
-           (f-exists? (f-join (projectile-project-root) "compile_commands.json")))
-      (lsp-cquery-enable)))
   (add-to-list 'cquery-project-root-matchers "build~/compile_commands.json")
   (setq cquery-cache-dir ".cquery_cached_index~/"
         cquery-executable "nice"
