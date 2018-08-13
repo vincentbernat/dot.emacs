@@ -536,8 +536,6 @@ exec go \"$@\"
               ([remap xref-find-references] . lsp-ui-peek-find-references))
   :hook ((lsp-mode . lsp-ui-mode))
   :config
-  ;; Don't show flycheck errors in sideline.
-  (setq lsp-ui-sideline-show-flycheck nil)
   ;; Wait a bit before showing sideline
   (setq lsp-ui-sideline-delay 0.8))
 
