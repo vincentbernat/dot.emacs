@@ -131,7 +131,6 @@ future frames."
       (org-clock :when active :priority 75))
     ;; Right
     `((global :when active)
-      which-function
       ((point-position
         line-column)
        :priority 96)
