@@ -25,7 +25,7 @@
 
 (defvar vbe:default-font "Hack-11"
   "Default font.")
-(defvar vbe:modeline-font "DejaVu Sans-10"
+(defvar vbe:modeline-font "Iosevka-10"
   "Font to use for the modeline (and minibuffer prompt).")
 
 ;; Disable various graphical widgets
@@ -110,7 +110,7 @@ future frames."
     "Show version vc-mode, without any flag."
     (when vc-mode
       (powerline-raw (s-trim
-                      (replace-regexp-in-string "^ Git." "⎇ " vc-mode)))))
+                      (replace-regexp-in-string "^ Git." " " vc-mode)))))
 
   (spaceline-compile
     ;; Left
@@ -120,8 +120,8 @@ future frames."
        :priority 100)
       ((buffer-id remote-host)
        :priority 98)
-      (major-mode :priority 89)
-      (process :when active)
+      (((major-mode :priority 89)
+        (process :when active :priority 50)))
       ((flycheck-error flycheck-warning flycheck-info)
        :when active :priority 79)
       (minor-modes :when active :priority 9)
