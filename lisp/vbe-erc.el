@@ -128,7 +128,13 @@ some servers, we may add an additional suffix."
   "Shorten even more the modified-channels object.
 It needs to not be too long for it to be displayed in the
 modeline. Otherwise, spaceline would just hide it."
-  (setq ad-return-value (s-truncate 20 ad-return-value)))
+  (setq ad-return-value
+        (let ((s ad-return-value)
+              (len 20)
+              (ellipsis "…"))
+          (if (> (length s) len)
+              (format "%s%s" (substring s 0 (- len (length ellipsis))) ellipsis)
+            s))))
 
 ;; Truncate too long buffers
 (add-to-list 'erc-modules 'truncate)

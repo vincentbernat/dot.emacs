@@ -25,7 +25,7 @@
 
 (defvar vbe:default-font "Hack-11"
   "Default font.")
-(defvar vbe:modeline-font "Iosevka-10"
+(defvar vbe:modeline-font "Iosevka-11"
   "Font to use for the modeline (and minibuffer prompt).")
 
 ;; Disable various graphical widgets
