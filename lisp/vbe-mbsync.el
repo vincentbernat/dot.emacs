@@ -78,7 +78,7 @@ t for INBOX."
                 ((eq status 'exit)
                  (setq vbe:mbsync-update-mode-line (delete channel vbe:mbsync-update-mode-line))))
           (when vbe:mbsync-update-mode-line
-            (let* ((symbols "🌕🌔🌓🌒🌑🌘🌗🌖")
+            (let* ((symbols "⠋⠙⠚⠞⠖⠦⠴⠲⠳⠓")
                    (current (or vbe:mbsync-mode-line-string ""))
                    (current-symbol (if (> (length current) 0)
                                        (substring current 0 1)
@@ -86,7 +86,7 @@ t for INBOX."
                    (next-symbol-index (% (+ 1 (or (s-index-of current-symbol symbols) 0))
                                          (length symbols)))
                    (next-symbol (substring symbols next-symbol-index (+ 1 next-symbol-index))))
-              (concat next-symbol (s-join " " vbe:mbsync-update-mode-line))))))
+              (concat next-symbol " " (s-join " " vbe:mbsync-update-mode-line))))))
   (force-mode-line-update))
 
 (defun vbe:mbsync-mode-line ()
