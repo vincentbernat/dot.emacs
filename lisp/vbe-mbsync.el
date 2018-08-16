@@ -49,7 +49,8 @@ t for INBOX."
                      (t (format "%s:INBOX" channel))))
          (previous (get-process name)))
     (if (and previous (process-live-p previous))
-        (error "Another mbsync is already running")
+        (when (called-interactively-p 'interactive)
+          (error "Another mbsync is already running"))
       (let* ((process-environment (copy-sequence process-environment))
              (secrets (nth 0 (auth-source-search :max 1
                                                  :host (format "mbsync-%s" channel)
