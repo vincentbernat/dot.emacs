@@ -20,7 +20,7 @@
 ;;; Code:
 
 (require 'package)
-(require 'tls)
+(require 'vbe-tls)
 (setq package-user-dir (concat user-emacs-directory "site-lisp"))
 
 ;; Archive to search for.
@@ -35,25 +35,6 @@
 
 ;; Waiting for use-package 2.4...
 (setq package-pinned-packages '((use-package . "melpa")))
-
-;; Secure a bit GnuTLS setup. See also:
-;;  https://github.com/antifuchs/safe-tls-defaults-mode/
-;;
-;; These settings are not enough. Instead, use GnuTLS directly.
-;; (setq gnutls-min-prime-bits 2048
-;;       gnutls-verify-error t
-;;       network-security-level 'high)
-(setq tls-checktrust t
-      tls-program (list
-                   (mapconcat
-                    'identity
-                    '("gnutls-cli -p %p --dh-bits=2048 --ocsp --x509cafile=%t"
-                      "--priority='SECURE192:+SECURE128:-VERS-ALL:+VERS-TLS1.2:%%PROFILE_MEDIUM'"
-                      "%h")
-                    " ")))
-;; Also disable completely builtin GnuTLS support. Emacs should fallback to tls.el.
-(defun vbe:gnutls-available-p (&rest args) nil)
-(advice-add 'gnutls-available-p :override 'vbe:gnutls-available-p)
 
 ;; Initialize package manager.
 (package-initialize)
