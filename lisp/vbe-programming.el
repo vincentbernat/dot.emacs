@@ -500,6 +500,7 @@ exec go \"$@\"
   :mode "\\.rs\\'")
 
 (use-package nix-mode
+  :pin "melpa"
   :mode "\\.nix\\'")
 
 (use-package toml-mode
