@@ -20,6 +20,7 @@
 ;;; Code:
 
 (require 'tls)
+(require 'nsm)
 
 ;; Secure a bit GnuTLS setup. See also:
 ;;  https://github.com/antifuchs/safe-tls-defaults-mode/
@@ -28,7 +29,8 @@
 ;; (setq gnutls-min-prime-bits 2048
 ;;       gnutls-verify-error t
 ;;       network-security-level 'high)
-(setq tls-checktrust t
+(setq network-security-level 'high
+      tls-checktrust t
       tls-program (list
                    (mapconcat
                     'identity
