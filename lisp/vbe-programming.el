@@ -112,6 +112,12 @@
      'paredit-backward-delete
      'paredit-close-round)))
 
+;; Helpful for better help commands
+(use-package helpful
+  :bind (("C-h f" . helpful-callable)
+         ("C-h v" . helpful-variable)
+         ("C-h k" . helpful-key)))
+
 ;; Eldoc
 (use-package eldoc
   :diminish
