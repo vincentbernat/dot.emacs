@@ -61,8 +61,6 @@
   ;; Enable globally
   (global-flycheck-mode 1)
 
-  ;; Go: speedup compilation by saving intermediate files.
-  (setq flycheck-go-build-install-deps t)
   ;; LISP: disable emacs-lisp-checkdoc.
   (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
   (add-to-list 'flycheck-emacs-lisp-load-path (concat user-emacs-directory "lisp")))
