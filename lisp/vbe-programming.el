@@ -413,41 +413,6 @@ arglist-cont-nonempty"
 (use-package go-mode
   :mode "\\.go\\'"
   :config
-  ;; I am allergic to the GOPATH concept. I use kludge to work around them.
-  (defun vbe:custom-gopath ()
-    "Guess gopath if we have a .gopath or .gopath~ directory."
-    (-slice (-non-nil (-map (lambda (gopath)
-                              (-when-let (d (locate-dominating-file buffer-file-name gopath))
-                                (f-join d gopath)))
-                            '(".gopath" ".gopath~")))
-            0 1))
-  (defun vbe:custom-go-executable ()
-    "Guess a custom Go executable"
-    (-when-let (gopath (-first-item (vbe:custom-gopath)))
-      (let ((go-exec (f-join (f-dirname gopath) "go~")))
-        (when (not (f-exists? go-exec))
-          (f-write-text (format "#!/bin/sh
-
-# Set GOPATH
-export GOPATH=%s
-
-# Translate the current directory into a directory in GOPATH
-current=$(realpath --relative-to=$GOPATH/.. $PWD)
-for d in $(find $GOPATH/src -type l -print); do
-    readlink -f $d | grep -qFx $(readlink -f $GOPATH/..) && {
-        newroot=$d
-        break
-    }
-done
-target=$newroot/$current
-[ -d  ] && cd $target
-
-exec go \"$@\"
-" gopath) 'utf-8 go-exec)
-          (set-file-modes go-exec #o755))
-        (setq-local flycheck-go-build-executable go-exec))))
-  (add-hook 'go-guess-gopath-functions #'vbe:custom-gopath)
-  (add-hook 'go-mode-hook #'vbe:custom-go-executable)
   (add-hook 'before-save-hook #'gofmt-before-save))
 
 (use-package cider
