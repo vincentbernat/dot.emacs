@@ -520,14 +520,6 @@ arglist-cont-nonempty"
         cquery-extra-init-params '(:compilationDatabaseDirectory "build~"
                                    :cacheFormat "msgpack")))
 
-(use-package lsp-go
-  :commands (lsp-go-enable)
-  :config
-  (setq lsp-go-executable-path (vbe:executable-path "go-langserver")
-        lsp-go-gocode-completion-enabled t
-        lsp-go-format-tool "gofmt"
-        lsp-go-use-binary-pkg-cache nil))
-
 (use-package company-lsp
   :after (lsp-mode)
   :config
