@@ -384,6 +384,7 @@ arglist-cont-nonempty"
 (use-package web-mode
   :mode ("\\.jsx\\'" "\\.html?\\'")
   :config
+  (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-engines-alist
         '(("django" . "\\.j2\\'"))))
 
