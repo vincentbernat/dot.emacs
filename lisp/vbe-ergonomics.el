@@ -163,10 +163,6 @@
 (use-package ibuffer
   :bind (("C-x C-b" . ibuffer)))
 
-;; paradox: better list-package
-(use-package paradox
-  :commands (paradox-list-packages))
-
 ;; Vertical alignment
 (use-package align
   :bind (("C-c |" . align-current)))
