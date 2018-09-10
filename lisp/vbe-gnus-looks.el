@@ -170,5 +170,9 @@ space instead."
 (add-hook 'gnus-article-mode-hook #'emojify-mode)
 (add-hook 'message-mode-hook #'emojify-mode)
 
+;; Don't be too verbose
+(setq gnus-verbose 4
+      gnus-verbose-backends 6)
+
 (provide 'vbe-gnus-looks)
 ;;; vbe-gnus-looks.el ends here
