@@ -140,9 +140,7 @@
                  "^vincent@bernat\\\."
                  "@vincent\\\.bernat\\\."))
       ;; When to display To: instead of From:
-      gnus-ignored-from-addresses (--map (if (s-starts-with? "^" it)
-                                             (format "<%s" (s-chop-prefix "^" it))
-                                           it) vbe:mail-addresses)
+      gnus-ignored-from-addresses (cons "^Vincent Bernat " vbe:mail-addresses)
       ;; Addresses to prune on wide reply
       message-dont-reply-to-names (append vbe:mail-addresses
                                           (-map 'regexp-quote
