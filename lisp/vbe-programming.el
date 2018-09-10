@@ -476,6 +476,9 @@ arglist-cont-nonempty"
 (use-package toml-mode
   :mode ("\\.toml\\'"))
 
+(use-package protobuf-mode
+  :mode ("\\.pb\\'"))
+
 (use-package junos-mode
   :quelpa (junos-mode :fetcher github
                       :repo "vincentbernat/junos-mode"
