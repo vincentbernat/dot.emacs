@@ -31,9 +31,7 @@
 ;;       network-security-level 'high)
 (setq network-security-level 'high
       tls-checktrust t
-      starttls-extra-arguments '("--dh-bits=2048"
-                                 "--ocsp"
-                                 "--priority='SECURE192:+SECURE128:-VERS-ALL:+VERS-TLS1.2:%PROFILE_MEDIUM'")
+      starttls-extra-arguments nil
       tls-program (list
                    (mapconcat
                     'identity
