@@ -47,7 +47,6 @@
                                 "*@ens-cachan.fr"))
          (x-identity "crans")
          (address "bernat@crans.org")
-         ("X-Message-SMTP-Method" "smtp smtp.crans.org 587 bernat")
          (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@debian.org"
                                 "*@*.debian.org"
