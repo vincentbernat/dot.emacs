@@ -58,7 +58,8 @@
         (nndraft ""
                  (nndraft-directory ,(nnheader-concat message-directory "drafts")))))
 (setq gnus-agent nil)
-(setq message-send-mail-function 'message-send-mail-with-sendmail)
+(setq message-send-mail-function 'message-send-mail-with-sendmail
+      smtpmail-local-domain "luffy.cx")
 (setq gnus-message-archive-group "Sent"
       gnus-message-archive-method "nnimap:"
       gnus-update-message-archive-method t
