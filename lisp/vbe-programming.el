@@ -409,6 +409,9 @@ arglist-cont-nonempty"
 (use-package yaml-mode
   :mode "\\.ya?ml\\'")
 
+(use-package hcl-mode
+  :mode "\\.tf\\'")
+
 (use-package go-mode
   :mode "\\.go\\'"
   :config
