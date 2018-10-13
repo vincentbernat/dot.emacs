@@ -36,7 +36,7 @@
 (require 'vbe-server)
 
 (use-package gnus
-  :commands (gnus)
+  :commands gnus
   :config
   (require 'vbe-gnus))
 

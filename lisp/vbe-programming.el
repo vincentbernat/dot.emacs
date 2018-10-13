@@ -449,7 +449,7 @@ arglist-cont-nonempty"
 
 (use-package puppet-mode
   :mode "\\.pp\\'"
-  :commands (puppet-align-block)
+  :commands puppet-align-block
   :bind (:map puppet-mode-map
               ("C-c |" . puppet-align-block)))
 
@@ -489,13 +489,13 @@ arglist-cont-nonempty"
   :commands junos-mode)
 
 (use-package realgud
-  :commands (realhud:gdb)
+  :commands realhud:gdb
   :defer t)
 
 
 ;;; Emacs LSP
 (use-package lsp-mode
-  :commands (lsp-python-enable)
+  :commands lsp-python-enable
   :config
   (require 'projectile)
 
@@ -517,7 +517,7 @@ arglist-cont-nonempty"
   (setq lsp-ui-sideline-delay 0.8))
 
 (use-package cquery
-  :commands (lsp-cquery-enable)
+  :commands lsp-cquery-enable
   :config
   (require 'projectile)
   (add-to-list 'cquery-project-root-matchers "build~/compile_commands.json")

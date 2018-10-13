@@ -93,7 +93,7 @@
   :quelpa (org-passwords :fetcher git
                          :url "https://bitbucket.org/vbernat/org-passwords.el.git"
                          :branch "feature/clear-clipboard")
-  :commands (org-passwords)
+  :commands org-passwords
   :bind (:map org-passwords-mode-map
               ("C-c d u" . org-passwords-copy-username)
               ("C-c d p" . org-passwords-copy-password)
