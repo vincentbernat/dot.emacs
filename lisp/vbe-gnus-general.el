@@ -27,6 +27,7 @@
 (require 'gnus-start)
 (require 'gnus-msg)
 (require 'gnus-art)
+(require 'gnus-icalendar)
 (require 'mml2015)
 (require 'auth-source)
 (require 'epg)
@@ -74,6 +75,9 @@
 (require 'spam)
 (setq spam-install-hooks t)
 (spam-initialize)
+
+;; Calendar support
+(gnus-icalendar-setup)
 
 ;; Hide too long citations
 (setq gnus-treat-hide-citation t
