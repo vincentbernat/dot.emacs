@@ -137,7 +137,7 @@
       user-mail-address "bernat@luffy.cx")
 (setq vbe:mail-addresses
       (-flatten (list
-                 (--map (format "^%s[@+]" it)
+                 (--map (format "\\(^\\|mailto:\\)%s[@+]" it)
                         (-map 'regexp-quote
                               (-flatten (-map 'split-string
                                               '("bernat vbernat vincent.bernat"
