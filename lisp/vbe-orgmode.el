@@ -65,7 +65,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python     . t)
-   (sh         . t)
+   (shell      . t)                     ; ob-shell replaces ob-sh in Org 9.x
    (emacs-lisp . t)))
 
 ;; Git auto-commit
