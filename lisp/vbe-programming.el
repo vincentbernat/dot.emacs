@@ -476,7 +476,7 @@ arglist-cont-nonempty"
   :pin "melpa"
   :mode "\\.nix\\'"
   :config
-  (nix-indent-function #'nix-indent-line))
+  (setq nix-indent-function #'nix-indent-line))
 
 (use-package toml-mode
   :mode ("\\.toml\\'"))
