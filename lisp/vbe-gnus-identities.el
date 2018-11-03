@@ -40,11 +40,6 @@
          (x-identity "luffy")
          (address "bernat@luffy.cx")
          (signature (vbe:fortune)))
-        ((vbe:mail-related-to '("*@crans.org"
-                                "*@crans.ens-cachan.fr"))
-         (x-identity "crans")
-         (address "bernat@crans.org")
-         (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@debian.org"
                                 "*@*.debian.org"
                                 "*@debian.ch"
