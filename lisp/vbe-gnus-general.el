@@ -154,9 +154,6 @@
                                                   "control@bugs.debian.org"
                                                   "submit@bugs.debian.org"))))
 
-(setq message-valid-fqdn-regexp
-      (format "\\(%s\\|.*\\.digital\\|.*\\.group\\)" message-valid-fqdn-regexp))
-
 ;; Use the list of subscribed addresses for MFT from the group/topic parameters
 (setq message-subscribed-address-functions
       '(gnus-find-subscribed-addresses))
