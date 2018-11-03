@@ -134,7 +134,7 @@
 ;; Set user name and email address
 (defvar vbe:mail-addresses)
 (setq user-full-name "Vincent Bernat"
-      user-mail-address "bernat@luffy.cx")
+      user-mail-address (s-join "@" '("bernat" "luffy.cx")))
 (setq vbe:mail-addresses
       (-flatten (list
                  (--map (format "\\(^\\|mailto:\\)%s[@+]" it)

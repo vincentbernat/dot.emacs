@@ -457,7 +457,7 @@ arglist-cont-nonempty"
   :ensure nil
   :defer t
   :config
-  (setq debian-changelog-mailing-address "bernat@debian.org")
+  (setq debian-changelog-mailing-address (s-join "@" '("bernat" "debian.org")))
 
   ;; Add UNRELEASED at the front place
   (setq debian-changelog-allowed-distributions

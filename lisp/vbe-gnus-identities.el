@@ -30,15 +30,15 @@
 (ad-activate 'gnus-summary-followup)
 ;; Posting styles definition
 (setq gnus-posting-styles
-      '((".*"
+      `((".*"
          (x-identity "default")
          (name "Vincent Bernat")
-         (address "vincent@bernat.ch")
+         (address ,(s-join "@" '("vincent" "bernat.ch")))
          (signature (vbe:fortune)))
         ((or (vbe:mail-related-to "*@luffy.cx")
              (vbe:mail-related-to "*@luffy.cx" "x-delivered-to"))
          (x-identity "luffy")
-         (address "bernat@luffy.cx")
+         (address ,(s-join "@" '("bernat" "luffy.cx")))
          (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@debian.org"
                                 "*@*.debian.org"
@@ -48,14 +48,14 @@
                                 "*@*.debconf.org"))
          (x-identity "debian")
          (eval (vbe:gnus/will-sign-message))
-         (address "bernat@debian.org")
+         (address ,(s-join "@" '("bernat" "debian.org")))
          (organization "Debian")
          (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@exoscale.net"
                                 "*@exoscale.com"
                                 "*@exoscale.ch"))
          (x-identity "exoscale")
-         (address "Vincent.Bernat@exoscale.com")
+         (address ,(s-join "@" '("Vincent.Bernat" "exoscale.com")))
          (organization "exoscale")
          (gcc nil)
          (signature (s-join "\n" '("Vincent Bernat — Vincent.Bernat@exoscale.com"
