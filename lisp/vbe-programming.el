@@ -389,7 +389,7 @@ arglist-cont-nonempty"
         '(("django" . "\\.j2\\'"))))
 
 (use-package auctex
-  :mode "\\.tex\\'")
+  :mode ("\\.tex\\'" . tex-mode))
 
 (use-package lua-mode
   :mode "\\.lua\\'")
