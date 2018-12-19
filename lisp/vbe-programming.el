@@ -34,8 +34,8 @@
                           nil t)
   (magit-add-section-hook 'magit-status-sections-hook
                           'magit-insert-unpushed-to-upstream
-                          'magit-insert-unpushed-to-upstream-or-recent t)
-  (remove-hook 'magit-status-sections-hook 'magit-insert-unpushed-to-upstream-or-recent)
+                          'magit-insert-unpushed-to-upstream-or-recent
+                          'replace)
 
   (remove-hook 'git-commit-finish-query-functions
                'git-commit-check-style-conventions)
