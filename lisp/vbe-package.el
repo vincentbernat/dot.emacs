@@ -21,7 +21,8 @@
 
 (require 'package)
 (require 'vbe-tls)
-(setq package-user-dir (concat user-emacs-directory "site-lisp"))
+(setq package-user-dir (concat user-emacs-directory "site-lisp")
+      package-gnupghome-dir (concat user-emacs-directory "run/gnupg"))
 
 ;; Archive to search for.
 (setq package-archives '(("melpa"    . "https://melpa.org/packages/")
