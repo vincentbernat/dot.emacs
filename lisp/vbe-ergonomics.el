@@ -237,6 +237,10 @@ point reaches the beginning or end of the buffer, stop there."
   :ensure nil :defer t :config
   (setq pcache-directory (vbe:runtime-directory "pcache")))
 
+(use-package url
+  :ensure nil :defer t :config
+  (setq url-configuration-directory (vbe:runtime-directory "url")))
+
 (use-package url-cache
   :ensure nil :defer t :config
   (setq url-cache-directory (vbe:runtime-directory "url")))
