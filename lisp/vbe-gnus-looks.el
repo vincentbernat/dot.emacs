@@ -167,6 +167,7 @@ space instead."
 (add-hook 'gnus-group-mode-hook #'gnus-topic-mode)
 
 ;; Use emojify for emojis
+(setq gnus-treat-display-smileys nil)
 (add-hook 'gnus-article-mode-hook #'emojify-mode)
 (add-hook 'message-mode-hook #'emojify-mode)
 
