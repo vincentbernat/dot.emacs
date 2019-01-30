@@ -77,21 +77,6 @@
   "Substitutions to use when shortening channel names.
 Notably, a common prefix can be substitued with a logo.")
 
-(defvar vbe:erc-track-prefix-network
-  `(("exonet" ,(let ((str "❬❱"))
-                 (when (display-images-p)
-                   (add-text-properties
-                    0 2
-                    (list 'display (append
-                                    (create-image (f-join user-emacs-directory "icons" "exoscale.png"))
-                                    '(:ascent center)))
-                    str))
-                 str)))
-  "Prefix the channel with the given string.
-The prefix is added after # if the channel is part of the given
-network. This is useful if some network is using too generic
-names.")
-
 (defun vbe:erc-track-transform-names (channel-names)
   "Transform CHANNEL-NAMES with bells and whistles.
 Some suffixes are changed to some Unicode chars. Additionally,
@@ -102,16 +87,7 @@ for some servers, we may add an additional prefix."
                            (lambda (subst) (s-starts-with? (car subst) l)) vbe:erc-track-substitutions))
                    (s-prepend (nth 1 subst) (s-chop-prefix (car subst) l))
                  l))
-   (-map
-    (lambda (l) (-if-let
-                    (prefix (and (s-starts-with? "#" l)
-                                 (get-buffer l)
-                                 (with-current-buffer l
-                                   (-first (lambda (pfx) (equal (and (fboundp 'erc-network-name) (erc-network-name))
-                                                                (car pfx))) vbe:erc-track-prefix-network))))
-                    (s-prepend (concat "#" (nth 1 prefix)) (s-chop-prefix "#" l))
-                  l))
-    channel-names)))
+   channel-names))
 
 (defun vbe:erc-track-shorten-names (channel-names)
   "Shorten CHANNEL-NAMES even more than `erc-track-shorten-names'.
@@ -328,7 +304,7 @@ the appropriate network slug that we extract from the nick."
 
   ;; Define networks
   (vbe:znc-add-server "znc.luffy.cx" 7667 "bernat"
-                      '(exoscale oftc freenode)))
+                      '(oftc freenode)))
 
 (provide 'vbe-erc)
 ;;; vbe-erc.el ends here
