@@ -484,6 +484,10 @@ arglist-cont-nonempty"
 (use-package protobuf-mode
   :mode ("\\.pb\\'"))
 
+(use-package cmake-mode
+  :mode ("\\.cmake\\'"
+         "CMakeLists\\.txt\\'"))
+
 (use-package junos-mode
   :quelpa (junos-mode :fetcher github
                       :repo "vincentbernat/junos-mode"
