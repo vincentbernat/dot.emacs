@@ -52,7 +52,11 @@
                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/luffy")
                (nnir-search-engine imap)))
 (setq gnus-secondary-select-methods
-      `((nnimap "exoscale"
+      `((nnimap "shadow"
+                (nnimap-stream shell)
+                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/shadow")
+                (nnir-search-engine imap))
+        (nnimap "exoscale"
                 (nnimap-stream shell)
                 (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/exoscale")
                 (nnir-search-engine imap))

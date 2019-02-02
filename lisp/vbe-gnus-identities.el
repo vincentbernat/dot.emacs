@@ -51,6 +51,13 @@
          (address ,(s-join "@" '("bernat" "debian.org")))
          (organization "Debian")
          (signature (vbe:fortune)))
+        ((vbe:mail-related-to '("*@blade-group.com"))
+         (x-identity "shadow")
+         (address ,(s-join "@" '("Vincent.Bernat" "blade-group.com")))
+         (organization "Blade Group / Shadow")
+         (gcc nil)
+         (signature (s-join "\n" '("Vincent Bernat — Vincent.Bernat@blade-group.com"
+                                   "🌐 https://shadow.tech/int/"))))
         ((vbe:mail-related-to '("*@exoscale.net"
                                 "*@exoscale.com"
                                 "*@exoscale.ch"))
