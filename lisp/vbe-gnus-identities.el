@@ -58,15 +58,6 @@
          (gcc nil)
          (signature (s-join "\n" '("Vincent Bernat — Vincent.Bernat@blade-group.com"
                                    "🌐 https://shadow.tech/int/"))))
-        ((vbe:mail-related-to '("*@exoscale.net"
-                                "*@exoscale.com"
-                                "*@exoscale.ch"))
-         (x-identity "exoscale")
-         (address ,(s-join "@" '("Vincent.Bernat" "exoscale.com")))
-         (organization "exoscale")
-         (gcc nil)
-         (signature (s-join "\n" '("Vincent Bernat — Vincent.Bernat@exoscale.com"
-                                   "❬❱ https://www.exoscale.com"))))
         ((header "subject" "RFS: ")
          (signature (s-join "\n" '("Debian package sponsoring guidelines:"
                                    " https://vincent.bernat.im/en/debian-package-sponsoring"))))))
