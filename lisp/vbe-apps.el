@@ -1,4 +1,4 @@
-;;; init.el --- Emacs init file                      -*- lexical-binding: t; -*-
+;;; vbe-apps.el --- Emacs "applications"  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Vincent Bernat
 
@@ -19,21 +19,23 @@
 
 ;;; Code:
 
-;(package-initialize)
+(require 'vbe-common)
 
-;; Setup environment to load other files.
+(use-package gnus
+  :commands gnus
+  :config
+  (require 'vbe-gnus))
 
-(setq load-prefer-newer t)
-(setq user-emacs-directory (file-name-directory
-                        (or (buffer-file-name) (file-chase-links load-file-name))))
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(add-to-list 'load-path (concat user-emacs-directory "lisp"))
+(use-package org
+  :mode ("\\.org\\'" . org-mode)
+  :pin "gnu"                            ; no effect?
+  :config
+  (require 'vbe-orgmode))
 
-(require 'vbe-package)
-(require 'vbe-looks)
-(require 'vbe-ergonomics)
-(require 'vbe-programming)
-(require 'vbe-apps)
-(require 'vbe-server)
+(use-package erc
+  :commands (znc-erc znc-all erc)
+  :config
+  (require 'vbe-erc))
 
-;;; init.el ends here
+(provide 'vbe-apps)
+;;; vbe-apps.el ends here
