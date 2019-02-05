@@ -88,29 +88,5 @@
 
 (use-package org-mime)
 
-(use-package org-passwords
-  ;; Use my own fork.
-  :quelpa (org-passwords :fetcher git
-                         :url "https://bitbucket.org/vbernat/org-passwords.el.git"
-                         :branch "feature/clear-clipboard")
-  :commands org-passwords
-  :bind (:map org-passwords-mode-map
-              ("C-c d u" . org-passwords-copy-username)
-              ("C-c d p" . org-passwords-copy-password)
-              ("C-c d g" . org-passwords-open-url)
-              ("C-c d o" . vbe:org-passwords-copy-otp))
-  :config
-  (setq org-passwords-file "~/Documents/org/passwords.gpg"
-        org-passwords-random-words-dictionary "/usr/share/dict/american-english"
-        org-passwords-time-opened "2 min")
-
-  (defun vbe:org-passwords-copy-otp ()
-    "Copy OTP password for the current entry.
-Execute the OTP program for the current entry and copy its result
-in the kill-ring buffer"
-    (interactive)
-    (kill-new (s-trim (shell-command-to-string
-                       (org-entry-get (point) "OTP"))))))
-
 (provide 'vbe-orgmode)
 ;;; vbe-orgmode.el ends here

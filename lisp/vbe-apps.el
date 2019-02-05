@@ -37,5 +37,8 @@
   :config
   (require 'vbe-erc))
 
+(use-package pass
+  :commands (pass))
+
 (provide 'vbe-apps)
 ;;; vbe-apps.el ends here
