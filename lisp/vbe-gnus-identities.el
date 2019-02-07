@@ -57,7 +57,7 @@
          (organization "Blade Group / Shadow")
          (gcc nil)
          (signature (s-join "\n" '("Vincent Bernat — Vincent.Bernat@blade-group.com"
-                                   "🌐 https://shadow.tech/int/"))))
+                                   "🎮 https://shadow.tech/int/"))))
         ((header "subject" "RFS: ")
          (signature (s-join "\n" '("Debian package sponsoring guidelines:"
                                    " https://vincent.bernat.im/en/debian-package-sponsoring"))))))
