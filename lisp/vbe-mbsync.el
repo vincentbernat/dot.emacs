@@ -136,7 +136,6 @@ Process is PROC and change is CHANGE."
                     ((eq (% vbe:mbsync-something 5) 0) '("fastmail"))
                     ((eq (% vbe:mbsync-something 7) 0) '("shadow-gmail-default" t))
                     ((eq (% vbe:mbsync-something 17) 0) '("shadow"))
-                    ((eq (% vbe:mbsync-something 29) 0) '("exoscale"))
                     nil)))
     (when (and args (vbe:online?))
       (apply 'vbe:mbsync args))

@@ -56,10 +56,6 @@
                 (nnimap-stream shell)
                 (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/shadow")
                 (nnir-search-engine imap))
-        (nnimap "exoscale"
-                (nnimap-stream shell)
-                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/exoscale")
-                (nnir-search-engine imap))
         (nndraft ""
                  (nndraft-directory ,(nnheader-concat message-directory "drafts")))))
 (setq gnus-agent nil)
