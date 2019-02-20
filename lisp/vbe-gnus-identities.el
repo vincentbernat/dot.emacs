@@ -54,7 +54,7 @@
         ((vbe:mail-related-to '("*@blade-group.com"))
          (x-identity "shadow")
          (address ,(s-join "@" '("Vincent.Bernat" "blade-group.com")))
-         (organization "Blade Group / Shadow")
+         (organization "Blade Group")
          (gcc nil)
          (signature (s-join "\n" '("Vincent Bernat — Vincent.Bernat@blade-group.com"
                                    "🎮 https://shadow.tech/int/"))))
