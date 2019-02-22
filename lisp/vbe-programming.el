@@ -40,6 +40,13 @@
   (remove-hook 'git-commit-finish-query-functions
                'git-commit-check-style-conventions)
 
+  ;; Many sections should be visible by default
+  (add-to-list 'magit-section-initial-visibility-alist
+               '(status . show))
+
+  ;; Don't cache visibility
+  (setq magit-section-cache-visibility nil)
+
   ;; Remove unneeded prompts
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
