@@ -88,5 +88,7 @@
 
 (use-package org-mime)
 
+(use-package htmlize)
+
 (provide 'vbe-orgmode)
 ;;; vbe-orgmode.el ends here
