@@ -77,8 +77,9 @@
   :config
   (defun vbe:git-auto-commit-mode-for-orgmode ()
     "Enable autocommit mode only for some directories."
-    (when (--any? (f-ancestor-of? it buffer-file-name)
-                  vbe:git-auto-commit-mode-for-orgmode-directories)
+    (when (and buffer-file-name
+               (--any? (f-ancestor-of? it buffer-file-name)
+                       vbe:git-auto-commit-mode-for-orgmode-directories))
       (git-auto-commit-mode 1))))
 
 (use-package org-bullets
