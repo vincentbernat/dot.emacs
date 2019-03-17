@@ -32,6 +32,7 @@
  org-edit-src-content-indentation 0     ; don't indent source blocks
  org-catch-invisible-edits 'error       ; don't edit invisible text
  org-pretty-entities t                  ; use "pretty entities"
+ org-export-use-babel nil               ; do not evaluate blocks when exporting
  org-clock-mode-line-total 'current     ; only display the current clock time in modeline
  org-time-clocksum-format '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
 
