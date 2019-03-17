@@ -68,6 +68,8 @@
    (shell      . t)                     ; ob-shell replaces ob-sh in Org 9.x
    (emacs-lisp . t)))
 
+(use-package ob-async)
+
 ;; Git auto-commit
 (defvar vbe:git-auto-commit-mode-for-orgmode-directories
   '("~/Documents/org")
