@@ -56,8 +56,9 @@
          (address ,(s-join "@" '("Vincent.Bernat" "blade-group.com")))
          (organization "Blade Group")
          (gcc nil)
-         (signature (s-join "\n" '("Vincent Bernat — Vincent.Bernat@blade-group.com"
-                                   "🎮 https://shadow.tech/int/"))))
+         (signature (s-join "\n" '("*Vincent Bernat* 🎮"
+                                   "*Infrastructure Team @ Shadow*"
+                                   "shadow.tech <https://www.shadow.tech/>"))))
         ((header "from" "notifications@github.com")
          (signature nil))
         ((header "subject" "RFS: ")
