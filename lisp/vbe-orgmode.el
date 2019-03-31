@@ -40,6 +40,8 @@
 (add-to-list 'org-structure-template-alist
              '("n" "#+BEGIN_NOTES\n?\n#+END_NOTES"))
 
+(add-hook 'org-mode-hook #'emojify-mode)
+
 (defun vbe:org-todo-keyword-face (keyword color1 color2)
   "Build a face for KEYWORD using COLOR1 and COLOR2."
   `(,keyword
