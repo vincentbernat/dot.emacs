@@ -41,6 +41,17 @@
 (add-to-list 'org-structure-template-alist
              '("n" "#+BEGIN_NOTES\n?\n#+END_NOTES"))
 
+;; Ensure code background match current background
+(defun vbe:org-inline-css-hook (exporter)
+  "Insert custom inline CSS for background color."
+  (when (eq exporter 'html)
+    (let ((pre-fg (face-foreground 'default))
+          (pre-bg (face-background 'default)))
+      (setq org-html-head-extra
+            (format "<style type=\"text/css\">\n pre.src { background-color: %s; color: %s }</style>\n"
+                    pre-bg pre-fg)))))
+(add-hook 'org-export-before-processing-hook 'vbe:org-inline-css-hook)
+
 (add-hook 'org-mode-hook #'emojify-mode)
 
 (defun vbe:org-todo-keyword-face (keyword color1 color2)
