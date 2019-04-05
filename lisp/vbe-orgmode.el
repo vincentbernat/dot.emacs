@@ -33,6 +33,8 @@
  org-catch-invisible-edits 'error       ; don't edit invisible text
  org-pretty-entities t                  ; use "pretty entities"
  org-export-use-babel nil               ; do not evaluate blocks when exporting
+ org-export-with-toc nil                ; do not add a ToC when exporting
+ org-html-postamble nil                 ; do not add a postamble when exporting
  org-return-follows-link t              ; follow link directly with return
  org-clock-mode-line-total 'current     ; only display the current clock time in modeline
  org-time-clocksum-format '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
