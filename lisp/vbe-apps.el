@@ -28,6 +28,7 @@
 
 (use-package org
   :mode ("\\.org\\'" . org-mode)
+  :bind (("C-c l" . org-store-link))
   :pin "gnu"                            ; no effect?
   :config
   (require 'vbe-orgmode))
