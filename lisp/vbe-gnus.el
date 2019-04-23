@@ -27,6 +27,15 @@
   :config
   (require 'vbe-gnus-identities))
 
+;; Unset some "dangerous" commands
+(bind-keys :map gnus-group-mode-map
+           ("C-w" . nil)
+           :map gnus-group-topic-map
+           ("TAB" . nil)
+           ("<tab>" . nil)
+           :map gnus-topic-mode-map
+           ("TAB" . nil)
+           ("<tab>" . nil))
 
 ;;; BBDB
 (use-package bbdb
