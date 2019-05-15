@@ -341,6 +341,7 @@ arglist-cont-nonempty"
 
   (defun vbe:flycheck-fix-clang-include-path ()
     "Setup include path to also look in alternate directories"
+    (require 'projectile)
     (let* ((root (if (projectile-project-p)
                      (projectile-project-root)
                    default-directory))
