@@ -33,11 +33,6 @@
   :config
   (require 'vbe-orgmode))
 
-(use-package erc
-  :commands (znc-erc znc-all erc)
-  :config
-  (require 'vbe-erc))
-
 (use-package pass
   :commands (pass))
 

@@ -125,7 +125,6 @@ future frames."
       ((flycheck-error flycheck-warning flycheck-info)
        :when active :priority 79)
       (minor-modes :when active :priority 9)
-      (erc-track :when active :priority 80)
       (vbe:projectile-root :priority 60)
       (vbe:version-control :when active :priority 68)
       (org-clock :when active :priority 75))
