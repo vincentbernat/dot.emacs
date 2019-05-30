@@ -54,7 +54,7 @@
    ;; Do not hijack next-error
    flycheck-standard-error-navigation nil
    ;; Do not display anything in modeline (see spaceline)
-   flycheck-mode-line nil
+   flycheck-mode-line nil)
 
   ;; Enable globally
   (global-flycheck-mode 1)
