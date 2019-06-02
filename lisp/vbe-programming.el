@@ -503,15 +503,7 @@ arglist-cont-nonempty"
   :commands lsp-python-enable
   :config
   (require 'projectile)
-
-  ;; Python. Still need to figure out if it's not better to use a virtualenv.
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection
-                                     (lambda () (vbe:executable-path "pyls")))
-                  :major-modes '(python-mode)
-                  :priority -1
-                  :server-id 'pyls
-                  :library-folders-fn (lambda (_workspace) '("/usr")))))
+  (require 'lsp-clients))
 
 (use-package lsp-ui
   :bind (:map lsp-ui-mode-map
