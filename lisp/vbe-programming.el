@@ -500,10 +500,9 @@ arglist-cont-nonempty"
 
 ;;; Emacs LSP
 (use-package lsp-mode
-  :commands lsp-python-enable
+  :commands lsp
   :config
-  (require 'projectile)
-  (require 'lsp-clients))
+  (require 'projectile))
 
 (use-package lsp-ui
   :bind (:map lsp-ui-mode-map
@@ -515,7 +514,7 @@ arglist-cont-nonempty"
   (setq lsp-ui-sideline-delay 0.8))
 
 (use-package cquery
-  :commands lsp-cquery-enable
+  :after (lsp-mode)
   :config
   (require 'projectile)
   (add-to-list 'cquery-project-root-matchers "build~/compile_commands.json")
