@@ -52,7 +52,7 @@
          (organization "Debian")
          (signature (vbe:fortune)))
         ((vbe:mail-related-to '("*@blade-group.com"))
-         (x-identity "shadow")
+         (x-identity "blade")
          (address ,(s-join "@" '("Vincent.Bernat" "blade-group.com")))
          (organization "Blade Group")
          (gcc nil)
