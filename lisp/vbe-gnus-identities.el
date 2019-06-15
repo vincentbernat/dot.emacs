@@ -63,7 +63,7 @@
          (signature nil))
         ((header "subject" "RFS: ")
          (signature (s-join "\n" '("Debian package sponsoring guidelines:"
-                                   " https://vincent.bernat.im/en/debian-package-sponsoring"))))))
+                                   " https://vincent.bernat.ch/en/debian-package-sponsoring"))))))
 
 (require 'dired)
 (defun vbe:mail-related-to (what &optional fields)
