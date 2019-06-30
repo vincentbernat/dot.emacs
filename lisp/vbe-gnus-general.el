@@ -122,6 +122,7 @@
 
 ;; Prefer 8-bit encoding
 (add-to-list 'mm-content-transfer-encoding-defaults '("text/plain" 8bit))
+(add-to-list 'mm-body-charset-encoding-alist '(utf-8 . 8bit))
 
 ;; Sign messages
 (setq mml2015-use 'epg           ; use epg
