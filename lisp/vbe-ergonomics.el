@@ -48,10 +48,8 @@
 ;; Setup ivy/swiper/counsel
 (use-package ivy
   :diminish
-  :bind (("C-c C-r" . ivy-resume)
-         :map ivy-minibuffer-map
-         ("C-SPC" . ivy-restrict-to-matches)
-         ("<C-return>" . ivy-call))
+  :bind (:map ivy-minibuffer-map
+         ("C-SPC" . ivy-restrict-to-matches))
   :demand t
   :config
   (defun vbe:ivy-format-function-arrow (cands)
