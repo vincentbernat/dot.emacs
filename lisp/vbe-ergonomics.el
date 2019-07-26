@@ -64,7 +64,7 @@
   (setq ivy-use-virtual-buffers nil
         ivy-count-format "(%d/%d) "
         ivy-extra-directories nil
-        ivy-format-function #'vbe:ivy-format-function-arrow)
+        ivy-format-functions-alist '((t . vbe:ivy-format-function-arrow)))
   (ivy-mode 1))
 (use-package swiper
   :bind (("C-s" . swiper-isearch)
