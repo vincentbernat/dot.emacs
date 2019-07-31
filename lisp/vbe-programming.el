@@ -396,7 +396,10 @@ arglist-cont-nonempty"
 (use-package markdown-mode
   :pin "melpa"
   :mode ("\\.md\\'" "\\.markdown\\'"
-         ("README.md\\'" . gfm-mode)))
+         ("README.md\\'" . gfm-mode))
+  :config
+  (setq markdown-spaces-after-code-fence 0
+        markdown-gfm-use-electric-backquote nil))
 
 (use-package ruby-mode
   :mode ("\\.rb\\'" "/Rakefile\\'"))
