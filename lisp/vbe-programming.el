@@ -475,9 +475,7 @@ arglist-cont-nonempty"
   :mode "\\.rs\\'")
 
 (use-package nix-mode
-  :mode "\\.nix\\'"
-  :config
-  (setq nix-indent-function #'nix-indent-line))
+  :mode "\\.nix\\'")
 
 (use-package toml-mode
   :mode ("\\.toml\\'"))
