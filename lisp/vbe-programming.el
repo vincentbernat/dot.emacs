@@ -475,7 +475,6 @@ arglist-cont-nonempty"
   :mode "\\.rs\\'")
 
 (use-package nix-mode
-  :pin "melpa"
   :mode "\\.nix\\'"
   :config
   (setq nix-indent-function #'nix-indent-line))
