@@ -45,6 +45,10 @@
 
   (setq magit-completing-read-function 'ivy-completing-read))
 
+(use-package git-commit
+  :config
+  (global-git-commit-mode 1))
+
 ;; Then, flycheck. Needs to be enabled for each mode.
 (use-package flycheck
   :config
