@@ -43,6 +43,9 @@
   ;; Remove unneeded prompts
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
+  ;; Workaround for #3843
+  (setq magit-process-password-prompt-regexps '("^\r?\\(Enter \\)?[Pp]assphrase\\( for \\(RSA \\)?key '.*'\\)?: ?$" "^\\(Enter \\)?[Pp]assword\\( for '\\(https?://\\)?\\(?99:.*\\)'\\)?: ?$" "^.*'s password: ?$" "^Yubikey for .*: ?$" "^Enter PIN for .*: ?$"))
+
   (setq magit-completing-read-function 'ivy-completing-read))
 
 (use-package git-commit
