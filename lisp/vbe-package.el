@@ -44,7 +44,8 @@
 ;; Install use-package and enable it.
 (when (not (package-installed-p 'use-package))
   (package-install 'use-package))
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
 
 ;; All packages should be installed.
 (setq use-package-always-ensure t)
