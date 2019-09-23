@@ -67,8 +67,8 @@
         ivy-format-functions-alist '((t . vbe:ivy-format-function-arrow)))
   (ivy-mode 1))
 (use-package swiper
-  :bind (("C-s" . swiper-isearch)
-         ("C-r" . swiper-isearch-backward)))
+  :bind (("C-s" . swiper)
+         ("C-r" . swiper-backward)))
 (use-package smex
   :config
   (setq smex-save-file (vbe:runtime-file "smex-items")))
