@@ -22,6 +22,7 @@
 (require 'vbe-common)
 (require 'org)
 (require 'org-clock)
+(require 'org-tempo)
 
 (setq
  org-startup-indented t                 ; indent by default
