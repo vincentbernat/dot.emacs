@@ -41,7 +41,7 @@
 
 ;; Make <n create a NOTE block.
 (add-to-list 'org-structure-template-alist
-             '("n" "#+BEGIN_NOTES\n?\n#+END_NOTES"))
+             '("n" . "notes"))
 
 ;; Ensure code background match current background
 (defun vbe:org-inline-css-hook (exporter)
