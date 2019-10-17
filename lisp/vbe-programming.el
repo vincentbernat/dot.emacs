@@ -70,6 +70,10 @@
   (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
   (add-to-list 'flycheck-emacs-lisp-load-path (concat user-emacs-directory "lisp")))
 
+(use-package flycheck-package
+  :after flycheck
+  :config (flycheck-package-setup))
+
 ;; Indentation detection.
 (use-package dtrt-indent
   :diminish
