@@ -111,5 +111,7 @@
 
 (use-package htmlize)
 
+(use-package ox-reveal)
+
 (provide 'vbe-orgmode)
 ;;; vbe-orgmode.el ends here
