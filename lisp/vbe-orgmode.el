@@ -111,7 +111,9 @@
 
 (use-package htmlize)
 
-(use-package ox-reveal)
+(use-package ox-reveal
+  :config
+  (setq org-reveal-root "http://cdn.rawgit.com/hakimel/reveal.js/3.8.0/"))
 
 (provide 'vbe-orgmode)
 ;;; vbe-orgmode.el ends here
