@@ -119,6 +119,7 @@
          ("C-S-c C-e"   . mc/edit-ends-of-lines)
          ("C-S-c C-a"   . mc/edit-beginnings-of-lines)
          ("C-c SPC"     . set-rectangular-region-anchor))
+  :pin "melpa"
   :config
   (setq mc/list-file (vbe:runtime-file "mc-list.el")))
 
