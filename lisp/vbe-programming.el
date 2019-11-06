@@ -467,6 +467,9 @@ arglist-cont-nonempty"
   :bind (:map puppet-mode-map
               ("C-c |" . puppet-align-block)))
 
+(use-package salt-mode
+  :mode "\\.sls\\'")
+
 (use-package debian-changelog-mode
   :ensure nil
   :defer t
