@@ -386,7 +386,7 @@ arglist-cont-nonempty"
   (setq-default js2-strict-missing-semi-warning nil))
 
 (use-package json-mode
-  :mode "\\.json\\'")
+  :defer t)
 
 (use-package css-mode
   :mode ("\\.css\\'" "\\.less\\'"))
@@ -399,10 +399,10 @@ arglist-cont-nonempty"
         '(("django" . "\\.j2\\'"))))
 
 (use-package auctex
-  :mode ("\\.tex\\'" . tex-mode))
+  :defer t)
 
 (use-package lua-mode
-  :mode "\\.lua\\'")
+  :defer t)
 
 (use-package markdown-mode
   :pin "melpa"
@@ -414,20 +414,20 @@ arglist-cont-nonempty"
         markdown-gfm-use-electric-backquote nil))
 
 (use-package ruby-mode
-  :mode ("\\.rb\\'" "/Rakefile\\'"))
+  :defer t)
 
 (use-package sh-mode
   :ensure nil
   :mode "\\.zsh'")
 
 (use-package yaml-mode
-  :mode "\\.ya?ml\\'")
+  :defer t)
 
 (use-package hcl-mode
-  :mode "\\.tf\\'")
+  :defer t)
 
 (use-package go-mode
-  :mode "\\.go\\'"
+  :defer t
   :config
   (add-hook 'before-save-hook #'gofmt-before-save))
 
@@ -438,7 +438,7 @@ arglist-cont-nonempty"
    ;; Change the spinner type to stay at constant-width
    cider-eval-spinner-type 'vertical-breathing))
 (use-package clojure-mode
-  :mode "\\.clj\\'"
+  :defer t
   :config
   ;; Some indentation preferences (for midje)
   (put-clojure-indent 'fact 1)
@@ -459,16 +459,15 @@ arglist-cont-nonempty"
   (eros-mode 1))
 
 (use-package dockerfile-mode
-  :mode "Dockerfile\\'")
+  :defer t)
 
 (use-package puppet-mode
-  :mode "\\.pp\\'"
   :commands puppet-align-block
   :bind (:map puppet-mode-map
               ("C-c |" . puppet-align-block)))
 
 (use-package salt-mode
-  :mode "\\.sls\\'")
+  :defer t)
 
 (use-package debian-changelog-mode
   :ensure nil
@@ -481,32 +480,31 @@ arglist-cont-nonempty"
         (-rotate 1 debian-changelog-allowed-distributions)))
 
 (use-package groovy-mode
-  :mode ("\\.gradle\\'" "\\.groovy\\'" "\\.dsl\\'"))
+  :defer t)
 
 (use-package snmp-mode
   :mode ("-MIB\\'" . snmpv2-mode))
 
 (use-package rust-mode
-  :mode "\\.rs\\'")
+  :defer t)
 
 (use-package nix-mode
-  :mode "\\.nix\\'")
+  :defer t)
 
 (use-package toml-mode
-  :mode ("\\.toml\\'"))
+  :defer t)
 
 (use-package protobuf-mode
   :mode ("\\.pb\\'"))
 
 (use-package cmake-mode
-  :mode ("\\.cmake\\'"
-         "CMakeLists\\.txt\\'"))
+  :defer t)
 
 (use-package junos-mode
   :quelpa (junos-mode :fetcher github
                       :repo "vincentbernat/junos-mode"
                       :files (:defaults "junos.py"))
-  :commands junos-mode)
+  :defer t)
 
 (use-package realgud
   :commands realhud:gdb
@@ -515,7 +513,7 @@ arglist-cont-nonempty"
 
 ;;; Emacs LSP
 (use-package lsp-mode
-  :commands lsp
+  :defer t
   :config
   (require 'projectile))
 
