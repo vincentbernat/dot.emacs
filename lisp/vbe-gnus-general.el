@@ -207,14 +207,13 @@ Uses the process/prefix convention with N."
                             "") t) "; "))))
     (when (> (length result) 0)
       (concat " " field ": "
-              (with-temp-buffer
-                (insert result)
-                (fill-region (point-min) (point-max))
-                (replace-string "\n" (concat "\n"
-                                             (make-string (+ 3 (length field))
-                                                          ? ))
-                                nil (point-min) (point-max))
-                (buffer-substring (point-min) (point-max)))))))
+              (s-replace "\n" (concat "\n"
+                                      (make-string (+ 3 (length field))
+                                                   ? ))
+                         (with-temp-buffer
+                           (insert result)
+                           (fill-region (point-min) (point-max))
+                           (buffer-substring (point-min) (point-max))))))))
 
 (bind-keys :map gnus-group-mode-map
            ("f" . vbe:mbsync)
