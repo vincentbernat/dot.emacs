@@ -107,7 +107,8 @@
   :config
   (setq org-bullets-bullet-list '("✺" "✹" "✸" "✷" "✶" "✭" "✦" "■" "▲" "●" )))
 
-(use-package org-mime)
+(use-package org-mime
+  :defer t)
 
 (use-package htmlize)
 
