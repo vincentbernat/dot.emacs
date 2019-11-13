@@ -22,19 +22,18 @@
 (require 'vbe-common)
 
 (use-package gnus
-  :commands gnus
+  :defer t
   :config
   (require 'vbe-gnus))
 
 (use-package org
-  :mode ("\\.org\\'" . org-mode)
   :bind (("C-c l" . org-store-link))
   :pin "gnu"                            ; no effect?
   :config
   (require 'vbe-orgmode))
 
 (use-package pass
-  :commands (pass))
+  :defer t)
 
 (provide 'vbe-apps)
 ;;; vbe-apps.el ends here
