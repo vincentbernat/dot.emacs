@@ -411,6 +411,7 @@ arglist-cont-nonempty"
   :config
   (setq markdown-spaces-after-code-fence 0
         markdown-footnote-location 'immediately
+        markdown-reference-location 'end
         markdown-gfm-use-electric-backquote nil))
 
 (use-package ruby-mode
