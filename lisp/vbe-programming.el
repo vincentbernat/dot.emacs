@@ -27,6 +27,7 @@
 ;; First, magit!
 (use-package magit
   :bind (("C-x g" . magit-status))
+  :commands magit-blame
   :config
   ;; Add a "latest commits" section
   (magit-add-section-hook 'magit-status-sections-hook
