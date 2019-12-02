@@ -78,8 +78,10 @@ future frames."
                                  :foreground "white"
                                  :box (:line-width 1 :color aluminium-3)
                                  :slant oblique
-                                 :weight normal
-                                 :height 0.8))
+                                 :weight normal))
+   '(org-level-1 (:weight bold :foreground gradient-1))
+   '(org-level-2 (:weight bold :foreground gradient-2))
+   '(org-level-3 (:weight bold :foreground gradient-3))
 
    '(comint-highlight-prompt    (:foreground orange-2 :weight bold))
 
