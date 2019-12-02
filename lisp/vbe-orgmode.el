@@ -26,7 +26,7 @@
 
 (setq
  org-startup-indented t                 ; indent by default
- org-tags-column -70                    ; align tags on the 70th columns
+ org-tags-column -75                    ; align tags on the 70th columns
  org-hide-leading-stars t               ; don't show leading stars
  org-cycle-separator-lines 0            ; don't show blank lines between collapsed trees
  org-src-fontify-natively t             ; fontify code blocks
