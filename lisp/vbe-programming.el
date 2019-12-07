@@ -485,7 +485,8 @@ arglist-cont-nonempty"
   :defer t)
 
 (use-package snmp-mode
-  :mode ("-MIB\\'" . snmpv2-mode))
+  :mode (("-MIB\\'" . snmpv2-mode)
+         ("-MIB\\.txt\\'" . snmpv2-mode)))
 
 (use-package rust-mode
   :defer t)
