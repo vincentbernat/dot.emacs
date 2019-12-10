@@ -510,7 +510,7 @@ arglist-cont-nonempty"
   :defer t)
 
 (use-package jinja2-mode
-  :defer t)
+  :mode "\\.j2\\'")
 
 (use-package realgud
   :commands realhud:gdb
