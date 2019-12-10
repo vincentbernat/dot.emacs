@@ -509,6 +509,9 @@ arglist-cont-nonempty"
                       :files (:defaults "junos.py"))
   :defer t)
 
+(use-package jinja2-mode
+  :defer t)
+
 (use-package realgud
   :commands realhud:gdb
   :defer t)
