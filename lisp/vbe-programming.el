@@ -491,6 +491,9 @@ arglist-cont-nonempty"
 (use-package rust-mode
   :defer t)
 
+(use-package php-mode
+  :defer t)
+
 (use-package nix-mode
   :defer t)
 
