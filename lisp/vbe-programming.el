@@ -49,6 +49,9 @@
 
   (setq magit-completing-read-function 'ivy-completing-read))
 
+(use-package forge
+  :after magit)
+
 (use-package git-commit
   :config
   (global-git-commit-mode 1))
