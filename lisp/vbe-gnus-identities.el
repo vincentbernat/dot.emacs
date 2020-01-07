@@ -23,6 +23,7 @@
 (require 'gnus)
 (require 'gnus-msg)
 (require 'gnus-identities)
+(require 'dired)
 
 ;; Do not mangle `message-dont-reply-to-names' on followups.
 (ad-disable-advice 'gnus-summary-followup 'before
@@ -66,7 +67,6 @@
          (signature (s-join "\n" '("Debian package sponsoring guidelines:"
                                    " https://vincent.bernat.ch/en/debian-package-sponsoring"))))))
 
-(require 'dired)
 (defun vbe:mail-related-to (what &optional fields)
   "Determine if the current message has something to do with WHAT.
 It will search in FIELDS (default `To', `Cc' and `From') to check
