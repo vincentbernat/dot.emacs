@@ -245,6 +245,10 @@ point reaches the beginning or end of the buffer, stop there."
   :ensure nil :defer t :config
   (setq url-cache-directory (vbe:runtime-directory "url")))
 
+(use-package vc
+  :ensure nil :defer t :config
+  (setq vc-follow-symlinks t))
+
 
 (provide 'vbe-ergonomics)
 ;;; vbe-ergonomics.el ends here
