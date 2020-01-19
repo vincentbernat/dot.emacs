@@ -245,7 +245,7 @@ point reaches the beginning or end of the buffer, stop there."
   :ensure nil :defer t :config
   (setq url-cache-directory (vbe:runtime-directory "url")))
 
-(use-package vc
+(use-package vc-hooks
   :ensure nil :defer t :config
   (setq vc-follow-symlinks t))
 
