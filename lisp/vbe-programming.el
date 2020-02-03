@@ -44,10 +44,9 @@
   ;; Remove unneeded prompts
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
-  ;; Workaround for #3843
-  (setq magit-process-password-prompt-regexps '("^\r?\\(Enter \\)?[Pp]assphrase\\( for \\(RSA \\)?key '.*'\\)?: ?$" "^\\(Enter \\)?[Pp]assword\\( for '\\(https?://\\)?\\(?99:.*\\)'\\)?: ?$" "^.*'s password: ?$" "^Yubikey for .*: ?$" "^Enter PIN for .*: ?$"))
-
-  (setq magit-completing-read-function 'ivy-completing-read))
+  :custom
+  (magit-process-password-prompt-regexps '("^\r?\\(Enter \\)?[Pp]assphrase\\( for \\(RSA \\)?key '.*'\\)?: ?$" "^\\(Enter \\)?[Pp]assword\\( for '\\(https?://\\)?\\(?99:.*\\)'\\)?: ?$" "^.*'s password: ?$" "^Yubikey for .*: ?$" "^Enter PIN for .*: ?$") "workaround for #3843")
+  (magit-completing-read-function 'ivy-completing-read))
 
 (use-package git-commit
   :config
@@ -55,15 +54,15 @@
 
 ;; Then, flycheck. Needs to be enabled for each mode.
 (use-package flycheck
-  :config
-  (setq
-   ;; Use a dot file to avoid being detected by some watchers
-   flycheck-temp-prefix ".flycheck"
-   ;; Do not hijack next-error
-   flycheck-standard-error-navigation nil
-   ;; Do not display anything in modeline (see spaceline)
-   flycheck-mode-line nil)
+  :custom
+  ;; Use a dot file to avoid being detected by some watchers
+  (flycheck-temp-prefix ".flycheck")
+  ;; Do not hijack next-error
+  (flycheck-standard-error-navigation nil)
+  ;; Do not display anything in modeline (see spaceline)
+  (flycheck-mode-line nil)
 
+  :config
   ;; Enable globally
   (global-flycheck-mode 1)
 
@@ -103,7 +102,8 @@
   (defun vbe:colorize-compilation-buffer ()
     (when (eq major-mode 'compilation-mode)
       (ansi-color-apply-on-region compilation-filter-start (point-max))))
-  (setq compilation-ask-about-save nil))
+  :custom
+  (compilation-ask-about-save nil))
 
 ;; Paredit for parenthesis
 (use-package paredit
@@ -146,8 +146,8 @@
 (use-package whitespace
   :diminish
   :hook ((prog-mode markdown-mode) . whitespace-mode)
-  :config
-  (setq whitespace-style '(face trailing)))
+  :custom
+  (whitespace-style '(face trailing)))
 
 ;; Display colors.
 (use-package rainbow-mode
@@ -161,15 +161,15 @@
 ;; Gists
 (use-package gist
   :defer t
-  :config
-  (setq gist-view-gist t))
+  :custom
+  (gist-view-gist t))
 
 ;; Ediff
 (use-package ediff
   :defer t
-  :config
-  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-  (setq ediff-split-window-function 'split-window-horizontally))
+  :custom
+  (ediff-window-setup-function 'ediff-setup-windows-plain)
+  (ediff-split-window-function 'split-window-horizontally))
 
 
 ;;; Modes
@@ -379,13 +379,12 @@ arglist-cont-nonempty"
 (use-package js2-mode
   :interpreter "node"
   :mode "\\.js\\'"
-  :config
-  (setq js2-skip-preprocessor-directives t)
-  (setq-default js2-basic-offset 2)
+  :custom
+  (js2-skip-preprocessor-directives t)
+  (js2-basic-offset 2)
 
   ;; Let flycheck handle errors.
-  (setq-default js2-show-parse-errors nil)
-  (setq-default js2-strict-missing-semi-warning nil))
+  (js2-strict-missing-semi-warning nil))
 
 (use-package json-mode
   :defer t)
@@ -395,8 +394,9 @@ arglist-cont-nonempty"
 
 (use-package web-mode
   :mode ("\\.jsx\\'" "\\.html?\\'")
+  :custom
+  (web-mode-enable-auto-indentation nil)
   :config
-  (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-engines-alist
         '(("django" . "\\.j2\\'"))))
 
@@ -410,11 +410,11 @@ arglist-cont-nonempty"
   :pin "melpa"
   :mode ("\\.md\\'" "\\.markdown\\'"
          ("README.md\\'" . gfm-mode))
-  :config
-  (setq markdown-spaces-after-code-fence 0
-        markdown-footnote-location 'immediately
-        markdown-reference-location 'end
-        markdown-gfm-use-electric-backquote nil))
+  :custom
+  (markdown-spaces-after-code-fence 0)
+  (markdown-footnote-location 'immediately)
+  (markdown-reference-location 'end)
+  (markdown-gfm-use-electric-backquote nil))
 
 (use-package ruby-mode
   :defer t)
@@ -436,10 +436,9 @@ arglist-cont-nonempty"
 
 (use-package cider
   :hook (clojure-mode . cider-mode)
-  :config
-  (setq
-   ;; Change the spinner type to stay at constant-width
-   cider-eval-spinner-type 'vertical-breathing))
+  :custom
+  ;; Change the spinner type to stay at constant-width
+  (cider-eval-spinner-type 'vertical-breathing))
 (use-package clojure-mode
   :defer t
   :config
@@ -475,12 +474,12 @@ arglist-cont-nonempty"
 (use-package debian-changelog-mode
   :ensure nil
   :defer t
-  :config
-  (setq debian-changelog-mailing-address (s-join "@" '("bernat" "debian.org")))
+  :custom
+  (debian-changelog-mailing-address (s-join "@" '("bernat" "debian.org")))
 
   ;; Add UNRELEASED at the front place
-  (setq debian-changelog-allowed-distributions
-        (-rotate 1 debian-changelog-allowed-distributions)))
+  (debian-changelog-allowed-distributions
+   (-rotate 1 debian-changelog-allowed-distributions)))
 
 (use-package groovy-mode
   :defer t)
@@ -532,20 +531,20 @@ arglist-cont-nonempty"
               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
               ([remap xref-find-references] . lsp-ui-peek-find-references))
   :hook ((lsp-mode . lsp-ui-mode))
-  :config
-  ;; Wait a bit before showing sideline
-  (setq lsp-ui-sideline-delay 0.8))
+  :custom
+  (lsp-ui-sideline-delay 0.8 "wait a bit before showing sideline"))
 
 (use-package cquery
   :after (lsp-mode)
   :config
   (require 'projectile)
   (add-to-list 'cquery-project-root-matchers "build~/compile_commands.json")
-  (setq cquery-cache-dir ".cquery_cached_index~/"
-        cquery-executable "nice"
-        cquery-extra-args (list (vbe:executable-path "cquery"))
-        cquery-extra-init-params '(:compilationDatabaseDirectory "build~"
-                                   :cacheFormat "msgpack")))
+  :custom
+  (cquery-cache-dir ".cquery_cached_index~/")
+  (cquery-executable "nice")
+  (cquery-extra-args (list (vbe:executable-path "cquery")))
+  (cquery-extra-init-params '(:compilationDatabaseDirectory "build~"
+                                                            :cacheFormat "msgpack")))
 
 (use-package company-lsp
   :after (lsp-mode)
