@@ -51,6 +51,11 @@
   :bind (:map ivy-minibuffer-map
          ("C-SPC" . ivy-restrict-to-matches))
   :demand t
+  :custom
+  (ivy-use-virtual-buffers nil)
+  (ivy-count-format "(%d/%d) ")
+  (ivy-extra-directories nil)
+  (ivy-format-functions-alist '((t . vbe:ivy-format-function-arrow)))
   :config
   (defun vbe:ivy-format-function-arrow (cands)
     "Transform CANDS into a string for minibuffer with an unicode arrow prefix."
@@ -61,17 +66,13 @@
        (concat "  " str))
      cands
      "\n"))
-  (setq ivy-use-virtual-buffers nil
-        ivy-count-format "(%d/%d) "
-        ivy-extra-directories nil
-        ivy-format-functions-alist '((t . vbe:ivy-format-function-arrow)))
   (ivy-mode 1))
 (use-package swiper
   :bind (("C-s" . swiper)
          ("C-r" . swiper-backward)))
 (use-package smex
-  :config
-  (setq smex-save-file (vbe:runtime-file "smex-items")))
+  :custom
+  (smex-save-file (vbe:runtime-file "smex-items")))
 (use-package counsel
   :diminish
   :config
@@ -81,11 +82,12 @@
 (use-package projectile
   :diminish
   :bind-keymap (("C-c p" . projectile-command-map))
+  :custom
+  (projectile-known-projects-file (vbe:runtime-file "projectile" "bookmarks.eld"))
+  (projectile-cache-file (vbe:runtime-file "projectile" "cache"))
+  (projectile-completion-system 'ivy)
+  (projectile-keymap-prefix (kbd "C-c p"))
   :config
-  (setq projectile-known-projects-file (vbe:runtime-file "projectile" "bookmarks.eld")
-        projectile-cache-file (vbe:runtime-file "projectile" "cache")
-        projectile-completion-system 'ivy
-        projectile-keymap-prefix (kbd "C-c p"))
   (projectile-mode 1))
 
 ;; Edit indirect allows to edit a region into a separate buffer
@@ -120,8 +122,8 @@
          ("C-S-c C-a"   . mc/edit-beginnings-of-lines)
          ("C-c SPC"     . set-rectangular-region-anchor))
   :pin "melpa"
-  :config
-  (setq mc/list-file (vbe:runtime-file "mc-list.el")))
+  :custom
+  (mc/list-file (vbe:runtime-file "mc-list.el")))
 
 ;; Fast cursor moves
 (use-package avy
@@ -134,30 +136,31 @@
   :bind (("C-c C-." . bm-toggle)
          ("C-c C-/" . bm-next)
          ("C-c C-," . bm-previous))
-  :config
-  (setq bm-cycle-all-buffers t))
+  :custom
+  (bm-cycle-all-buffers t))
 
 ;; Restore last-known position when opening a file.
 (use-package saveplace
+  :custom
+  (save-place-file (vbe:runtime-file "places"))
   :config
-  (setq save-place-file (vbe:runtime-file "places"))
   (save-place-mode 1))
 
 ;; Make buffer names unique
 (use-package uniquify
   :ensure nil
-  :config
-  (setq uniquify-buffer-name-style 'forward
-        uniquify-separator "/"
-        uniquify-after-kill-buffer-p t ; rename after killing
-        uniquify-ignore-buffers-re "^\\*"))
+  :custom
+  (uniquify-buffer-name-style 'forward)
+  (uniquify-separator "/")
+  (uniquify-after-kill-buffer-p t "rename after killing")
+  (uniquify-ignore-buffers-re "^\\*"))
 
 ;; Configure browse-url
 (use-package browse-url
   :defer t
-  :config
-  (setq browse-url-browser-function 'browse-url-generic
-        browse-url-generic-program "x-www-browser"))
+  :custom
+  (browse-url-browser-function 'browse-url-generic)
+  (browse-url-generic-program "x-www-browser"))
 
 ;; ibuffer
 (use-package ibuffer
@@ -238,16 +241,16 @@ point reaches the beginning or end of the buffer, stop there."
   (setq pcache-directory (vbe:runtime-directory "pcache")))
 
 (use-package url
-  :ensure nil :defer t :config
-  (setq url-configuration-directory (vbe:runtime-directory "url")))
+  :ensure nil :defer t :custom
+  (url-configuration-directory (vbe:runtime-directory "url")))
 
 (use-package url-cache
-  :ensure nil :defer t :config
-  (setq url-cache-directory (vbe:runtime-directory "url")))
+  :ensure nil :defer t :custom
+  (url-cache-directory (vbe:runtime-directory "url")))
 
 (use-package vc-hooks
-  :ensure nil :defer t :config
-  (setq vc-follow-symlinks t))
+  :ensure nil :defer t :custom
+  (vc-follow-symlinks t))
 
 
 (provide 'vbe-ergonomics)
