@@ -155,13 +155,6 @@
   (uniquify-after-kill-buffer-p t "rename after killing")
   (uniquify-ignore-buffers-re "^\\*"))
 
-;; Configure browse-url
-(use-package browse-url
-  :defer t
-  :custom
-  (browse-url-browser-function 'browse-url-generic)
-  (browse-url-generic-program "x-www-browser"))
-
 ;; ibuffer
 (use-package ibuffer
   :bind (("C-x C-b" . ibuffer)))
