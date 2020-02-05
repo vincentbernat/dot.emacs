@@ -476,10 +476,10 @@ arglist-cont-nonempty"
   :defer t
   :custom
   (debian-changelog-mailing-address (s-join "@" '("bernat" "debian.org")))
-
+  :config
   ;; Add UNRELEASED at the front place
-  (debian-changelog-allowed-distributions
-   (-rotate 1 debian-changelog-allowed-distributions)))
+  (custom-set-variables '(debian-changelog-allowed-distributions
+                          (-rotate 1 debian-changelog-allowed-distributions))))
 
 (use-package groovy-mode
   :defer t)
