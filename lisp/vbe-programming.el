@@ -529,6 +529,7 @@ arglist-cont-nonempty"
   :custom
   (lsp-enable-snippet nil)
   (lsp-prefer-flymake nil)
+  (lsp-pyls-plugins-pylint-enabled nil)
   :config
   (require 'projectile))
 
