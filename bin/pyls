@@ -1,8 +1,0 @@
-#! /usr/bin/env nix-shell
-#! nix-shell -i sh -p python3 python3Packages.python-language-server python3Packages.python-language-server python3Packages.pyls-black python3Packages.pyls-isort
-
-exec pyls "$@"
-
-# Local Variables:
-# mode: sh
-# End:
