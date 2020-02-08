@@ -526,6 +526,8 @@ arglist-cont-nonempty"
 ;;; Emacs LSP
 (use-package lsp-mode
   :defer t
+  :custom
+  (lsp-enable-snippet nil)
   :config
   (require 'projectile))
 
