@@ -528,6 +528,7 @@ arglist-cont-nonempty"
   :defer t
   :custom
   (lsp-enable-snippet nil)
+  (lsp-prefer-flymake nil)
   :config
   (require 'projectile))
 
