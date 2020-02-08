@@ -519,6 +519,9 @@ arglist-cont-nonempty"
   :commands realhud:gdb
   :defer t)
 
+(use-package pyvenv
+  :defer t)
+
 
 ;;; Emacs LSP
 (use-package lsp-mode
