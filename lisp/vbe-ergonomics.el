@@ -167,6 +167,11 @@
 (use-package hippie-exp
   :bind (("M-/" . hippie-expand)))
 
+;; Use GC only when idle
+(use-package gcmh
+  :config
+  (gcmh-mode 1))
+
 ;; Auto revert buffers
 (global-auto-revert-mode 1)
 (setq
