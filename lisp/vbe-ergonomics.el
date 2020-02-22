@@ -169,6 +169,7 @@
 
 ;; Use GC only when idle
 (use-package gcmh
+  :diminish
   :config
   (gcmh-mode 1))
 
