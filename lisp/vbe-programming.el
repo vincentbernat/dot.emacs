@@ -90,6 +90,11 @@
   ;; Don't use up/down arrow (use M-n, M-p only) to browse list
   (unbind-key "<up>" company-active-map)
   (unbind-key "<down>" company-active-map)
+  ;; Don't mess with space and enter
+  (unbind-key "SPC" company-active-map)
+  (unbind-key "RET" company-active-map)
+  (unbind-key "<return>" company-active-map)
+  (bind-key "<C-return>" #'company-complete-selection company-active-map)
   ;; Enable globally
   (global-company-mode 1))
 
