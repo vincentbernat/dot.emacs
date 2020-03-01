@@ -92,9 +92,18 @@
   (unbind-key "<down>" company-active-map)
   ;; Don't mess with space and enter
   (unbind-key "SPC" company-active-map)
-  (unbind-key "RET" company-active-map)
-  (unbind-key "<return>" company-active-map)
-  (bind-key "<C-return>" #'company-complete-selection company-active-map)
+  (bind-key "TAB" #'company-complete-selection company-active-map)
+  (dolist (key '("<return>" "RET"))
+    ;; Here we are using an advanced feature of define-key that lets
+    ;; us pass an "extended menu item" instead of an interactive
+    ;; function. Doing this allows RET to regain its usual
+    ;; functionality when the user has not explicitly interacted with
+    ;; Company.
+    (define-key company-active-map (kbd key)
+      `(menu-item nil company-complete
+                  :filter ,(lambda (cmd)
+                             (when (company-explicit-action-p)
+                               cmd)))))
   ;; Enable globally
   (global-company-mode 1))
 
