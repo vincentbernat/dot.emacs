@@ -159,7 +159,7 @@
 ;; Display whitespaces.
 (use-package whitespace
   :diminish
-  :hook ((prog-mode markdown-mode) . whitespace-mode)
+  :hook ((prog-mode markdown-mode html-mode) . whitespace-mode)
   :custom
   (whitespace-style '(face trailing)))
 
