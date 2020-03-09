@@ -119,7 +119,23 @@
                                              it))
                                          (cdr it)))
                             (cdr it)))
-               mailcap-mime-data)))
+               mailcap-mime-data))
+  ;; Don't use doc-view-mode or pdf-view-mode.
+  ;; Stolen from: https://lists.gnu.org/archive/html/info-gnus-english/2016-04/msg00002.html
+  ;; TODO: convert to dash.el
+  (setq mailcap-mime-data
+      (mapcar (lambda (major)
+                (cons (car major)
+                      (cl-remove-if
+                       (lambda (minor)
+                         (cl-member-if
+                          (lambda (v)
+                            (cl-member v '(doc-view-mode
+                                           pdf-view-mode)))
+                          (cdr minor)
+                          :key 'cdr))
+                       (cdr major))))
+              mailcap-mime-data)))
 
 (provide 'vbe-gnus)
 ;;; vbe-gnus.el ends here
