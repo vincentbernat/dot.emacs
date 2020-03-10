@@ -63,6 +63,8 @@
                                    "shadow.tech <https://www.shadow.tech/>"))))
         ((header "from" "notifications@github.com")
          (signature nil))
+        ((header "from" ".*@discoursemail.com")
+         (signature nil))
         ((header "subject" "RFS: ")
          (signature (s-join "\n" '("Debian package sponsoring guidelines:"
                                    " https://vincent.bernat.ch/en/debian-package-sponsoring"))))))

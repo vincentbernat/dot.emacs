@@ -151,6 +151,7 @@
       message-dont-reply-to-names (append vbe:mail-addresses
                                           (-map 'regexp-quote
                                                 '("@noreply.github.com"
+                                                  "@discoursemail.com"
                                                   "notifications@github.com"
                                                   "control@bugs.debian.org"
                                                   "submit@bugs.debian.org"))))
