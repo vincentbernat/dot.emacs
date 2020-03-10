@@ -154,7 +154,9 @@
 (use-package electric-indent
   :ensure nil
   :hook ((prog-mode . electric-indent-local-mode))
-  :bind (("M-RET" . electric-indent-just-newline)))
+  :bind (("M-RET" . electric-indent-just-newline))
+  :config
+  (electric-indent-mode 0))
 
 ;; Display whitespaces.
 (use-package whitespace
