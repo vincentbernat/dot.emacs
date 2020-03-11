@@ -85,6 +85,9 @@
       gnus-article-skip-boring t
       gnus-cited-lines-visible '(3 . 6))
 
+;; Remove some mailing list identifiers from subject
+(setq gnus-list-identifiers '("^\\[\\w+ Discourse\\]"))
+
 ;; Buttons
 (setq gnus-inhibit-mime-unbuttonizing nil ; Display some buttons
       gnus-buttonized-mime-types '("multipart/alternative"
