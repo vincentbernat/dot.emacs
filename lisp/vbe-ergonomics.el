@@ -69,7 +69,9 @@
   (ivy-mode 1))
 (use-package swiper
   :bind (("C-s" . swiper)
-         ("C-r" . swiper-backward)))
+         ("C-r" . swiper-backward))
+  :config
+  (add-to-list 'swiper-font-lock-exclude 'sieve-mode))
 (use-package smex
   :custom
   (smex-save-file (vbe:runtime-file "smex-items")))
