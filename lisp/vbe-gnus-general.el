@@ -86,7 +86,8 @@
       gnus-cited-lines-visible '(3 . 6))
 
 ;; Remove some mailing list identifiers from subject
-(setq gnus-list-identifiers '("^\\[\\w+ Discourse\\]"))
+(setq gnus-list-identifiers '("^\\[\\w+ Discourse\\]"
+                              "^\\(Re: \\)?\\[\\(syslog-ng\\|vlc-devel\\)\\]"))
 
 ;; Buttons
 (setq gnus-inhibit-mime-unbuttonizing nil ; Display some buttons
