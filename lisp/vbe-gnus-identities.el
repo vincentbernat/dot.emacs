@@ -59,7 +59,7 @@
          (organization "Blade Group")
          (gcc nil)
          (signature (s-join "\n" '("*Vincent Bernat* 🎮"
-                                   "*Infrastructure Team @ Shadow*"
+                                   "*Network Team @ Shadow*"
                                    "shadow.tech <https://www.shadow.tech/>"))))
         ((header "from" "notifications@github.com")
          (signature nil))
