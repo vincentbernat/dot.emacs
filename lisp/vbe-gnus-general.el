@@ -153,9 +153,9 @@
       gnus-ignored-from-addresses (cons "^Vincent Bernat " vbe:mail-addresses)
       ;; Addresses to prune on wide reply
       message-dont-reply-to-names (append vbe:mail-addresses
+                                          '("^\\([^+]*\\)@discoursemail\\\.com")
                                           (-map 'regexp-quote
                                                 '("@noreply.github.com"
-                                                  "@discoursemail.com"
                                                   "notifications@github.com"
                                                   "control@bugs.debian.org"
                                                   "submit@bugs.debian.org"))))
