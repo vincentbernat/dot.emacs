@@ -477,6 +477,7 @@ arglist-cont-nonempty"
   (eros-mode 1))
 
 (use-package dockerfile-mode
+  :pin "melpa"
   :defer t)
 
 (use-package puppet-mode
