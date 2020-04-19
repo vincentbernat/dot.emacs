@@ -221,6 +221,25 @@ Uses the process/prefix convention with N."
                            (fill-region (point-min) (point-max))
                            (buffer-substring (point-min) (point-max))))))))
 
+(defun vbe:paste-image-from-clipboard ()
+  "Paste image from clipboard. CLI program xclip is required.
+Stolen from https://github.com/redguardtoo/dianyou/."
+  (interactive)
+  (let* ((temp-name (format "image-%s.png" (format-time-string "%Y-%m-%dT%T")))
+         (file-path (expand-file-name temp-name temporary-file-directory))
+         (disposition (completing-read "Dispostion (default attachment): "
+                                       '("attachment" "inline"))))
+    (cond
+     ((executable-find "xclip")
+      ;; Execute "xclip -selection clipboard  -t image/png -o > test.png"
+      (shell-command (format "xclip -selection clipboard -t image/png -o > %s" file-path))
+      (when (file-exists-p file-path)
+        (insert (format "<#part type=\"image/png\" filename=\"%s\" disposition=%s><#/part>"
+                        file-path
+                        (if (string= disposition "") "attachment" disposition)))))
+     (t
+      (message "CLI program xclip should be installed at first.")))))
+
 (bind-keys :map gnus-group-mode-map
            ("f" . vbe:mbsync)
            :map gnus-summary-mode-map
