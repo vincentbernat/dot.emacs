@@ -64,7 +64,8 @@
 (setq gnus-message-archive-group "Sent"
       gnus-message-archive-method "nnimap:"
       gnus-update-message-archive-method t
-      gnus-gcc-mark-as-read t)
+      gnus-gcc-mark-as-read t
+      nnir-imap-default-search-key "imap")
 
 ;; Sync IMAP with mbsync
 (require 'vbe-mbsync)
