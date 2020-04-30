@@ -541,8 +541,7 @@ arglist-cont-nonempty"
 
 (use-package dumb-jump
   :bind (("M-g ." . dumb-jump-go)
-         ("M-g ," . dumb-jump-back)
-         ("M-g i" . dumb-jump-go-prompt))
+         ("M-g ," . dumb-jump-back))
   :custom
   (dumb-jump-selector 'ivy))
 
