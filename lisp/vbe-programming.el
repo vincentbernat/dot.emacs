@@ -539,6 +539,13 @@ arglist-cont-nonempty"
 (use-package pyvenv
   :defer t)
 
+(use-package dumb-jump
+  :bind (("M-g ." . dumb-jump-go)
+         ("M-g ," . dumb-jump-back)
+         ("M-g i" . dumb-jump-go-prompt))
+  :custom
+  (dumb-jump-selector 'ivy))
+
 
 ;;; Emacs LSP
 (use-package lsp-mode
