@@ -61,6 +61,7 @@
   (flycheck-standard-error-navigation nil)
   ;; Do not display anything in modeline (see spaceline)
   (flycheck-mode-line nil)
+  (flycheck-python-pycompile-executable "python3")
 
   :config
   ;; Enable globally
