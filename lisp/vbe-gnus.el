@@ -102,7 +102,7 @@
 
 ;;; Mailcap
 
-;; Use xdg-open, always.
+;; Use xdg-app-chooser, always.
 (use-package mailcap
   :ensure nil
   :defer t
@@ -115,7 +115,7 @@
                                                (value (cdr it)))
                                            (if (and (eq key 'viewer)
                                                     (stringp value))
-                                               '(viewer . "xdg-open '%s'")
+                                               '(viewer . "xdg-app-chooser '%s'")
                                              it))
                                          (cdr it)))
                             (cdr it)))
