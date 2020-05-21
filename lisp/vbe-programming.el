@@ -51,7 +51,11 @@
   (magit-completing-read-function 'ivy-completing-read)
   ;; Use M-x magit-describe-section-briefly to get a section name
   (magit-section-initial-visibility-alist
-   '((stashes . hide) (untracked . show) (unpushed . hide) (unstaged . show))))
+   '((stashes . hide)
+     (unpushed . hide)
+     (recent . show)
+     (untracked . show)
+     (unstaged . show))))
 
 (use-package git-commit
   :config
