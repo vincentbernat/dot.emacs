@@ -38,6 +38,8 @@
                           'magit-insert-unpushed-to-upstream-or-recent
                           'replace)
 
+  ;; Don't ask confirmation for style convention violations: they are
+  ;; already highlighted by font locking.
   (remove-hook 'git-commit-finish-query-functions
                'git-commit-check-style-conventions)
 
