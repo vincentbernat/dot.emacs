@@ -46,7 +46,10 @@
 
   :custom
   (magit-process-password-prompt-regexps '("^\r?\\(Enter \\)?[Pp]assphrase\\( for \\(RSA \\)?key '.*'\\)?: ?$" "^\\(Enter \\)?[Pp]assword\\( for '\\(https?://\\)?\\(?99:.*\\)'\\)?: ?$" "^.*'s password: ?$" "^Yubikey for .*: ?$" "^Enter PIN for .*: ?$") "workaround for #3843")
-  (magit-completing-read-function 'ivy-completing-read))
+  (magit-completing-read-function 'ivy-completing-read)
+  ;; Use M-x magit-describe-section-briefly to get a section name
+  (magit-section-initial-visibility-alist
+   '((stashes . hide) (untracked . show) (unpushed . hide) (unstaged . show))))
 
 (use-package git-commit
   :config
