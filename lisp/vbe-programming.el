@@ -552,6 +552,9 @@ arglist-cont-nonempty"
 (use-package dumb-jump
   :bind (("M-g ." . dumb-jump-go)
          ("M-g ," . dumb-jump-back))
+  :config
+  (require 'projectile)
+  (advice-add 'dumb-jump-get-project-root :override #'projectile-project-root)
   :custom
   (dumb-jump-selector 'ivy))
 
