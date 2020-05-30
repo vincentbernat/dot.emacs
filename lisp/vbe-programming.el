@@ -556,6 +556,7 @@ arglist-cont-nonempty"
   (require 'projectile)
   (advice-add 'dumb-jump-get-project-root :override #'projectile-project-root)
   :custom
+  (dumb-jump-max-find-time 10)
   (dumb-jump-selector 'ivy))
 
 
