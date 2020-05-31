@@ -13,9 +13,9 @@ addons:
 install:
   - ln -sf $PWD $HOME/.emacs.d
 script:
-  - emacs --version
+  - emacs26 --version
   - |
-    emacs \
+    emacs26 \
       --debug-init \
       --batch \
       --eval='(load-file "$HOME/.emacs.d/init.el")' \
