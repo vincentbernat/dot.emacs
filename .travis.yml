@@ -7,7 +7,7 @@ addons:
     packages:
       - emacs
 install:
-  - ln -sf $HOME/.emacs.d $PWD
+  - ln -sf $PWD $HOME/.emacs.d
 script:
   - |
     emacs \
