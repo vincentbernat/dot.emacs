@@ -4,8 +4,10 @@ dist: bionic
 sudo: false
 addons:
   apt:
+    sources:
+      - sourceline: 'ppa:kelleyk/emacs'
     packages:
-      - emacs
+      - emacs26
       - gnutls-bin
       - ca-certificates
 install:
