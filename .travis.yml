@@ -1,0 +1,18 @@
+language: c
+os: linux
+dist: bionic
+sudo: false
+addons:
+  apt:
+    packages:
+      - emacs
+install:
+  - ln -sf $HOME/.emacs.d $PWD
+script:
+  - |
+    emacs \
+      --debug-init \
+      --batch \
+      --eval='(load-file "$PWD/.emacs.d/init.el")' \
+      --eval='(magit-status)' \
+      --kill
