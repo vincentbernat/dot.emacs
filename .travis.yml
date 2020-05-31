@@ -11,6 +11,7 @@ addons:
 install:
   - ln -sf $PWD $HOME/.emacs.d
 script:
+  - emacs --version
   - |
     emacs \
       --debug-init \
