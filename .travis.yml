@@ -13,6 +13,6 @@ script:
     emacs \
       --debug-init \
       --batch \
-      --eval='(load-file "$PWD/.emacs.d/init.el")' \
+      --eval='(load-file "$HOME/.emacs.d/init.el")' \
       --eval='(magit-status)' \
       --kill
