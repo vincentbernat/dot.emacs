@@ -6,6 +6,7 @@ addons:
   apt:
     packages:
       - emacs
+      - gnutls-bin
 install:
   - ln -sf $PWD $HOME/.emacs.d
 script:
