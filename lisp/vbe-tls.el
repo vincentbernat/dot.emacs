@@ -31,7 +31,6 @@
 ;;       network-security-level 'high)
 (setq network-security-level 'high
       tls-checktrust t
-      starttls-extra-arguments nil
       tls-program (list
                    (mapconcat
                     'identity
