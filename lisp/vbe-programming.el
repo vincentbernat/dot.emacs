@@ -450,6 +450,7 @@ arglist-cont-nonempty"
   :mode "\\.zsh'")
 
 (use-package yaml-mode
+  :pin "melpa"
   :defer t)
 
 (use-package hcl-mode
