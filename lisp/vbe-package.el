@@ -20,7 +20,8 @@
 ;;; Code:
 
 (require 'package)
-(require 'vbe-tls)
+(when (< emacs-major-version 27)
+  (require 'vbe-tls))
 (setq package-user-dir (concat user-emacs-directory "site-lisp")
       package-gnupghome-dir (concat user-emacs-directory "run/gnupg"))
 
@@ -38,7 +39,8 @@
 (setq package-pinned-packages '((use-package . "melpa")))
 
 ;; Initialize package manager.
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
 (unless package-archive-contents (package-refresh-contents))
 
 ;; Install use-package and enable it.
