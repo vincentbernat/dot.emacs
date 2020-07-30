@@ -27,6 +27,7 @@
 ;; First, magit!
 (use-package magit
   :bind (("C-x g" . magit-status))
+  :pin "melpa"
   :commands magit-blame
   :config
   ;; Add a "latest commits" section
@@ -47,7 +48,6 @@
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
   :custom
-  (magit-process-password-prompt-regexps '("^\r?\\(Enter \\)?[Pp]assphrase\\( for \\(RSA \\)?key '.*'\\)?: ?$" "^\\(Enter \\)?[Pp]assword\\( for '\\(https?://\\)?\\(?99:.*\\)'\\)?: ?$" "^.*'s password: ?$" "^Yubikey for .*: ?$" "^Enter PIN for .*: ?$") "workaround for #3843")
   (magit-completing-read-function 'ivy-completing-read)
   ;; Use M-x magit-describe-section-briefly to get a section name
   (magit-section-initial-visibility-alist
