@@ -24,7 +24,8 @@
 
 (setq gnutls-min-prime-bits 2048
       gnutls-verify-error t
-      network-security-level 'high)
+      network-security-level 'high
+      nsm-settings-file (concat user-emacs-directory "run/network-security.data"))
 
 (provide 'vbe-tls)
 ;;; vbe-tls.el ends here
