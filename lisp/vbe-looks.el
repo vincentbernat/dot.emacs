@@ -25,7 +25,7 @@
 
 (defvar vbe:default-font "Hack-11"
   "Default font.")
-(defvar vbe:variable-font "Source Sans Pro-11"
+(defvar vbe:variable-font-family "Noto Sans"
   "Default variable font.")
 (defvar vbe:modeline-font "Iosevka-11"
   "Font to use for the modeline (and minibuffer prompt).")
@@ -52,7 +52,7 @@ future frames."
     (when window-system
       (set-face-attribute 'default frame :font vbe:default-font)
       (set-face-attribute 'fixed-pitch frame :family (first (s-split "-" vbe:default-font)))
-      (set-face-attribute 'variable-pitch frame :family (first (s-split "-" vbe:variable-font)))
+      (set-face-attribute 'variable-pitch frame :family vbe:variable-font-family)
       (dolist (face '(mode-line
                       mode-line-inactive
                       minibuffer-prompt))
