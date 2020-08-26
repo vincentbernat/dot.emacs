@@ -86,7 +86,8 @@ future frames."
    '(comint-highlight-prompt    (:foreground orange-2 :weight bold))
 
    '(highlight                  (:background scarlet-red-3))
-   '(hl-line                    (:background aluminium-6))))
+   '(hl-line                    (:background aluminium-6)))
+  (enable-theme 'naquadah))
 
 ;; Modeline theme.
 (use-package spaceline
