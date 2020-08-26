@@ -20,8 +20,7 @@
 ;;; Code:
 
 (require 'package)
-(when (< emacs-major-version 27)
-  (require 'vbe-tls))
+(require 'vbe-tls)
 (setq package-user-dir (concat user-emacs-directory "site-lisp")
       package-gnupghome-dir (concat user-emacs-directory "run/gnupg"))
 
