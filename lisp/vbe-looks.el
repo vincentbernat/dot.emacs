@@ -140,13 +140,6 @@ future frames."
       (buffer-position :priority 99)))
   (setq-default mode-line-format '("%e" (:eval (spaceline-ml-main))))
 
-  ;; Handle DPI change.
-  (defun vbe:powerline-reset ()
-    (setq powerline-height (round (* 1.3 (frame-char-height))))
-    (pl/reset-cache))
-  (vbe:powerline-reset)
-  (add-hook 'vbe:dpi-change-hook #'vbe:powerline-reset)
-
   ;; Don't change the modeline on focus out.
   (remove-hook 'focus-out-hook 'powerline-unset-selected-window))
 
