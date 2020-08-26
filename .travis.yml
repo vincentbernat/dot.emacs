@@ -7,17 +7,17 @@ addons:
     sources:
       - sourceline: 'ppa:kelleyk/emacs'
     packages:
-      - emacs26
+      - emacs27
       - gnutls-bin
       - ca-certificates
 install:
   - ln -sf $PWD $HOME/.emacs.d
 script:
-  - emacs26 --version
+  - emacs27 --version
   - |
-    emacs26 \
+    emacs27 \
       --debug-init \
       --batch \
-      --eval='(load-file "$HOME/.emacs.d/init.el")' \
+      --eval='(load-file "$HOME/.emacs.d/early-init.el")(load-file "$HOME/.emacs.d/init.el")' \
       --eval='(magit-status)' \
       --kill
