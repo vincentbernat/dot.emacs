@@ -174,5 +174,7 @@ space instead."
 (setq gnus-verbose 4
       gnus-verbose-backends 6)
 
+(vbe:set-theme)
+
 (provide 'vbe-gnus-looks)
 ;;; vbe-gnus-looks.el ends here

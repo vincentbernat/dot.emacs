@@ -66,28 +66,29 @@ future frames."
   :config
   (vbe:set-font (selected-frame))
   (add-hook 'after-make-frame-functions #'vbe:set-font)
-  (naquadah-theme-set-faces
-   'naquadah
-   '(gnus-summary-selected      (:background chameleon-3 :foreground black))
-   '(gnus-summary-normal-ticked (:background scarlet-red-3))
-   '(gnus-summary-normal-read   (:foreground aluminium-3 :italic t))
-   '(gnus-summary-high-unread   (:inherit gnus-summary-normal-unread :background sky-blue-2))
-   '(gnus-summary-high-read     (:inherit gnus-summary-normal-read :background sky-blue-3))
+  (defun vbe:set-theme ()
+    (naquadah-theme-set-faces
+     'naquadah
+     '(gnus-summary-normal-ticked (:background scarlet-red-3))
+     '(gnus-summary-normal-read   (:foreground aluminium-3 :italic t))
+     '(gnus-summary-high-unread   (:inherit gnus-summary-normal-unread :background sky-blue-2))
+     '(gnus-summary-high-read     (:inherit gnus-summary-normal-read :background sky-blue-3))
 
-   '(org-tag                    (:background aluminium-5
-                                 :foreground "white"
-                                 :box (:line-width 1 :color aluminium-3)
-                                 :slant oblique
-                                 :weight normal))
-   '(org-level-1 (:weight bold :foreground gradient-1))
-   '(org-level-2 (:weight bold :foreground gradient-2))
-   '(org-level-3 (:weight bold :foreground gradient-3))
+     '(org-tag                    (:background aluminium-5
+                                               :foreground "white"
+                                               :box (:line-width 1 :color aluminium-3)
+                                               :slant oblique
+                                               :weight normal))
+     '(org-level-1 (:weight bold :foreground gradient-1))
+     '(org-level-2 (:weight bold :foreground gradient-2))
+     '(org-level-3 (:weight bold :foreground gradient-3))
 
-   '(comint-highlight-prompt    (:foreground orange-2 :weight bold))
+     '(comint-highlight-prompt    (:foreground orange-2 :weight bold))
 
-   '(highlight                  (:background scarlet-red-3))
-   '(hl-line                    (:background aluminium-6)))
-  (enable-theme 'naquadah))
+     '(highlight                  (:background scarlet-red-3))
+     '(hl-line                    (:background aluminium-6)))
+    (enable-theme 'naquadah))
+  (vbe:set-theme))
 
 ;; Modeline theme.
 (use-package spaceline
