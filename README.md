@@ -1,4 +1,4 @@
-This configuration requires Emacs 24.x.
+This configuration requires Emacs 26.x.
 
 Feel free to explore what is done. Using the configuration as is may
 not be a good idea, but all those files are licensed both as GPLv3 (or
