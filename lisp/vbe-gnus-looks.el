@@ -20,7 +20,6 @@
 ;;; Code:
 
 (require 'vbe-common)
-(require 'cl)
 (require 'gnus-sum)
 (require 'gnus-group)
 (require 'gnus-topic)
