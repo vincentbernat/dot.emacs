@@ -39,8 +39,7 @@
 (setq package-pinned-packages '((use-package . "melpa")))
 
 ;; Initialize package manager.
-(when (< emacs-major-version 27)
-  (package-initialize))
+(package-initialize)
 (unless package-archive-contents (package-refresh-contents))
 
 ;; Install use-package and enable it.

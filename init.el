@@ -19,8 +19,6 @@
 
 ;;; Code:
 
-;(package-initialize)
-
 ;; Tune GC for faster startup
 (setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
       gc-cons-percentage 0.6)
