@@ -228,9 +228,9 @@ point reaches the beginning or end of the buffer, stop there."
 ;; Miscellaneous tweaks for packages
 (use-package transient
   :ensure nil :defer t :custom
-  transient-levels-file (vbe:runtime-file "transient" "levels.el")
-  transient-values-file (vbe:runtime-file "transient" "values.el")
-  transient-history-file (vbe:runtime-file "transient" "history.el"))
+  (transient-levels-file (vbe:runtime-file "transient" "levels.el"))
+  (transient-values-file (vbe:runtime-file "transient" "values.el"))
+  (transient-history-file (vbe:runtime-file "transient" "history.el")))
 
 ;; Miscellaneous tweaks for non-packages
 (use-package tramp
