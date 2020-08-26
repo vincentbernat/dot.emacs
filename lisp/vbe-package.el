@@ -59,10 +59,10 @@
 (defvar quelpa-dir)
 
 (use-package quelpa
-  :init
-  (setq quelpa-dir (concat user-emacs-directory "run/quelpa")
-        quelpa-checkout-melpa-p nil
-        quelpa-update-melpa-p nil))
+  :custom
+  (quelpa-dir (concat user-emacs-directory "run/quelpa"))
+  (quelpa-checkout-melpa-p nil)
+  (quelpa-update-melpa-p nil))
 (use-package quelpa-use-package
   :config
   (quelpa-use-package-activate-advice))
