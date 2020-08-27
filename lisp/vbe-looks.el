@@ -51,7 +51,7 @@ If not frame is provided, the font is applied to all frames and
 future frames."
     (when window-system
       (set-face-attribute 'default frame :font vbe:default-font)
-      (set-face-attribute 'fixed-pitch frame :family (first (s-split "-" vbe:default-font)))
+      (set-face-attribute 'fixed-pitch frame :family (car (s-split "-" vbe:default-font)))
       (set-face-attribute 'variable-pitch frame :family vbe:variable-font-family)
       (dolist (face '(mode-line
                       mode-line-inactive
