@@ -409,7 +409,7 @@ arglist-cont-nonempty"
   :mode "\\.js\\'"
   :custom
   (js2-skip-preprocessor-directives t)
-  (js2-basic-offset 2)
+  (js-indent-level 2)
 
   ;; Let flycheck handle errors.
   (js2-strict-missing-semi-warning nil))
