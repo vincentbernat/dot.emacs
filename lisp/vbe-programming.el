@@ -432,6 +432,7 @@ arglist-cont-nonempty"
   :defer t)
 
 (use-package lua-mode
+  :pin "melpa"
   :defer t)
 
 (use-package markdown-mode
