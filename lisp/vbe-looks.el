@@ -23,7 +23,7 @@
 
 ;; TODO: https://github.com/cpitclaudel/monospacifier
 
-(defvar vbe:default-font "Hack-11"
+(defvar vbe:default-font "JetBrains Mono-11"
   "Default font.")
 (defvar vbe:variable-font-family "Noto Sans"
   "Default variable font.")
