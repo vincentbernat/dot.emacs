@@ -50,7 +50,7 @@ Take a HEADER as argument."
 ;; Change some fonts
 (defface vbe:gnus-summary-subject-face
   `((((type graphic))
-     :inherit variable-pitch
+     :inherit fixed-pitch
      :background ,(face-attribute 'default :background)))
   "Subject font in Gnus summary"
   :group 'gnus-sum)
