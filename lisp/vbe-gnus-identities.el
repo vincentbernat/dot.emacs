@@ -48,7 +48,6 @@
                                 "*@debconf.org"
                                 "*@*.debconf.org"))
          (x-identity "debian")
-         (eval (vbe:gnus/will-sign-message))
          (address ,(s-join "@" '("bernat" "debian.org")))
          (organization "Debian")
          (signature (vbe:fortune)))
@@ -91,11 +90,6 @@ if any of the given expressions in WHAT is present."
                                    what)))
                           (-non-nil (-map #'second (mail-extract-address-components field t)))))))
                (-map #'message-field-value fields)))))))
-
-(defun vbe:gnus/will-sign-message ()
-  "Setup a local hook to make the article signed."
-  (add-hook 'gnus-message-setup-hook
-            #'mml-secure-message-sign-pgpmime t t))
 
 ;; Signature
 (defconst vbe:fortune-program nil
