@@ -67,6 +67,18 @@
      cands
      "\n"))
   (ivy-mode 1))
+(use-package ivy-posframe
+  :after ivy
+  :diminish
+  :hook
+  (ivy-mode . ivy-posframe-mode)
+  :custom
+  (ivy-posframe-display-functions-alist
+        '((swiper          . ivy-posframe-display-at-window-center)
+          (complete-symbol . ivy-posframe-display-at-point)
+          (t               . ivy-posframe-display-at-frame-center)))
+  :config
+  (ivy-posframe-mode 1))
 (use-package swiper
   :bind (("C-s" . swiper)
          ("C-r" . swiper-backward))
