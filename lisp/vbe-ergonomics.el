@@ -72,7 +72,14 @@
   :diminish
   :hook
   (ivy-mode . ivy-posframe-mode)
+  :custom-face
+  (ivy-posframe ((t (:background "#333244"))))
+  (ivy-posframe-border ((t (:background "#333244"))))
   :custom
+  (ivy-posframe-parameters '((internal-border-width . 12)))
+  (ivy-posframe-height-alist '((swiper . 15)
+                               (find-file . 20)
+                               (t      . 25)))
   (ivy-posframe-display-functions-alist
         '((swiper          . ivy-posframe-display-at-window-center)
           (complete-symbol . ivy-posframe-display-at-point)
