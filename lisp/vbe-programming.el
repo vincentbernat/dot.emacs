@@ -106,6 +106,7 @@
   ;; Don't mess with space and enter
   (unbind-key "SPC" company-active-map)
   (bind-key "TAB" #'company-complete-selection company-active-map)
+  (bind-key [C-return] #'counsel-company company-active-map)
   (dolist (key '("<return>" "RET"))
     ;; Here we are using an advanced feature of define-key that lets
     ;; us pass an "extended menu item" instead of an interactive
