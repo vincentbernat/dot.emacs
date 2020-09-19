@@ -70,8 +70,6 @@
 (use-package ivy-posframe
   :after ivy
   :diminish
-  :hook
-  (ivy-mode . ivy-posframe-mode)
   :custom-face
   (ivy-posframe ((t (:background "#333244"))))
   (ivy-posframe-border ((t (:background "#333244"))))
