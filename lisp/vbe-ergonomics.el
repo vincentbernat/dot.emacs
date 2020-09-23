@@ -109,6 +109,10 @@
   :config
   (projectile-mode 1))
 
+;; Bufler
+(use-package bufler
+  :bind (("C-x C-b" . bufler)))
+
 ;; Edit indirect allows to edit a region into a separate buffer
 (use-package edit-indirect
   :bind (("C-c '" . edit-indirect-region))
