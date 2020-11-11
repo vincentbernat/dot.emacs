@@ -61,7 +61,8 @@ future frames."
 ;; Fringe
 (defun vbe:fringe-mode ()
   "Fix fringe width, depending on DPI."
-  (fringe-mode (frame-char-width)))
+  (when (fboundp 'fringe-mode)
+    (fringe-mode (frame-char-width))))
 (vbe:fringe-mode)
 (add-hook 'vbe:dpi-change-hook #'vbe:fringe-mode)
 
