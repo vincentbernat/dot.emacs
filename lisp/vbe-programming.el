@@ -31,6 +31,7 @@
   ("C-c g" . magit-file-dispatch)
   :pin "melpa"
   :commands magit-blame
+  :after git-gutter-fringe
   :config
   ;; Add a "latest commits" section
   (magit-add-section-hook 'magit-status-sections-hook
@@ -48,6 +49,9 @@
 
   ;; Remove unneeded prompts
   (add-to-list 'magit-no-confirm 'stage-all-changes)
+
+  ;; Refresh git-gutter
+  (add-hook 'magit-post-refresh-hook #'git-gutter:update-all-windows)
 
   :custom
   (magit-completing-read-function 'ivy-completing-read)
