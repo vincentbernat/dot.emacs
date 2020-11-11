@@ -69,8 +69,11 @@
 
 ;; Sync IMAP with mbsync
 (require 'vbe-mbsync)
-(cancel-function-timers 'vbe:mbsync-something)
-(run-at-time "10 sec" 61 'vbe:mbsync-something)
+(defun vbe:gnus-setup-mbsync-timers ()
+  "Setup timers to fetch new mail."
+  (cancel-function-timers 'vbe:mbsync-something)
+  (run-at-time "10 sec" 61 'vbe:mbsync-something))
+(add-hook 'gnus-started-hook #'vbe:gnus-setup-mbsync-timers)
 
 ;; Spam handling
 (require 'spam)
