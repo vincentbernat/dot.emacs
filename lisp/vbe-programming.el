@@ -70,7 +70,9 @@
 (use-package git-gutter-fringe
   :diminish git-gutter-mode
   :config
-  (global-git-gutter-mode 1))
+  (global-git-gutter-mode 1)
+  :custom
+  (git-gutter-fr:side 'right-fringe))
 
 ;; Then, flycheck. Needs to be enabled for each mode.
 (use-package flycheck
