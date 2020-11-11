@@ -63,6 +63,10 @@
   :config
   (global-git-commit-mode 1))
 
+(use-package git-gutter-fringe
+  :config
+  (global-git-gutter-mode 1))
+
 ;; Then, flycheck. Needs to be enabled for each mode.
 (use-package flycheck
   :pin "melpa"
