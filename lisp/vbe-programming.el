@@ -64,6 +64,7 @@
   (global-git-commit-mode 1))
 
 (use-package git-gutter-fringe
+  :diminish git-gutter-mode
   :config
   (global-git-gutter-mode 1))
 
