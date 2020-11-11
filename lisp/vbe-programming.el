@@ -153,6 +153,9 @@
      'paredit-backward-delete
      'paredit-close-round)))
 
+(use-package expand-region
+  :bind (("C-=" . er/expand-region)))
+
 ;; Helpful for better help commands
 (use-package helpful
   :bind (("C-h f" . helpful-callable)
