@@ -453,7 +453,8 @@ arglist-cont-nonempty"
 
 (use-package markdown-mode
   :pin "melpa"
-  :mode ("\\.md\\'" "\\.markdown\\'"
+  :mode ("\\.md\\'"
+         "\\.markdown\\'"
          ("README.md\\'" . gfm-mode))
   :custom
   (markdown-spaces-after-code-fence 0)
