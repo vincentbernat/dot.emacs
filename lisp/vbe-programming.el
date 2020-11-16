@@ -71,8 +71,14 @@
   :diminish git-gutter-mode
   :config
   (global-git-gutter-mode 1)
+  (define-fringe-bitmap 'git-gutter-fr:added [224]
+    nil nil '(center repeated))
+  (define-fringe-bitmap 'git-gutter-fr:modified [224]
+    nil nil '(center repeated))
+  (define-fringe-bitmap 'git-gutter-fr:deleted [128 192 224 240]
+    nil nil 'bottom)
   :custom
-  (git-gutter-fr:side 'right-fringe))
+  (git-gutter-fr:side 'left-fringe))
 
 ;; Then, flycheck. Needs to be enabled for each mode.
 (use-package flycheck
@@ -84,11 +90,16 @@
   (flycheck-standard-error-navigation nil)
   ;; Do not display anything in modeline (see spaceline)
   (flycheck-mode-line nil)
+  ;; Display flycheck in right fringe
+  (flycheck-indication-mode 'right-fringe)
+  ;; Use Python3 for Python
   (flycheck-python-pycompile-executable "python3")
 
   :config
   ;; Enable globally
   (global-flycheck-mode 1)
+  (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
+    [16 48 112 240 112 48 16] nil nil 'center)
 
   ;; LISP: disable emacs-lisp-checkdoc.
   (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
