@@ -138,7 +138,8 @@
       mm-decrypt-option 'always  ; always decrypt
       auth-source-gpg-encrypt-to user-mail-address)
 
-(setq gnus-signature-limit 12.0)        ; No more than 12 lines for a signature
+(setq gnus-signature-limit 12.0          ; No more than 12 lines for a signature
+      gnus-article-browse-delete-temp t) ; Don't keep HTML files when using K H
 
 ;; Set user name and email address
 (defvar vbe:mail-addresses)
