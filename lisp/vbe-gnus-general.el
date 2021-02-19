@@ -197,10 +197,10 @@ Uses the process/prefix convention with N."
     (let ((message-cite-reply-position 'above)
           (message-citation-line-format
            (s-join "\n" (delq nil
-                              `(" ――――――― Original Message ―――――――"
-                                " From: %f"
-                                " Sent: %e %B %Y %R %Z"
-                                ,(escape (concat " Subject: " (gnus-with-article-headers
+                              `("-----Original Message-----"
+                                "From: %f"
+                                "Sent: %e %B %Y %R %Z"
+                                ,(escape (concat "Subject: " (gnus-with-article-headers
                                                                (mail-fetch-field "Subject"))))
                                 ,(escape (vbe:gnus/extract-names "To"))
                                 ,(escape (vbe:gnus/extract-names "Cc"))
@@ -216,7 +216,7 @@ Uses the process/prefix convention with N."
                         (or (mail-fetch-field field)
                             "") t) "; "))))
     (when (> (length result) 0)
-      (concat " " field ": "
+      (concat field ": "
               (s-replace "\n" (concat "\n"
                                       (make-string (+ 3 (length field))
                                                    ? ))
