@@ -610,17 +610,10 @@ arglist-cont-nonempty"
   :custom
   (lsp-ui-sideline-delay 0.8 "wait a bit before showing sideline"))
 
-(use-package cquery
+(use-package ccls
   :after (lsp-mode)
-  :config
-  (require 'projectile)
-  (add-to-list 'cquery-project-root-matchers "build~/compile_commands.json")
   :custom
-  (cquery-cache-dir ".cquery_cached_index~/")
-  (cquery-executable "nice")
-  (cquery-extra-args (list (vbe:executable-path "cquery")))
-  (cquery-extra-init-params '(:compilationDatabaseDirectory "build~"
-                                                            :cacheFormat "msgpack")))
+  (ccls-root-files '("build~/compile_commands.json" ".ccls-root")))
 
 (use-package company-lsp
   :after (lsp-mode)
