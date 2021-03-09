@@ -613,7 +613,7 @@ arglist-cont-nonempty"
 (use-package ccls
   :after (lsp-mode)
   :custom
-  (ccls-root-files '("build~/compile_commands.json" ".ccls-root")))
+  (ccls-args '("--init={\"compilationDatabaseDirectory\":\"build~\"}")))
 
 (use-package company-lsp
   :after (lsp-mode)
