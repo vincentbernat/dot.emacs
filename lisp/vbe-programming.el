@@ -601,7 +601,8 @@ arglist-cont-nonempty"
   (lsp-pyls-plugins-pylint-enabled nil)
   (lsp-session-file (vbe:runtime-file "lsp-session-v1"))
   :config
-  (require 'projectile))
+  (require 'projectile)
+  (require 'company))
 
 (use-package lsp-ui
   :bind (:map lsp-ui-mode-map
@@ -615,11 +616,6 @@ arglist-cont-nonempty"
   :after (lsp-mode)
   :custom
   (ccls-args '("--init={\"compilationDatabaseDirectory\":\"build~\"}")))
-
-(use-package company-lsp
-  :after (lsp-mode)
-  :config
-  (push 'company-lsp company-backends))
 
 (provide 'vbe-programming)
 ;;; vbe-programming.el ends here
