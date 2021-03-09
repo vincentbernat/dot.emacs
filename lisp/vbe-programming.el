@@ -599,6 +599,7 @@ arglist-cont-nonempty"
   (lsp-enable-snippet nil)
   (lsp-prefer-flymake nil)
   (lsp-pyls-plugins-pylint-enabled nil)
+  (lsp-session-file (vbe:runtime-file "lsp-session-v1"))
   :config
   (require 'projectile))
 
