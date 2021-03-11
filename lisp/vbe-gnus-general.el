@@ -74,6 +74,7 @@
   (cancel-function-timers 'vbe:mbsync-something)
   (run-at-time "10 sec" 61 'vbe:mbsync-something))
 (add-hook 'gnus-started-hook #'vbe:gnus-setup-mbsync-timers)
+(add-to-list 'global-mode-string '(:eval (vbe:mbsync-mode-line)) t)
 
 ;; Spam handling
 (require 'spam)

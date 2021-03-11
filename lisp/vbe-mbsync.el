@@ -93,7 +93,6 @@ t for INBOX."
   "Display current mbsync mode line if applicable."
   (when (member major-mode '(gnus-group-mode))
     vbe:mbsync-mode-line-string))
-(add-to-list 'global-mode-string '(:eval (vbe:mbsync-mode-line)) t)
 
 (defun vbe:mbsync-filter (proc msg)
   "Filter for the mbsync process.
