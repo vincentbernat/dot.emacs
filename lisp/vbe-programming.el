@@ -600,6 +600,8 @@ arglist-cont-nonempty"
   (lsp-prefer-flymake nil)
   (lsp-pyls-plugins-pylint-enabled nil)
   (lsp-session-file (vbe:runtime-file "lsp-session-v1"))
+  (lsp-enable-on-type-formatting nil)
+  (lsp-enable-indentation nil)
   :config
   (require 'projectile)
   (require 'company))
