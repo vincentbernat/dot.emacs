@@ -590,6 +590,10 @@ arglist-cont-nonempty"
   :custom
   (dumb-jump-max-find-time 10)
   (dumb-jump-selector 'ivy))
+(use-package xref
+  :ensure nil
+  :config
+  (remove-hook 'xref-backend-functions #'etags--xref-backend nil))
 
 
 ;;; Emacs LSP
