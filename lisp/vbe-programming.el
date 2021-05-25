@@ -29,7 +29,6 @@
   :bind
   ("C-x g" . magit-status)
   ("C-c g" . magit-file-dispatch)
-  :pin "melpa"
   :commands magit-blame
   :after git-gutter-fringe
   :config
