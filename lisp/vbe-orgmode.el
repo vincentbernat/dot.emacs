@@ -115,7 +115,7 @@
 
 (use-package ox-reveal
   :config
-  (setq org-reveal-root "http://cdn.rawgit.com/hakimel/reveal.js/3.8.0/"))
+  (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@4.1.3"))
 
 (provide 'vbe-orgmode)
 ;;; vbe-orgmode.el ends here
