@@ -49,9 +49,6 @@
   ;; Remove unneeded prompts
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
-  ;; Refresh git-gutter
-  (add-hook 'magit-post-refresh-hook #'git-gutter:update-all-windows)
-
   :custom
   (magit-completing-read-function 'ivy-completing-read)
   ;; Use M-x magit-describe-section-briefly to get a section name
@@ -66,19 +63,6 @@
   :config
   (global-git-commit-mode 1))
 
-(use-package git-gutter-fringe
-  :diminish git-gutter-mode
-  :config
-  (global-git-gutter-mode 1)
-  (define-fringe-bitmap 'git-gutter-fr:added [224]
-    nil nil '(center repeated))
-  (define-fringe-bitmap 'git-gutter-fr:modified [224]
-    nil nil '(center repeated))
-  (define-fringe-bitmap 'git-gutter-fr:deleted [224]
-    nil nil '(center repeated))
-  :custom
-  (git-gutter-fr:side 'left-fringe))
-
 ;; Then, flycheck. Needs to be enabled for each mode.
 (use-package flycheck
   :pin "melpa"
@@ -90,7 +74,7 @@
   ;; Do not display anything in modeline (see spaceline)
   (flycheck-mode-line nil)
   ;; Display flycheck in right fringe
-  (flycheck-indication-mode 'right-fringe)
+  (flycheck-indication-mode 'left-fringe)
   ;; Use Python3 for Python
   (flycheck-python-pycompile-executable "python3")
 
