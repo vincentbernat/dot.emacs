@@ -24,8 +24,8 @@
 ;; Various settings
 (setq mouse-yank-at-point t         ; Yank where the point currently is
       mouse-1-click-follows-link nil  ; Don't follow links with left click
-      x-select-enable-primary t     ; Yank use the primary selection if available
-      x-select-enable-clipboard t   ; Yank use the clipboard if available
+      select-enable-primary t     ; Yank use the primary selection if available
+      select-enable-clipboard t   ; Yank use the clipboard if available
       save-interprogram-paste-before-kill t ; Put clipboard/selection into kill ring
       echo-keystrokes 0.1           ; Show keystrokes early
       use-dialog-box nil              ; Do not display dialog boxes.
@@ -61,7 +61,7 @@
     "Transform CANDS into a string for minibuffer with an unicode arrow prefix."
     (ivy--format-function-generic
      (lambda (str)
-       (concat "▶ " (ivy--add-face str 'ivy-current-match)))
+       (concat "» " (ivy--add-face str 'ivy-current-match)))
      (lambda (str)
        (concat "  " str))
      cands
