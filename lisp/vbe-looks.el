@@ -23,7 +23,7 @@
 
 ;; TODO: https://github.com/cpitclaudel/monospacifier
 
-(defvar vbe:default-font "Iosevka-11"
+(defvar vbe:default-font "Iosevka Term-11"
   "Default font.")
 (defvar vbe:variable-font-family "Iosevka Aile"
   "Default variable font.")
