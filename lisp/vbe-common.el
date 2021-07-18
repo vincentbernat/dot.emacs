@@ -28,7 +28,6 @@
 (use-package f)
 (use-package s)
 (use-package dash)
-(use-package dash-functional)
 
 ;; Use `exec-path-from-shell' package to update PATH to the same value
 ;; as the shell.
