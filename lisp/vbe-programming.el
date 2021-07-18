@@ -30,7 +30,6 @@
   ("C-x g" . magit-status)
   ("C-c g" . magit-file-dispatch)
   :commands magit-blame
-  :after git-gutter-fringe
   :config
   ;; Add a "latest commits" section
   (magit-add-section-hook 'magit-status-sections-hook
