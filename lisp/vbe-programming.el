@@ -58,6 +58,11 @@
      (untracked . show)
      (unstaged . show))))
 
+(use-package forge
+  :after magit
+  :custom
+  (forge-database-file (vbe:runtime-file "forge-database.sqlite")))
+
 (use-package git-commit
   :config
   (global-git-commit-mode 1))
