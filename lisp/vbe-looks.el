@@ -23,11 +23,11 @@
 
 ;; TODO: https://github.com/cpitclaudel/monospacifier
 
-(defvar vbe:default-font "Iosevka Term SS14-11"
+(defvar vbe:default-font "Iosevka Term SS18-11"
   "Default font.")
 (defvar vbe:variable-font-family "Iosevka Aile"
   "Default variable font.")
-(defvar vbe:modeline-font "Iosevka SS14-11"
+(defvar vbe:modeline-font "Iosevka SS18-11"
   "Font to use for the modeline (and minibuffer prompt).")
 
 ;; Disable various graphical widgets
