@@ -51,15 +51,6 @@
          (address ,(s-join "@" '("bernat" "debian.org")))
          (organization "Debian")
          (signature (vbe:fortune)))
-        ((or (vbe:mail-related-to "*@blade-group.com")
-             (vbe:mail-related-to "*@blade-group.com" "delivered-to"))
-         (x-identity "blade")
-         (address ,(s-join "@" '("Vincent.Bernat" "blade-group.com")))
-         (organization "Blade Group")
-         (gcc nil)
-         (signature (s-join "\n" '("*Vincent Bernat* 🎮"
-                                   "*Network Team @ Shadow*"
-                                   "shadow.tech <https://www.shadow.tech/>"))))
         ((header "from" "notifications@github.com")
          (signature nil))
         ((header "from" ".*@discoursemail.com")

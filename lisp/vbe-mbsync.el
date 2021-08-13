@@ -133,8 +133,6 @@ Process is PROC and change is CHANGE."
   "Sync something depending on how many time this function has been called."
   (let ((args (cond ((eq (% vbe:mbsync-something 2) 0) '("fastmail" t))
                     ((eq (% vbe:mbsync-something 5) 0) '("fastmail"))
-                    ((eq (% vbe:mbsync-something 7) 0) '("blade-gmail-default" t))
-                    ((eq (% vbe:mbsync-something 9) 0) '("blade"))
                     nil)))
     (when (and args (vbe:online?))
       (apply 'vbe:mbsync args))
