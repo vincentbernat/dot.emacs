@@ -52,11 +52,7 @@
                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/luffy")
                (nnir-search-engine imap)))
 (setq gnus-secondary-select-methods
-      `((nnimap "shadow"
-                (nnimap-stream shell)
-                (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/shadow")
-                (nnir-search-engine imap))
-        (nndraft ""
+      `((nndraft ""
                  (nndraft-directory ,(nnheader-concat message-directory "drafts")))))
 (setq gnus-agent nil)
 (setq message-send-mail-function 'message-send-mail-with-sendmail
@@ -75,6 +71,9 @@
   (run-at-time "10 sec" 61 'vbe:mbsync-something))
 (add-hook 'gnus-started-hook #'vbe:gnus-setup-mbsync-timers)
 (add-to-list 'global-mode-string '(:eval (vbe:mbsync-mode-line)) t)
+
+;; Notifications
+(add-hook 'gnus-after-getting-new-news-hook #'gnus-notifications)
 
 ;; Spam handling
 (require 'spam)
