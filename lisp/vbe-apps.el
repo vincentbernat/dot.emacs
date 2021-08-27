@@ -35,5 +35,12 @@
 (use-package pass
   :defer t)
 
+(use-package ein
+  :pin "melpa")
+(use-package request
+  :defer t :ensure nil
+  :custom
+  (request-storage-directory (vbe:runtime-directory "request")))
+
 (provide 'vbe-apps)
 ;;; vbe-apps.el ends here
