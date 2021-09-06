@@ -85,6 +85,7 @@
  'org-babel-load-languages
  '((python     . t)
    (shell      . t)                     ; ob-shell replaces ob-sh in Org 9.x
+   (sqlite     . t)
    (emacs-lisp . t)))
 
 (use-package ob-async)
