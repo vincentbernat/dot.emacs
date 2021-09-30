@@ -610,5 +610,12 @@ arglist-cont-nonempty"
   :custom
   (ccls-args '("--init={\"compilationDatabaseDirectory\":\"build~\"}")))
 
+(use-package executable
+  :ensure nil
+  :config
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (add-hook 'after-save-hook #'executable-make-buffer-file-executable-if-script-p nil t))))
+
 (provide 'vbe-programming)
 ;;; vbe-programming.el ends here
