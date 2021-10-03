@@ -125,8 +125,8 @@ MBSYNCRC is the configuration file to look at."
   "Sentinel for mbsync process.
 Process is PROC and change is CHANGE."
   (vbe:mbsync-update-mode-line proc)
-  (when (and (eq (process-status proc) 'exit) (not (process-get proc :quick)))
-    (gnus-group-get-new-news 2)))
+  (when (eq (process-status proc) 'exit)
+    (gnus-group-get-new-news (if (process-get proc :quick) 2))))
 
 (defvar vbe:mbsync-something 0)
 (defun vbe:mbsync-something ()
