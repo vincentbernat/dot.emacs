@@ -112,14 +112,6 @@
                                                    "X-Spam-Level X-Spam-Score"
                                                    "Date"))))))
 
-;; Gravatar
-(require 'gnus-gravatar)
-(defun vbe:gnus-treat-from-gravatar ()
-  "Display gravatar, only when online."
-  (when (vbe:online?)
-    (gnus-treat-from-gravatar)))
-(add-hook 'gnus-article-prepare-hook #'vbe:gnus-treat-from-gravatar)
-
 ;; Citation format
 (setq message-citation-line-function 'message-insert-formatted-citation-line
       message-citation-line-format " ❦ %e %B %Y %R %Z, %N:\n")
