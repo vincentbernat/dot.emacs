@@ -45,40 +45,6 @@
   :config
   (which-key-mode 1))
 
-;; Setup ivy/swiper/counsel
-(use-package ivy
-  :diminish
-  :bind (:map ivy-minibuffer-map
-         ("C-SPC" . ivy-restrict-to-matches))
-  :demand t
-  :custom
-  (ivy-use-virtual-buffers nil)
-  (ivy-count-format "(%d/%d) ")
-  (ivy-extra-directories nil)
-  (ivy-format-functions-alist '((t . vbe:ivy-format-function-arrow)))
-  :config
-  (defun vbe:ivy-format-function-arrow (cands)
-    "Transform CANDS into a string for minibuffer with an unicode arrow prefix."
-    (ivy--format-function-generic
-     (lambda (str)
-       (concat "» " (ivy--add-face str 'ivy-current-match)))
-     (lambda (str)
-       (concat "  " str))
-     cands
-     "\n"))
-  (ivy-mode 1))
-(use-package swiper
-  :bind (("C-s" . swiper)
-         ("C-r" . swiper-backward))
-  :config
-  (add-to-list 'swiper-font-lock-exclude 'sieve-mode))
-(use-package smex
-  :custom
-  (smex-save-file (vbe:runtime-file "smex-items")))
-(use-package counsel
-  :diminish
-  :config
-  (counsel-mode 1))
 
 ;; Setup projectile
 (use-package projectile
@@ -87,10 +53,32 @@
   :custom
   (projectile-known-projects-file (vbe:runtime-file "projectile" "bookmarks.eld"))
   (projectile-cache-file (vbe:runtime-file "projectile" "cache"))
-  (projectile-completion-system 'ivy)
   (projectile-keymap-prefix (kbd "C-c p"))
   :config
   (projectile-mode 1))
+
+;; Vertico/orderless/consult
+(use-package vertico
+  :init (vertico-mode))
+(use-package orderless
+  :custom
+  (completion-styles '(orderless))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles partial-completion)))))
+(use-package savehist
+  :init (savehist-mode)
+  :custom
+  (savehist-file (vbe:runtime-file "history" "emacs-history")))
+(use-package marginalia
+  :init (marginalia-mode))
+(use-package consult
+  :bind (("C-x b" . consult-buffer)
+         ("C-x 4 b" . consult-buffer-other-window)
+         ("C-x 5 b" . consult-buffer-other-frame)
+         ("C-s" . consult-line)
+         ("M-y" . consult-yank-pop)
+         ("M-g g" . consult-goto-line)
+         ("M-g M-g" . consult-goto-line)))
 
 ;; Edit indirect allows to edit a region into a separate buffer
 (use-package edit-indirect

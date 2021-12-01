@@ -49,7 +49,6 @@
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
   :custom
-  (magit-completing-read-function 'ivy-completing-read)
   ;; Use M-x magit-describe-section-briefly to get a section name
   (magit-section-initial-visibility-alist
    '((stashes . hide)
@@ -575,8 +574,7 @@ arglist-cont-nonempty"
   (require 'projectile)
   (advice-add 'dumb-jump-get-project-root :override #'projectile-project-root)
   :custom
-  (dumb-jump-max-find-time 10)
-  (dumb-jump-selector 'ivy))
+  (dumb-jump-max-find-time 10))
 (use-package xref
   :ensure nil
   :config
