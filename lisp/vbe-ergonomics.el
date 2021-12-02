@@ -83,6 +83,11 @@
          ("M-g M-g" . consult-goto-line))
   :custom
   (consult-project-root-function #'projectile-project-root))
+(use-package embark
+  :bind (("C-." . embark-act)))
+(use-package embark-consult
+  :ensure t
+  :after (embark consult))
 
 ;; Edit indirect allows to edit a region into a separate buffer
 (use-package edit-indirect
