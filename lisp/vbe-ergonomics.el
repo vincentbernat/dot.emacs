@@ -50,6 +50,7 @@
 (use-package projectile
   :diminish
   :bind-keymap (("C-c p" . projectile-command-map))
+  :commands projectile-root-file
   :custom
   (projectile-known-projects-file (vbe:runtime-file "projectile" "bookmarks.eld"))
   (projectile-cache-file (vbe:runtime-file "projectile" "cache"))
@@ -76,9 +77,12 @@
          ("C-x 4 b" . consult-buffer-other-window)
          ("C-x 5 b" . consult-buffer-other-frame)
          ("C-s" . consult-line)
+         ("C-M-s" . consult-line-multi)
          ("M-y" . consult-yank-pop)
          ("M-g g" . consult-goto-line)
-         ("M-g M-g" . consult-goto-line)))
+         ("M-g M-g" . consult-goto-line))
+  :custom
+  (consult-project-root-function #'projectile-project-root))
 
 ;; Edit indirect allows to edit a region into a separate buffer
 (use-package edit-indirect
