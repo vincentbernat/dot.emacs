@@ -54,7 +54,6 @@
   :custom
   (projectile-known-projects-file (vbe:runtime-file "projectile" "bookmarks.eld"))
   (projectile-cache-file (vbe:runtime-file "projectile" "cache"))
-  (projectile-keymap-prefix (kbd "C-c p"))
   :config
   (projectile-mode 1))
 
