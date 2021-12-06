@@ -49,8 +49,8 @@
 ;; Setup projectile
 (use-package projectile
   :diminish
+  :demand t
   :bind-keymap (("C-c p" . projectile-command-map))
-  :commands projectile-root-file
   :custom
   (projectile-known-projects-file (vbe:runtime-file "projectile" "bookmarks.eld"))
   (projectile-cache-file (vbe:runtime-file "projectile" "cache"))
@@ -72,6 +72,7 @@
 (use-package marginalia
   :init (marginalia-mode))
 (use-package consult
+  :after projectile
   :bind (("C-x b" . consult-buffer)
          ("C-x 4 b" . consult-buffer-other-window)
          ("C-x 5 b" . consult-buffer-other-frame)
