@@ -98,10 +98,8 @@
 ;; Indentation detection.
 (use-package dtrt-indent
   :diminish
-  :hook (groovy-mode . dtrt-indent-mode)
   :defer 5
   :config
-  (add-to-list 'dtrt-indent-hook-mapping-list '(groovy-mode c/c++/java groovy-indent-offset))
   (dtrt-indent-global-mode 1))
 
 ;; Completion with company mode
@@ -525,9 +523,6 @@ arglist-cont-nonempty"
   ;; Add UNRELEASED at the front place
   (custom-set-variables '(debian-changelog-allowed-distributions
                           (-rotate 1 debian-changelog-allowed-distributions))))
-
-(use-package groovy-mode
-  :defer t)
 
 (use-package snmp-mode
   :mode (("-MIB\\'" . snmpv2-mode)
