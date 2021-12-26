@@ -79,7 +79,7 @@ if any of the given expressions in WHAT is present."
                              (-map (lambda (w)
                                      (string-match (dired-glob-regexp w) address))
                                    what)))
-                          (-non-nil (-map #'second (mail-extract-address-components field t)))))))
+                          (-non-nil (-map #'-second-item (mail-extract-address-components field t)))))))
                (-map #'message-field-value fields)))))))
 
 ;; Signature

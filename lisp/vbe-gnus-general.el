@@ -202,8 +202,8 @@ Uses the process/prefix convention with N."
 (defun vbe:gnus/extract-names (field)
   "Extract the list of names from a given FIELD."
   (let ((result (gnus-with-article-headers
-            (mapconcat #'(lambda (x) (or (first x)
-                                    (second x)))
+            (mapconcat #'(lambda (x) (or (-first-item x)
+                                    (-second-item x)))
                        (mail-extract-address-components
                         (or (mail-fetch-field field)
                             "") t) "; "))))
