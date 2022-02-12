@@ -581,7 +581,6 @@ arglist-cont-nonempty"
   :hook ((go-mode) . lsp-deferred)
   :custom
   (lsp-enable-snippet nil)
-  (lsp-prefer-flymake nil)
   (lsp-session-file (vbe:runtime-file "lsp-session-v1"))
   :config
   (require 'projectile)
