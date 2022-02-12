@@ -578,14 +578,11 @@ arglist-cont-nonempty"
 
 ;;; Emacs LSP
 (use-package lsp-mode
-  :defer t
+  :hook ((go-mode) . lsp-deferred)
   :custom
   (lsp-enable-snippet nil)
   (lsp-prefer-flymake nil)
-  (lsp-pyls-plugins-pylint-enabled nil)
   (lsp-session-file (vbe:runtime-file "lsp-session-v1"))
-  (lsp-enable-on-type-formatting nil)
-  (lsp-enable-indentation nil)
   :config
   (require 'projectile)
   (require 'company))
