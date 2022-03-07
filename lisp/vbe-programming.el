@@ -563,10 +563,10 @@ arglist-cont-nonempty"
   :defer t)
 
 (use-package dumb-jump
-  :bind (("M-g ." . dumb-jump-go)
-         ("M-g ," . dumb-jump-back))
+  :after xref
   :config
   (require 'projectile)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
   (advice-add 'dumb-jump-get-project-root :override #'projectile-project-root)
   :custom
   (dumb-jump-max-find-time 10))
