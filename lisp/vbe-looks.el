@@ -145,6 +145,11 @@ future frames."
       (buffer-position :priority 99)))
   (setq-default mode-line-format '("%e" (:eval (spaceline-ml-main))))
 
+  ;; Don't consider a frame with parent (popup) as a candidate
+  (defun powerline-set-selected-window ()
+    (when (and (not (minibuffer-window-active-p (frame-selected-window)))
+               (not (frame-parent)))
+      (setq powerline-selected-window (frame-selected-window))))
   ;; Don't change the modeline on focus out.
   (remove-hook 'focus-out-hook 'powerline-unset-selected-window))
 
