@@ -110,7 +110,7 @@
   ;; Unbind some keys to get company out of the way.
   (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
     (unbind-key key company-active-map))
-  (bind-key [C-return] #'company-complete-selection company-active-map)
+  (bind-key "<tab>" #'company-complete-selection company-active-map)
   ;; Enable globally
   (global-company-mode 1)
   :custom
