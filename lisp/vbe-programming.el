@@ -116,16 +116,6 @@
   :custom
   (company-tooltip-align-annotations t))
 
-(use-package company-posframe
-  :diminish
-  :pin "melpa"
-  :after company
-  :config
-  (company-posframe-mode 1)
-  :custom
-  (company-posframe-show-indicator nil)
-  (company-posframe-quickhelp-delay nil))
-
 ;; When compiling, colorize output
 (use-package compile
   :bind (("<f9>" . recompile))
