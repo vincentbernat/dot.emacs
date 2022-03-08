@@ -105,27 +105,16 @@
 ;; Completion with company mode
 (use-package company
   :diminish
+  :pin "melpa"
   :config
-  ;; Don't use up/down arrow (use M-n, M-p only) to browse list
-  (unbind-key "<up>" company-active-map)
-  (unbind-key "<down>" company-active-map)
-  ;; Don't mess with space and enter
-  (unbind-key "SPC" company-active-map)
-  (bind-key "TAB" #'company-complete-selection company-active-map)
-  (bind-key [C-return] #'counsel-company company-active-map)
-  (dolist (key '("<return>" "RET"))
-    ;; Here we are using an advanced feature of define-key that lets
-    ;; us pass an "extended menu item" instead of an interactive
-    ;; function. Doing this allows RET to regain its usual
-    ;; functionality when the user has not explicitly interacted with
-    ;; Company.
-    (define-key company-active-map (kbd key)
-      `(menu-item nil company-complete
-                  :filter ,(lambda (cmd)
-                             (when (company-explicit-action-p)
-                               cmd)))))
+  ;; Unbind some keys to get company out of the way.
+  (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
+    (unbind-key key company-active-map))
+  (bind-key [C-return] #'company-complete-selection company-active-map)
   ;; Enable globally
-  (global-company-mode 1))
+  (global-company-mode 1)
+  :custom
+  (company-tooltip-align-annotations t))
 
 ;; When compiling, colorize output
 (use-package compile
