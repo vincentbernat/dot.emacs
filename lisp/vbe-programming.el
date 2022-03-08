@@ -463,7 +463,9 @@ arglist-cont-nonempty"
 (use-package go-mode
   :defer t
   :config
-  (add-hook 'before-save-hook #'gofmt-before-save))
+  (add-hook 'before-save-hook #'gofmt-before-save)
+  :custom
+  (gofmt-command "goimports"))
 
 (use-package cider
   :hook (clojure-mode . cider-mode)
