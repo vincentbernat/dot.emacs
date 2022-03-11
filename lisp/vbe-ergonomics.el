@@ -33,6 +33,8 @@
       next-screen-context-lines 5)  ; Keep more lines when scrolling.
 (setq-default indent-tabs-mode nil)       ; Don't use tabs by default
 (fset 'yes-or-no-p 'y-or-n-p)           ; Always use y/n prompt
+(global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C-x C-z"))
 
 ;; Auto-compile non-compiled files
 (use-package auto-compile
