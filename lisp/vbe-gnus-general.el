@@ -75,6 +75,9 @@
 ;; Notifications
 (add-hook 'gnus-after-getting-new-news-hook #'gnus-notifications)
 
+;; Sign
+(setq mml-secure-openpgp-sign-with-sender t)
+
 ;; Spam handling
 (require 'spam)
 (setq spam-install-hooks t)
