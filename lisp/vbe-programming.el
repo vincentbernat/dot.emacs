@@ -569,10 +569,16 @@ arglist-cont-nonempty"
 
 ;;; Emacs LSP
 (use-package lsp-mode
+  :hook ((go-mode) . vbe:lsp-non-interactive)
   :custom
   (lsp-enable-snippet nil)
   (lsp-session-file (vbe:runtime-file "lsp-session-v1"))
   :config
+  (defun vbe:lsp-non-interactive ()
+    (require 'lsp)
+    (when (lsp-workspace-root)
+      (lsp)))
+
   (require 'projectile)
   (require 'company))
 
