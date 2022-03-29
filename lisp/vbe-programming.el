@@ -68,7 +68,6 @@
 
 ;; Then, flycheck. Needs to be enabled for each mode.
 (use-package flycheck
-  :pin "melpa"
   :custom
   ;; Use a dot file to avoid being detected by some watchers
   (flycheck-temp-prefix ".flycheck")
