@@ -420,12 +420,9 @@ arglist-cont-nonempty"
   :mode ("\\.css\\'" "\\.less\\'"))
 
 (use-package web-mode
-  :mode ("\\.jsx\\'" "\\.html?\\'")
+  :mode ("\\.jsx\\'" "\\.html?\\'" "\\.vue\\'")
   :custom
-  (web-mode-enable-auto-indentation nil)
-  :config
-  (setq web-mode-engines-alist
-        '(("django" . "\\.j2\\'"))))
+  (web-mode-enable-auto-indentation nil))
 
 (use-package auctex
   :defer t)
