@@ -127,6 +127,19 @@
   :custom
   (compilation-ask-about-save nil))
 
+;; Formatter on save
+(use-package apheleia
+  :diminish (apheleia-mode . "✨")
+  :hook ((go-mode
+          js2-mode
+          web-mode) . apheleia-mode)
+  :config
+  ;; Use goimports for Go
+  (setf (alist-get 'gofmt apheleia-formatters)
+      '("goimports"))
+  ;; Make alpheleia-formatter safe
+  (put 'apheleia-formatter 'safe-local-variable 'symbolp))
+
 ;; Paredit for parenthesis
 (use-package paredit
   :diminish (paredit-mode . "()")
@@ -462,11 +475,7 @@ arglist-cont-nonempty"
   :defer t)
 
 (use-package go-mode
-  :defer t
-  :config
-  (add-hook 'before-save-hook #'gofmt-before-save)
-  :custom
-  (gofmt-command "goimports"))
+  :defer t)
 
 (use-package cider
   :hook (clojure-mode . cider-mode)
