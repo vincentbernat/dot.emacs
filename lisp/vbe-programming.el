@@ -79,12 +79,17 @@
   (flycheck-indication-mode 'left-fringe)
   ;; Use Python3 for Python
   (flycheck-python-pycompile-executable "python3")
+  ;; Custom eslint executable
+  (flycheck-javascript-eslint-executable (vbe:executable-path "eslint"))
 
   :config
   ;; Enable globally
   (global-flycheck-mode 1)
   (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
     [16 48 112 240 112 48 16] nil nil 'center)
+
+  ;; Use eslint with web-mode too
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
 
   ;; LISP: disable emacs-lisp-checkdoc.
   (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
