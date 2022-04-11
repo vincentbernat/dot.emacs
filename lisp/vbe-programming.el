@@ -134,7 +134,7 @@
 
 ;; Formatter on save
 (use-package apheleia
-  :diminish (apheleia-mode . "✨")
+  :diminish "✨"
   :hook ((go-mode
           js2-mode
           web-mode) . apheleia-mode)
@@ -147,7 +147,7 @@
 
 ;; Paredit for parenthesis
 (use-package paredit
-  :diminish (paredit-mode . "()")
+  :diminish "()"
   :hook ((cidr-repl-mode
           clojure-mode
           lisp-mode
