@@ -148,9 +148,7 @@
 ;; Paredit for parenthesis
 (use-package paredit
   :diminish "()"
-  :hook ((cidr-repl-mode
-          clojure-mode
-          lisp-mode
+  :hook ((lisp-mode
           emacs-lisp-mode) . paredit-mode)
   :bind (:map paredit-mode-map
               ("M-k" . paredit-copy-as-kill))
@@ -481,27 +479,6 @@ arglist-cont-nonempty"
 
 (use-package go-mode
   :defer t)
-
-(use-package cider
-  :hook (clojure-mode . cider-mode)
-  :custom
-  ;; Change the spinner type to stay at constant-width
-  (cider-eval-spinner-type 'vertical-breathing))
-(use-package clojure-mode
-  :defer t
-  :config
-  ;; Some indentation preferences (for midje)
-  (put-clojure-indent 'fact 1)
-  (put-clojure-indent 'facts 1)
-
-  ;; Alignment for :as
-  (with-eval-after-load "align"
-    (add-to-list 'align-rules-list
-                 '(clojure-require-refer-and-as
-                   (regexp   . "\\[[^]]*\\(\\s-\\s-*\\)\\(:as\\|:refer\\)\\s-*[^]]*\\]")
-                   (group    . 1)
-                   (modes    . '(clojure-mode))
-                   (tab-stop . nil)))))
 
 ;; Evaluate last sexp "inline", like with CIDER
 (use-package eros
