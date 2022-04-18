@@ -497,8 +497,8 @@ arglist-cont-nonempty"
 (use-package salt-mode
   :defer t)
 
-(use-package debian-changelog-mode
-  :ensure nil
+(use-package dpkg-dev-el
+  :pin "melpa"
   :defer t
   :custom
   (debian-changelog-mailing-address (s-join "@" '("bernat" "debian.org")))
@@ -506,6 +506,9 @@ arglist-cont-nonempty"
   ;; Add UNRELEASED at the front place
   (custom-set-variables '(debian-changelog-allowed-distributions
                           (-rotate 1 debian-changelog-allowed-distributions))))
+
+(use-package debian-el
+  :pin "melpa")
 
 (use-package snmp-mode
   :mode (("-MIB\\'" . snmpv2-mode)
