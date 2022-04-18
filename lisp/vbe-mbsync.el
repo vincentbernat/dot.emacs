@@ -30,6 +30,7 @@
 (require 'vbe-common)
 (require 'auth-source)
 (require 'comint)
+(require 'gnus-group)
 
 (defun vbe:mbsync (channel &optional only)
   "Run the `mbsync' command asynchronously.
@@ -121,12 +122,13 @@ MBSYNCRC is the configuration file to look at."
                             (s-match-strings-all "^\\(Channel\\|Group\\)\\s-+\\([a-z0-9A-Z-]+\\)\\s-*$"
                                                  (f-read-bytes mbsyncrc)))))))
 
-(defun vbe:mbsync-sentinel (proc change)
+(defun vbe:mbsync-sentinel (proc _)
   "Sentinel for mbsync process.
 Process is PROC and change is CHANGE."
   (vbe:mbsync-update-mode-line proc)
   (when (eq (process-status proc) 'exit)
-    (gnus-group-get-new-news (if (process-get proc :quick) 2))))
+    (gnus-group-get-new-news (if (process-get proc :quick) 2))
+    (gnus-group-list-groups)))
 
 (defvar vbe:mbsync-something 0)
 (defun vbe:mbsync-something ()
