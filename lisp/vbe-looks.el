@@ -153,12 +153,6 @@ future frames."
   ;; Don't change the modeline on focus out.
   (remove-hook 'focus-out-hook 'powerline-unset-selected-window))
 
-;; Display emojis.
-(use-package emojify
-  :defer t
-  :config
-  (setq emojify-emojis-dir (vbe:runtime-directory "emojis")))
-
 ;; Display ^L as break lines
 (use-package page-break-lines
   :diminish

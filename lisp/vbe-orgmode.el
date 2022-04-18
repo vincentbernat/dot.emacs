@@ -56,8 +56,6 @@
                     pre-bg pre-fg)))))
 (add-hook 'org-export-before-processing-hook 'vbe:org-inline-css-hook)
 
-(add-hook 'org-mode-hook #'emojify-mode)
-
 (defun vbe:org-todo-keyword-face (keyword color1 color2)
   "Build a face for KEYWORD using COLOR1 and COLOR2."
   `(,keyword

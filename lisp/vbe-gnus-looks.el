@@ -165,11 +165,6 @@ space instead."
 ; Start in topic mode
 (add-hook 'gnus-group-mode-hook #'gnus-topic-mode)
 
-;; Use emojify for emojis
-(setq gnus-treat-display-smileys nil)
-(add-hook 'gnus-article-mode-hook #'emojify-mode)
-(add-hook 'message-mode-hook #'emojify-mode)
-
 ;; Don't be too verbose
 (setq gnus-verbose 4
       gnus-verbose-backends 6)

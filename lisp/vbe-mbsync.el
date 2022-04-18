@@ -128,7 +128,7 @@ Process is PROC and change is CHANGE."
   (vbe:mbsync-update-mode-line proc)
   (when (eq (process-status proc) 'exit)
     (gnus-group-get-new-news (if (process-get proc :quick) 2))
-    (gnus-group-list-groups)))
+    (gnus-group-list-groups (gnus-group-default-list-level))))
 
 (defvar vbe:mbsync-something 0)
 (defun vbe:mbsync-something ()
