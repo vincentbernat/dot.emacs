@@ -28,10 +28,11 @@
 (require 'gnus-msg)
 (require 'gnus-art)
 (require 'gnus-icalendar)
+(require 'gnus-search)
 (require 'mml2015)
 (require 'auth-source)
 (require 'epg)
-(require 'nnir)
+(require 'smtpmail)
 
 ;; No .newsrc
 (setq gnus-directory (vbe:runtime-directory "gnus")
@@ -49,8 +50,7 @@
 (setq gnus-select-method
       `(nnimap ""
                (nnimap-stream shell)
-               (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/luffy")
-               (nnir-search-engine imap)))
+               (nnimap-shell-program "/usr/lib/dovecot/imap -o mail_location=maildir:~/.mbsync/mails/luffy")))
 (setq gnus-secondary-select-methods
       `((nndraft ""
                  (nndraft-directory ,(nnheader-concat message-directory "drafts")))))
@@ -60,8 +60,10 @@
 (setq gnus-message-archive-group "Sent"
       gnus-message-archive-method "nnimap:"
       gnus-update-message-archive-method t
-      gnus-gcc-mark-as-read t
-      nnir-imap-default-search-key "imap")
+      gnus-gcc-mark-as-read t)
+
+;; Enable generic search
+(setq gnus-search-use-parsed-queries t)
 
 ;; Sync IMAP with mbsync
 (require 'vbe-mbsync)
