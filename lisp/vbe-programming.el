@@ -134,13 +134,11 @@
 
 ;; Formatter on save
 (use-package apheleia
+  :diminish "✨"
   :hook ((go-mode
           js2-mode
           web-mode) . apheleia-mode)
   :config
-  ;; Diminish (apheleia-mode is special, see https://emacs.stackexchange.com/questions/70367/how-can-i-apply-diminish-to-apheleia-mode)
-  (with-eval-after-load 'apheleia
-    (diminish 'apheleia-mode "✨"))
   ;; Use goimports for Go
   (setf (alist-get 'gofmt apheleia-formatters)
       '("goimports"))
