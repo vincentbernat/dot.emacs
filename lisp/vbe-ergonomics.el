@@ -20,6 +20,7 @@
 ;;; Code:
 
 (require 'vbe-package)
+(require 'vbe-common)
 
 ;; Various settings
 (setq mouse-yank-at-point t         ; Yank where the point currently is
@@ -231,14 +232,16 @@ point reaches the beginning or end of the buffer, stop there."
   (transient-values-file (vbe:runtime-file "transient" "values.el"))
   (transient-history-file (vbe:runtime-file "transient" "history.el")))
 
+(use-package pcache
+  :defer t
+  :pin "melpa"
+  :config
+  (setq pcache-directory (vbe:runtime-directory "pcache")))
+
 ;; Miscellaneous tweaks for non-packages
 (use-package tramp
   :ensure nil :defer t :config
   (setq tramp-persistency-file-name (vbe:runtime-file "tramp" "history")))
-
-(use-package pcache
-  :ensure nil :defer t :config
-  (setq pcache-directory (vbe:runtime-directory "pcache")))
 
 (use-package url
   :ensure nil :defer t :custom
