@@ -568,6 +568,7 @@ arglist-cont-nonempty"
   :hook ((go-mode) . vbe:lsp-non-interactive)
   :custom
   (lsp-session-file (vbe:runtime-file "lsp-session-v1"))
+  (lsp-keymap-prefix "C-c l")
   :config
   (defun vbe:lsp-non-interactive ()
     (require 'lsp)
