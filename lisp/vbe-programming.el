@@ -139,9 +139,7 @@
   :config
   ;; Use goimports for Go
   (setf (alist-get 'gofmt apheleia-formatters)
-      '("goimports"))
-  ;; Make alpheleia-formatter safe
-  (put 'apheleia-formatter 'safe-local-variable 'symbolp))
+      '("goimports")))
 (diminish 'apheleia-mode "✨") ; see https://emacs.stackexchange.com/questions/70367/how-can-i-apply-diminish-to-apheleia-mode/70379#70379
 
 ;; Paredit for parenthesis
