@@ -135,9 +135,7 @@
 ;; Formatter on save
 (use-package apheleia
   :diminish "✨"
-  :hook ((go-mode
-          js2-mode
-          web-mode) . apheleia-mode)
+  :hook (go-mode . apheleia-mode)
   :config
   ;; Use goimports for Go
   (setf (alist-get 'gofmt apheleia-formatters)
