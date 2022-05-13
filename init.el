@@ -29,6 +29,7 @@
 
 ;; Setup environment to load other files.
 
+(setq warning-minimum-level :error)
 (setq load-prefer-newer t)
 (setq user-emacs-directory (file-name-directory
                         (or (buffer-file-name) (file-chase-links load-file-name))))
