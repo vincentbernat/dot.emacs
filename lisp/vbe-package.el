@@ -55,11 +55,12 @@
 (use-package bind-key)
 
 ;; Install quelpa
-(defvar quelpa-dir)
-
 (use-package quelpa
   :custom
   (quelpa-dir (concat user-emacs-directory "run/quelpa"))
+  (quelpa-build-dir (concat user-emacs-directory "run/quelpa/build"))
+  (quelpa-packages-dir (concat user-emacs-directory "run/quelpa/packages"))
+  (quelpa-persistent-cache-file (concat user-emacs-directory "run/quelpa/cache"))
   (quelpa-checkout-melpa-p nil)
   (quelpa-update-melpa-p nil))
 (use-package quelpa-use-package
