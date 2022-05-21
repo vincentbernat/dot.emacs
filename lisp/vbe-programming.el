@@ -498,11 +498,7 @@ arglist-cont-nonempty"
   :pin "melpa"
   :defer t
   :custom
-  (debian-changelog-mailing-address (s-join "@" '("bernat" "debian.org")))
-  :config
-  ;; Add UNRELEASED at the front place
-  (setq debian-changelog-allowed-distributions
-        (-rotate 1 debian-changelog-allowed-distributions)))
+  (debian-changelog-mailing-address (s-join "@" '("bernat" "debian.org"))))
 
 (use-package debian-el
   :pin "melpa")
