@@ -167,7 +167,10 @@
 
 ;; Hippie expansion
 (use-package hippie-exp
-  :bind (("M-/" . hippie-expand)))
+  :bind (("M-/" . hippie-expand))
+  :config
+  (setq hippie-expand-try-functions-list
+        (remove 'try-expand-list hippie-expand-try-functions-list)))
 
 ;; Auto revert buffers
 (global-auto-revert-mode 1)
