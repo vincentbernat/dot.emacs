@@ -139,7 +139,9 @@
   :config
   ;; Use goimports for Go
   (setf (alist-get 'gofmt apheleia-formatters)
-      '("goimports")))
+        '("goimports"))
+  (add-to-list 'apheleia-formatters '(nixpkgs-fmt . ("nixpkgs-fmt")))
+  (add-to-list 'apheleia-mode-alist '(nix-mode . nixpkgs-fmt)))
 (diminish 'apheleia-mode "✨") ; see https://emacs.stackexchange.com/questions/70367/how-can-i-apply-diminish-to-apheleia-mode/70379#70379
 
 ;; Paredit for parenthesis
