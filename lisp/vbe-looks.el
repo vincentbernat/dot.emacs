@@ -74,11 +74,6 @@ future frames."
   (defun vbe:set-theme ()
     (naquadah-theme-set-faces
      'naquadah
-     '(gnus-summary-normal-ticked (:background scarlet-red-3))
-     '(gnus-summary-normal-read   (:foreground aluminium-3 :italic t))
-     '(gnus-summary-high-unread   (:inherit gnus-summary-normal-unread :background sky-blue-2))
-     '(gnus-summary-high-read     (:inherit gnus-summary-normal-read :background sky-blue-3))
-
      '(org-tag                    (:background aluminium-5
                                                :foreground "white"
                                                :box (:line-width 1 :color aluminium-3)

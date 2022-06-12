@@ -21,11 +21,6 @@
 
 (require 'vbe-common)
 
-(use-package gnus
-  :defer t
-  :config
-  (require 'vbe-gnus))
-
 (use-package org
   :bind (("C-c l" . org-store-link))
   :pin "gnu"                            ; no effect?
