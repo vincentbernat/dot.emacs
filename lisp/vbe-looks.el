@@ -45,7 +45,11 @@
 (setq x-stretch-cursor t)               ; Stretch cursor to match character width.
 (set-default 'indicate-buffer-boundaries '((up . nil) (down . nil) (t . left)))
 
-(defun vbe:set-font (&optional frame)
+
+;; Main theme.
+(use-package naquadah-theme
+  :config
+  (defun vbe:set-font (&optional frame)
     "Change default font for the given FRAME.
 If not frame is provided, the font is applied to all frames and
 future frames."
@@ -57,20 +61,14 @@ future frames."
                       mode-line-inactive
                       minibuffer-prompt))
         (set-face-attribute face frame :font vbe:modeline-font))))
-
-;; Fringe
-(defun vbe:fringe-mode ()
-  "Fix fringe width, depending on DPI."
-  (when (fboundp 'fringe-mode)
-    (fringe-mode (frame-char-width))))
-(vbe:fringe-mode)
-(add-hook 'vbe:dpi-change-hook #'vbe:fringe-mode)
-
-;; Main theme.
-(use-package naquadah-theme
-  :config
   (vbe:set-font (selected-frame))
   (add-hook 'after-make-frame-functions #'vbe:set-font)
+  (defun vbe:fringe-mode ()
+    "Fix fringe width, depending on DPI."
+    (when (fboundp 'fringe-mode)
+      (fringe-mode (frame-char-width))))
+  (vbe:fringe-mode)
+  (add-hook 'vbe:dpi-change-hook #'vbe:fringe-mode)
   (defun vbe:set-theme ()
     (naquadah-theme-set-faces
      'naquadah
