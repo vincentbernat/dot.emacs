@@ -49,6 +49,7 @@
 ;; Main theme.
 (use-package naquadah-theme
   :config
+  ;; Setting font
   (defun vbe:set-font (&optional frame)
     "Change default font for the given FRAME.
 If not frame is provided, the font is applied to all frames and
@@ -63,30 +64,31 @@ future frames."
         (set-face-attribute face frame :font vbe:modeline-font))))
   (vbe:set-font (selected-frame))
   (add-hook 'after-make-frame-functions #'vbe:set-font)
+  ;; Setting fringe
   (defun vbe:fringe-mode ()
     "Fix fringe width, depending on DPI."
     (when (fboundp 'fringe-mode)
       (fringe-mode (frame-char-width))))
   (vbe:fringe-mode)
   (add-hook 'vbe:dpi-change-hook #'vbe:fringe-mode)
-  (defun vbe:set-theme ()
-    (naquadah-theme-set-faces
-     'naquadah
-     '(org-tag                    (:background aluminium-5
-                                               :foreground "white"
-                                               :box (:line-width 1 :color aluminium-3)
-                                               :slant oblique
-                                               :weight normal))
-     '(org-level-1 (:weight bold :foreground gradient-1))
-     '(org-level-2 (:weight bold :foreground gradient-2))
-     '(org-level-3 (:weight bold :foreground gradient-3))
+  ;; Load theme
+  (load-theme 'naquadah t)
+  (naquadah-theme-set-faces
+   'naquadah
+   '(org-tag                    (:background aluminium-5
+                                             :foreground "white"
+                                             :box (:line-width 1 :color aluminium-3)
+                                             :slant oblique
+                                             :weight normal))
+   '(org-level-1 (:weight bold :foreground gradient-1))
+   '(org-level-2 (:weight bold :foreground gradient-2))
+   '(org-level-3 (:weight bold :foreground gradient-3))
 
-     '(comint-highlight-prompt    (:foreground orange-2 :weight bold))
+   '(comint-highlight-prompt    (:foreground orange-2 :weight bold))
 
-     '(highlight                  (:background scarlet-red-3))
-     '(hl-line                    (:background aluminium-6)))
-    (enable-theme 'naquadah))
-  (vbe:set-theme))
+   '(highlight                  (:background scarlet-red-3))
+   '(hl-line                    (:background aluminium-6)))
+  (enable-theme 'naquadah))
 
 ;; Modeline theme.
 (use-package spaceline
