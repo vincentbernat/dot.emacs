@@ -56,9 +56,6 @@
      (recent . show)
      (untracked . show)
      (unstaged . show))))
-(use-package magit-delta
-  :diminish
-  :hook (magit-mode . magit-delta-mode))
 
 (use-package forge
   :after magit
