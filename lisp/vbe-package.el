@@ -34,9 +34,6 @@
       '(("m-stable" . 20)
         ("melpa"    . 10)))
 
-;; Waiting for use-package 2.4...
-(setq package-pinned-packages '((use-package . "melpa")))
-
 ;; Initialize package manager.
 (package-initialize)
 (unless package-archive-contents (package-refresh-contents))
