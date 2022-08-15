@@ -48,7 +48,8 @@
 (setq use-package-always-ensure t)
 
 ;; Load some additional packages to use :diminish and :bind* options.
-(use-package diminish)
+(use-package diminish
+  :pin "gnu")
 (use-package bind-key)
 
 ;; Install quelpa
