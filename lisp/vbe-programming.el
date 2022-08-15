@@ -49,6 +49,7 @@
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
   :custom
+  (magit-revision-insert-related-refs nil)
   ;; Use M-x magit-describe-section-briefly to get a section name
   (magit-section-initial-visibility-alist
    '((stashes . hide)
