@@ -48,6 +48,15 @@
   ;; Remove unneeded prompts
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
+  ;; Add a way to displayed related refs
+  (defun vbe:magit-revision-insert-related-refs ()
+    (interactive)
+    (let ((magit-revision-insert-related-refs t))
+      (magit-refresh)))
+
+  (define-key magit-revision-mode-map (kbd "C-c C-r")
+    #'vbe:magit-revision-insert-related-refs)
+
   :custom
   (magit-revision-insert-related-refs nil)
   ;; Use M-x magit-describe-section-briefly to get a section name
