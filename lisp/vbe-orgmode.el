@@ -110,6 +110,12 @@
 (use-package org-mime
   :defer t)
 
+(use-package org-download
+  :pin "melpa"
+  :custom
+  (org-download-image-dir "images")
+  (org-download-heading-lvl nil))
+
 (use-package htmlize)
 
 (use-package ox-reveal
