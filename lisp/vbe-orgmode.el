@@ -34,6 +34,7 @@
  org-catch-invisible-edits 'error       ; don't edit invisible text
  org-pretty-entities t                  ; use "pretty entities"
  org-export-use-babel nil               ; do not evaluate blocks when exporting
+ org-image-actual-width (when window-system (list (truncate (* (frame-native-width) 0.9))))
  org-export-with-toc nil                ; do not add a ToC when exporting
  org-html-postamble nil                 ; do not add a postamble when exporting
  org-html-head-include-scripts nil      ; do not add Javascript
