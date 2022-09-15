@@ -108,7 +108,6 @@
         org-tags-column 0
         org-special-ctrl-a/e t
         org-insert-heading-respect-content t
-        org-hide-emphasis-markers t
         org-pretty-entities t
         org-ellipsis "…"))
 
