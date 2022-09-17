@@ -55,28 +55,6 @@
                     pre-bg pre-fg)))))
 (add-hook 'org-export-before-processing-hook 'vbe:org-inline-css-hook)
 
-(defun vbe:org-todo-keyword-face (keyword color1 color2)
-  "Build a face for KEYWORD using COLOR1 and COLOR2."
-  `(,keyword
-    :box (:line-width 1 :color ,(naquadah-get-colors color1))
-    :backgound ,(naquadah-get-colors color2)
-    :foreground "white"
-    :weight bold))
-
-;; Todo keywords
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "PROGRESS(p!)" "|" "DONE(d!)")
-        (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))
-      org-todo-keyword-faces
-      (-map (-applify 'vbe:org-todo-keyword-face)
-            '(("TODO"      scarlet-red-1 scarlet-red-3)
-              ("NEXT"      sky-blue-1 sky-blue-3)
-              ("PROGRESS"  chocolate-1 chocolate-3)
-              ("DONE"      chameleon-1 chameleon-3)
-              ("WAITING"   orange-1 orange-3)
-              ("HOLD"      plum-1 plum-3)
-              ("CANCELLED" aluminium-3 aluminium-5))))
-
 ;; Babel modes
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -109,7 +87,19 @@
         org-special-ctrl-a/e t
         org-insert-heading-respect-content t
         org-pretty-entities t
-        org-ellipsis "…"))
+        org-ellipsis "…")
+  :custom
+  (org-todo-keywords
+   '((sequence "TODO(t)" "NEXT(n)" "PROGRESS(p!)" "|" "DONE(d!)")
+     (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)")))
+  (org-modern-todo-faces
+   `(("TODO" :background ,(naquadah-get-colors 'scarlet-red-3) :foreground "white")
+     ("NEXT" :background ,(naquadah-get-colors 'sky-blue-3) :foreground "white")
+     ("PROGRESS" :background ,(naquadah-get-colors 'chocolate-3) :foreground "white")
+     ("DONE" :background ,(naquadah-get-colors 'chameleon-3) :foreground "white")
+     ("WAITING" :background ,(naquadah-get-colors 'orange-3) :foreground "white")
+     ("HOLD" :background ,(naquadah-get-colors 'plum-3) :foreground "white")
+     ("CANCELLED" :background ,(naquadah-get-colors 'aluminium-5) :foreground "white"))))
 
 (use-package org-mime
   :defer t)
