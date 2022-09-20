@@ -176,6 +176,12 @@
   :diminish
   :defer t)
 
+;; Consult-dash
+(use-package consult-dash
+  :defer t
+  :config
+  (consult-customize consult-dash :initial (thing-at-point 'symbol)))
+
 ;; Abbrev
 (use-package abbrev
   :ensure nil
