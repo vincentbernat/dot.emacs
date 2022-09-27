@@ -26,7 +26,6 @@
 
 (setq
  org-startup-indented nil               ; don't indent by default
- org-hide-leading-stars t               ; don't show leading stars
  org-cycle-separator-lines 0            ; don't show blank lines between collapsed trees
  org-src-fontify-natively t             ; fontify code blocks
  org-edit-src-content-indentation 0     ; don't indent source blocks
@@ -99,7 +98,9 @@
      ("DONE" :background ,(naquadah-get-colors 'chameleon-3) :foreground "white")
      ("WAITING" :background ,(naquadah-get-colors 'orange-3) :foreground "white")
      ("HOLD" :background ,(naquadah-get-colors 'plum-3) :foreground "white")
-     ("CANCELLED" :background ,(naquadah-get-colors 'aluminium-5) :foreground "white"))))
+     ("CANCELLED" :background ,(naquadah-get-colors 'aluminium-5) :foreground "white")))
+  (org-modern-star nil)
+  (org-modern-hide-stars nil))
 
 (use-package org-mime
   :defer t)
