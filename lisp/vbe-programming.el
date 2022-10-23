@@ -71,38 +71,9 @@
   :config
   (global-git-commit-mode 1))
 
-;; Then, flycheck. Needs to be enabled for each mode.
-(use-package flycheck
-  :custom
-  ;; Use a dot file to avoid being detected by some watchers
-  (flycheck-temp-prefix ".flycheck")
-  ;; Do not hijack next-error
-  (flycheck-standard-error-navigation nil)
-  ;; Do not display anything in modeline (see spaceline)
-  (flycheck-mode-line nil)
-  ;; Display flycheck in right fringe
-  (flycheck-indication-mode 'left-fringe)
-  ;; Use Python3 for Python
-  (flycheck-python-pycompile-executable "python3")
-  ;; Custom eslint executable
-  (flycheck-javascript-eslint-executable (vbe:executable-path "eslint"))
-
-  :config
-  ;; Enable globally
-  (global-flycheck-mode 1)
-  (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
-    [16 48 112 240 112 48 16] nil nil 'center)
-
-  ;; Use eslint with web-mode too
-  (flycheck-add-mode 'javascript-eslint 'web-mode)
-
-  ;; LISP: disable emacs-lisp-checkdoc.
-  (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
-  (add-to-list 'flycheck-emacs-lisp-load-path (concat user-emacs-directory "lisp")))
-
-(use-package flycheck-package
-  :after flycheck
-  :config (flycheck-package-setup))
+(use-package flymake
+  :ensure nil
+  :hook ((programming-mode) . flymake-mode-on))
 
 ;; Indentation detection.
 (use-package dtrt-indent
@@ -563,32 +534,8 @@ arglist-cont-nonempty"
 
 
 ;;; Emacs LSP
-(use-package lsp-mode
-  :hook ((go-mode) . vbe:lsp-non-interactive)
-  :custom
-  (lsp-session-file (vbe:runtime-file "lsp-session-v1"))
-  (lsp-keymap-prefix "C-c l")
-  :config
-  (defun vbe:lsp-non-interactive ()
-    (require 'lsp)
-    (when (lsp-workspace-root)
-      (lsp)))
-
-  (require 'projectile)
-  (require 'company))
-
-(use-package lsp-ui
-  :bind (:map lsp-ui-mode-map
-              ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-              ([remap xref-find-references] . lsp-ui-peek-find-references))
-  :hook ((lsp-mode . lsp-ui-mode))
-  :custom
-  (lsp-ui-sideline-delay 0.8 "wait a bit before showing sideline"))
-
-(use-package ccls
-  :after (lsp-mode)
-  :custom
-  (ccls-args '("--init={\"compilationDatabaseDirectory\":\"build~\"}")))
+(use-package eglot
+  :hook ((go-mode) . eglot-ensure))
 
 (provide 'vbe-programming)
 ;;; vbe-programming.el ends here
