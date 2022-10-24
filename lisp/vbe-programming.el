@@ -73,7 +73,7 @@
 
 (use-package flymake
   :ensure nil
-  :hook ((programming-mode) . flymake-mode-on))
+  :hook ((prog-mode) . flymake-mode-on))
 
 ;; Indentation detection.
 (use-package dtrt-indent
