@@ -74,6 +74,13 @@
 (use-package flymake
   :ensure nil
   :hook ((prog-mode) . flymake-mode-on))
+(use-package flymake-collection
+  :hook (after-init . flymake-collection-hook-setup))
+(use-package python-mode
+  :ensure nil
+  :flymake-hook (python-mode
+                 flymake-collection-mypy
+                 flymake-collection-pylint))
 
 ;; Indentation detection.
 (use-package dtrt-indent
