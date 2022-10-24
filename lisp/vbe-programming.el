@@ -71,16 +71,38 @@
   :config
   (global-git-commit-mode 1))
 
-(use-package flymake
-  :ensure nil
-  :hook ((prog-mode) . flymake-mode-on))
-(use-package flymake-collection
-  :hook (after-init . flymake-collection-hook-setup))
-(use-package python-mode
-  :ensure nil
-  :flymake-hook (python-mode
-                 flymake-collection-mypy
-                 flymake-collection-pylint))
+;; Then, flycheck. Needs to be enabled for each mode.
+(use-package flycheck
+  :custom
+  ;; Use a dot file to avoid being detected by some watchers
+  (flycheck-temp-prefix ".flycheck")
+  ;; Do not hijack next-error
+  (flycheck-standard-error-navigation nil)
+  ;; Do not display anything in modeline (see spaceline)
+  (flycheck-mode-line nil)
+  ;; Display flycheck in right fringe
+  (flycheck-indication-mode 'left-fringe)
+  ;; Use Python3 for Python
+  (flycheck-python-pycompile-executable "python3")
+  ;; Custom eslint executable
+  (flycheck-javascript-eslint-executable (vbe:executable-path "eslint"))
+
+  :config
+  ;; Enable globally
+  (global-flycheck-mode 1)
+  (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
+    [16 48 112 240 112 48 16] nil nil 'center)
+
+  ;; Use eslint with web-mode too
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+
+  ;; LISP: disable emacs-lisp-checkdoc.
+  (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
+  (add-to-list 'flycheck-emacs-lisp-load-path (concat user-emacs-directory "lisp")))
+
+(use-package flycheck-package
+  :after flycheck
+  :config (flycheck-package-setup))
 
 ;; Indentation detection.
 (use-package dtrt-indent
