@@ -563,8 +563,65 @@ arglist-cont-nonempty"
 
 
 ;;; Emacs LSP
+(defvar-local vbe:flycheck-eglot--current-errors nil)
 (use-package eglot
-  :hook ((go-mode) . eglot-ensure))
+  :hook ((go-mode) . eglot-ensure)
+  :config
+  ; Stolen from https://github.com/doomemacs/doomemacs/blob/develop/modules/tools/lsp/autoload/flycheck-eglot.el
+  (require 'flycheck)
+  (defun vbe:flycheck-eglot-init (_ callback)
+    (eglot-flymake-backend #'vbe:flycheck-eglot--on-diagnostics)
+    (funcall callback 'finished vbe:flycheck-eglot--current-errors))
+
+  (defun vbe:flycheck-eglot--on-diagnostics (diags &rest _)
+    (cl-labels
+        ((flymake-diag->flycheck-err
+          (diag)
+          (with-current-buffer (flymake--diag-buffer diag)
+            (flycheck-error-new-at-pos
+             (flymake--diag-beg diag)
+             (pcase (flymake--diag-type diag)
+               ('eglot-note 'info)
+               ('eglot-warning 'warning)
+               ('eglot-error 'error)
+               (_ (error "Unknown diagnostic type, %S" diag)))
+             (flymake--diag-text diag)
+             :end-pos (flymake--diag-end diag)
+             :checker 'eglot
+             :buffer (current-buffer)
+             :filename (buffer-file-name)))))
+      (setq vbe:flycheck-eglot--current-errors
+            (mapcar #'flymake-diag->flycheck-err diags))
+      ;; Call Flycheck to update the diagnostics annotations
+      (flycheck-buffer-deferred)))
+
+  (defun vbe:flycheck-eglot-available-p ()
+    (bound-and-true-p eglot--managed-mode))
+
+  (flycheck-define-generic-checker 'eglot
+    "Report `eglot' diagnostics using `flycheck'."
+    :start #'vbe:flycheck-eglot-init
+    :predicate #'vbe:flycheck-eglot-available-p
+    :modes '(prog-mode text-mode))
+  (push 'eglot flycheck-checkers)
+
+  (defun vbe:eglot-prefer-flycheck-h ()
+    (when eglot--managed-mode
+      (flymake-mode -1)
+      (when-let ((current-checker (flycheck-get-checker-for-buffer)))
+        (unless (equal current-checker 'eglot)
+          (flycheck-add-next-checker 'eglot current-checker)))
+      (flycheck-add-mode 'eglot major-mode)
+      (flycheck-mode 1)
+      ;; Call flycheck on initilization to make sure to display initial
+      ;; errors
+      (flycheck-buffer-deferred)))
+
+  (add-hook 'eglot-managed-mode-hook 'vbe:eglot-prefer-flycheck-h)
+  (when (and
+         (not (fboundp 'flymake--diag-buffer))
+         (fboundp 'flymake--diag-locus))
+    (defalias 'flymake--diag-buffer 'flymake--diag-locus)))
 
 (provide 'vbe-programming)
 ;;; vbe-programming.el ends here
