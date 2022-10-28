@@ -1,46 +1,70 @@
-;;; init.el --- Emacs init file                      -*- lexical-binding: t; -*-
+;;; init.el -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2018  Vincent Bernat
+;; NOTE Use `doom sync' after a modification.
 
-;; Author: Vincent Bernat <bernat@luffy.cx>
+;; NOTE Use `C-c c k' to view a module documentation. Use `C-c c d' to view its
+;;      directory (and source code). Use `C-h d m' to get the list of available
+;;      modules.
 
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or
-;; (at your option) any later version.
+(doom! :completion
+       (company +childframe)
+       vertico
 
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
+       :ui
+       doom
+       doom-dashboard
+       hl-todo
+       indent-guides
+       modeline
+       ophints
+       (popup +defaults)
+       (vc-gutter +pretty)
+       vi-tilde-fringe
 
-;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+       :editor
+       fold
+       (format +onsave)
+       lispy
+       multiple-cursors
+       word-wrap
 
-;;; Code:
+       :emacs
+       dired
+       electric
+       vc
 
-;; Tune GC for faster startup
-(setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
-      gc-cons-percentage 0.6)
-(add-hook 'emacs-startup-hook
-  (lambda ()
-    (setq gc-cons-threshold 16777216 ; 16mb
-          gc-cons-percentage 0.1)))
+       :checkers
+       (syntax +childframe)
 
-;; Setup environment to load other files.
+       :tools
+       editorconfig
+       (eval +overlay)
+       lookup
+       lsp
+       magit
+       pass
+       tree-sitter
 
-(setq warning-minimum-level :error)
-(setq load-prefer-newer t)
-(setq user-emacs-directory (file-name-directory
-                        (or (buffer-file-name) (file-chase-links load-file-name))))
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(add-to-list 'load-path (concat user-emacs-directory "lisp"))
+       :lang
+       (cc +tree-sitter)
+       emacs-lisp
+       (go +lsp +tree-sitter)
+       (json +tree-sitter)
+       (javascript +tree-sitter)
+       markdown
+       nix
+       org
+       (python +tree-sitter)
+       rst
+       sh
+       web
+       (yaml +lsp)
 
-(require 'vbe-package)
-(require 'vbe-looks)
-(require 'vbe-ergonomics)
-(require 'vbe-programming)
-(require 'vbe-apps)
-(require 'vbe-server)
+       :email
+       :app
+       :os
+       :term
+       :input
 
-;;; init.el ends here
+       :config
+       (default +bindings +smartparens))

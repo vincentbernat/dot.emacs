@@ -1,7 +1,0 @@
-*~
-*.elc
-#*#
-
-/custom.el
-/run/
-/site-lisp/
