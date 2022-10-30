@@ -53,7 +53,7 @@
        (javascript +tree-sitter)
        markdown
        nix
-       org
+       (org +present)
        (python +tree-sitter)
        rst
        sh

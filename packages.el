@@ -6,7 +6,6 @@
 
 ;; Org-related packages
 (package! org-download)
-(package! ox-reveal)
 
 ;; Mis packages
 (package! bm)

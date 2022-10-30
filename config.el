@@ -109,5 +109,3 @@
         org-download-heading-lvl nil))
 (after! org-html
   (setq org-html-postamble nil))
-(after! ox-reveal
-  (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@4.1.3"))
