@@ -93,18 +93,21 @@
 (after! org
   (setq org-log-done t
         org-log-into-drawer t
-        org-image-actual-width (when window-system (list (truncate (* (frame-native-width) 0.9))))
-        org-export-with-toc nil         ; do not add a ToC when exporting
-        org-html-postamble nil          ; do not add a postamble when exporting
-        org-return-follows-link t       ; follow link directly with return
-        org-clock-mode-line-total 'current ; only display the current clock time in modeline
-        org-download-image-dir "images"
-        org-download-heading-lvl nil)
+        org-image-actual-width (when window-system (list (truncate (* (frame-native-width) 0.9)))))
   (add-hook! org-mode (electric-indent-local-mode -1))
   (add-hook! org-mode (when (and buffer-file-name
                                  (f-ancestor-of? org-directory buffer-file-name))
                         (git-auto-commit-mode 1)))
   (add-to-list 'org-structure-template-alist
                '("n" . "notes")))
+(after! org-export
+  (setq org-export-with-toc nil))
+(after! org-clock
+  (setq org-clock-mode-line-total 'current))
+(after! org-download
+  (setq org-download-image-dir "images"
+        org-download-heading-lvl nil))
+(after! org-html
+  (setq org-html-postamble nil))
 (after! ox-reveal
   (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@4.1.3"))
