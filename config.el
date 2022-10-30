@@ -28,6 +28,7 @@
 (map! :map goto-map "j" #'avy-goto-subword-1)
 (map! :map goto-map "M-j" #'avy-goto-subword-1)
 
+;; Magit!
 (map! "C-c g" #'magit-file-dispatch)
 (after! magit
   ;; Add a "latest commits" section
@@ -53,6 +54,12 @@
           (recent . show)
           (untracked . show)
           (unstaged . show))))
+
+;; Company mode
+(after! company
+  ;; (map! :map company-active-map "<tab>" #'company-complete-selection)
+  (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
+    (unbind-key key company-active-map)))
 
 ;; Edit indirect allows to edit a region into a separate buffer
 (map! "C-c '" #'edit-indirect-region)
