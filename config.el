@@ -61,6 +61,9 @@
   (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
     (unbind-key key company-active-map)))
 
+(after! flycheck
+       (setq flycheck-temp-prefix ".flycheck"))
+
 ;; Edit indirect allows to edit a region into a separate buffer
 (map! "C-c '" #'edit-indirect-region)
 (after! edit-indirect
