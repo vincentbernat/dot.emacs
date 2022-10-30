@@ -11,3 +11,4 @@
 ;; Mis packages
 (package! bm)
 (package! git-auto-commit-mode)
+(package! dockerfile-mode)
