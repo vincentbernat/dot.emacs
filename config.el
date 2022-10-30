@@ -16,7 +16,6 @@
 (setq kill-whole-line t)
 
 (setq user-full-name "Vincent Bernat")
-(setq org-directory "~/Documents/org/")
 
 (setq +format-on-save-enabled-modes
       '(go-mode))
@@ -29,9 +28,8 @@
 (map! :map goto-map "j" #'avy-goto-subword-1)
 (map! :map goto-map "M-j" #'avy-goto-subword-1)
 
-(use-package! magit
-  :bind (("C-c g" . magit-file-dispatch))
-  :config
+(map! "C-c g" #'magit-file-dispatch)
+(after! magit
   ;; Add a "latest commits" section
   (magit-add-section-hook 'magit-status-sections-hook
                           'magit-insert-recent-commits
@@ -48,19 +46,17 @@
   ;; Remove unneeded prompts
   (add-to-list 'magit-no-confirm 'stage-all-changes)
 
-  :custom
   ;; Use M-x magit-describe-section-briefly to get a section name
-  (magit-section-initial-visibility-alist
-   '((stashes . hide)
-     (unpushed . hide)
-     (recent . show)
-     (untracked . show)
-     (unstaged . show))))
+  (setq magit-section-initial-visibility-alist
+        '((stashes . hide)
+          (unpushed . hide)
+          (recent . show)
+          (untracked . show)
+          (unstaged . show))))
 
 ;; Edit indirect allows to edit a region into a separate buffer
-(use-package! edit-indirect
-  :bind (("C-c '" . edit-indirect-region))
-  :config
+(map! "C-c '" #'edit-indirect-region)
+(after! edit-indirect
   (defvar vbe:edit-indirect--left-margin 0)
   (defun vbe:compute-left-margin (code)
     "Compute left margin of a string of CODE."
@@ -70,8 +66,8 @@
   (defun vbe:after-indirect-edit-remove-left-margin ()
     "Remove left-margin and save it into a local variable."
     (let ((lm (vbe:compute-left-margin (buffer-substring (point-min) (point-max)))))
-    (indent-rigidly (point-min) (point-max) (* -1 lm))
-    (setq-local vbe:edit-indirect--left-margin lm)))
+      (indent-rigidly (point-min) (point-max) (* -1 lm))
+      (setq-local vbe:edit-indirect--left-margin lm)))
   (defun vbe:after-indirect-edit-restore-left-margin ()
     "Restore left-margin before commiting."
     (indent-rigidly (point-min) (point-max) vbe:edit-indirect--left-margin))
@@ -79,9 +75,29 @@
   (add-hook 'edit-indirect-before-commit-hook #'vbe:after-indirect-edit-restore-left-margin))
 
 ;; Bookmarks
-(use-package! bm
-  :bind (("C-c C-." . bm-toggle)
-         ("C-c C-/" . bm-next)
-         ("C-c C-," . bm-previous))
-  :custom
-  (bm-cycle-all-buffers t))
+(map! "C-c C-." #'bm-toggle)
+(map! "C-c C-/" #'bm-next)
+(map! "C-c C-," #'bm-prev)
+(after! bm
+  (setq bm-cycle-all-buffers t))
+
+;; Org
+(setq org-directory "~/Documents/org/")
+(after! org
+  (setq org-log-done t
+        org-log-into-drawer t
+        org-image-actual-width (when window-system (list (truncate (* (frame-native-width) 0.9))))
+        org-export-with-toc nil         ; do not add a ToC when exporting
+        org-html-postamble nil          ; do not add a postamble when exporting
+        org-return-follows-link t       ; follow link directly with return
+        org-clock-mode-line-total 'current ; only display the current clock time in modeline
+        org-download-image-dir "images"
+        org-download-heading-lvl nil)
+  (add-hook! org-mode (electric-indent-local-mode -1))
+  (add-hook! org-mode (when (and buffer-file-name
+                                 (f-ancestor-of? org-directory buffer-file-name))
+                        (git-auto-commit-mode 1)))
+  (add-to-list 'org-structure-template-alist
+               '("n" . "notes")))
+(after! ox-reveal
+  (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@4.1.3"))
