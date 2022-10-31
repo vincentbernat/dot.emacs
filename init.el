@@ -44,18 +44,17 @@
        lsp
        magit
        pass
-       tree-sitter
 
        :lang
-       (cc +tree-sitter)
+       cc
        emacs-lisp
-       (go +lsp +tree-sitter)
-       (json +tree-sitter)
-       (javascript +tree-sitter)
+       (go +lsp)
+       json
+       javascript
        markdown
        nix
        (org +present)
-       (python +tree-sitter)
+       python
        rst
        sh
        web
