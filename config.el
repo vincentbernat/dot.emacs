@@ -56,7 +56,7 @@
 
 ;; Company mode
 (after! company
-  ;; (map! :map company-active-map "<tab>" #'company-complete-selection)
+  (map! :map company-active-map "<tab>" #'company-complete-selection)
   (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
     (unbind-key key company-active-map)))
 
