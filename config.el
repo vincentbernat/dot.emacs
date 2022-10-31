@@ -14,6 +14,8 @@
 (setq display-line-numbers-type nil)
 ;; Kill at the beginning of a line should also remove the line
 (setq kill-whole-line t)
+;; Always indent with tab (Doom Emacs set it to nil)
+(setq-default tab-always-indent t)
 
 (setq user-full-name "Vincent Bernat")
 
