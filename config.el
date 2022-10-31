@@ -26,6 +26,8 @@
 (map! "M-RET" #'electric-indent-just-newline)
 (map! :map goto-map "j" #'avy-goto-subword-1)
 (map! :map goto-map "M-j" #'avy-goto-subword-1)
+(map! "C->" #'mc/mark-next-like-this)
+(map! "C-<" #'mc/mark-previous-like-this)
 
 ;; Magit!
 (map! "C-c g" #'magit-file-dispatch)
