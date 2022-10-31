@@ -26,6 +26,7 @@
        (format +onsave)
        lispy
        multiple-cursors
+       snippets
        word-wrap
 
        :emacs
