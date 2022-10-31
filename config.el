@@ -17,9 +17,6 @@
 
 (setq user-full-name "Vincent Bernat")
 
-(setq +format-on-save-enabled-modes
-      '(go-mode))
-
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-z"))
 (global-unset-key (kbd "<insert>"))
@@ -61,8 +58,19 @@
   (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
     (unbind-key key company-active-map)))
 
+;; Flycheck
 (after! flycheck
-       (setq flycheck-temp-prefix ".flycheck"))
+  (setq flycheck-temp-prefix ".flycheck"))
+
+;; Format all the code!
+(setq +format-on-save-enabled-modes
+      '(go-mode))
+(after! format-all
+  (define-format-all-formatter gofmt
+    (:executable "goimports")
+    (:install)
+    (:modes go-mode)
+    (:format (format-all--buffer-easy executable))))
 
 ;; Edit indirect allows to edit a region into a separate buffer
 (map! "C-c '" #'edit-indirect-region)
