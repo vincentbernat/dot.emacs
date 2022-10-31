@@ -64,16 +64,6 @@
 (after! flycheck
   (setq flycheck-temp-prefix ".flycheck"))
 
-;; Format all the code!
-(setq +format-on-save-enabled-modes
-      '(go-mode))
-(after! format-all
-  (define-format-all-formatter gofmt
-    (:executable "goimports")
-    (:install)
-    (:modes go-mode)
-    (:format (format-all--buffer-easy executable))))
-
 ;; Edit indirect allows to edit a region into a separate buffer
 (map! "C-c '" #'edit-indirect-region)
 (after! edit-indirect
@@ -122,3 +112,9 @@
         org-download-heading-lvl nil))
 (after! org-html
   (setq org-html-postamble nil))
+
+;; Go mode
+(after! go-mode
+  (set-formatter! 'gofmt "goimports")
+  (setq-hook! go-mode-hook +format-with-lsp nil)
+  (add-hook! go-mode #'format-all-mode))
