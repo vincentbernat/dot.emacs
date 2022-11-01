@@ -133,3 +133,7 @@
   (setq-hook! 'go-mode-hook +format-with-lsp nil)
   (add-hook! go-mode #'+word-wrap-mode)
   (add-hook! go-mode #'format-all-mode))
+
+;; Debian stuff
+(after! dpkg-dev-el
+  (setq debian-changelog-mailing-address (mapconcat 'identity '("bernat" "debian.org")  "@")))

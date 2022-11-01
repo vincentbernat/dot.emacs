@@ -12,3 +12,5 @@
 (package! git-auto-commit-mode)
 (package! dockerfile-mode)
 (package! protobuf-mode)
+(package! debian-el)
+(package! dpkg-dev-el)
