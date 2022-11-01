@@ -7,10 +7,13 @@
 ;; Org-related packages
 (package! org-download)
 
+;; Modes
+(package! debian-el)
+(package! dockerfile-mode)
+(package! dpkg-dev-el)
+(package! git-auto-commit-mode)
+(package! protobuf-mode)
+(package! puppet-mode)
+
 ;; Mis packages
 (package! bm)
-(package! git-auto-commit-mode)
-(package! dockerfile-mode)
-(package! protobuf-mode)
-(package! debian-el)
-(package! dpkg-dev-el)
