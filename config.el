@@ -136,6 +136,11 @@
   (add-hook! go-mode #'+word-wrap-mode)
   (add-hook! go-mode #'format-all-mode))
 
+;; c-mode
+(after! cc-mode
+  (require 'openbsd-knf-style)
+  (c-add-style "openbsd" openbsd-knf-style))
+
 ;; Debian stuff
 (after! dpkg-dev-el
   (setq debian-changelog-mailing-address (mapconcat 'identity '("bernat" "debian.org")  "@")))

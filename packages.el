@@ -12,6 +12,7 @@
 (package! dockerfile-mode)
 (package! dpkg-dev-el)
 (package! git-auto-commit-mode)
+(package! openbsd-knf-style :recipe (:host github :repo "hogand/openbsd-knf-emacs"))
 (package! protobuf-mode)
 (package! puppet-mode)
 
