@@ -16,6 +16,10 @@
 (setq kill-whole-line t)
 ;; Always indent with tab (Doom Emacs set it to nil)
 (setq-default tab-always-indent t)
+;; Disable word-wrap (enabled by Doom Emacs)
+(setq-default word-wrap nil)
+;; Don't truncate lines (disabled by Doom Emacs)
+(setq-default truncate-lines nil)
 
 (setq user-full-name "Vincent Bernat")
 
