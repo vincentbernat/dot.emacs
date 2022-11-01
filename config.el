@@ -55,6 +55,8 @@
           (recent . show)
           (untracked . show)
           (unstaged . show))))
+(after! git-commit
+  (setq git-commit-summary-max-length 70))
 
 ;; Company mode
 (after! company
