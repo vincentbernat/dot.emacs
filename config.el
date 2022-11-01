@@ -115,6 +115,19 @@
 (after! org-html
   (setq org-html-postamble nil))
 
+;; Tweak LSP to only try import if called interactively or an already known
+;; workspace.
+(when (fboundp 'lsp!)
+  (defun lsp! ()
+    "Dispatch to call the currently used lsp client entrypoint"
+    (interactive)
+    (if (modulep! :tools lsp +eglot)
+        (eglot-ensure)
+      (unless (bound-and-true-p lsp-mode)
+        (require 'lsp)
+        (when (or (lsp-workspace-root) (called-interactively-p 'any))
+          (lsp-deferred))))))
+
 ;; Go mode
 (after! go-mode
   (setq-hook! 'go-mode-hook +format-with-lsp nil)
