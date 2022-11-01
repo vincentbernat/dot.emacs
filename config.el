@@ -117,7 +117,6 @@
 
 ;; Go mode
 (after! go-mode
-  (set-formatter! 'gofmt "goimports")
   (setq-hook! 'go-mode-hook +format-with-lsp nil)
   (add-hook! go-mode #'+word-wrap-mode)
   (add-hook! go-mode #'format-all-mode))
