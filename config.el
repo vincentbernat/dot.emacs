@@ -102,9 +102,6 @@
         org-log-into-drawer t
         org-image-actual-width (when window-system (list (truncate (* (frame-native-width) 0.9)))))
   (add-hook! org-mode (electric-indent-local-mode -1))
-  (add-hook! org-mode (when (and buffer-file-name
-                                 (f-ancestor-of? org-directory buffer-file-name))
-                        (git-auto-commit-mode 1)))
   (add-to-list 'org-structure-template-alist
                '("n" . "notes")))
 (after! org-export
