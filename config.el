@@ -54,7 +54,8 @@
           (unpushed . hide)
           (recent . show)
           (untracked . show)
-          (unstaged . show))))
+          (unstaged . show)))
+  (setq +magit-open-windows-in-direction 'down))
 (after! git-commit
   (setq git-commit-summary-max-length 70))
 
