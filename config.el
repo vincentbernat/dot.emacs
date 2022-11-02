@@ -66,7 +66,12 @@
 
 ;; Flycheck
 (after! flycheck
-  (setq flycheck-temp-prefix ".flycheck"))
+  (setq flycheck-temp-prefix ".flycheck")
+  (after! python
+    (add-hook! 'python-mode-hook
+      (defun vbe:python-flychecker-setup ()
+        (setq flycheck-flake8-maximum-line-length 88) ; match black
+        (pushnew! flycheck-disabled-checkers 'python-pylint)))))
 
 ;; Edit indirect allows to edit a region into a separate buffer
 (map! "C-c '" #'edit-indirect-region)
@@ -133,7 +138,7 @@
   (add-hook! go-mode #'+word-wrap-mode)
   (add-hook! go-mode #'format-all-mode))
 
-;; c-mode
+;; C
 (after! cc-mode
   (require 'openbsd-knf-style)
   (c-add-style "openbsd" openbsd-knf-style))
