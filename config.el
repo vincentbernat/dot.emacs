@@ -74,6 +74,10 @@
         (setq flycheck-flake8-maximum-line-length 88) ; match black
         (pushnew! flycheck-disabled-checkers 'python-pylint)))))
 
+;; Projectile
+(after! projectile
+  (pushnew! projectile-project-root-files "go.mod" "flakes.nix"))
+
 ;; Edit indirect allows to edit a region into a separate buffer
 (map! "C-c '" #'edit-indirect-region)
 (after! edit-indirect
