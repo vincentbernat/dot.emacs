@@ -38,6 +38,7 @@
        (syntax +childframe)
 
        :tools
+       direnv
        editorconfig
        (eval +overlay)
        lookup
