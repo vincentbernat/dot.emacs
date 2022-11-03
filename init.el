@@ -23,7 +23,7 @@
 
        :editor
        fold
-       (format +onsave)
+       format
        lispy
        multiple-cursors
        snippets
