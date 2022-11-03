@@ -136,6 +136,8 @@
         (require 'lsp)
         (when (or (lsp-workspace-root) (called-interactively-p 'any))
           (lsp-deferred))))))
+(after! lsp-mode
+  (setq lsp-enable-suggest-server-download nil))
 
 ;; Go mode
 (after! go-mode
