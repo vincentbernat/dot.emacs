@@ -47,15 +47,15 @@
        pass
 
        :lang
-       cc
+       (cc +lsp)
        emacs-lisp
        (go +lsp)
        json
-       javascript
+       (javascript +lsp)
        markdown
        nix
        (org +present)
-       python
+       (python +lsp)
        rst
        sh
        web
