@@ -59,7 +59,7 @@
        rst
        sh
        web
-       (yaml +lsp)
+       yaml
 
        :email
        :app
