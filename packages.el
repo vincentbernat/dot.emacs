@@ -6,8 +6,8 @@
 
 ;; Major modes
 (package! debian-el)
-(package! dockerfile-mode)
 (package! dpkg-dev-el)
+(package! dockerfile-mode)
 (package! protobuf-mode)
 (package! puppet-mode)
 (package! junos-mode :recipe (:host github
@@ -17,4 +17,5 @@
 ;; Misc packages
 (package! bm)
 (package! git-auto-commit-mode)
-(package! openbsd-knf-style :recipe (:host github :repo "hogand/openbsd-knf-emacs"))
+(package! openbsd-knf-style :recipe (:host github
+                                     :repo "hogand/openbsd-knf-emacs"))
