@@ -151,7 +151,9 @@
 
 ;; Nix mode
 (after! nix-mode
-  (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes '(nix-mode)))
+  (after! format-all
+    (set-formatter! 'nixfmt "nixpkgs-fmt")
+    (puthash 'nixfmt "nixpkgs-fmt" format-all--executable-table)))
 
 ;; C
 (after! cc-mode
