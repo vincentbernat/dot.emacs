@@ -65,6 +65,10 @@
   (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
     (unbind-key key company-active-map)))
 
+;; Format-all
+(after! format-all
+  (advice-add 'format-all-buffer--with :around #'envrc-propagate-environment))
+
 ;; Flycheck
 (after! flycheck
   (setq flycheck-temp-prefix ".flycheck")
