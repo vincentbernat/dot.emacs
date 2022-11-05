@@ -10,7 +10,9 @@
 (package! dpkg-dev-el)
 (package! protobuf-mode)
 (package! puppet-mode)
-(package! junos-mode :recipe (:host github :repo "vincentbernat/junos-mode"))
+(package! junos-mode :recipe (:host github
+                              :repo "vincentbernat/junos-mode"
+                              :files (:defaults "junos.py")))
 
 ;; Misc packages
 (package! bm)
