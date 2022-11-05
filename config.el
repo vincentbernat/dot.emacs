@@ -145,6 +145,10 @@
   (add-hook! go-mode #'+word-wrap-mode)
   (add-hook! go-mode #'format-all-mode))
 
+;; Nix mode
+(after! nix-mode
+  (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes '(nix-mode)))
+
 ;; C
 (after! cc-mode
   (require 'openbsd-knf-style)
