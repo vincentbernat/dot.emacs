@@ -7,7 +7,7 @@
 ;;      modules.
 
 (doom! :completion
-       company
+       (company +childframe)
        vertico
 
        :ui
@@ -35,7 +35,7 @@
        vc
 
        :checkers
-       syntax
+       (syntax +childframe)
 
        :tools
        direnv
