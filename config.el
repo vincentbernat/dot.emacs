@@ -155,6 +155,12 @@
     (set-formatter! 'nixfmt "nixpkgs-fmt")
     (puthash 'nixfmt "nixpkgs-fmt" format-all--executable-table)))
 
+;; JS/TS mode
+(remove-hook! '(typescript-mode-local-vars-hook
+                typescript-tsx-mode-local-vars-hook
+                web-mode-local-vars-hook
+                rjsx-mode-local-vars-hook) #'+javascript-init-lsp-or-tide-maybe-h)
+
 ;; C
 (after! cc-mode
   (require 'openbsd-knf-style)
