@@ -18,4 +18,4 @@
 (package! bm)
 (package! git-auto-commit-mode)
 (package! openbsd-knf-style :recipe (:host github
-                                     :repo "hogand/openbsd-knf-emacs"))
+                                     :repo "vincentbernat/openbsd-knf-emacs"))
