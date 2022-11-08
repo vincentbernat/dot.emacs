@@ -8,6 +8,7 @@
 (package! debian-el)
 (package! dpkg-dev-el)
 (package! dockerfile-mode)
+(package! lua-mode)
 (package! protobuf-mode)
 (package! puppet-mode)
 (package! junos-mode :recipe (:host github
