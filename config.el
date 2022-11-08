@@ -160,6 +160,10 @@
                 typescript-tsx-mode-local-vars-hook
                 web-mode-local-vars-hook
                 rjsx-mode-local-vars-hook) #'+javascript-init-lsp-or-tide-maybe-h)
+(add-hook! '(typescript-mode-local-vars-hook
+             typescript-tsx-mode-local-vars-hook
+             web-mode-local-vars-hook
+             rjsx-mode-local-vars-hook) (lsp!))
 (after! typescript-mode
   (setq typescript-indent-level 2))
 
