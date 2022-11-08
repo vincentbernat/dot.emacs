@@ -156,14 +156,10 @@
     (puthash 'nixfmt "nixpkgs-fmt" format-all--executable-table)))
 
 ;; JS/TS mode
-(remove-hook! '(typescript-mode-local-vars-hook
-                typescript-tsx-mode-local-vars-hook
-                web-mode-local-vars-hook
-                rjsx-mode-local-vars-hook) #'+javascript-init-lsp-or-tide-maybe-h)
-(add-hook! '(typescript-mode-local-vars-hook
-             typescript-tsx-mode-local-vars-hook
-             web-mode-local-vars-hook
-             rjsx-mode-local-vars-hook) (lsp!))
+(defadvice! vbe:javascript-init-lsp ()
+  "Start LSP for the current buffer."
+  :override #'+javascript-init-lsp-or-tide-maybe-h
+  (lsp!))
 (after! typescript-mode
   (setq typescript-indent-level 2))
 
