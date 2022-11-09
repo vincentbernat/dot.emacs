@@ -105,7 +105,7 @@
 ;; Bookmarks
 (map! "C-c C-." #'bm-toggle)
 (map! "C-c C-/" #'bm-next)
-(map! "C-c C-," #'bm-prev)
+(map! "C-c C-," #'bm-previous)
 (after! bm
   (setq bm-cycle-all-buffers t))
 
