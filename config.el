@@ -144,6 +144,10 @@
 (after! lsp-mode
   (setq lsp-enable-suggest-server-download nil))
 
+(after! highlight-indent-guides
+  (setq highlight-indent-guides-method 'bitmap)
+  (setq highlight-indent-guides-bitmap-function #'highlight-indent-guides--bitmap-line))
+
 ;; Go mode
 (after! go-mode
   (add-hook! go-mode #'+word-wrap-mode)
