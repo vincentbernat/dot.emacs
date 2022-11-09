@@ -30,7 +30,6 @@
 (map! "C-<" #'mc/mark-previous-like-this)
 
 ;; Magit!
-(map! "C-c g" #'magit-file-dispatch)
 (after! magit
   ;; Add a "latest commits" section
   (magit-add-section-hook 'magit-status-sections-hook
@@ -84,7 +83,7 @@
   (pushnew! projectile-project-root-files "go.mod" "flakes.nix"))
 
 ;; Edit indirect allows to edit a region into a separate buffer
-(map! "C-c '" #'edit-indirect-region)
+(map! :leader :desc "Edit indirect region" "'" #'edit-indirect-region)
 (after! edit-indirect
   (defvar vbe:edit-indirect--left-margin 0)
   (defun vbe:compute-left-margin (code)
@@ -104,9 +103,11 @@
   (add-hook 'edit-indirect-before-commit-hook #'vbe:after-indirect-edit-restore-left-margin))
 
 ;; Bookmarks
-(map! "C-c C-." #'bm-toggle)
-(map! "C-c C-/" #'bm-next)
-(map! "C-c C-," #'bm-previous)
+(map! :leader
+      (:prefix ("b" . "bookmarks")
+       :desc "Toggle"   "." #'bm-toggle
+       :desc "Next"     "n" #'bm-next
+       :desc "Previous" "p" #'bm-previous))
 (after! bm
   (setq bm-cycle-all-buffers t))
 
