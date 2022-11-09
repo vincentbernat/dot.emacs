@@ -22,6 +22,8 @@
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-z"))
 (global-unset-key (kbd "<insert>"))
+(define-key ctl-x-map "p" nil)
+(map! "C-x p" #'+popup/other)
 (map! "C-s" #'+default/search-buffer)
 (map! "M-RET" #'electric-indent-just-newline)
 (map! :map goto-map "j" #'avy-goto-subword-1)
