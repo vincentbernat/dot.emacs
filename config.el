@@ -67,6 +67,7 @@
 
 ;; Format-all
 (after! format-all
+  (setq +format-with-lsp nil)
   (advice-add 'format-all-buffer--with :around #'envrc-propagate-environment))
 
 ;; Flycheck
@@ -145,7 +146,6 @@
 
 ;; Go mode
 (after! go-mode
-  (setq-hook! 'go-mode-hook +format-with-lsp nil)
   (add-hook! go-mode #'+word-wrap-mode)
   (add-hook! go-mode #'format-all-mode))
 
