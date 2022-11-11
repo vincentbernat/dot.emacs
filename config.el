@@ -62,6 +62,11 @@
 
 ;; Company mode
 (after! company
+  ;; No ispell in text-mode
+  (setf (alist-get 'text-mode +company-backend-alist)
+        (list (seq-filter (lambda (backend) (not (eq backend 'company-ispell)))
+                          (car (alist-get 'text-mode +company-backend-alist)))))
+  ;; Less intrusive keybindings
   (map! :map company-active-map "<tab>" #'company-complete-selection)
   (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
     (unbind-key key company-active-map)))
