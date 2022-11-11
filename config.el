@@ -155,7 +155,7 @@
 (after! go-mode
   (unless (executable-find go-guru-command)
     (when (executable-find "golang-guru")
-      (setq go-goru-command "golang-guru")))
+      (setq go-guru-command "golang-guru")))
   (add-hook! go-mode #'+word-wrap-mode)
   (add-hook! go-mode #'format-all-mode))
 
