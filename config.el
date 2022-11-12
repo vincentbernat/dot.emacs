@@ -16,6 +16,9 @@
 (setq kill-whole-line t)
 ;; Always indent with tab (Doom Emacs set it to nil)
 (setq-default tab-always-indent t)
+;; Restore line continuation
+(setq-default word-wrap nil)
+(setq-default truncate-lines nil)
 
 (setq user-full-name "Vincent Bernat")
 
