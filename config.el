@@ -147,6 +147,7 @@
         (require 'lsp)
         (when (or (lsp-workspace-root) (called-interactively-p 'any))
           (lsp-deferred))))))
+(setq lsp-use-plists t)
 (after! lsp-mode
   (setq lsp-enable-suggest-server-download nil))
 
