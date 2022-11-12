@@ -157,10 +157,11 @@
 
 ;; Go mode
 (after! go-mode
+  (add-hook! go-mode #'format-all-mode))
+(after! go-guru
   (unless (executable-find go-guru-command)
     (when (executable-find "golang-guru")
-      (setq go-guru-command "golang-guru")))
-  (add-hook! go-mode #'format-all-mode))
+      (setq go-guru-command "golang-guru"))))
 
 ;; Nix mode
 (after! nix-mode
