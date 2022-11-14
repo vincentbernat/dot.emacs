@@ -88,6 +88,7 @@
 
 ;; Projectile
 (after! projectile
+  (setq projectile-file-exists-local-cache-expire 10) ; expire local cache quickly
   (pushnew! projectile-project-root-files "go.mod" "flakes.nix"))
 
 ;; Edit indirect allows to edit a region into a separate buffer
