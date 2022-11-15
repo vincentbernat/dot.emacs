@@ -65,8 +65,7 @@
 
 ;; Company mode
 (after! company
-  ;; No ispell in text-mode
-  (set-company-backend! 'text-mode '(company-yasnippet))
+  (setq company-idle-delay nil)
   ;; Less intrusive keybindings
   (map! :map company-active-map "<tab>" #'company-complete-selection)
   (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
@@ -76,6 +75,10 @@
 (after! format-all
   (setq +format-with-lsp nil)
   (advice-add 'format-all-buffer--with :around #'envrc-propagate-environment))
+
+;; dtrt-indent
+(after! dtrt-indent
+  (setq dtrt-indent-max-merge-deviation 10.0))
 
 ;; Flycheck
 (after! flycheck
