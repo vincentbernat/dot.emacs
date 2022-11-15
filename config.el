@@ -71,11 +71,12 @@
   (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
     (unbind-key key company-active-map)))
 
-;; Formatting
-(setq +format-with-lsp nil)
+;; Format
 (after! apheleia
-  ;; (advice-add 'apheleia--run-formatter-process :around #'envrc-propagate-environment)
-  )
+  (setf (alist-get 'gofmt apheleia-formatters)
+        '("goimports"))
+  (setf (alist-get 'nixfmt apheleia-formatters)
+        '("nixpkgs-fmt")))
 
 ;; dtrt-indent
 (after! dtrt-indent
@@ -173,11 +174,6 @@
   (unless (executable-find go-guru-command)
     (when (executable-find "golang-guru")
       (setq go-guru-command "golang-guru"))))
-
-;; Nix mode
-(after! nix-mode
-  (after! format-all
-    (set-formatter! 'nixfmt "nixpkgs-fmt")))
 
 ;; JS/TS mode
 (defadvice! vbe:javascript-init-lsp ()

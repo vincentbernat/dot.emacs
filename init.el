@@ -25,7 +25,6 @@
 
        :editor
        fold
-       format
        lispy
        multiple-cursors
        snippets

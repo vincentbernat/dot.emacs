@@ -16,6 +16,7 @@
                               :files (:defaults "junos.py")))
 
 ;; Misc packages
+(package! apheleia)
 (package! bm)
 (package! git-auto-commit-mode)
 (package! openbsd-knf-style :recipe (:host github
