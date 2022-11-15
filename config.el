@@ -15,7 +15,7 @@
 ;; Kill at the beginning of a line should also remove the line
 (setq kill-whole-line t)
 ;; Always indent with tab (Doom Emacs set it to nil)
-(setq-default tab-always-indent t)
+(setq-default tab-always-indent 'complete)
 ;; Restore line continuation
 (setq-default word-wrap nil)
 (setq-default truncate-lines nil)
