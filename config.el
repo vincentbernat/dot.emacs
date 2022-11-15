@@ -195,6 +195,13 @@
   (require 'openbsd-knf-style)
   (c-add-style "openbsd" openbsd-knf-style))
 
+;; Markdown
+(after! markdown-mode
+  (setq
+   markdown-footnote-location 'immediately
+   markdown-reference-location 'end
+   markdown-spaces-after-code-fence 0))
+
 ;; Debian stuff
 (after! dpkg-dev-el
   (setq debian-changelog-mailing-address (mapconcat 'identity '("bernat" "debian.org")  "@")))
