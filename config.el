@@ -156,7 +156,9 @@
           (lsp-deferred))))))
 (setq lsp-use-plists t)
 (after! lsp-mode
-  (setq lsp-modeline-diagnostics-enable nil)
+  (setq
+   lsp-modeline-diagnostics-enable nil
+   lsp-modeline-code-actions-enable nil)
   (setq lsp-enable-suggest-server-download nil))
 
 (after! highlight-indent-guides
