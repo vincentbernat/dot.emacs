@@ -71,10 +71,11 @@
   (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
     (unbind-key key company-active-map)))
 
-;; Format-all
-(after! format-all
-  (setq +format-with-lsp nil)
-  (advice-add 'format-all-buffer--with :around #'envrc-propagate-environment))
+;; Formatting
+(setq +format-with-lsp nil)
+(after! apheleia
+  ;; (advice-add 'apheleia--run-formatter-process :around #'envrc-propagate-environment)
+  )
 
 ;; dtrt-indent
 (after! dtrt-indent
@@ -167,7 +168,7 @@
 
 ;; Go mode
 (after! go-mode
-  (add-hook! go-mode #'format-all-mode))
+  (add-hook! go-mode #'apheleia-mode))
 (after! go-guru
   (unless (executable-find go-guru-command)
     (when (executable-find "golang-guru")
@@ -176,8 +177,7 @@
 ;; Nix mode
 (after! nix-mode
   (after! format-all
-    (set-formatter! 'nixfmt "nixpkgs-fmt")
-    (puthash 'nixfmt "nixpkgs-fmt" format-all--executable-table)))
+    (set-formatter! 'nixfmt "nixpkgs-fmt")))
 
 ;; JS/TS mode
 (defadvice! vbe:javascript-init-lsp ()
