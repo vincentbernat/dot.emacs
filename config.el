@@ -4,11 +4,11 @@
 (setq doom-font (font-spec :family "Iosevka Term SS18" :size 11.0)
       doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 11.0))
 (setq doom-theme 'doom-vibrant)
-;; Remove some items from doom dashboard menu
+;; Customize dashbord
+(remove-hook '+doom-dashboard-functions 'doom-dashboard-widget-footer)
 (setq +doom-dashboard-menu-sections
       (seq-filter (fn! (not (seq-contains-p '("Open org-agenda" "Jump to bookmark") (car %))))
                   +doom-dashboard-menu-sections))
-;; Change splash image
 (setq fancy-splash-image (concat doom-user-dir "doom-emacs.svg"))
 ;; Don't display line numbers
 (setq display-line-numbers-type nil)
