@@ -14,6 +14,7 @@
 (package! junos-mode :recipe (:host github
                               :repo "vincentbernat/junos-mode"
                               :files (:defaults "junos.py")))
+(package! tide :disable t)
 
 ;; Misc packages
 (package! apheleia)
