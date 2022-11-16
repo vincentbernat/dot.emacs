@@ -15,6 +15,7 @@
                               :repo "vincentbernat/junos-mode"
                               :files (:defaults "junos.py")))
 (package! tide :disable t)
+(package! anaconda-mode :disable t)
 
 ;; Misc packages
 (package! apheleia)
