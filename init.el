@@ -41,7 +41,7 @@
        direnv
        editorconfig
        (eval +overlay)
-       lookup
+       (lookup +docsets)
        lsp
        magit
        pass
