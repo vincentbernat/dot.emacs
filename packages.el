@@ -23,3 +23,4 @@
 (package! git-auto-commit-mode)
 (package! openbsd-knf-style :recipe (:host github
                                      :repo "vincentbernat/openbsd-knf-emacs"))
+(package! lsp-mode :pin "f5d521d56cfef54d0f102680e956a856347d2c96")
