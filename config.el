@@ -175,10 +175,6 @@
     (when (executable-find "golang-guru")
       (setq go-guru-command "golang-guru"))))
 
-;; Python
-(after! python
-  (set-docsets! '(python-mode inferior-python-mode) "Python 3"))
-
 ;; JS/TS mode
 (defadvice! vbe:javascript-init-lsp ()
   "Start LSP for the current buffer."
@@ -187,7 +183,6 @@
 (after! typescript-mode
   (setq typescript-indent-level 2))
 (after! web-mode
-  (set-docsets! 'web-mode "HTML" "CSS" "JavaScript" "NodeJS" "VueJS")
   (setq
    web-mode-markup-indent-offset 2
    web-mode-css-indent-offset 2
