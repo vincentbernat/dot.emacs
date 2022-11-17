@@ -18,8 +18,6 @@
            :repo "vincentbernat/junos-mode"
            :files (:defaults "junos.py"))
   :pin "e2e7f7224fff89f38f2b02f5431299d95654b380")
-(package! tide :disable t)
-(package! anaconda-mode :disable t)
 
 ;; Misc packages
 (package! apheleia :pin "33d4542b58476d50f01464576664de1acea1f62f")
@@ -30,3 +28,8 @@
            :repo "vincentbernat/openbsd-knf-emacs")
   :pin "1144dd016dd0e0fd096073db2492bb5814e8ada8")
 (package! lsp-mode :pin "f5d521d56cfef54d0f102680e956a856347d2c96")
+
+;; Disable some packages I don't want
+(package! tide :disable t)              ; I am using LSP
+(package! anaconda-mode :disable t)     ; I am using LSP
+(package! emmet-mode :disable t)        ; In web-mode, prevent completion in <script>
