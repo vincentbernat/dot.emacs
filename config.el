@@ -66,11 +66,9 @@
 
 ;; Company mode
 (after! company
+  ;; Trigger company-mode explicitely
   (setq company-idle-delay nil)
-  ;; Less intrusive keybindings
-  (map! :map company-active-map "<tab>" #'company-complete-selection)
-  (dolist (key '("<up>" "<down>" "SPC" "<return>" "RET"))
-    (unbind-key key company-active-map)))
+  (map! :map company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common))
 
 ;; Format
 (after! apheleia
