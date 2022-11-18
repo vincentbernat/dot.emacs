@@ -35,6 +35,10 @@
 (map! "C->" #'mc/mark-next-like-this)
 (map! "C-<" #'mc/mark-previous-like-this)
 
+(after! doom-modeline
+  ;; Don't handle focus change (this is buggy)
+  (remove-function after-focus-change-function #'doom-modeline-focus-change))
+
 ;; Magit!
 (after! magit
   ;; Add a "latest commits" section
