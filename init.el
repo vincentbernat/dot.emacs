@@ -44,7 +44,6 @@
        (lookup +docsets)
        lsp
        magit
-       pass
 
        :lang
        (cc +lsp)
