@@ -29,8 +29,6 @@
   :pin "1144dd016dd0e0fd096073db2492bb5814e8ada8")
 (package! lsp-mode :pin "f5d521d56cfef54d0f102680e956a856347d2c96")
 (package! pass :pin "5651da53137db9adcb125b4897c2fe27eeb4368d")
-(package! password-store :pin "c4d8a1d815e79ddd89a85d3e36a41d29f0475771")
-(package! password-store-otp :pin "be3a00a981921ed1b2f78012944dc25eb5a0beca")
 
 ;; Disable some packages I don't want
 (package! tide :disable t)              ; I am using LSP
