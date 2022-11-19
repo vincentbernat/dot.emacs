@@ -14,6 +14,8 @@
 (setq display-line-numbers-type nil)
 ;; Kill at the beginning of a line should also remove the line
 (setq kill-whole-line t)
+;; Do not delete selection
+(delete-selection-mode -1)
 ;; Always indent with tab (Doom Emacs set it to nil)
 (setq-default tab-always-indent 'complete)
 ;; Restore line continuation
