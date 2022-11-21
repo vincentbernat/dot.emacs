@@ -38,6 +38,10 @@
 (map! "C-<" #'mc/mark-previous-like-this)
 
 (after! doom-modeline
+  ;; Don't display percent position
+  (setq doom-modeline-percent-position nil)
+  ;; Remove size and column
+  (remove-hook! doom-modeline-mode #'size-indication-mode)
   ;; Don't handle focus change (this is buggy)
   (remove-function after-focus-change-function #'doom-modeline-focus-change))
 
