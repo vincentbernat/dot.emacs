@@ -18,6 +18,8 @@
 (delete-selection-mode -1)
 ;; Always indent with tab (Doom Emacs set it to nil)
 (setq-default tab-always-indent 'complete)
+;; Do not continue comments (implement differs between modes, this is confusing)
+(setq +default-want-RET-continue-comments nil)
 ;; Restore line continuation
 (setq-default word-wrap nil)
 (setq-default truncate-lines nil)
