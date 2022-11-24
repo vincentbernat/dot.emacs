@@ -153,6 +153,7 @@
           (lsp-deferred))))))
 (setq lsp-use-plists t)
 (after! lsp-mode
+  (map! :map lsp-help-mode-map "o" #'lsp--help-open-link)
   (setq
    lsp-modeline-diagnostics-enable nil
    lsp-modeline-code-actions-enable nil)
