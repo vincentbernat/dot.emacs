@@ -3,8 +3,7 @@
 
 ;; Packages can be updated by using M-x doom/bump-package-at-point.
 
-;; Org-related packages
-(package! org-download :pin "19e166f0a8c539b4144cfbc614309d47a9b2a9b7")
+(package! straight :pin "3eca39dfc6797243ec7d1c6a7d45142407f73f88")
 
 ;; Major modes
 (package! debian-el :pin "a3ef20c269b9192710567571b20718f572942bc4")
@@ -29,6 +28,7 @@
   :pin "1144dd016dd0e0fd096073db2492bb5814e8ada8")
 (package! lsp-mode :pin "f5d521d56cfef54d0f102680e956a856347d2c96")
 (package! pass :pin "5651da53137db9adcb125b4897c2fe27eeb4368d")
+(package! org-download :pin "19e166f0a8c539b4144cfbc614309d47a9b2a9b7")
 
 ;; Disable some packages I don't want
 (package! tide :disable t)              ; I am using LSP
