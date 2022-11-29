@@ -3,8 +3,6 @@
 
 ;; Packages can be updated by using M-x doom/bump-package-at-point.
 
-(package! straight :pin "3eca39dfc6797243ec7d1c6a7d45142407f73f88")
-
 ;; Major modes
 (package! debian-el :pin "a3ef20c269b9192710567571b20718f572942bc4")
 (package! dpkg-dev-el :pin "458f5230d02b15c94e94eca1af4eabaec30f45db")
