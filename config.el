@@ -197,6 +197,7 @@
   (setq
    markdown-footnote-location 'immediately
    markdown-reference-location 'end
+   markdown-gfm-use-electric-backquote nil
    markdown-spaces-after-code-fence 0))
 
 ;; Debian stuff
