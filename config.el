@@ -24,18 +24,18 @@
 
 (setq user-full-name "Vincent Bernat")
 
-(global-unset-key (kbd "C-z"))
-(global-unset-key (kbd "C-x C-z"))
-(global-unset-key (kbd "<insert>"))
-(define-key ctl-x-map "p" nil)
+(map! :g "C-z" nil
+      :g "C-x C-z" nil
+      :g "<insert>" nil)
 (after! project
   (map! "C-x p" #'+popup/other))
 (map! "C-s" #'+default/search-buffer)
 (map! "M-RET" #'electric-indent-just-newline)
-(map! :map goto-map "j" #'avy-goto-subword-1)
-(map! :map goto-map "M-j" #'avy-goto-subword-1)
-(map! "C->" #'mc/mark-next-like-this)
-(map! "C-<" #'mc/mark-previous-like-this)
+(map! :map goto-map
+      "j" #'avy-goto-subword-1
+      "M-j" #'avy-goto-subword-1)
+(map! "C->" #'mc/mark-next-like-this
+      "C-<" #'mc/mark-previous-like-this)
 
 (after! doom-modeline
   ;; Don't display percent position
