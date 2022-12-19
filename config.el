@@ -177,6 +177,7 @@
 (after! typescript-mode
   (setq typescript-indent-level 2))
 (after! web-mode
+  (map! :map web-mode-map "M-/" nil)
   (setq
    web-mode-markup-indent-offset 2
    web-mode-css-indent-offset 2
