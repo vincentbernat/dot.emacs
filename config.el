@@ -30,6 +30,7 @@
 (after! project
   (map! "C-x p" #'+popup/other))
 (map! "C-s" #'+default/search-buffer)
+(map! "C-e" #'end-of-line)
 (map! "M-RET" #'electric-indent-just-newline)
 (map! :map goto-map
       "j" #'avy-goto-subword-1
