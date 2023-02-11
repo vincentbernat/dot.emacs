@@ -156,7 +156,9 @@
   (setq
    lsp-modeline-diagnostics-enable nil
    lsp-modeline-code-actions-enable nil)
-  (setq lsp-enable-suggest-server-download nil))
+  (setq lsp-enable-suggest-server-download nil)
+  (appendq! lsp-file-watch-ignored-directories
+            '("[/\\\\]build~\\'" "[/\\\\]vendor\\'")))
 
 (after! highlight-indent-guides
   (setq highlight-indent-guides-method 'bitmap)
