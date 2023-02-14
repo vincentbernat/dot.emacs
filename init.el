@@ -42,7 +42,7 @@
        editorconfig
        (eval +overlay)
        (lookup +docsets)
-       (lsp +peek)
+       lsp
        magit
 
        :lang
