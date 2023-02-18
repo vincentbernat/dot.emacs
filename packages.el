@@ -15,6 +15,7 @@
            :repo "vincentbernat/junos-mode"
            :files (:defaults "junos.py"))
   :pin "e2e7f7224fff89f38f2b02f5431299d95654b380")
+(package! systemd :pin "8742607120fbc440821acbc351fda1e8e68a8806")
 
 ;; Misc packages
 (package! apheleia :pin "33d4542b58476d50f01464576664de1acea1f62f")
