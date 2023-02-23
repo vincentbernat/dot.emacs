@@ -25,9 +25,6 @@
   :recipe (:host github
            :repo "vincentbernat/openbsd-knf-emacs")
   :pin "1144dd016dd0e0fd096073db2492bb5814e8ada8")
-(package! lsp-mode :pin "f5d521d56cfef54d0f102680e956a856347d2c96")
-(package! pass :pin "5651da53137db9adcb125b4897c2fe27eeb4368d")
-(package! org-download :pin "19e166f0a8c539b4144cfbc614309d47a9b2a9b7")
 
 ;; Disable some packages I don't want
 (package! tide :disable t)              ; I am using LSP
