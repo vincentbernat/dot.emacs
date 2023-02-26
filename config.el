@@ -14,6 +14,8 @@
 (setq display-line-numbers-type nil)
 ;; Do not delete selection
 (delete-selection-mode -1)
+;; We always have both BACKSPACE and DEL
+(normal-erase-is-backspace-mode 1)
 ;; Always indent with tab (Doom Emacs set it to nil)
 (setq-default tab-always-indent 'complete)
 ;; Do not continue comments (implement differs between modes, this is confusing)
