@@ -16,6 +16,7 @@
            :files (:defaults "junos.py"))
   :pin "e2e7f7224fff89f38f2b02f5431299d95654b380")
 (package! systemd :pin "8742607120fbc440821acbc351fda1e8e68a8806")
+(package! jinja2-mode :pin "03e5430a7efe1d163a16beaf3c82c5fd2c2caee1")
 
 ;; Misc packages
 (package! apheleia :pin "33d4542b58476d50f01464576664de1acea1f62f")
