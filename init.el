@@ -54,6 +54,7 @@
        markdown
        nix
        (org +present)
+       php
        (python +lsp)
        rst
        sh
