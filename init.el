@@ -55,7 +55,7 @@
        nix
        (org +present)
        php
-       (python +lsp)
+       (python +lsp +pyright)
        rst
        sh
        web
