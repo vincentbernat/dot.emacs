@@ -10,7 +10,7 @@
 
 (doom! :completion
        (company +childframe)
-       vertico
+       (vertico +icons)
 
        :ui
        doom
@@ -30,7 +30,7 @@
        snippets
 
        :emacs
-       dired
+       (dired +icons)
        electric
        vc
 
