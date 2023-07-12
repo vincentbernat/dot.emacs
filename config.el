@@ -77,6 +77,10 @@
 (after! git-commit
   (setq git-commit-summary-max-length 70))
 
+;; Consult
+(after! consult
+  (setq consult-fontify-preserve nil))
+
 ;; Company mode
 (after! company
   ;; Trigger company-mode explicitely
