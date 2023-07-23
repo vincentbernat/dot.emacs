@@ -5,10 +5,10 @@
 
 ;; Major modes
 (package! debian-el :pin "a3ef20c269b9192710567571b20718f572942bc4")
-(package! dpkg-dev-el :pin "458f5230d02b15c94e94eca1af4eabaec30f45db")
+(package! dpkg-dev-el :pin "af9aad721cb263e495e2f77df458e9496549c04b")
 (package! dockerfile-mode :pin "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
-(package! lua-mode :pin "3e783c93aa8a3d3ca985686438aa8d140cbddae6")
-(package! protobuf-mode :pin "c862c1cab4d591963437774cc7d3f0a8e4bb1da1")
+(package! lua-mode :pin "ad639c62e38a110d8d822c4f914af3e20b40ccc4")
+(package! protobuf-mode :pin "dd4ffc65cc78347b2c6a15828f1a0edb129a44d0")
 (package! puppet-mode :pin "71bcd383f20a457e8ad34e0e08ec47f8e1b64263")
 (package! junos-mode
   :recipe (:host github
@@ -20,9 +20,9 @@
 (package! adoc-mode :pin "a7691c8b9a738fd724007a2a283ed2c20684a7e5")
 
 ;; Misc packages
-(package! apheleia :pin "33d4542b58476d50f01464576664de1acea1f62f")
+(package! apheleia :pin "c222927f7086d407dad01b2609ff68768e9adddb")
 (package! bm :pin "9a31c61f44e6f1033ca43bd7f3eb33ffdb2ca595")
-(package! git-auto-commit-mode :pin "a6b6e0fa183be381463e2b44ef128db1b6c4234b")
+(package! git-auto-commit-mode :pin "a7b59acea622a737d23c783ce7d212fefb29f7e6")
 (package! openbsd-knf-style
   :recipe (:host github
            :repo "vincentbernat/openbsd-knf-emacs")
