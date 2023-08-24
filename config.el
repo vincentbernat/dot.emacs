@@ -46,7 +46,9 @@
   ;; Remove size and column
   (remove-hook! doom-modeline-mode #'size-indication-mode)
   ;; Don't handle focus change (this is buggy)
-  (remove-function after-focus-change-function #'doom-modeline-focus-change))
+  (remove-function after-focus-change-function #'doom-modeline-focus-change)
+  ;; But execute it once?
+  (doom-modeline-focus-change))
 
 ;; Magit!
 (after! magit
