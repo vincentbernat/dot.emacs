@@ -8,7 +8,7 @@
 (package! dpkg-dev-el :pin "af9aad721cb263e495e2f77df458e9496549c04b")
 (package! dockerfile-mode :pin "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
 (package! lua-mode :pin "7eb8eaa420c25477c830623b830fd18dc350cdfb")
-(package! protobuf-mode :pin "066465c9788c0d6188719e10b206762ead7f3e9e")
+(package! protobuf-mode :pin "991cfb4a67e956d2a158df34b3a69a827ad57463")
 (package! puppet-mode :pin "71bcd383f20a457e8ad34e0e08ec47f8e1b64263")
 (package! junos-mode
   :recipe (:host github
@@ -17,12 +17,12 @@
   :pin "e2e7f7224fff89f38f2b02f5431299d95654b380")
 (package! systemd :pin "8742607120fbc440821acbc351fda1e8e68a8806")
 (package! jinja2-mode :pin "03e5430a7efe1d163a16beaf3c82c5fd2c2caee1")
-(package! adoc-mode :pin "26d189ef5486453503d7f0296258aa5883d27a29")
+(package! adoc-mode :pin "05914c7319ac5c8a7e68047d5bb982d691a0d535")
 (package! yang-mode :pin "4b4ab4d4a79d37d6c31c6ea7cccbc425e0b1eded")
 
 ;; Misc packages
-(package! apheleia :pin "706d6bd347b6d25a54148666ea4d33f16b3915c6")
-(package! bm :pin "9a31c61f44e6f1033ca43bd7f3eb33ffdb2ca595")
+(package! apheleia :pin "e944e24584393c1a4df130885b489795f7676567")
+(package! bm :pin "62fd17d27d5f16a92bccc9ce2ad3868c01413985")
 (package! git-auto-commit-mode :pin "a7b59acea622a737d23c783ce7d212fefb29f7e6")
 (package! openbsd-knf-style
   :recipe (:host github
