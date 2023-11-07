@@ -22,7 +22,7 @@
 
 ;; Misc packages
 (package! apheleia :pin "e944e24584393c1a4df130885b489795f7676567")
-(package! bm :pin "62fd17d27d5f16a92bccc9ce2ad3868c01413985")
+(package! bm :pin "1351e2e15a7666e614c94b41414c8f024dc10a50")
 (package! git-auto-commit-mode :pin "a7b59acea622a737d23c783ce7d212fefb29f7e6")
 (package! openbsd-knf-style
   :recipe (:host github
