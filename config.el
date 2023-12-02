@@ -156,7 +156,6 @@
         (require 'lsp)
         (when (or (lsp-workspace-root) (called-interactively-p 'any))
           (lsp-deferred))))))
-(setq lsp-use-plists t)
 (after! lsp-mode
   (map! :map lsp-help-mode-map "o" #'lsp--help-open-link)
   (setq
