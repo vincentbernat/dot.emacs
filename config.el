@@ -160,9 +160,10 @@
 (after! lsp-mode
   (map! :map lsp-help-mode-map "o" #'lsp--help-open-link)
   (setq
+   lsp-lens-enable nil
    lsp-modeline-diagnostics-enable nil
-   lsp-modeline-code-actions-enable nil)
-  (setq lsp-enable-suggest-server-download nil)
+   lsp-modeline-code-actions-enable nil
+   lsp-enable-suggest-server-download nil)
   (appendq! lsp-file-watch-ignored-directories
             '("[/\\\\]build~\\'" "[/\\\\]vendor\\'")))
 
