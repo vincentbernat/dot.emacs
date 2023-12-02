@@ -4,11 +4,11 @@
 ;; Packages can be updated by using M-x doom/bump-package-at-point.
 
 ;; Major modes
-(package! debian-el :pin "a3ef20c269b9192710567571b20718f572942bc4")
+(package! debian-el :pin "c7cb03299bcbdefc591f3f624f91479c4797da19")
 (package! dpkg-dev-el :pin "af9aad721cb263e495e2f77df458e9496549c04b")
 (package! dockerfile-mode :pin "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
-(package! lua-mode :pin "7eb8eaa420c25477c830623b830fd18dc350cdfb")
-(package! protobuf-mode :pin "991cfb4a67e956d2a158df34b3a69a827ad57463")
+(package! lua-mode :pin "d074e4134b1beae9ed4c9b512af741ca0d852ba3")
+(package! protobuf-mode :pin "c05b320d9c18173bfce36c4bef22f9953d340ff9")
 (package! puppet-mode :pin "71bcd383f20a457e8ad34e0e08ec47f8e1b64263")
 (package! junos-mode
   :recipe (:host github
@@ -21,14 +21,14 @@
 (package! yang-mode :pin "4b4ab4d4a79d37d6c31c6ea7cccbc425e0b1eded")
 
 ;; Misc packages
-(package! apheleia :pin "e944e24584393c1a4df130885b489795f7676567")
+(package! apheleia :pin "8f512dba3ee2eabae0dbfd8289b89d54c132cb87")
 (package! bm :pin "1351e2e15a7666e614c94b41414c8f024dc10a50")
 (package! git-auto-commit-mode :pin "a7b59acea622a737d23c783ce7d212fefb29f7e6")
 (package! openbsd-knf-style
   :recipe (:host github
            :repo "vincentbernat/openbsd-knf-emacs")
   :pin "1144dd016dd0e0fd096073db2492bb5814e8ada8")
-(package! pass :pin "5651da53137db9adcb125b4897c2fe27eeb4368d")
+(package! pass :pin "b1198478cd62e1f21d5072d0275e2c446b88b15b")
 (package! org-download :pin "19e166f0a8c539b4144cfbc614309d47a9b2a9b7")
 
 ;; Disable some packages I don't want
