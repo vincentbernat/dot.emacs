@@ -46,7 +46,7 @@
        magit
 
        :lang
-       (beancount +lsp)
+       beancount
        (cc +lsp)
        emacs-lisp
        (go +lsp)
