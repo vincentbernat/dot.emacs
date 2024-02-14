@@ -1,7 +1,8 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 
-;; Packages can be updated by using M-x doom/bump-package-at-point.
+;; Packages can be updated by using M-x doom/bump-package-at-point. After
+;; updating this file, you need to run 'doom refresh'.
 
 ;; Major modes
 (package! debian-el :pin "fcae715f72fc76ad9f196efbe1010faab49c7781")
