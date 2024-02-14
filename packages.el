@@ -2,7 +2,7 @@
 ;;; $DOOMDIR/packages.el
 
 ;; Packages can be updated by using M-x doom/bump-package-at-point. After
-;; updating this file, you need to run 'doom refresh'.
+;; updating this file, you need to run 'doom sync -u'.
 
 ;; Major modes
 (package! debian-el :pin "fcae715f72fc76ad9f196efbe1010faab49c7781")
