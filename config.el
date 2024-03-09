@@ -209,5 +209,5 @@
    markdown-spaces-after-code-fence 0))
 
 ;; Debian stuff
-(after! dpkg-dev-el
+(after! debian-changelog-mode
   (setq debian-changelog-mailing-address (mapconcat 'identity '("bernat" "debian.org")  "@")))
