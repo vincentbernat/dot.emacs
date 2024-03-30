@@ -48,6 +48,7 @@
        :lang
        (beancount +lsp)
        (cc +lsp)
+       data
        emacs-lisp
        (go +lsp)
        json
