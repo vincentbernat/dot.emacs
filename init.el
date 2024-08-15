@@ -9,7 +9,7 @@
 (setenv "LSP_USE_PLISTS" "true")           ; use plists for LSP
 
 (doom! :completion
-       (company +childframe)
+       (corfu +icons +orderless)
        (vertico +icons)
 
        :ui

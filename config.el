@@ -81,13 +81,9 @@
 (after! consult
   (setq consult-fontify-preserve nil))
 
-;; Company mode
-(after! company
-  ;; Trigger company-mode explicitely
-  (setq company-idle-delay nil)
-  (map!
-   :map company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common
-   :map company-active-map "<tab>" #'company-complete-selection))
+;; Corfu
+(after! corfu
+  (setq corfu-auto nil))
 
 ;; Format
 (after! apheleia
