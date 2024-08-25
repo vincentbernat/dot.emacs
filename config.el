@@ -2,8 +2,7 @@
 
 ;; Set font and theme
 (setq doom-font (font-spec :family "Iosevka Term SS18" :size 11.0)
-      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 11.0)
-      doom-unicode-font nil)
+      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 11.0))
 (add-to-list 'doom-symbol-fallback-font-families "Symbols Nerd Font")
 (setq doom-theme 'doom-vibrant)
 ;; Customize dashbord
