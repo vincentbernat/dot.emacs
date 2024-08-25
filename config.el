@@ -75,6 +75,8 @@
   (setq +magit-open-windows-in-direction 'down))
 (after! git-commit
   (setq git-commit-summary-max-length 70))
+(after! diff-hl
+  (setq diff-hl-flydiff-delay 2))
 
 ;; Consult
 (after! consult
