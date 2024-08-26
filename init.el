@@ -18,7 +18,6 @@
        hl-todo
        indent-guides
        modeline
-       ophints
        (popup +defaults)
        (vc-gutter +pretty)
        vi-tilde-fringe
