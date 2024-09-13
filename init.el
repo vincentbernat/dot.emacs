@@ -47,6 +47,7 @@
        :lang
        (beancount +lsp)
        (cc +lsp)
+       clojure
        data
        emacs-lisp
        (go +lsp)
