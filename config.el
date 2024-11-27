@@ -100,6 +100,7 @@
 ;; Flycheck
 (after! flycheck
   (setq flycheck-temp-prefix ".flycheck")
+  (setq flycheck-global-modes '(not emacs-lisp-mode))
   (after! python
     (add-hook! 'python-mode-hook
       (defun vbe:python-flychecker-setup ()
