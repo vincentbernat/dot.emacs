@@ -5,11 +5,11 @@
 ;; updating this file, you need to run 'doom sync -u'.
 
 ;; Major modes
-(package! debian-el :pin "6b7cb423527067438d50eb46e63616b8acf4b251")
-(package! dpkg-dev-el :pin "719c1dbea93f4b524937d280f18871981714a012")
+(package! debian-el :pin "3f7c2b582eb65b47bea081f3c74ae70833c5af7e")
+(package! dpkg-dev-el :pin "f2708f117cf69ff4c42858448b1101a27b5cb2a3")
 (package! dockerfile-mode :pin "4d893bd2da15833ce056332e6c972d5d93e78f04")
 (package! lua-mode :pin "d074e4134b1beae9ed4c9b512af741ca0d852ba3")
-(package! protobuf-mode :pin "5d0865cf1537772b8e0969563402654087b40d31")
+(package! protobuf-mode :pin "ae3015c78a0ea3baa76f3ad556c0ecd575f2e618")
 (package! puppet-mode :pin "71bcd383f20a457e8ad34e0e08ec47f8e1b64263")
 (package! junos-mode
   :recipe (:host github
@@ -21,7 +21,7 @@
 (package! yang-mode :pin "4b4ab4d4a79d37d6c31c6ea7cccbc425e0b1eded")
 
 ;; Misc packages
-(package! apheleia :pin "543f6d651d11322f26665f017f051fbcfc21ceb0")
+(package! apheleia :pin "e112fe1bf4fdaef1c9ab741590ac45b06dc01f76")
 (package! bm :pin "1351e2e15a7666e614c94b41414c8f024dc10a50")
 (package! git-auto-commit-mode :pin "a7b59acea622a737d23c783ce7d212fefb29f7e6")
 (package! openbsd-knf-style
