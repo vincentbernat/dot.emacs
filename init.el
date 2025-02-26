@@ -6,8 +6,6 @@
 ;;      directory (and source code). Use `C-h d m' to get the list of available
 ;;      modules.
 
-(setenv "LSP_USE_PLISTS" "true")           ; use plists for LSP
-
 (doom! :completion
        (corfu +icons +orderless)
        (vertico +icons)
