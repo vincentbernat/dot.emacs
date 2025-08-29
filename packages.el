@@ -19,6 +19,7 @@
 (package! systemd :pin "8742607120fbc440821acbc351fda1e8e68a8806")
 (package! jinja2-mode :pin "03e5430a7efe1d163a16beaf3c82c5fd2c2caee1")
 (package! yang-mode :pin "b7a4c1734a60f70d80d5752ae058232df0b18336")
+(package! hcl-mode :pin "1da895ed75d28d9f87cbf9b74f075d90ba31c0ed")
 
 ;; Misc packages
 (package! apheleia :pin "d8ccc0ba0f127c11df39e79313a17bcb740359c0")

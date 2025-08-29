@@ -210,3 +210,7 @@
 ;; Debian stuff
 (after! debian-changelog-mode
   (setq debian-changelog-mailing-address (mapconcat 'identity '("bernat" "debian.org")  "@")))
+
+;;  HCL
+(use-package! hcl-mode
+  :mode (("\\.alloy\\'" . hcl-mode)))
