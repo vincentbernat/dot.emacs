@@ -85,7 +85,7 @@
 ;; Corfu
 (after! corfu
   (setq corfu-auto nil
-        corfu-preselect 'prompt))
+        corfu-preselect 'first))
 
 ;; Format
 (after! apheleia
