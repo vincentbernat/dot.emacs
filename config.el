@@ -198,7 +198,11 @@
 ;; C
 (after! cc-mode
   (require 'openbsd-knf-style)
-  (c-add-style "openbsd" openbsd-knf-style))
+  (c-add-style "openbsd" openbsd-knf-style)
+  ;; Don't use treesitter versions.
+  (add-to-list 'major-mode-remap-alist '(c-mode . nil))
+  (add-to-list 'major-mode-remap-alist '(c++-mode . nil))
+  (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . nil)))
 
 ;; Markdown
 (after! markdown-mode
