@@ -41,25 +41,26 @@
        (lookup +docsets)
        lsp
        magit
+       tree-sitter
 
        :lang
        (beancount +lsp)
-       (cc +lsp)
-       clojure
+       (cc +lsp +tree-sitter)
+       (clojure +tree-sitter)
        data
        emacs-lisp
-       (go +lsp)
+       (go +lsp +tree-sitter)
        json
-       (javascript +lsp)
+       (javascript +lsp +tree-sitter)
        markdown
-       nix
+       (nix +tree-sitter)
        (org +present)
        php
-       (python +lsp +pyright)
+       (python +lsp +tree-sitter)
        rst
        sh
-       web
-       (yaml +lsp)
+       (web +tree-sitter)
+       (yaml +lsp +tree-sitter)
 
        :email
        :app

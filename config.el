@@ -24,6 +24,8 @@
 ;; Restore line continuation
 (setq-default word-wrap nil)
 (setq-default truncate-lines nil)
+;; Tree-sitter from Nix
+(add-to-list 'treesit-extra-load-path (file-name-concat doom-user-dir "tree-sitter"))
 
 (setq user-full-name "Vincent Bernat")
 
@@ -198,11 +200,7 @@
 ;; C
 (after! cc-mode
   (require 'openbsd-knf-style)
-  (c-add-style "openbsd" openbsd-knf-style)
-  ;; Don't use treesitter versions.
-  (add-to-list 'major-mode-remap-alist '(c-mode . nil))
-  (add-to-list 'major-mode-remap-alist '(c++-mode . nil))
-  (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . nil)))
+  (c-add-style "openbsd" openbsd-knf-style))
 
 ;; Markdown
 (after! markdown-mode
