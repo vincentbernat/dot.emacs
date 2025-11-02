@@ -25,7 +25,7 @@
 (setq-default word-wrap nil)
 (setq-default truncate-lines nil)
 ;; Tree-sitter from Nix
-(add-to-list 'treesit-extra-load-path (file-name-concat doom-user-dir "tree-sitter"))
+(add-to-list 'treesit-extra-load-path (file-name-concat doom-user-dir "tree-sitter~"))
 
 (setq user-full-name "Vincent Bernat")
 
