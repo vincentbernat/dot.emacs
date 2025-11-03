@@ -175,6 +175,8 @@
 ;; Go mode
 (after! go-mode
   (add-hook! go-mode #'apheleia-mode))
+(after! go-ts-mode
+  (add-hook! go-ts-mode #'apheleia-mode))
 (after! go-guru
   (unless (executable-find go-guru-command)
     (when (executable-find "golang-guru")
