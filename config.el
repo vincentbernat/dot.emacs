@@ -176,6 +176,7 @@
 (after! go-mode
   (add-hook! go-mode #'apheleia-mode))
 (after! go-ts-mode
+  (setq go-ts-mode-indent-offset 4)
   (add-hook! go-ts-mode #'apheleia-mode))
 (after! go-guru
   (unless (executable-find go-guru-command)
