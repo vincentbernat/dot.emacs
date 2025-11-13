@@ -49,7 +49,7 @@
        (clojure +tree-sitter)
        data
        emacs-lisp
-       (go +lsp +tree-sitter)
+       (go +lsp)
        json
        (javascript +lsp +tree-sitter)
        markdown
