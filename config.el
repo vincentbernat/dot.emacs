@@ -209,7 +209,7 @@
 (after! markdown-mode
   (setq
    markdown-footnote-location 'immediately
-   markdown-reference-location 'subtree
+   markdown-reference-location 'header
    markdown-gfm-use-electric-backquote nil
    markdown-spaces-after-code-fence 0))
 
