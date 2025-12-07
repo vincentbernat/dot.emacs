@@ -25,6 +25,7 @@
        lispy
        multiple-cursors
        snippets
+       (whitespace +guess +trim)
 
        :emacs
        (dired +icons)

@@ -5,7 +5,7 @@
       doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 11.0))
 (add-to-list 'doom-symbol-fallback-font-families "Symbols Nerd Font")
 (setq doom-theme 'doom-vibrant)
-;; Customize dashbord
+;; Customize dashboard
 (remove-hook '+doom-dashboard-functions 'doom-dashboard-widget-footer)
 (setq +doom-dashboard-menu-sections
       (seq-filter (fn! (not (seq-contains-p '("Open org-agenda" "Jump to bookmark") (car %))))
@@ -24,6 +24,8 @@
 ;; Restore line continuation
 (setq-default word-wrap nil)
 (setq-default truncate-lines nil)
+;; Enable whitespace guessing in projects too
+(setq +whitespace-guess-in-projects t)
 ;; Tree-sitter from Nix
 (add-to-list 'treesit-extra-load-path (file-name-concat doom-user-dir "tree-sitter~"))
 
@@ -95,10 +97,6 @@
         '("goimports"))
   (setf (alist-get 'nixfmt apheleia-formatters)
         '("nixpkgs-fmt")))
-
-;; dtrt-indent
-(after! dtrt-indent
-  (setq dtrt-indent-max-merge-deviation 10.0))
 
 ;; Flycheck
 (after! flycheck
