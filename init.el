@@ -59,6 +59,7 @@
        php
        (python +lsp +tree-sitter)
        rst
+       (rust +lsp +tree-sitter)
        sh
        (web +tree-sitter)
        (yaml +lsp +tree-sitter)
