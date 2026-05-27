@@ -111,8 +111,8 @@
 ;; Projectile
 (after! projectile
   (setq
-   ;; Expire file cache quickly
-   projectile-files-cache-expire 10)
+   ;; No projectile cache.
+   projectile-enable-caching nil)
   (pushnew! projectile-project-root-files "go.mod" "flakes.nix"))
 
 ;; Bookmarks
