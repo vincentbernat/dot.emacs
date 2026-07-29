@@ -6,10 +6,10 @@
 (add-to-list 'doom-symbol-fallback-font-families "Symbols Nerd Font")
 (setq doom-theme 'doom-vibrant)
 ;; Customize dashboard
-(remove-hook '+doom-dashboard-functions 'doom-dashboard-widget-footer)
-(setq +doom-dashboard-menu-sections
+(remove-hook '+dashboard-functions 'dashboard-widget-footer)
+(setq +dashboard-menu-sections
       (seq-filter (fn! (not (seq-contains-p '("Open org-agenda" "Jump to bookmark") (car %))))
-                  +doom-dashboard-menu-sections))
+                  +dashboard-menu-sections))
 (setq fancy-splash-image (concat doom-user-dir "doom-emacs.svg"))
 ;; Don't display line numbers
 (setq display-line-numbers-type nil)
