@@ -63,6 +63,7 @@
        sh
        (web +tree-sitter)
        (yaml +lsp +tree-sitter)
+       (zig +lsp)
 
        :email
        :app
