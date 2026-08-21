@@ -198,6 +198,10 @@
    web-mode-style-padding 0
    web-mode-enable-auto-indentation nil))
 
+;; JSON
+(after! (jsonian flycheck) (jsonian-enable-flycheck))
+(after! (jsonian so-long) (jsonian-no-so-long-mode))
+
 ;; C
 (after! cc-mode
   (require 'openbsd-knf-style)

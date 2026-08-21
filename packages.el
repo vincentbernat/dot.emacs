@@ -20,6 +20,9 @@
 (package! jinja2-mode :pin "03e5430a7efe1d163a16beaf3c82c5fd2c2caee1")
 (package! yang-mode :pin "b7a4c1734a60f70d80d5752ae058232df0b18336")
 (package! hcl-mode :pin "1da895ed75d28d9f87cbf9b74f075d90ba31c0ed")
+(package! jsonian
+  :recipe (:host github :repo "iwahbe/jsonian")
+  :pin "2709fb0140c92eb183c849fdc530fd59f4e4fd3d")
 (package! hurl-mode
   :recipe (:host github
            :repo "jaszhe/hurl-mode"
@@ -41,3 +44,4 @@
 (package! tide :disable t)              ; I am using LSP
 (package! anaconda-mode :disable t)     ; I am using LSP
 (package! emmet-mode :disable t)        ; In web-mode, prevent completion in <script>
+(package! json-mode :disable t)         ; jsonian instead

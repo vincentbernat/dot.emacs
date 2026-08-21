@@ -51,7 +51,6 @@
        data
        emacs-lisp
        (go +lsp)
-       json
        (javascript +lsp +tree-sitter)
        markdown
        (nix +tree-sitter)
