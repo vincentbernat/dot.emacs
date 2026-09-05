@@ -206,6 +206,13 @@
 (after! cc-mode
   (require 'openbsd-knf-style)
   (c-add-style "openbsd" openbsd-knf-style))
+;; c-ts-mode ignores c-file-style, so apply the style by hand
+(add-hook! 'hack-local-variables-hook
+  (defun vbe:c-ts-openbsd-style-h ()
+    (when (and (derived-mode-p 'c-ts-mode 'c++-ts-mode)
+               (equal "openbsd" (alist-get 'c-file-style file-local-variables-alist)))
+      (require 'openbsd-knf-ts-style)
+      (openbsd-knf-ts-set-style))))
 
 ;; Markdown
 (after! markdown-mode

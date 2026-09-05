@@ -36,7 +36,7 @@
 (package! openbsd-knf-style
   :recipe (:host github
            :repo "vincentbernat/openbsd-knf-emacs")
-  :pin "1144dd016dd0e0fd096073db2492bb5814e8ada8")
+  :pin "420c7bff77931e68be9e822b14a36dd1b13aec6c")
 (package! pass :pin "1a9f6100153b07ac4f4d1d332501240e94c38f1e")
 (package! org-download :pin "c8be2611786d1d8d666b7b4f73582de1093f25ac")
 
