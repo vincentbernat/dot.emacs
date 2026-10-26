@@ -106,14 +106,15 @@
     (add-hook! 'python-mode-hook
       (defun vbe:python-flychecker-setup ()
         (setq flycheck-flake8-maximum-line-length 88) ; match black
-        (pushnew! flycheck-disabled-checkers 'python-pylint)))))
+        (cl-pushnew 'python-pylint flycheck-disabled-checkers)))))
 
 ;; Projectile
 (after! projectile
   (setq
    ;; No projectile cache.
    projectile-enable-caching nil)
-  (pushnew! projectile-project-root-files "go.mod" "flakes.nix"))
+  (dolist (file '("go.mod" "flakes.nix"))
+    (cl-pushnew file projectile-project-root-files :test #'equal)))
 
 ;; Bookmarks
 (map! :leader
@@ -163,8 +164,8 @@
    lsp-modeline-diagnostics-enable nil
    lsp-modeline-code-actions-enable nil
    lsp-enable-suggest-server-download nil)
-  (appendq! lsp-file-watch-ignored-directories
-            '("[/\\\\]build~\\'" "[/\\\\]vendor\\'")))
+  (cl-callf append lsp-file-watch-ignored-directories
+    '("[/\\\\]build~\\'" "[/\\\\]vendor\\'")))
 
 (after! highlight-indent-guides
   (setq highlight-indent-guides-method 'bitmap)
