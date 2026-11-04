@@ -223,7 +223,7 @@
    markdown-gfm-use-electric-backquote nil
    markdown-spaces-after-code-fence 0)
   (defadvice! vbe:markdown-footnote-not-pre-a (start end)
-    "Do not handle indented footnote content as code blocks."
+    "Do not handle indented footnote or admonition content as code blocks."
     :after #'markdown-syntax-propertize-pre-blocks
     (save-excursion
       (let ((pos start))
@@ -234,8 +234,22 @@
             (while (and (zerop (forward-line -1))
                         (or (markdown-cur-line-blank-p)
                             (looking-at-p "\\(    \\|\t\\)"))))
-            (when (looking-at-p markdown-regex-footnote-definition)
-              (remove-text-properties pos close '(markdown-pre nil)))
+            (when (or (looking-at-p markdown-regex-footnote-definition)
+                      (looking-at-p "^[!?]\\{3\\}\\+? "))
+              (remove-text-properties pos close '(markdown-pre nil))
+              (goto-char pos)
+              (while (< (point) close)
+                (if (and (markdown-prev-line-blank)
+                         (looking-at-p "\\(    \\|\t\\)\\{2\\}"))
+                    (let ((open (point)))
+                      (while (and (< (point) close)
+                                  (or (looking-at-p "\\(    \\|\t\\)\\{2\\}")
+                                      (markdown-cur-line-blank-p)))
+                        (forward-line))
+                      (skip-syntax-backward "-")
+                      (forward-line)
+                      (put-text-property open (point) 'markdown-pre (list open (point))))
+                  (forward-line))))
             (setq pos close)))))))
 
 ;; Debian stuff
