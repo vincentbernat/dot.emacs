@@ -221,7 +221,22 @@
    markdown-footnote-location 'immediately
    markdown-reference-location 'header
    markdown-gfm-use-electric-backquote nil
-   markdown-spaces-after-code-fence 0))
+   markdown-spaces-after-code-fence 0)
+  (defadvice! vbe:markdown-footnote-not-pre-a (start end)
+    "Do not handle indented footnote content as code blocks."
+    :after #'markdown-syntax-propertize-pre-blocks
+    (save-excursion
+      (let ((pos start))
+        (while (and (< pos end)
+                    (setq pos (text-property-not-all pos end 'markdown-pre nil)))
+          (let ((close (cadr (get-text-property pos 'markdown-pre))))
+            (goto-char pos)
+            (while (and (zerop (forward-line -1))
+                        (or (markdown-cur-line-blank-p)
+                            (looking-at-p "\\(    \\|\t\\)"))))
+            (when (looking-at-p markdown-regex-footnote-definition)
+              (remove-text-properties pos close '(markdown-pre nil)))
+            (setq pos close)))))))
 
 ;; Debian stuff
 (after! debian-changelog-mode
