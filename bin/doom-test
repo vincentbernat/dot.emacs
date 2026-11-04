@@ -1,0 +1,6 @@
+#!/usr/bin/env doomscript
+;;; bin/doom-test -*- lexical-binding: t; mode: emacs-lisp -*-
+
+(defcli! test ()
+  "Run the tests of the private config."
+  (if (vbe:run-tests) 0 1))
