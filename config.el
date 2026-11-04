@@ -250,7 +250,11 @@
                       (forward-line)
                       (put-text-property open (point) 'markdown-pre (list open (point))))
                   (forward-line))))
-            (setq pos close)))))))
+            (setq pos close))))))
+  (defun vbe:markdown-admonition-paragraph-h ()
+    (setq-local paragraph-separate
+                (concat paragraph-separate "\\|[!?]\\{3\\}\\+?[ \t].*$")))
+  (add-hook 'markdown-mode-hook #'vbe:markdown-admonition-paragraph-h))
 
 ;; Debian stuff
 (after! debian-changelog-mode
