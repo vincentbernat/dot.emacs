@@ -3,4 +3,4 @@
 
 (defcli! test ()
   "Run the tests of the private config."
-  (if (vbe:run-tests) 0 1))
+  (unless (vbe:run-tests) (exit! 1)))
