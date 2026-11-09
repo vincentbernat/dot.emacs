@@ -37,13 +37,23 @@
 (after! project
   (map! "C-x p" #'+popup/other))
 (map! "C-s" #'+default/search-buffer)
-(map! "C-e" #'end-of-line)
 (map! "M-RET" #'electric-indent-just-newline)
 (map! :map goto-map
       "j" #'avy-goto-subword-1
       "M-j" #'avy-goto-subword-1)
 (map! "C->" #'mc/mark-next-like-this
       "C-<" #'mc/mark-previous-like-this)
+
+;; Use logical lines, not visual lines, when visual-line-mode is on
+(map! :map visual-line-mode-map
+      [remap kill-line] nil)  ; C-k
+(defun vbe:without-visual-line-mode-a (fn &rest args)
+  (let ((visual-line-mode nil))
+    (apply fn args)))
+(advice-add #'doom/backward-to-bol-or-indent           ; C-a
+            :around #'vbe:without-visual-line-mode-a)
+(advice-add #'doom/forward-to-last-non-comment-or-eol  ; C-e
+            :around #'vbe:without-visual-line-mode-a)
 
 (after! doom-modeline
   ;; Don't display percent position
