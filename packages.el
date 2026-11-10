@@ -28,6 +28,9 @@
            :repo "jaszhe/hurl-mode"
            :files ("*.el"))
   :pin "d0cb1dc52ae88238b20831ea7db05e0f332a3851")
+(package! cython-mode
+  :recipe (:host github :repo "emacsmirror/cython-mode")
+  :pin "3e4790559d3168fe992cf2aa62f01423038cedb5")
 
 ;; Misc packages
 (package! apheleia :pin "d8ccc0ba0f127c11df39e79313a17bcb740359c0")
