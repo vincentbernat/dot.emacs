@@ -261,10 +261,14 @@
                       (put-text-property open (point) 'markdown-pre (list open (point))))
                   (forward-line))))
             (setq pos close))))))
-  (defun vbe:markdown-admonition-paragraph-h ()
+  (defun vbe:markdown-paragraph-separate-h ()
     (setq-local paragraph-separate
-                (concat paragraph-separate "\\|[!?]\\{3\\}\\+?[ \t].*$")))
-  (add-hook 'markdown-mode-hook #'vbe:markdown-admonition-paragraph-h))
+                (concat paragraph-separate
+                        ;; Admonition header
+                        "\\|[!?]\\{3\\}\\+?[ \t].*$"
+                        ;; Attribute list alone on its line
+                        "\\|[ \t]*{[^}\n]*}[ \t]*$")))
+  (add-hook 'markdown-mode-hook #'vbe:markdown-paragraph-separate-h))
 
 ;; Debian stuff
 (after! debian-changelog-mode

@@ -106,4 +106,15 @@ Normal paragraph.
                  nil t))
         (should (search-forward "\n\n        ::caddy\n" nil t))))))
 
+(ert-deftest vbe:markdown-attribute-list-fill ()
+  (vbe:with-markdown "\
+The images below show the rendered layout for the three main web engines. You
+need JavaScript to animate the paragraph widths and check the effects of the
+various features.
+{.when-nojs}
+"
+    (let ((fill-column 80))
+      (fill-paragraph)
+      (should (string-suffix-p "features.\n{.when-nojs}\n" (buffer-string))))))
+
 ;;; markdown-test.el ends here
