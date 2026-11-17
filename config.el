@@ -94,7 +94,12 @@
 
 ;; Consult
 (after! consult
-  (setq consult-fontify-preserve nil))
+  (setq consult-fontify-preserve nil)
+  ;; With preview, the buffer is already displayed when the minibuffer exits,
+  ;; so `doom-switch-buffer-hook' does not run.
+  (define-advice consult-buffer (:after (&rest _) auto-revert)
+    (when (bound-and-true-p doom-auto-revert-mode)
+      (doom-auto-revert-buffer-h))))
 
 ;; Corfu
 (after! corfu
