@@ -60,6 +60,12 @@
   (setq doom-modeline-percent-position nil)
   ;; Remove size and column
   (remove-hook! doom-modeline-mode #'size-indication-mode))
+;; Before Emacs 31, when Emacs rebuilds the mode line faces of a frame, it uses
+;; the `mode-line' remap of the current buffer. With solaire-mode, the remap of
+;; the minibuffer then stays on all mode lines. See bug#73862.
+(when (< emacs-major-version 31)
+  (after! solaire-mode
+    (setf (alist-get 'mode-line solaire-mode-remap-alist nil t) nil)))
 
 ;; Magit!
 (after! magit
